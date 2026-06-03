@@ -1,0 +1,27 @@
+{
+  "name": "zeus-iot-project-hub",
+  "version": "1.0.0",
+  "description": "Secure Node.js & SQLite Backend for Zeus IoT Project Hub",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.3.0",
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^1.41.3",
+    "cors": "^2.8.6",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^8.5.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "multer-storage-cloudinary": "^4.0.0",
+    "pdfkit": "^0.18.0",
+    "prisma": "^6.3.0",
+    "socket.io": "^4.8.3",
+    "sqlite3": "^5.1.7",
+    "zod": "^4.4.3"
+  }
+}

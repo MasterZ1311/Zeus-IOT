@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms & Conditions — ZEUS IOT</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="shared-styles.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0F172A',
+            secondary: '#2fd9f4',
+            tertiary: '#ffc640',
+            surface: '#0F172A',
+            'surface-container-low': '#1A233A',
+            'surface-container': '#1E293B',
+            'surface-container-high': '#334155',
+            'on-surface': '#F8FAFC',
+            'on-surface-variant': '#CBD5E1',
+            'outline': '#475569',
+            'outline-variant': '#334155',
+            storm: '#0b101e'
+          },
+          fontFamily: {
+            'headline-lg': ['Outfit', 'sans-serif'],
+            'body-lg': ['Inter', 'sans-serif'],
+            'code-sm': ['Fira Code', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="text-on-surface antialiased font-body-lg overflow-x-hidden circuit-bg relative flex flex-col min-h-screen">
+
+  <canvas id="particles-bg"></canvas>
+  <div id="scroll-progress"></div>
+
+  <!-- DESKTOP TOP NAV -->
+  <header id="desktop-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(47,217,244,0.2)] hidden md:flex items-center justify-between px-8 h-16 transition-all duration-300">
+    <a href="index.html" class="flex items-center gap-2">
+      <span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+      <span class="font-headline-lg text-xl text-secondary drop-shadow-[0_0_8px_rgba(255,198,64,0.4)] tracking-tight font-bold">ZEUS IOT</span>
+    </a>
+    <nav class="flex items-center gap-8">
+      <a class="text-on-surface-variant text-sm font-bold tracking-widest hover:text-tertiary transition-colors uppercase" href="index.html">HOME</a>
+      <a class="text-on-surface-variant text-sm font-bold tracking-widest hover:text-tertiary transition-colors uppercase" href="projects.html">PROJECTS</a>
+      <a class="text-on-surface-variant text-sm font-bold tracking-widest hover:text-tertiary transition-colors uppercase" href="contact.html">CONTACT</a>
+      <a class="text-on-surface-variant text-sm font-bold tracking-widest hover:text-tertiary transition-colors uppercase" href="pay.html">PAY</a>
+    </nav>
+  </header>
+
+  <!-- MOBILE TOP NAV -->
+  <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 flex md:hidden items-center justify-between px-4 h-16">
+    <a href="index.html" class="flex items-center gap-2">
+      <span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+      <span class="font-headline-lg text-xl text-secondary drop-shadow-[0_0_8px_rgba(255,198,64,0.4)] tracking-tight font-bold">ZEUS IOT</span>
+    </a>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="pt-24 md:pt-32 pb-32 px-4 md:px-8 max-w-4xl mx-auto relative z-10 flex-grow">
+    
+    <section class="mb-12 reveal">
+      <h1 class="font-headline-lg text-4xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-secondary to-tertiary mb-4 uppercase">
+        Terms & Conditions
+      </h1>
+      <p class="text-on-surface-variant font-code-sm text-sm tracking-widest mb-8">LAST UPDATED: JUNE 2026</p>
+
+      <div class="glass-panel p-8 md:p-12 rounded-2xl relative overflow-hidden group">
+        <div class="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        
+        <div class="space-y-8 relative z-10 text-on-surface-variant">
+          <div>
+            <h2 class="text-2xl font-headline-lg text-on-surface mb-3 uppercase">1. Introduction</h2>
+            <p>Welcome to ZEUS IOT. By accessing our website, purchasing our custom IoT hardware, or requesting software services, you agree to comply with and be bound by the following terms and conditions. These terms govern the relationship between ZEUS IOT ("we", "our") and our customers (primarily college students and educators).</p>
+          </div>
+
+          <div>
+            <h2 class="text-2xl font-headline-lg text-on-surface mb-3 uppercase">2. Project Requests & Customization</h2>
+            <p>All projects listed in our arsenal are fully customizable. However, any modifications to the base project must be explicitly stated and agreed upon during the consultation phase via WhatsApp or our Contact Form. Major changes requested after development has commenced may incur additional fees.</p>
+          </div>
+
+          <div>
+            <h2 class="text-2xl font-headline-lg text-on-surface mb-3 uppercase">3. Delivery & Timelines</h2>
+            <p>We pride ourselves on an average 24-hour response time and 99.7% on-time delivery. Expected delivery dates will be provided upon project confirmation. While we strive to meet all deadlines, ZEUS IOT is not liable for delays caused by hardware supply chain issues, shipping delays, or force majeure events.</p>
+          </div>
+
+          <div>
+            <h2 class="text-2xl font-headline-lg text-on-surface mb-3 uppercase">4. Hardware Warranties & Software Bugs</h2>
+            <p>All IoT hardware components are thoroughly tested before deployment. If a component arrives DOA (Dead on Arrival), it must be reported within 48 hours of receipt for a replacement. For software, we offer a 14-day bug-fix guarantee for any logical errors directly related to our code. We do not support code modified by the user post-delivery.</p>
+          </div>
+
+          <div>
+            <h2 class="text-2xl font-headline-lg text-on-surface mb-3 uppercase">5. Educational Use</h2>
+            <p>ZEUS IOT provides projects intended for educational, research, and learning purposes. We are not responsible for any academic integrity violations. The customer assumes full responsibility for how the delivered code and hardware are presented, utilized, or submitted within their respective institutions.</p>
+          </div>
+          
+          <div>
+            <h2 class="text-2xl font-headline-lg text-on-surface mb-3 uppercase">6. Payments & Refunds</h2>
+            <p>All payments are processed securely via UPI or direct bank transfer. A 50% upfront payment is required to initiate custom development. Due to the digital and custom nature of our hardware/software engineering, refunds are generally not provided once development has commenced unless we fail to deliver the agreed-upon project scope.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="w-full bg-surface border-t border-outline-variant/20 relative z-10 pt-16 pb-8 md:pb-12 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center mt-12 pt-6 border-t border-outline-variant/20">
+      <div class="flex gap-6 mb-4 md:mb-0">
+        <a class="text-on-surface-variant hover:text-secondary font-code-sm text-sm transition-colors" href="terms.html">Terms</a>
+        <a class="text-on-surface-variant hover:text-secondary font-code-sm text-sm transition-colors" href="privacy.html">Privacy</a>
+        <a class="text-on-surface-variant hover:text-secondary font-code-sm text-sm transition-colors" href="contact.html">Support</a>
+      </div>
+      <p class="text-tertiary font-code-sm text-sm tracking-widest">© 2026 ZEUS IOT. HARNESS THE BOLT.</p>
+    </div>
+  </footer>
+
+  <script src="animations.js?v=2"></script>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cost Estimator — ZEUS IOT</title>
+<meta name="description" content="Get an instant, rough estimate for your custom IoT or software engineering project."/>
+<meta property="og:title" content="Cost Estimator — ZEUS IOT"/>
+<meta property="og:description" content="Transparent pricing. Get a rough estimate for your custom IoT or software build."/>
+<meta property="og:url" content="https://zeusiot.in/calculator.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="https://zeusiot.in/iot_hero.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared-styles.css?v=2"/>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "tertiary":"#2fd9f4",
+        "surface-container-highest":"#323537",
+        "surface-container":"#1d2022",
+        "surface-container-high":"#272a2c",
+        "on-surface":"#e0e3e5",
+        "surface-container-low":"#191c1e",
+        "surface-container-lowest":"#0b0f10",
+        "primary":"#bec6e0",
+        "surface":"#101415",
+        "on-surface-variant":"#c6c6cd",
+        "secondary":"#ffc640",
+      },
+      fontFamily:{
+        "body-lg":["Inter"],"headline-xl":["Montserrat"],"headline-lg-mobile":["Montserrat"],
+        "code-sm":["JetBrains Mono"],"headline-md":["Montserrat"],"headline-lg":["Montserrat"],
+        "label-caps":["JetBrains Mono"],"body-md":["Inter"]
+      }
+    }
+  }
+}
+</script>
+<style>
+body {
+  background-color: #0F172A;
+  background-image: radial-gradient(circle at 10% 20%, rgba(47,217,244,0.15) 0%, transparent 40%),
+                    radial-gradient(circle at 90% 80%, rgba(255,198,64,0.1) 0%, transparent 40%);
+  min-height: 100vh;
+}
+/* Range Slider Styling */
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: #2fd9f4;
+  cursor: pointer;
+  margin-top: -10px;
+  box-shadow: 0 0 10px rgba(47,217,244,0.5);
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: rgba(47,217,244,0.2);
+  border-radius: 2px;
+}
+</style>
+</head>
+<body class="text-on-surface antialiased font-body-lg overflow-x-hidden relative">
+
+<!-- PAGE PRELOADER -->
+<div id="page-preloader">
+  <span class="material-symbols-outlined preloader-bolt" style="font-variation-settings: 'FILL' 1;">bolt</span>
+  <div class="preloader-bar"><div class="preloader-fill"></div></div>
+</div>
+
+<!-- MOBILE NAV -->
+<header class="fixed top-0 w-full bg-surface/80 backdrop-blur-md border-b border-primary/20 flex md:hidden items-center justify-between px-4 h-16" style="z-index:150;">
+  <a href="index.html" class="flex items-center gap-2">
+    <span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+    <span class="text-secondary font-bold tracking-tight" style="font-family:'Montserrat',sans-serif;">ZEUS IOT</span>
+  </a>
+  <button id="mobile-menu-btn" aria-label="Open menu">
+    <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+  </button>
+</header>
+<div id="mobile-menu-overlay" role="dialog">
+  <a href="index.html">HOME</a>
+  <a href="projects.html">PROJECTS</a>
+  <a href="calculator.html" class="nav-active">ESTIMATE</a>
+  <a href="contact.html">CONTACT</a>
+  <a href="pay.html">PAY</a>
+</div>
+
+<!-- ═══════════════════════ DESKTOP TOP NAV ═══════════════════════ -->
+<header id="desktop-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(47,217,244,0.2)] hidden md:flex items-center justify-between px-16 h-16 transition-all duration-300">
+  <a href="index.html" class="flex items-center gap-2">
+    <span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+    <span class="font-headline-md text-[24px] text-secondary drop-shadow-[0_0_8px_rgba(255,198,64,0.4)] tracking-tight font-bold">ZEUS IOT</span>
+  </a>
+  <nav class="flex items-center gap-8">
+    <a class="text-on-surface-variant font-label-caps text-[12px] hover:text-tertiary transition-colors font-bold uppercase tracking-widest" href="index.html">HOME</a>
+    <a class="text-on-surface-variant font-label-caps text-[12px] hover:text-tertiary transition-colors font-bold uppercase tracking-widest" href="projects.html">PROJECTS</a>
+    <a class="text-secondary font-label-caps text-[12px] border-b-2 border-secondary pb-1 font-bold uppercase tracking-widest" href="calculator.html">ESTIMATE</a>
+    <a class="text-on-surface-variant font-label-caps text-[12px] hover:text-tertiary transition-colors font-bold uppercase tracking-widest" href="contact.html">CONTACT</a>
+    <a class="text-on-surface-variant font-label-caps text-[12px] hover:text-tertiary transition-colors font-bold uppercase tracking-widest" href="pay.html">PAY</a>
+  </nav>
+</header>
+
+<main class="pt-32 pb-32 px-4 md:px-16 max-w-[900px] mx-auto relative z-10">
+  
+  <div class="text-center mb-16">
+    <span class="font-code-sm text-[14px] text-tertiary uppercase tracking-widest">TRANSPARENT PRICING</span>
+    <h1 class="font-headline-xl text-[48px] font-extrabold text-on-surface mt-2">Cost Estimator</h1>
+    <p class="font-body-md text-[16px] text-on-surface-variant mt-4 max-w-2xl mx-auto">Get an instant, rough estimate for your custom IoT or software engineering project before summoning the bolt.</p>
+  </div>
+
+  <div class="glass-panel bolt-standby rounded-xl p-8 md:p-12">
+    
+    <!-- Complexity Slider -->
+    <div class="mb-12">
+      <div class="flex justify-between items-end mb-4">
+        <div>
+          <h3 class="font-headline-md text-[20px] font-bold text-on-surface">Project Complexity</h3>
+          <p class="text-sm text-on-surface-variant font-body-md mt-1" id="complexity-desc">Standard College Prototype</p>
+        </div>
+        <div class="text-tertiary font-code-sm text-lg font-bold" id="complexity-price">₹5000</div>
+      </div>
+      <input type="range" id="complexity-slider" min="1" max="3" value="1" class="w-full">
+      <div class="flex justify-between text-xs font-label-caps text-on-surface-variant mt-3 uppercase tracking-widest">
+        <span>Basic</span>
+        <span>Advanced</span>
+        <span>Enterprise</span>
+      </div>
+    </div>
+
+    <!-- Hardware Toggle -->
+    <div class="mb-12 flex items-center justify-between bg-surface-container p-6 rounded-lg border border-outline-variant/20">
+      <div>
+        <h3 class="font-headline-md text-[18px] font-bold text-on-surface">Custom Hardware Integration</h3>
+        <p class="text-sm text-on-surface-variant font-body-md mt-1">Includes custom PCBs, sensors, and microcontroller programming.</p>
+      </div>
+      <label class="relative inline-flex items-center cursor-pointer ml-4">
+        <input type="checkbox" id="hardware-toggle" class="sr-only peer">
+        <div class="w-14 h-7 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-secondary"></div>
+      </label>
+    </div>
+
+    <!-- Delivery Timeline -->
+    <div class="mb-12">
+      <h3 class="font-headline-md text-[18px] font-bold text-on-surface mb-4">Delivery Timeline</h3>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="timeline-option cursor-pointer p-4 rounded-lg border-2 border-tertiary bg-tertiary/10 text-center" data-val="standard">
+          <span class="material-symbols-outlined text-tertiary mb-2 text-3xl">calendar_month</span>
+          <div class="font-bold text-on-surface">Standard</div>
+          <div class="text-xs text-on-surface-variant mt-1">2-3 Weeks</div>
+        </div>
+        <div class="timeline-option cursor-pointer p-4 rounded-lg border border-outline-variant/20 bg-surface-container text-center transition-all hover:border-secondary/50" data-val="rush">
+          <span class="material-symbols-outlined text-secondary mb-2 text-3xl">bolt</span>
+          <div class="font-bold text-on-surface">Rush Delivery</div>
+          <div class="text-xs text-on-surface-variant mt-1">+50% Surcharge</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cost Breakdown -->
+    <div id="cost-breakdown" class="mb-8 p-5 rounded-lg border border-outline-variant/20 bg-surface-container-low">
+      <p class="font-label-caps text-[11px] text-on-surface-variant uppercase tracking-widest mb-4">Cost Breakdown</p>
+      <div id="breakdown-lines" class="flex flex-col gap-2 text-sm"></div>
+      <div class="border-t border-outline-variant/20 mt-4 pt-4 flex justify-between">
+        <span class="font-bold text-on-surface">Total</span>
+        <span id="breakdown-total" class="font-bold text-secondary">₹5,000</span>
+      </div>
+    </div>
+
+    <!-- Total & CTA -->
+    <div class="border-t border-outline-variant/20 pt-8 mt-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <div>
+          <div class="font-label-caps text-[12px] text-tertiary uppercase tracking-widest mb-1">Estimated Total</div>
+          <div class="font-headline-xl text-[48px] font-extrabold text-on-surface" id="total-price">₹5,000</div>
+        </div>
+        <div class="flex flex-col md:flex-row gap-4">
+          <button id="download-pdf-btn" class="bg-surface-container text-tertiary font-label-caps font-bold px-6 py-4 rounded border border-tertiary/30 hover:bg-tertiary/10 transition-colors flex items-center justify-center gap-2 tracking-widest uppercase shadow-[0_0_10px_rgba(47,217,244,0.1)]">
+            <span class="material-symbols-outlined">download</span> Download PDF
+          </button>
+          <a href="contact.html" class="bg-secondary text-surface-container-lowest font-label-caps font-bold px-8 py-4 rounded hover:bg-secondary-fixed transition-colors flex items-center justify-center gap-2 tracking-widest uppercase shadow-[0_0_15px_rgba(255,198,64,0.4)] hover:shadow-[0_0_25px_rgba(255,198,64,0.6)]">
+            Start Project <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+      <p class="text-xs text-on-surface-variant text-center md:text-left mt-6 font-code-sm">
+        * This is a rough estimate. Final pricing is confirmed after technical review.
+      </p>
+    </div>
+
+  </div>
+</main>
+
+<script>
+  const complexitySlider = document.getElementById('complexity-slider');
+  const complexityDesc = document.getElementById('complexity-desc');
+  const complexityPriceEl = document.getElementById('complexity-price');
+  const hardwareToggle = document.getElementById('hardware-toggle');
+  const timelineOptions = document.querySelectorAll('.timeline-option');
+  const totalPriceEl = document.getElementById('total-price');
+
+  let basePrice = 5000;
+  let hasHardware = false;
+  let isRush = false;
+
+  const complexityLevels = {
+    1: { desc: 'Standard College Prototype', price: 5000 },
+    2: { desc: 'Advanced Feature-Rich System', price: 12000 },
+    3: { desc: 'Enterprise Grade Architecture', price: 25000 }
+  };
+
+  function calculateTotal() {
+    const level = complexitySlider.value;
+    const comp = complexityLevels[level];
+    
+    complexityDesc.textContent = comp.desc;
+    complexityPriceEl.textContent = '\u20b9' + comp.price.toLocaleString();
+    
+    basePrice = comp.price;
+    const hardwareCost = hasHardware ? 4000 : 0;
+    const subtotal = basePrice + hardwareCost;
+    const rushCost = isRush ? Math.floor(subtotal * 0.5) : 0;
+    const total = subtotal + rushCost;
+
+    totalPriceEl.textContent = '\u20b9' + total.toLocaleString();
+
+    // Update breakdown
+    const lines = [
+      { label: 'Base Complexity (' + comp.desc + ')', amount: basePrice },
+    ];
+    if (hardwareCost) lines.push({ label: 'Custom Hardware Integration', amount: hardwareCost });
+    if (rushCost) lines.push({ label: 'Rush Delivery Surcharge (+50%)', amount: rushCost });
+
+    document.getElementById('breakdown-lines').innerHTML = lines.map(l =>
+      `<div class="flex justify-between">
+        <span class="text-on-surface-variant">${l.label}</span>
+        <span class="text-on-surface font-semibold">\u20b9${l.amount.toLocaleString()}</span>
+      </div>`
+    ).join('');
+    document.getElementById('breakdown-total').textContent = '\u20b9' + total.toLocaleString();
+  }
+
+  complexitySlider.addEventListener('input', calculateTotal);
+  
+  hardwareToggle.addEventListener('change', (e) => {
+    hasHardware = e.target.checked;
+    calculateTotal();
+  });
+
+  timelineOptions.forEach(opt => {
+    opt.addEventListener('click', () => {
+      timelineOptions.forEach(o => {
+        o.classList.remove('border-tertiary', 'bg-tertiary/10', 'border-2');
+        o.classList.add('border', 'border-outline-variant/20', 'bg-surface-container');
+      });
+      opt.classList.remove('border', 'border-outline-variant/20', 'bg-surface-container');
+      opt.classList.add('border-2', 'border-tertiary', 'bg-tertiary/10');
+      
+      isRush = opt.getAttribute('data-val') === 'rush';
+      calculateTotal();
+    });
+  });
+
+  calculateTotal();
+
+  const downloadBtn = document.getElementById('download-pdf-btn');
+  downloadBtn.addEventListener('click', async () => {
+    downloadBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">refresh</span> Generating...';
+    downloadBtn.disabled = true;
+
+    const reqData = {
+      name: prompt("Enter your name for the estimate:") || "Prospective Client",
+      complexity: complexityDesc.textContent,
+      hardware: hasHardware,
+      total: isRush ? (basePrice + (hasHardware ? 4000 : 0)) * 1.5 : (basePrice + (hasHardware ? 4000 : 0))
+    };
+
+    try {
+      const response = await fetch('http://localhost:3000/api/generate-invoice', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(reqData)
+      });
+      
+      if (!response.ok) throw new Error('Generation failed');
+      
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Zeus-Estimate-${Date.now()}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+      
+    } catch (err) {
+      alert("Failed to generate PDF. Please ensure the backend is running.");
+      console.error(err);
+    } finally {
+      downloadBtn.innerHTML = '<span class="material-symbols-outlined">download</span> Download PDF';
+      downloadBtn.disabled = false;
+    }
+  });
+</script>
+<script>
+// Preloader
+window.addEventListener('load', () => {
+  const p = document.getElementById('page-preloader');
+  if (p) setTimeout(() => p.classList.add('hidden'), 800);
+});
+// Mobile menu
+const mBtn = document.getElementById('mobile-menu-btn');
+const mOverlay = document.getElementById('mobile-menu-overlay');
+if (mBtn && mOverlay) {
+  mBtn.addEventListener('click', () => {
+    const open = mOverlay.classList.toggle('open');
+    mBtn.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+}
+// Nav scroll
+const nav = document.getElementById('desktop-nav');
+window.addEventListener('scroll', () => { if (nav) nav.classList.toggle('nav-scrolled', window.scrollY > 60); });
+</script>
+</body>
+</html>

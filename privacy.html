@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — ZEUS IOT</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="shared-styles.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0F172A',
+            secondary: '#2fd9f4',
+            tertiary: '#ffc640',
+            surface: '#0F172A',
+            'surface-container-low': '#1A233A',
+            'surface-container': '#1E293B',
+            'surface-container-high': '#334155',
+            'on-surface': '#F8FAFC',
+            'on-surface-variant': '#CBD5E1',
+            'outline': '#475569',
+            'outline-variant': '#334155',
+            storm: '#0b101e'
+          },
+          fontFamily: {
+            'headline-lg': ['Outfit', 'sans-serif'],
+            'body-lg': ['Inter', 'sans-serif'],
+            'code-sm': ['Fira Code', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="text-on-surface antialiased font-body-lg overflow-x-hidden circuit-bg relative flex flex-col min-h-screen">
+
+  <canvas id="particles-bg"></canvas>
+  <div id="scroll-progress"></div>
+
+  <!-- DESKTOP TOP NAV -->
+  <header id="desktop-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(47,217,244,0.2)] hidden md:flex items-center justify-between px-8 h-16 transition-all duration-300">
+    <a href="index.html" class="flex items-center gap-2">
+      <span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+      <span class="font-headline-lg text-xl text-secondary drop-shadow-[0_0_8px_rgba(255,198,64,0.4)] tracking-tight font-bold">ZEUS IOT</span>
+    </a>
+    <nav class="flex items-center gap-8">
+      <a class="text-on-surface-variant text-sm font-bold tracking-widest hover:text-tertiary transition-colors uppercase" href="index.html">HOME</a>
+      <a class="text-on-surface-variant text-sm font-bold tracking-widest hover:text-tertiary transition-colors uppercase" href="projects.html">PROJECTS</a>
+      <a class="text-on-surface-variant text-sm font-bold tracking-widest hover:text-tertiary transition-colors uppercase" href="contact.html">CONTACT</a>
+      <a class="text-on-surface-variant text-sm font-bold tracking-widest hover:text-tertiary transition-colors uppercase" href="pay.html">PAY</a>
+    </nav>
+  </header>
+
+  <!-- MOBILE TOP NAV -->
+  <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 flex md:hidden items-center justify-between px-4 h-16">
+    <a href="index.html" class="flex items-center gap-2">
+      <span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+      <span class="font-headline-lg text-xl text-secondary drop-shadow-[0_0_8px_rgba(255,198,64,0.4)] tracking-tight font-bold">ZEUS IOT</span>
+    </a>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="pt-24 md:pt-32 pb-32 px-4 md:px-8 max-w-4xl mx-auto relative z-10 flex-grow">
+    
+    <section class="mb-12 reveal">
+      <h1 class="font-headline-lg text-4xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-secondary to-tertiary mb-4 uppercase">
+        Privacy Policy
+      </h1>
+      <p class="text-on-surface-variant font-code-sm text-sm tracking-widest mb-8">LAST UPDATED: JUNE 2026</p>
+
+      <div class="glass-panel p-8 md:p-12 rounded-2xl relative overflow-hidden group">
+        <div class="absolute inset-0 bg-gradient-to-br from-tertiary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        
+        <div class="space-y-8 relative z-10 text-on-surface-variant">
+          <div>
+            <h2 class="text-2xl font-headline-lg text-on-surface mb-3 uppercase">1. Information We Collect</h2>
+            <p>At ZEUS IOT, we only collect the information necessary to fulfill your hardware and software requests. This includes your name, email address, WhatsApp number, college/university name, and any specific project requirements or documents you submit through our contact, learning, or report generation forms.</p>
+          </div>
+
+          <div>
+            <h2 class="text-2xl font-headline-lg text-on-surface mb-3 uppercase">2. How We Use Your Data</h2>
+            <p>Your data is used strictly for communication regarding your project requests, delivery logistics, and post-delivery support. We use your WhatsApp number to send you structured updates, project reports, and payment verification confirmations. We do not use your information for marketing spam.</p>
+          </div>
+
+          <div>
+            <h2 class="text-2xl font-headline-lg text-on-surface mb-3 uppercase">3. Data Security & Storage</h2>
+            <p>We take security seriously. Any files uploaded to our servers (such as syllabus PDFs, architecture diagrams, or previous code) are stored securely in our database and filesystem. Your data is not publicly accessible and is only reviewed by the engineers directly working on your project.</p>
+          </div>
+
+          <div>
+            <h2 class="text-2xl font-headline-lg text-on-surface mb-3 uppercase">4. Third-Party Sharing</h2>
+            <p>ZEUS IOT does not sell, trade, or rent your personal information to third parties. We may share necessary delivery information (like address and phone number) exclusively with our trusted shipping/courier partners to ensure your IoT hardware reaches you safely.</p>
+          </div>
+
+          <div>
+            <h2 class="text-2xl font-headline-lg text-on-surface mb-3 uppercase">5. Code & Intellectual Property Confidentiality</h2>
+            <p>We understand that many of our clients are working on unique innovations. Any custom ideas, algorithms, or requirements you share with us remain confidential. The final delivered software and hardware schematics are provided exclusively for your use.</p>
+          </div>
+
+          <div>
+            <h2 class="text-2xl font-headline-lg text-on-surface mb-3 uppercase">6. Contact Us</h2>
+            <p>If you have any questions or concerns regarding our privacy practices or wish to have your data removed from our systems after your project is completed, please reach out to us at <a href="mailto:zeusiotprojects@gmail.com" class="text-secondary hover:underline">zeusiotprojects@gmail.com</a> or via our WhatsApp support line.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="w-full bg-surface border-t border-outline-variant/20 relative z-10 pt-16 pb-8 md:pb-12 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center mt-12 pt-6 border-t border-outline-variant/20">
+      <div class="flex gap-6 mb-4 md:mb-0">
+        <a class="text-on-surface-variant hover:text-secondary font-code-sm text-sm transition-colors" href="terms.html">Terms</a>
+        <a class="text-on-surface-variant hover:text-secondary font-code-sm text-sm transition-colors" href="privacy.html">Privacy</a>
+        <a class="text-on-surface-variant hover:text-secondary font-code-sm text-sm transition-colors" href="contact.html">Support</a>
+      </div>
+      <p class="text-tertiary font-code-sm text-sm tracking-widest">© 2026 ZEUS IOT. HARNESS THE BOLT.</p>
+    </div>
+  </footer>
+
+  <script src="animations.js?v=2"></script>
+</body>
+</html>

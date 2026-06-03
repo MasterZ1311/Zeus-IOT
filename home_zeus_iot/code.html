@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ZEUS IOT - Harness The Bolt</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&amp;family=JetBrains+Mono:wght@400;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#402d00",
+                        "surface-container-highest": "#323537",
+                        "on-secondary-fixed": "#261a00",
+                        "surface-dim": "#101415",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#5c4300",
+                        "tertiary": "#2fd9f4",
+                        "surface-bright": "#363a3b",
+                        "on-tertiary-container": "#008ea1",
+                        "on-error": "#690005",
+                        "primary-fixed": "#dae2fd",
+                        "on-tertiary": "#00363e",
+                        "on-tertiary-fixed": "#001f25",
+                        "error": "#ffb4ab",
+                        "on-error-container": "#ffdad6",
+                        "primary-container": "#0f172a",
+                        "surface-variant": "#323537",
+                        "surface-container": "#1d2022",
+                        "inverse-primary": "#565e74",
+                        "on-primary-fixed": "#131b2e",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-primary": "#283044",
+                        "surface": "#101415",
+                        "secondary-fixed": "#ffdf9f",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "on-tertiary-fixed-variant": "#004e5a",
+                        "outline-variant": "#45464d",
+                        "on-primary-container": "#798098",
+                        "on-background": "#e0e3e5",
+                        "surface-container-high": "#272a2c",
+                        "tertiary-fixed": "#a2eeff",
+                        "secondary-container": "#e3aa00",
+                        "background": "#101415",
+                        "on-surface-variant": "#c6c6cd",
+                        "tertiary-fixed-dim": "#2fd9f4",
+                        "surface-tint": "#bec6e0",
+                        "surface-container-low": "#191c1e",
+                        "on-secondary-container": "#5a4100",
+                        "outline": "#909097",
+                        "primary": "#bec6e0",
+                        "on-surface": "#e0e3e5",
+                        "secondary-fixed-dim": "#f9bd22",
+                        "inverse-on-surface": "#2d3133",
+                        "surface-container-lowest": "#0b0f10",
+                        "secondary": "#ffc640",
+                        "inverse-surface": "#e0e3e5",
+                        "tertiary-container": "#001b20"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Montserrat"],
+                        "code-sm": ["JetBrains Mono"],
+                        "headline-md": ["Montserrat"],
+                        "headline-xl": ["Montserrat"],
+                        "label-caps": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "code-sm": ["14px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .circuit-bg {
+            background-color: #0F172A;
+            background-image: radial-gradient(circle at 50% 50%, rgba(47, 217, 244, 0.05) 0%, transparent 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(47, 217, 244, 0.2);
+            border-top: 1px solid rgba(255, 198, 64, 0.4);
+            border-left: 1px solid rgba(47, 217, 244, 0.4);
+        }
+
+        .glass-panel:hover {
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 20px rgba(47, 217, 244, 0.2);
+        }
+
+        .btn-thunderbolt {
+            background: #ffc640;
+            color: #000;
+            clip-path: polygon(0 0, 95% 0, 100% 100%, 5% 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-thunderbolt:hover {
+            box-shadow: 0 0 15px rgba(47, 217, 244, 0.5);
+            transform: scale(1.02);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border: 1px solid #2fd9f4;
+            color: #2fd9f4;
+            transition: all 0.3s ease;
+        }
+
+        .btn-ghost:hover {
+            background: rgba(47, 217, 244, 0.1);
+        }
+
+        .glow-text-secondary {
+            text-shadow: 0 0 8px rgba(255, 198, 64, 0.4);
+        }
+
+        /* Nav specific overrides */
+        .nav-hidden-mobile {
+            display: none;
+        }
+        @media (min-width: 768px) {
+            .nav-hidden-mobile {
+                display: flex;
+            }
+            .mobile-nav-only {
+                display: none !important;
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col circuit-bg selection:bg-tertiary selection:text-on-tertiary">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md text-secondary shadow-[0_2px_15px_-3px_rgba(47,217,244,0.2)]">
+<div class="flex items-center justify-between px-margin-mobile h-16 w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-headline-md text-secondary glow-text-secondary">ZEUS IOT</span>
+</div>
+<!-- Desktop Nav Links -->
+<nav class="nav-hidden-mobile items-center gap-6">
+<a class="text-secondary font-label-caps text-label-caps hover:text-tertiary transition-colors active:scale-95 duration-200" href="#">Home</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors active:scale-95 duration-200" href="#">Projects</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors active:scale-95 duration-200" href="#">Contact</a>
+<a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors active:scale-95 duration-200" href="#">Pay</a>
+</nav>
+</div>
+</header>
+<main class="flex-grow pt-24 pb-32 md:pb-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full flex flex-col gap-16 relative z-10">
+<!-- Hero Section -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center min-h-[530px] mt-8">
+<div class="col-span-1 md:col-span-7 flex flex-col gap-6 md:pr-12 z-20">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-highest rounded-DEFAULT border border-tertiary/30 w-fit">
+<span class="material-symbols-outlined text-secondary text-[16px]">bolt</span>
+<span class="font-code-sm text-code-sm text-tertiary uppercase tracking-wider">High Voltage Innovation</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface md:text-[56px] leading-tight">
+                    HARNESS THE BOLT: <br/>
+<span class="text-secondary glow-text-secondary">CUSTOM IOT FOR THE NEXT GEN</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                    Bespoke IOT projects and final-year academic assemblies tailored exclusively for college students. We fuse modern engineering with mythological power to bring your ideas to life.
+                </p>
+<div class="flex flex-wrap gap-4 mt-4">
+<button class="btn-thunderbolt font-label-caps text-label-caps px-8 py-4 uppercase tracking-widest flex items-center gap-2">
+<span>Explore Projects</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<button class="btn-ghost font-label-caps text-label-caps px-8 py-4 uppercase tracking-widest">
+                        Get in Touch
+                    </button>
+</div>
+</div>
+<!-- Hero Graphic / Bento Hero -->
+<div class="col-span-1 md:col-span-5 relative h-full min-h-[400px] flex items-center justify-center">
+<!-- Abstract visual representation of IoT and lightning -->
+<div class="absolute inset-0 bg-gradient-to-tr from-primary-container via-surface to-tertiary-container rounded-xl opacity-50 blur-2xl z-0"></div>
+<div class="relative z-10 w-full aspect-square max-w-[450px] glass-panel rounded-xl flex flex-col overflow-hidden">
+<div class="h-1 w-full bg-secondary"></div>
+<div class="p-6 flex-grow flex flex-col relative">
+<div class="absolute top-4 right-4 animate-pulse">
+<span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div class="mt-auto">
+<div class="font-code-sm text-code-sm text-tertiary mb-2">SYSTEM.STATUS = ACTIVE</div>
+<div class="w-full h-32 bg-surface-container rounded-lg border border-outline-variant/30 relative overflow-hidden">
+<!-- Mock data visualization -->
+<div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-tertiary/20 to-transparent"></div>
+<svg class="absolute bottom-0 w-full h-full" preserveaspectratio="none" viewbox="0 0 100 100">
+<path class="opacity-70" d="M0,100 L0,80 L10,50 L20,70 L30,20 L40,60 L50,10 L60,80 L70,40 L80,90 L90,30 L100,100 Z" fill="none" stroke="#2fd9f4" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Bento Grid -->
+<section class="flex flex-col gap-8 relative z-10 mt-12">
+<div class="flex flex-col gap-2">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">OUR CAPABILITIES</h2>
+<div class="h-1 w-16 bg-secondary"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Feature 1 -->
+<div class="glass-panel rounded-xl p-8 flex flex-col gap-4 relative overflow-hidden group">
+<div class="absolute -right-10 -top-10 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
+<span class="material-symbols-outlined text-[200px]" style="font-variation-settings: 'FILL' 1;">memory</span>
+</div>
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center border border-tertiary/30 mb-2">
+<span class="material-symbols-outlined text-tertiary">memory</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Custom IOT Builds</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow">
+                        High-tech, college-focused custom hardware solutions. From sensor arrays to automated control systems, we build the rigorous infrastructure needed for advanced academic research and demonstration.
+                    </p>
+<div class="mt-4 flex items-center gap-2 text-secondary font-label-caps text-label-caps uppercase group-hover:gap-4 transition-all duration-300 cursor-pointer w-fit">
+                        Explore Specs <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="glass-panel rounded-xl p-8 flex flex-col gap-4 relative overflow-hidden group">
+<div class="absolute -right-10 -top-10 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
+<span class="material-symbols-outlined text-[200px]" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center border border-secondary/30 mb-2">
+<span class="material-symbols-outlined text-secondary">school</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Final Year &amp; Mini Projects</h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow">
+                        General academic assistance and guided builds. We help college students navigate complex electronics, microcontrollers, and coding to deliver standout final projects that command top grades.
+                    </p>
+<div class="mt-4 flex items-center gap-2 text-tertiary font-label-caps text-label-caps uppercase group-hover:gap-4 transition-all duration-300 cursor-pointer w-fit">
+                        View Gallery <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="mobile-nav-only fixed bottom-0 left-0 w-full flex justify-around items-center py-2 px-4 pb-safe bg-surface-container/90 backdrop-blur-xl rounded-t-xl z-50 border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(47,217,244,0.15)]">
+<a class="flex flex-col items-center justify-center text-secondary bg-on-secondary-container/20 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[24px]">home</span>
+<span class="font-label-caps text-label-caps mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[24px]">grid_view</span>
+<span class="font-label-caps text-label-caps mt-1">Projects</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[24px]">chat</span>
+<span class="font-label-caps text-label-caps mt-1">Contact</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[24px]">payments</span>
+<span class="font-label-caps text-label-caps mt-1">Pay</span>
+</a>
+</nav>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-surface-container-lowest border-t border-outline-variant/20 flex flex-col items-center gap-unit p-margin-mobile mb-20 md:mb-0">
+<div class="font-headline-lg text-headline-lg text-secondary mb-4 glow-text-secondary flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div class="flex gap-6 mb-4">
+<a class="font-code-sm text-code-sm text-on-surface-variant hover:text-secondary transition-opacity duration-300" href="#">Terms</a>
+<a class="font-code-sm text-code-sm text-on-surface-variant hover:text-secondary transition-opacity duration-300" href="#">Privacy</a>
+<a class="font-code-sm text-code-sm text-on-surface-variant hover:text-secondary transition-opacity duration-300" href="#">Support</a>
+</div>
+<p class="font-code-sm text-code-sm text-tertiary">© 2024 ZEUS IOT. HARNESS THE BOLT.</p>
+</footer>
+</body></html>

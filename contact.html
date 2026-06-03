@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact — ZEUS IOT | Summon The Bolt</title>
+<meta name="description" content="Submit your project requirements to Zeus IOT. Custom IoT builds, software ecosystems, and academic reports for college students. Get a quote within 24 hours."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared-styles.css?v=2"/>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "surface-dim":"#101415","on-tertiary-fixed":"#001f25","tertiary":"#2fd9f4",
+        "on-surface-variant":"#c6c6cd","on-error-container":"#ffdad6",
+        "surface-container-highest":"#323537","outline":"#909097","background":"#101415",
+        "surface-container":"#1d2022","inverse-primary":"#565e74","primary-fixed-dim":"#bec6e0",
+        "surface-container-high":"#272a2c","inverse-on-surface":"#2d3133",
+        "on-primary-container":"#798098","secondary-fixed-dim":"#f9bd22",
+        "primary-container":"#0f172a","tertiary-container":"#001b20","surface-tint":"#bec6e0",
+        "on-tertiary":"#00363e","on-tertiary-container":"#008ea1","on-primary-fixed":"#131b2e",
+        "on-tertiary-fixed-variant":"#004e5a","on-surface":"#e0e3e5",
+        "surface-container-low":"#191c1e","surface-container-lowest":"#0b0f10",
+        "primary":"#bec6e0","tertiary-fixed-dim":"#2fd9f4","outline-variant":"#45464d",
+        "surface":"#101415","inverse-surface":"#e0e3e5","surface-variant":"#323537",
+        "on-secondary-fixed-variant":"#5c4300","error":"#ffb4ab","tertiary-fixed":"#a2eeff",
+        "primary-fixed":"#dae2fd","surface-bright":"#363a3b","on-secondary-container":"#5a4100",
+        "on-primary-fixed-variant":"#3f465c","on-primary":"#283044","on-background":"#e0e3e5",
+        "secondary-container":"#e3aa00","on-error":"#690005","on-secondary-fixed":"#261a00",
+        "secondary-fixed":"#ffdf9f","secondary":"#ffc640","error-container":"#93000a",
+        "on-secondary":"#402d00"
+      },
+      borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},
+      spacing:{unit:"8px","container-max":"1280px","margin-mobile":"16px","margin-desktop":"64px",gutter:"24px"},
+      fontFamily:{"body-lg":["Inter"],"headline-xl":["Montserrat"],"headline-lg-mobile":["Montserrat"],"code-sm":["JetBrains Mono"],"headline-md":["Montserrat"],"headline-lg":["Montserrat"],"label-caps":["JetBrains Mono"],"body-md":["Inter"]},
+      fontSize:{
+        "body-lg":["18px",{lineHeight:"1.6",fontWeight:"400"}],
+        "headline-xl":["48px",{lineHeight:"1.1",letterSpacing:"-0.02em",fontWeight:"800"}],
+        "headline-lg-mobile":["28px",{lineHeight:"1.2",fontWeight:"700"}],
+        "code-sm":["14px",{lineHeight:"1.4",fontWeight:"400"}],
+        "headline-md":["24px",{lineHeight:"1.3",fontWeight:"600"}],
+        "headline-lg":["32px",{lineHeight:"1.2",letterSpacing:"-0.01em",fontWeight:"700"}],
+        "label-caps":["12px",{lineHeight:"1.0",letterSpacing:"0.1em",fontWeight:"700"}],
+        "body-md":["16px",{lineHeight:"1.5",fontWeight:"400"}]
+      }
+    }
+  }
+}
+</script>
+<style>
+body {
+  background-color: #0F172A;
+  background-image: radial-gradient(circle at 10% 20%, rgba(47,217,244,0.15) 0%, transparent 40%),
+                    radial-gradient(circle at 90% 80%, rgba(255,198,64,0.1) 0%, transparent 40%);
+  min-height: 100vh;
+}
+.glow-text { text-shadow: 0 0 8px rgba(255,198,64,0.4); }
+.glass-panel-gradient-top {
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(to right, #2fd9f4, #ffc640) 1;
+}
+
+/* Floating label inputs */
+.float-label-group { position: relative; }
+.float-label-group input,
+.float-label-group textarea,
+.float-label-group select {
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(47,217,244,0.2);
+  color: #e0e3e5;
+  transition: all 0.3s ease;
+  padding: 16px 14px 8px;
+  width: 100%;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+}
+.float-label-group input:focus,
+.float-label-group textarea:focus,
+.float-label-group select:focus {
+  border-color: #2fd9f4;
+  box-shadow: 0 0 0 3px rgba(47,217,244,0.1);
+  outline: none;
+}
+.float-label-group label {
+  position: absolute; top: 14px; left: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.1em; font-weight: 700;
+  color: #909097; text-transform: uppercase;
+  transition: all 0.25s ease; pointer-events: none;
+}
+.float-label-group input:focus ~ label,
+.float-label-group input:not(:placeholder-shown) ~ label,
+.float-label-group textarea:focus ~ label,
+.float-label-group textarea:not(:placeholder-shown) ~ label,
+.float-label-group select:focus ~ label {
+  top: 5px; font-size: 9px; color: #2fd9f4;
+}
+
+/* Perf tier cards */
+.tier-card {
+  background: rgba(0,0,0,0.2);
+  border: 2px solid rgba(255,255,255,0.08);
+  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  cursor: pointer;
+}
+.tier-card:hover { border-color: rgba(47,217,244,0.4); background: rgba(47,217,244,0.05); }
+.tier-card.selected {
+  border-color: #ffc640;
+  background: rgba(255,198,64,0.08);
+  box-shadow: 0 0 25px rgba(255,198,64,0.15), inset 0 0 15px rgba(255,198,64,0.05);
+}
+.tier-card.selected .tier-title { color: #ffc640; }
+
+/* Upload area */
+.upload-zone {
+  background: rgba(0,0,0,0.2);
+  border: 2px dashed rgba(47,217,244,0.3);
+  transition: all 0.3s ease;
+}
+.upload-zone.drag-over {
+  border-color: #2fd9f4;
+  background: rgba(47,217,244,0.07);
+  box-shadow: 0 0 30px rgba(47,217,244,0.15);
+}
+.upload-zone:hover { border-color: rgba(47,217,244,0.6); background: rgba(47,217,244,0.04); }
+</style>
+</head>
+<body class="text-on-surface antialiased font-body-lg overflow-x-hidden circuit-bg relative">
+
+<!-- PAGE PRELOADER -->
+<div id="page-preloader">
+  <span class="material-symbols-outlined preloader-bolt" style="font-variation-settings: 'FILL' 1;">bolt</span>
+  <div class="preloader-bar"><div class="preloader-fill"></div></div>
+</div>
+
+<!-- Background Blobs -->
+<div class="bg-blob bg-blob-cyan"></div>
+<div class="bg-blob bg-blob-gold"></div>
+<div class="bg-blob bg-blob-dark"></div>
+
+<!-- Particle Background Canvas -->
+<canvas id="particles-bg"></canvas>
+
+<!-- Scroll Progress Bar -->
+<div id="scroll-progress"></div>
+
+<!-- ═══════════════════════ DESKTOP TOP NAV ═══════════════════════ -->
+<header id="desktop-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(47,217,244,0.2)] hidden md:flex items-center justify-between px-margin-desktop h-16 transition-all duration-300">
+  <a href="index.html" class="flex items-center gap-2">
+    <span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+    <span class="font-headline-xl text-headline-md text-secondary drop-shadow-[0_0_8px_rgba(255,198,64,0.4)] tracking-tight">ZEUS IOT</span>
+  </a>
+  <nav class="flex items-center gap-8">
+    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated" href="index.html">HOME</a>
+    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated" href="projects.html">PROJECTS</a>
+    <a class="text-secondary font-label-caps text-label-caps border-b-2 border-secondary pb-1" href="contact.html">CONTACT</a>
+    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated" href="pay.html">PAY</a>
+    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated" href="admin.html">ADMIN</a>
+  </nav>
+</header>
+
+<!-- ═══════════════════════ MOBILE TOP NAV ═══════════════════════ -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(47,217,244,0.2)] flex md:hidden items-center justify-between px-margin-mobile h-16">
+  <a href="index.html" class="flex items-center gap-2">
+    <span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+    <span class="font-headline-md text-secondary glow-text">ZEUS IOT</span>
+  </a>
+  <button id="mobile-menu-btn" aria-label="Open menu">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </button>
+</header>
+
+<!-- ═══════════════════════ MOBILE MENU OVERLAY ═══════════════════════ -->
+<div id="mobile-menu-overlay" role="dialog" aria-label="Mobile navigation">
+  <a href="index.html">HOME</a>
+  <a href="projects.html">PROJECTS</a>
+  <a href="contact.html" class="nav-active">CONTACT</a>
+  <a href="pay.html">PAY</a>
+  <a href="learning.html">LEARN</a>
+</div>
+
+<!-- ═══════════════════════ MAIN CONTENT ═══════════════════════ -->
+<main class="pt-24 md:pt-32 pb-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative z-10">
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+
+    <!-- LEFT SIDE: SUMMON THE BOLT -->
+    <div class="lg:col-span-5 flex flex-col justify-center reveal-left">
+      <div class="glass-panel glass-panel-gradient-top rounded-xl p-8 lg:p-12 mb-8 lg:mb-0 h-full flex flex-col justify-center relative overflow-hidden">
+        <div class="absolute -right-20 -bottom-20 opacity-5">
+          <span class="material-symbols-outlined text-[250px] text-tertiary">bolt</span>
+        </div>
+        <div class="absolute -top-10 -left-10 w-48 h-48 bg-tertiary/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <h1 class="font-headline-xl text-headline-lg-mobile md:text-4xl text-on-surface mb-4 uppercase z-10">SUMMON THE BOLT</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant mb-8 z-10">
+          Need a custom IoT solution, a software ecosystem, or a comprehensive academic report? Connect with our engineering team instantly.
+        </p>
+
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-2 gap-4 mb-8 z-10">
+          <div class="bg-surface-container-high/50 rounded-lg p-4 border border-tertiary/20">
+            <div class="font-headline-md text-[22px] text-tertiary font-extrabold">24hr</div>
+            <div class="font-code-sm text-[11px] text-on-surface-variant uppercase tracking-wider">Response Time</div>
+          </div>
+          <div class="bg-surface-container-high/50 rounded-lg p-4 border border-secondary/20">
+            <div class="font-headline-md text-[22px] text-secondary font-extrabold">99.7%</div>
+            <div class="font-code-sm text-[11px] text-on-surface-variant uppercase tracking-wider">On-Time Rate</div>
+          </div>
+        </div>
+
+        <a href="https://wa.me/919080809088" class="btn-thunderbolt font-label-caps text-label-caps px-8 py-5 uppercase tracking-widest flex items-center justify-center gap-3 w-full z-10">
+          <svg class="w-5 h-5 fill-current flex-shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.489-1.761-1.663-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          CONNECT ON WHATSAPP
+        </a>
+
+        <div class="mt-6 flex items-center gap-2 z-10">
+          <span class="material-symbols-outlined text-tertiary text-[16px]">info</span>
+          <span class="font-code-sm text-[11px] text-on-surface-variant">Or fill the form to get a detailed quote →</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE: MULTI-STEP WIZARD -->
+    <div class="lg:col-span-7 reveal-right">
+      <div class="glass-panel rounded-xl p-6 lg:p-8 relative overflow-hidden">
+        <!-- Top neon bar -->
+        <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-tertiary to-secondary"></div>
+
+        <h2 class="font-headline-md text-headline-md text-on-surface mb-6 flex items-center gap-2">
+          <span class="material-symbols-outlined text-tertiary">description</span>
+          PROJECT INITIATION
+        </h2>
+
+        <!-- Wizard Progress -->
+        <div class="wizard-progress mb-8" id="wizard-progress">
+          <div class="wizard-step-indicator active" id="step-ind-1">1</div>
+          <div class="wizard-connector" id="conn-1"></div>
+          <div class="wizard-step-indicator" id="step-ind-2">2</div>
+          <div class="wizard-connector" id="conn-2"></div>
+          <div class="wizard-step-indicator" id="step-ind-3">3</div>
+        </div>
+        <!-- Step Labels -->
+        <div class="flex items-center justify-center gap-0 mb-8 -mt-4">
+          <div class="flex-shrink-0 w-9 text-center"><span class="font-code-sm text-[9px] text-secondary uppercase">Tier</span></div>
+          <div class="w-[60px]"></div>
+          <div class="flex-shrink-0 w-9 text-center"><span class="font-code-sm text-[9px] text-on-surface-variant uppercase">Details</span></div>
+          <div class="w-[60px]"></div>
+          <div class="flex-shrink-0 w-9 text-center"><span class="font-code-sm text-[9px] text-on-surface-variant uppercase">Submit</span></div>
+        </div>
+
+        <form id="contact-form" novalidate>
+          <!-- ── STEP 1: Performance Tier ── -->
+          <div class="wizard-panel active" id="panel-1">
+            <p class="font-code-sm text-code-sm text-on-surface-variant mb-5">Choose your performance expectation tier:</p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+              <div class="tier-card rounded-xl p-5 flex flex-col items-center text-center gap-2" data-tier="BASIC">
+                <span class="material-symbols-outlined text-on-surface-variant text-3xl">build</span>
+                <div class="tier-title font-headline-md text-[16px] text-on-surface uppercase tracking-wide">Basic</div>
+                <div class="font-code-sm text-[11px] text-on-surface-variant">Single module, simple wiring, functional code</div>
+                <div class="font-code-sm text-[13px] text-tertiary mt-1">From ₹499</div>
+              </div>
+              <div class="tier-card selected rounded-xl p-5 flex flex-col items-center text-center gap-2" data-tier="CUSTOM">
+                <span class="material-symbols-outlined text-secondary text-3xl">star</span>
+                <div class="tier-title font-headline-md text-[16px] text-secondary uppercase tracking-wide">Custom</div>
+                <div class="font-code-sm text-[11px] text-on-surface-variant">Multi-module, documented, 1-on-1 session</div>
+                <div class="font-code-sm text-[13px] text-secondary mt-1">From ₹1,499</div>
+              </div>
+              <div class="tier-card rounded-xl p-5 flex flex-col items-center text-center gap-2" data-tier="PROFESSIONAL">
+                <span class="material-symbols-outlined text-on-surface-variant text-3xl">rocket_launch</span>
+                <div class="tier-title font-headline-md text-[16px] text-on-surface uppercase tracking-wide">Pro</div>
+                <div class="font-code-sm text-[11px] text-on-surface-variant">Full-stack, PCB files, full academic report</div>
+                <div class="font-code-sm text-[13px] text-tertiary mt-1">From ₹3,999</div>
+              </div>
+            </div>
+            <input type="hidden" id="selected-tier" value="CUSTOM"/>
+            <div class="flex justify-end mt-4">
+              <button type="button" class="btn-thunderbolt font-label-caps text-label-caps px-8 py-3 uppercase tracking-widest flex items-center gap-2 magnetic-btn" id="step1-next">
+                Next Step <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- ── STEP 2: Project Details ── -->
+          <div class="wizard-panel" id="panel-2">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+              <div class="float-label-group">
+                <input id="input-name" type="text" placeholder=" " required/>
+                <label for="input-name">Full Name *</label>
+              </div>
+              <div class="float-label-group">
+                <input id="input-phone" type="tel" placeholder=" " required/>
+                <label for="input-phone">WhatsApp Number *</label>
+              </div>
+              <div class="float-label-group">
+                <input id="input-institution" type="text" placeholder=" "/>
+                <label for="input-institution">Institution / University</label>
+              </div>
+              <div class="float-label-group">
+                <input id="input-deadline" type="date" placeholder=" " required/>
+                <label for="input-deadline">Deadline Date *</label>
+              </div>
+            </div>
+
+            <div class="float-label-group mb-1">
+              <textarea id="input-desc" placeholder=" " rows="4" maxlength="200" style="resize:none;" required></textarea>
+              <label for="input-desc">Project Description *</label>
+            </div>
+            <div class="flex justify-between items-center mb-5">
+              <div class="flex items-center gap-1 font-code-sm text-[11px] text-tertiary">
+                <span class="material-symbols-outlined text-[14px]">info</span>
+                Software-heavy projects need extended timelines.
+              </div>
+              <div class="font-code-sm text-[12px] text-on-surface-variant" id="char-count">0 / 200</div>
+            </div>
+
+            <div class="flex justify-between gap-3 mt-4">
+              <button type="button" class="btn-ghost font-label-caps text-label-caps px-6 py-3 uppercase tracking-widest flex items-center gap-2" id="step2-back">
+                <span class="material-symbols-outlined text-[16px]">arrow_back</span> Back
+              </button>
+              <button type="button" class="btn-thunderbolt font-label-caps text-label-caps px-8 py-3 uppercase tracking-widest flex items-center gap-2 magnetic-btn" id="step2-next">
+                Next Step <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- ── STEP 3: Supporting Docs + Submit ── -->
+          <div class="wizard-panel" id="panel-3">
+            <div class="upload-zone rounded-lg flex flex-col items-center justify-center p-8 cursor-pointer relative mb-5" id="upload-zone">
+              <input id="file-input" accept=".pdf,.ppt,.pptx,.doc,.docx,.jpg,.png" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" type="file"/>
+              <span class="material-symbols-outlined text-tertiary text-4xl mb-2">cloud_upload</span>
+              <span class="font-label-caps text-label-caps text-on-surface text-center mb-1">DRAG &amp; DROP</span>
+              <span class="font-body-md text-sm text-on-surface-variant text-center">or click to browse</span>
+              <span class="font-code-sm text-[11px] text-outline mt-2">PDF, PPT, DOC, Images (max 10MB) — Optional</span>
+            </div>
+            <!-- File preview -->
+            <div id="file-preview" class="hidden flex items-center gap-3 bg-surface-container-high rounded-lg p-3 mb-5 border border-tertiary/20">
+              <span class="material-symbols-outlined text-tertiary">description</span>
+              <span id="file-name" class="font-code-sm text-sm text-on-surface flex-grow truncate"></span>
+              <button type="button" id="remove-file" class="text-outline hover:text-error transition-colors">
+                <span class="material-symbols-outlined text-[18px]">close</span>
+              </button>
+            </div>
+
+            <!-- Summary -->
+            <div class="bg-surface-container-low rounded-lg p-4 border border-outline-variant/30 mb-5">
+              <div class="font-code-sm text-[11px] text-tertiary uppercase tracking-wider mb-3">Request Summary</div>
+              <div class="grid grid-cols-2 gap-2">
+                <div class="font-code-sm text-[12px] text-on-surface-variant">Tier:</div>
+                <div class="font-code-sm text-[12px] text-secondary" id="summary-tier">CUSTOM</div>
+                <div class="font-code-sm text-[12px] text-on-surface-variant">Response via:</div>
+                <div class="font-code-sm text-[12px] text-on-surface">WhatsApp</div>
+              </div>
+            </div>
+
+            <div class="flex justify-between gap-3">
+              <button type="button" class="btn-ghost font-label-caps text-label-caps px-6 py-3 uppercase tracking-widest flex items-center gap-2" id="step3-back">
+                <span class="material-symbols-outlined text-[16px]">arrow_back</span> Back
+              </button>
+              <button type="submit" class="btn-thunderbolt font-label-caps text-label-caps px-8 py-3 uppercase tracking-widest flex items-center gap-2 magnetic-btn" id="submit-btn">
+                <span id="submit-label">LAUNCH REQUEST</span>
+                <span class="material-symbols-outlined text-[16px]" id="submit-icon">bolt</span>
+              </button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────── FAQ BENTO GRID ─────────── -->
+  <section class="mt-20 reveal">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+      <div class="md:col-span-4 glass-panel rounded-xl p-8 flex flex-col items-start group">
+        <div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center mb-4 border border-secondary/30 group-hover:bg-secondary/20 transition-colors">
+          <span class="material-symbols-outlined text-secondary">lightbulb</span>
+        </div>
+        <h3 class="font-headline-md text-[20px] text-on-surface mb-2">How It Works</h3>
+        <p class="font-body-md text-sm text-on-surface-variant">Submit your requirements. Our engineers review feasibility and respond via WhatsApp within 24 hours with a technical proposal.</p>
+      </div>
+      <div class="md:col-span-4 glass-panel rounded-xl p-8 flex flex-col items-start group">
+        <div class="w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center mb-4 border border-tertiary/30 group-hover:bg-tertiary/20 transition-colors">
+          <span class="material-symbols-outlined text-tertiary">schedule</span>
+        </div>
+        <h3 class="font-headline-md text-[20px] text-on-surface mb-2">Turnaround Time</h3>
+        <p class="font-body-md text-sm text-on-surface-variant">Hardware prototypes typically take 1-2 weeks. Full-stack software ecosystems and complex PCB fabrication require 4+ weeks.</p>
+      </div>
+      <div class="md:col-span-4 glass-panel rounded-xl p-8 flex flex-col items-start group border-t-2 border-t-secondary">
+        <div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center mb-4 border border-secondary/30 group-hover:bg-secondary/20 transition-colors">
+          <span class="material-symbols-outlined text-secondary">payments</span>
+        </div>
+        <h3 class="font-headline-md text-[20px] text-on-surface mb-2">Pricing Structure</h3>
+        <p class="font-body-md text-sm text-on-surface-variant">Milestone-based billing. 50% upfront to procure components and initiate architecture, 50% upon successful deployment and handover.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════════════════ SUCCESS MODAL ═══════════════════════ -->
+<div id="success-modal-backdrop" class="success-modal-backdrop" style="display:none;">
+  <div class="success-modal">
+    <!-- Lightning Bolt SVG -->
+    <div class="mb-4 flex justify-center">
+      <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="modalBoltGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#ffc640"/>
+            <stop offset="100%" stop-color="#2fd9f4"/>
+          </linearGradient>
+        </defs>
+        <path d="M37 6L16 34H30L24 58L48 28H32L37 6Z" fill="url(#modalBoltGrad)" opacity="0.9"/>
+      </svg>
+    </div>
+    <h2 class="font-headline-xl text-[28px] text-secondary mb-2 uppercase tracking-tight">BOLT SENT ⚡</h2>
+    <p class="font-body-md text-body-md text-on-surface mb-2">Your project request has been captured!</p>
+    <p class="font-code-sm text-sm text-on-surface-variant mb-6">Our engineering team will reach you on <span class="text-secondary">WhatsApp within 24 hours</span> with a technical proposal and pricing breakdown.</p>
+    <button id="modal-close" class="btn-thunderbolt font-label-caps text-label-caps px-8 py-3 uppercase tracking-widest w-full">CLOSE</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════ MOBILE BOTTOM NAV ═══════════════════════ -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(47,217,244,0.15)] pb-safe">
+  <div class="flex justify-around items-center py-2 px-4">
+    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="index.html"><span class="material-symbols-outlined">home</span><span class="font-label-caps text-label-caps mt-1">Home</span></a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="projects.html"><span class="material-symbols-outlined">grid_view</span><span class="font-label-caps text-label-caps mt-1">Projects</span></a>
+    <a class="flex flex-col items-center justify-center text-secondary bg-on-secondary-container/20 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="contact.html"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span><span class="font-label-caps text-label-caps mt-1">Contact</span></a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="pay.html"><span class="material-symbols-outlined">payments</span><span class="font-label-caps text-label-caps mt-1">Pay</span></a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer class="w-full mt-auto bg-surface-container-lowest border-t border-outline-variant/20 relative z-10">
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 mb-20 md:mb-0">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="md:col-span-1"><div class="flex items-center gap-2 mb-4"><span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">bolt</span><span class="font-headline-lg text-headline-md text-secondary">ZEUS IOT</span></div><p class="font-body-md text-sm text-on-surface-variant">Engineering Tomorrow's Connected World.</p></div>
+      <div><h4 class="font-label-caps text-label-caps text-on-surface mb-4 uppercase">Quick Links</h4><div class="flex flex-col gap-2"><a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="index.html">Home</a><a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="projects.html">Projects</a><a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="contact.html">Contact</a></div></div>
+      <div><h4 class="font-label-caps text-label-caps text-on-surface mb-4 uppercase">Services</h4><div class="flex flex-col gap-2"><a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" href="contact.html">Custom IoT Builds</a><a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" href="report.html">Academic Reports</a><a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" href="pay.html">Payments</a></div></div>
+      <div><h4 class="font-label-caps text-label-caps text-on-surface mb-4 uppercase">Connect</h4><div class="flex flex-col gap-2"><a href="mailto:zeusiotprojects@gmail.com" class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors">zeusiotprojects@gmail.com</a><a href="https://wa.me/919080809088" target="_blank" class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors">WhatsApp: +91 90808 09088</a></div></div>
+    </div>
+    <div class="flex flex-col md:flex-row justify-between items-center mt-12 pt-6 border-t border-outline-variant/20">
+      <div class="flex gap-6 mb-4 md:mb-0">
+        <a class="text-on-surface-variant hover:text-secondary font-code-sm text-code-sm transition-colors" href="terms.html">Terms</a>
+        <a class="text-on-surface-variant hover:text-secondary font-code-sm text-code-sm transition-colors" href="privacy.html">Privacy</a>
+        <a class="text-on-surface-variant hover:text-secondary font-code-sm text-code-sm transition-colors" href="contact.html">Support</a>
+      </div>
+      <p class="text-tertiary font-code-sm text-code-sm tracking-widest">© 2026 ZEUS IOT. HARNESS THE BOLT.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/919080809088" target="_blank" class="whatsapp-float" id="whatsapp-float" style="opacity:0;" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.489-1.761-1.663-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+  <div class="tooltip">Chat on WhatsApp ⚡</div>
+</a>
+
+<script>
+// ─── Navbar scroll ───
+const nav = document.getElementById('desktop-nav');
+const progressBar = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+  const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  if (progressBar) progressBar.style.width = pct + '%';
+  if (nav) { if (window.scrollY > 60) nav.classList.add('nav-scrolled'); else nav.classList.remove('nav-scrolled'); }
+});
+
+// ─── WhatsApp float ───
+setTimeout(() => { const wa = document.getElementById('whatsapp-float'); if (wa) { wa.style.transition = 'opacity 0.5s ease'; wa.style.opacity = '1'; } }, 3000);
+
+// ─── Tier Card Selection ───
+document.querySelectorAll('.tier-card').forEach(card => {
+  card.addEventListener('click', () => {
+    document.querySelectorAll('.tier-card').forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+    const tier = card.dataset.tier;
+    document.getElementById('selected-tier').value = tier;
+    document.getElementById('summary-tier').textContent = tier;
+  });
+});
+
+// ─── Wizard Navigation ───
+let currentStep = 1;
+function goToStep(step) {
+  // Hide all panels
+  document.querySelectorAll('.wizard-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-' + step).classList.add('active');
+
+  // Update indicators
+  for (let i = 1; i <= 3; i++) {
+    const ind = document.getElementById('step-ind-' + i);
+    ind.classList.remove('active', 'completed');
+    if (i < step) ind.classList.add('completed'), ind.innerHTML = '✓';
+    else if (i === step) ind.classList.add('active'), ind.textContent = i;
+    else ind.textContent = i;
+  }
+  // Connectors
+  for (let i = 1; i <= 2; i++) {
+    const conn = document.getElementById('conn-' + i);
+    conn.classList.toggle('active', i < step);
+  }
+  currentStep = step;
+}
+
+document.getElementById('step1-next').addEventListener('click', () => goToStep(2));
+document.getElementById('step2-back').addEventListener('click', () => goToStep(1));
+document.getElementById('step2-next').addEventListener('click', () => {
+  const name = document.getElementById('input-name').value.trim();
+  const phone = document.getElementById('input-phone').value.trim();
+  const desc = document.getElementById('input-desc').value.trim();
+  if (!name || !phone || !desc) {
+    alert('Please fill in your name, phone number, and project description.');
+    return;
+  }
+  goToStep(3);
+});
+document.getElementById('step3-back').addEventListener('click', () => goToStep(2));
+
+// ─── Character Counter ───
+const textarea = document.getElementById('input-desc');
+const charCount = document.getElementById('char-count');
+textarea.addEventListener('input', function() {
+  charCount.textContent = `${this.value.length} / 200`;
+  if (this.value.length > 180) charCount.classList.add('text-secondary');
+  else charCount.classList.remove('text-secondary');
+});
+
+// ─── File Upload ───
+const fileInput = document.getElementById('file-input');
+const filePreview = document.getElementById('file-preview');
+const fileName = document.getElementById('file-name');
+const uploadZone = document.getElementById('upload-zone');
+
+fileInput.addEventListener('change', (e) => {
+  if (e.target.files[0]) {
+    fileName.textContent = e.target.files[0].name;
+    filePreview.classList.remove('hidden');
+    filePreview.classList.add('flex');
+  }
+});
+
+document.getElementById('remove-file').addEventListener('click', () => {
+  fileInput.value = '';
+  filePreview.classList.add('hidden');
+  filePreview.classList.remove('flex');
+});
+
+uploadZone.addEventListener('dragover', (e) => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
+uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
+uploadZone.addEventListener('drop', (e) => {
+  e.preventDefault();
+  uploadZone.classList.remove('drag-over');
+  if (e.dataTransfer.files[0]) {
+    fileName.textContent = e.dataTransfer.files[0].name;
+    filePreview.classList.remove('hidden');
+    filePreview.classList.add('flex');
+  }
+});
+
+// ─── Form Submit ───
+const form = document.getElementById('contact-form');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const submitBtn = document.getElementById('submit-btn');
+  const submitLabel = document.getElementById('submit-label');
+  const submitIcon = document.getElementById('submit-icon');
+
+  submitBtn.classList.add('btn-loading');
+  submitLabel.textContent = 'LAUNCHING...';
+  submitIcon.textContent = 'autorenew';
+
+  const name = document.getElementById('input-name').value.trim();
+  const contact_no = document.getElementById('input-phone').value.trim();
+  const institution = document.getElementById('input-institution').value.trim();
+  const deadline = document.getElementById('input-deadline').value;
+  const description = document.getElementById('input-desc').value.trim();
+  const perf_expectation = document.getElementById('selected-tier').value;
+
+  try {
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, contact_no, institution, deadline, description, perf_expectation })
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || 'Failed to submit request.');
+
+    // Open WhatsApp with pre-filled structured message to the business number
+    if (data.whatsapp_url) {
+      window.open(data.whatsapp_url, '_blank');
+    }
+
+    // Show success modal
+    showSuccessModal();
+    form.reset();
+    goToStep(1);
+    charCount.textContent = '0 / 200';
+    document.getElementById('selected-tier').value = 'CUSTOM';
+    document.querySelectorAll('.tier-card').forEach(c => c.classList.remove('selected'));
+    document.querySelector('[data-tier="CUSTOM"]').classList.add('selected');
+  } catch (err) {
+    alert(err.message);
+  } finally {
+    submitBtn.classList.remove('btn-loading');
+    submitLabel.textContent = 'LAUNCH REQUEST';
+    submitIcon.textContent = 'bolt';
+  }
+});
+
+// ─── Confetti ───
+function launchConfetti() {
+  const colors = ['#ffc640','#2fd9f4','#ffffff','#ffa500'];
+  for (let i = 0; i < 50; i++) {
+    const piece = document.createElement('div');
+    piece.className = 'confetti-piece';
+    piece.style.left = Math.random() * 100 + 'vw';
+    piece.style.top = '-10px';
+    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.animationDelay = Math.random() * 0.5 + 's';
+    piece.style.animationDuration = (2 + Math.random()) + 's';
+    piece.style.width = (6 + Math.random() * 6) + 'px';
+    piece.style.height = (6 + Math.random() * 6) + 'px';
+    document.body.appendChild(piece);
+    setTimeout(() => piece.remove(), 3000);
+  }
+}
+
+function showSuccessModal() {
+  const backdrop = document.getElementById('success-modal-backdrop');
+  backdrop.style.display = 'flex';
+  requestAnimationFrame(() => backdrop.classList.add('active'));
+  launchConfetti();
+  setTimeout(() => closeSuccessModal(), 5000);
+}
+
+function closeSuccessModal() {
+  const backdrop = document.getElementById('success-modal-backdrop');
+  backdrop.classList.remove('active');
+  setTimeout(() => { backdrop.style.display = 'none'; }, 300);
+}
+
+document.getElementById('modal-close').addEventListener('click', closeSuccessModal);
+
+// Preloader
+window.addEventListener('load', () => {
+  const p = document.getElementById('page-preloader');
+  if (p) setTimeout(() => p.classList.add('hidden'), 800);
+});
+// Mobile menu
+const mBtn = document.getElementById('mobile-menu-btn');
+const mOverlay = document.getElementById('mobile-menu-overlay');
+if (mBtn && mOverlay) {
+  mBtn.addEventListener('click', () => {
+    const open = mOverlay.classList.toggle('open');
+    mBtn.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+}
+</script>
+<script src="animations.js?v=2"></script>
+</body>
+</html>

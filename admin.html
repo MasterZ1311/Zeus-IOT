@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Dashboard — ZEUS IOT</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared-styles.css?v=2"/>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "tertiary":"#2fd9f4",
+        "surface-container-highest":"#323537",
+        "surface-container":"#1d2022",
+        "surface-container-high":"#272a2c",
+        "on-surface":"#e0e3e5",
+        "surface-container-low":"#191c1e",
+        "surface-container-lowest":"#0b0f10",
+        "primary":"#bec6e0",
+        "surface":"#101415",
+        "on-surface-variant":"#c6c6cd",
+        "secondary":"#ffc640",
+      },
+      fontFamily:{
+        "body-lg":["Inter"],
+        "headline-md":["Montserrat"],
+        "code-sm":["JetBrains Mono"],
+        "label-caps":["JetBrains Mono"]
+      }
+    }
+  }
+}
+</script>
+<style>
+body {
+  background-color: #0b0f10;
+  min-height: 100vh;
+}
+/* Modal background overlay */
+#project-modal {
+  background: rgba(11, 15, 16, 0.85);
+  backdrop-filter: blur(5px);
+}
+/* Simple toast notification */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: #0b0f10;
+  font-weight: 600;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+.toast-success { background: #4ade80; }
+.toast-error { background: #ef4444; color: white; }
+</style>
+</head>
+<body class="text-on-surface antialiased font-body-lg flex h-screen overflow-hidden">
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="w-64 bg-surface-container-low border-r border-outline-variant/20 flex flex-col fixed inset-y-0 left-0 z-50 transform -translate-x-full md:relative md:translate-x-0 transition-transform duration-300">
+    <div class="h-16 flex items-center gap-2 px-6 border-b border-outline-variant/20">
+      <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+      <span class="font-headline-md text-secondary tracking-tight">ZEUS ADMIN</span>
+    </div>
+    
+    <nav class="flex-1 py-6 flex flex-col gap-2 px-4">
+      <a href="#" id="tab-projects-btn" onclick="switchTab('projects')" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-tertiary/10 text-tertiary font-bold text-sm cursor-pointer">
+        <span class="material-symbols-outlined text-[20px]">folder_copy</span> Projects
+      </a>
+      <a href="#" id="tab-messages-btn" onclick="switchTab('messages')" class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-bold text-sm cursor-pointer">
+        <span class="material-symbols-outlined text-[20px]">mail</span> Messages
+        <span id="msg-badge" class="ml-auto bg-secondary text-surface-container-lowest text-xs font-bold px-1.5 py-0.5 rounded-full hidden"></span>
+      </a>
+    </nav>
+    
+    <div class="p-6 border-t border-outline-variant/20">
+      <button id="logout-btn" class="w-full flex items-center justify-center gap-2 px-4 py-2 rounded border border-error/50 text-error hover:bg-error/10 transition-colors text-sm font-bold">
+        <span class="material-symbols-outlined text-[18px]">logout</span> Sign Out
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 flex flex-col h-screen overflow-hidden relative">
+    
+    <!-- Top Nav -->
+    <header class="h-16 flex items-center justify-between px-4 md:px-8 border-b border-outline-variant/20 bg-surface/50 backdrop-blur shrink-0">
+      <div class="flex items-center gap-3">
+        <button id="admin-mobile-menu-btn" class="md:hidden text-on-surface hover:text-tertiary">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+        <h1 id="section-title" class="font-headline-md text-[18px] md:text-[20px]">Project Management</h1>
+      </div>
+      <button id="add-project-btn" class="bg-secondary text-surface-container-lowest font-bold px-3 py-1.5 md:px-4 md:py-2 rounded hover:bg-secondary-fixed transition-colors flex items-center gap-1 md:gap-2 text-[12px] md:text-sm shadow-[0_0_10px_rgba(255,198,64,0.3)]">
+        <span class="material-symbols-outlined text-[16px] md:text-[18px]">add</span> <span class="hidden md:inline">Add Project</span><span class="md:hidden">Add</span>
+      </button>
+    </header>
+
+    <!-- Overlay for mobile sidebar -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-40 hidden md:hidden"></div>
+
+    <!-- Content Area -->
+    <div class="flex-1 overflow-auto p-8">
+      
+      <!-- PROJECTS PANEL -->
+      <div id="panel-projects">
+        <div class="glass-panel rounded-xl border border-outline-variant/30 overflow-hidden">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="border-b border-outline-variant/20 bg-surface-container-low font-label-caps text-xs text-on-surface-variant uppercase tracking-widest">
+                <th class="px-6 py-4">Icon</th>
+                <th class="px-6 py-4">Title</th>
+                <th class="px-6 py-4">Category</th>
+                <th class="px-6 py-4">Status</th>
+                <th class="px-6 py-4 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="projects-table-body" class="text-sm">
+              <tr>
+                <td colspan="5" class="px-6 py-8 text-center text-on-surface-variant animate-pulse">Loading projects...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- MESSAGES PANEL -->
+      <div id="panel-messages" class="hidden">
+        <div class="mb-6 flex items-center gap-3">
+          <span class="material-symbols-outlined text-tertiary">inbox</span>
+          <p class="text-on-surface-variant text-sm">All contact, report, and learning session submissions.</p>
+        </div>
+        <div id="messages-list" class="flex flex-col gap-4">
+          <div class="text-on-surface-variant text-center py-12 animate-pulse">Loading messages...</div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Project Modal (Add/Edit) -->
+  <div id="project-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+    <div class="bg-surface-container rounded-xl border border-outline-variant/30 w-full max-w-lg shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden">
+      <div class="px-6 py-4 border-b border-outline-variant/20 flex items-center justify-between">
+        <h2 id="modal-title" class="font-headline-md text-[18px]">Add New Project</h2>
+        <button id="close-modal-btn" class="text-on-surface-variant hover:text-on-surface">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      
+      <form id="project-form" class="p-6 flex flex-col gap-4">
+        <input type="hidden" id="project-id" value="">
+        
+        <div class="grid grid-cols-2 gap-4">
+          <div class="col-span-2">
+            <label class="block text-xs font-label-caps text-on-surface-variant uppercase tracking-widest mb-1">Title</label>
+            <input type="text" id="project-title" required class="w-full bg-surface-container-highest border border-outline-variant/30 rounded p-2 text-on-surface focus:border-tertiary focus:outline-none">
+          </div>
+          
+          <div class="col-span-2">
+            <label class="block text-xs font-label-caps text-on-surface-variant uppercase tracking-widest mb-1">Subtitle</label>
+            <input type="text" id="project-subtitle" required class="w-full bg-surface-container-highest border border-outline-variant/30 rounded p-2 text-on-surface focus:border-tertiary focus:outline-none">
+          </div>
+          
+          <div>
+            <label class="block text-xs font-label-caps text-on-surface-variant uppercase tracking-widest mb-1">Category</label>
+            <input type="text" id="project-cat" required class="w-full bg-surface-container-highest border border-outline-variant/30 rounded p-2 text-on-surface focus:border-tertiary focus:outline-none" placeholder="e.g. EMBEDDED">
+          </div>
+
+          <div>
+            <label class="block text-xs font-label-caps text-on-surface-variant uppercase tracking-widest mb-1">Status</label>
+            <input type="text" id="project-status" required class="w-full bg-surface-container-highest border border-outline-variant/30 rounded p-2 text-on-surface focus:border-tertiary focus:outline-none" placeholder="e.g. COMPLETED">
+          </div>
+
+          <div>
+            <label class="block text-xs font-label-caps text-on-surface-variant uppercase tracking-widest mb-1">Material Icon</label>
+            <input type="text" id="project-icon" required class="w-full bg-surface-container-highest border border-outline-variant/30 rounded p-2 text-on-surface focus:border-tertiary focus:outline-none" placeholder="e.g. memory">
+          </div>
+        </div>
+
+        <div class="flex justify-end gap-3 mt-4 pt-4 border-t border-outline-variant/20">
+          <button type="button" id="cancel-modal-btn" class="px-4 py-2 rounded text-sm text-on-surface-variant hover:bg-surface-container-high">Cancel</button>
+          <button type="submit" class="px-4 py-2 rounded text-sm font-bold bg-tertiary text-surface-container-lowest hover:bg-opacity-90">Save Project</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">Action successful</div>
+
+<script>
+  // Auth Check
+  const token = localStorage.getItem('zeus_admin_token');
+  if (!token) {
+    window.location.href = 'login.html';
+  } else {
+    // Verify token validity
+    fetch('/api/auth/verify', { headers: { 'Authorization': `Bearer ${token}` } })
+      .then(res => { if (!res.ok) { localStorage.removeItem('zeus_admin_token'); window.location.href = 'login.html'; } });
+  }
+
+  // Logout
+  document.getElementById('logout-btn').addEventListener('click', () => {
+    localStorage.removeItem('zeus_admin_token');
+    window.location.href = 'login.html';
+  });
+
+  // UI Elements
+  const tableBody = document.getElementById('projects-table-body');
+  const modal = document.getElementById('project-modal');
+  const form = document.getElementById('project-form');
+  const modalTitle = document.getElementById('modal-title');
+  const toast = document.getElementById('toast');
+
+  // Show Toast
+  function showToast(msg, type = 'success') {
+    toast.textContent = msg;
+    toast.className = `toast toast-${type} show`;
+    setTimeout(() => { toast.classList.remove('show'); }, 3000);
+  }
+
+  // Fetch and Render Projects
+  async function loadProjects() {
+    try {
+      const res = await fetch('/api/projects');
+      if (!res.ok) throw new Error("Failed to fetch");
+      const projects = await res.json();
+      
+      tableBody.innerHTML = '';
+      if (projects.length === 0) {
+        tableBody.innerHTML = `<tr><td colspan="5" class="px-6 py-8 text-center text-on-surface-variant">No projects found. Create one!</td></tr>`;
+        return;
+      }
+
+      projects.forEach(p => {
+        const tr = document.createElement('tr');
+        tr.className = "border-b border-outline-variant/10 hover:bg-surface-container transition-colors";
+        tr.innerHTML = `
+          <td class="px-6 py-4"><span class="material-symbols-outlined text-secondary">${p.icon}</span></td>
+          <td class="px-6 py-4 font-bold">${p.title}<div class="text-xs text-on-surface-variant font-normal mt-1">${p.subtitle}</div></td>
+          <td class="px-6 py-4 text-xs font-code-sm">${p.cat}</td>
+          <td class="px-6 py-4"><span class="bg-tertiary/20 text-tertiary px-2 py-1 rounded text-xs">${p.status}</span></td>
+          <td class="px-6 py-4 text-right">
+            <button class="edit-btn text-tertiary hover:text-white mr-3 transition-colors" data-id="${p.id}"><span class="material-symbols-outlined text-[18px]">edit</span></button>
+            <button class="delete-btn text-error hover:text-white transition-colors" data-id="${p.id}"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+          </td>
+        `;
+        tableBody.appendChild(tr);
+      });
+
+      // Attach event listeners to new buttons
+      document.querySelectorAll('.edit-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => openEditModal(projects.find(proj => proj.id === btn.dataset.id)));
+      });
+      document.querySelectorAll('.delete-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => deleteProject(btn.dataset.id));
+      });
+
+    } catch (e) {
+      console.error(e);
+      showToast("Error loading projects", "error");
+    }
+  }
+
+  // Modal Logic
+  function openModal(isEdit = false, data = {}) {
+    modalTitle.textContent = isEdit ? "Edit Project" : "Add New Project";
+    
+    document.getElementById('project-id').value = isEdit ? data.id : '';
+    document.getElementById('project-title').value = isEdit ? data.title : '';
+    document.getElementById('project-subtitle').value = isEdit ? data.subtitle : '';
+    document.getElementById('project-cat').value = isEdit ? data.cat : '';
+    document.getElementById('project-status').value = isEdit ? data.status : '';
+    document.getElementById('project-icon').value = isEdit ? data.icon : '';
+    
+    modal.classList.remove('hidden');
+  }
+
+  function closeModal() {
+    modal.classList.add('hidden');
+    form.reset();
+  }
+
+  document.getElementById('add-project-btn').addEventListener('click', () => openModal(false));
+  document.getElementById('close-modal-btn').addEventListener('click', closeModal);
+  document.getElementById('cancel-modal-btn').addEventListener('click', closeModal);
+
+  // Form Submit (Create or Update)
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const id = document.getElementById('project-id').value;
+    
+    const payload = {
+      title: document.getElementById('project-title').value,
+      subtitle: document.getElementById('project-subtitle').value,
+      cat: document.getElementById('project-cat').value,
+      status: document.getElementById('project-status').value,
+      icon: document.getElementById('project-icon').value,
+      nodesTotal: 1, // default required by schema
+      nodesOnline: 0
+    };
+
+    const method = id ? 'PUT' : 'POST';
+    const url = id ? `/api/projects/${id}` : '/api/projects';
+
+    try {
+      const res = await fetch(url, {
+        method: method,
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(payload)
+      });
+      
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.error || "Failed to save");
+      }
+      
+      showToast(id ? "Project updated successfully" : "Project created successfully");
+      closeModal();
+      loadProjects();
+    } catch (e) {
+      showToast(e.message, "error");
+    }
+  });
+
+  // Delete Project
+  async function deleteProject(id) {
+    if (!confirm("Are you sure you want to delete this project?")) return;
+    
+    try {
+      const res = await fetch(`/api/projects/${id}`, {
+        method: 'DELETE',
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      if (!res.ok) throw new Error("Failed to delete");
+      
+      showToast("Project deleted");
+      loadProjects();
+    } catch (e) {
+      showToast(e.message, "error");
+    }
+  }
+
+  function openEditModal(data) {
+    openModal(true, data);
+  }
+
+  // ─── Tab Switching ───
+  function switchTab(tab) {
+    const isProjects = tab === 'projects';
+    document.getElementById('panel-projects').classList.toggle('hidden', !isProjects);
+    document.getElementById('panel-messages').classList.toggle('hidden', isProjects);
+    document.getElementById('section-title').textContent = isProjects ? 'Project Management' : 'Messages & Submissions';
+    document.getElementById('add-project-btn').style.display = isProjects ? '' : 'none';
+
+    const projBtn = document.getElementById('tab-projects-btn');
+    const msgBtn = document.getElementById('tab-messages-btn');
+    projBtn.className = `flex items-center gap-3 px-4 py-3 rounded-lg font-bold text-sm cursor-pointer ${isProjects ? 'bg-tertiary/10 text-tertiary' : 'text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors'}`;
+    msgBtn.className = `flex items-center gap-3 px-4 py-3 rounded-lg font-bold text-sm cursor-pointer ${!isProjects ? 'bg-tertiary/10 text-tertiary' : 'text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors'}`;
+
+    if (!isProjects) loadMessages();
+  }
+
+  // ─── Load Messages ───
+  async function loadMessages() {
+    const list = document.getElementById('messages-list');
+    list.innerHTML = '<div class="text-on-surface-variant text-center py-12 animate-pulse">Loading messages...</div>';
+    try {
+      const res = await fetch('/api/messages', { headers: { 'Authorization': `Bearer ${token}` } });
+      if (!res.ok) throw new Error('Failed to load messages');
+      const messages = await res.json();
+
+      const badge = document.getElementById('msg-badge');
+      if (messages.length > 0) {
+        badge.textContent = messages.length;
+        badge.classList.remove('hidden');
+      }
+
+      if (!messages.length) {
+        list.innerHTML = '<div class="text-on-surface-variant text-center py-12"><span class="material-symbols-outlined text-5xl block mb-3">inbox</span>No messages yet.</div>';
+        return;
+      }
+
+      const typeColors = { 'Contact Request': '#2fd9f4', 'Report Request': '#ffc640', 'Learning Session': '#4ade80' };
+      const typeIcons = { 'Contact Request': 'devices', 'Report Request': 'description', 'Learning Session': 'school' };
+
+      list.innerHTML = messages.map(msg => `
+        <div class="glass-panel rounded-xl p-5 border border-outline-variant/20">
+          <div class="flex items-start justify-between gap-4 flex-wrap mb-3">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[18px]" style="color:${typeColors[msg.type] || '#909097'}">${typeIcons[msg.type] || 'mail'}</span>
+              <span class="font-code-sm text-[11px] uppercase tracking-widest" style="color:${typeColors[msg.type] || '#909097'}">${msg.type}</span>
+            </div>
+            <span class="font-code-sm text-[11px] text-on-surface-variant">${msg.created_at ? new Date(msg.created_at).toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' }) : '—'}</span>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+            <div><span class="text-on-surface-variant">Name:</span> <span class="text-on-surface font-semibold">${msg.name || '—'}</span></div>
+            <div><span class="text-on-surface-variant">Contact:</span> <span class="text-on-surface font-semibold">${msg.contact_no || '—'}</span></div>
+            ${msg.institution ? `<div><span class="text-on-surface-variant">Institution:</span> <span class="text-on-surface">${msg.institution}</span></div>` : ''}
+            ${msg.deadline ? `<div><span class="text-on-surface-variant">Deadline:</span> <span class="text-on-surface">${msg.deadline}</span></div>` : ''}
+            ${msg.preferred_date ? `<div><span class="text-on-surface-variant">Date:</span> <span class="text-on-surface">${msg.preferred_date}</span></div>` : ''}
+            ${msg.perf_expectation ? `<div><span class="text-on-surface-variant">Tier:</span> <span class="text-secondary font-semibold">${msg.perf_expectation}</span></div>` : ''}
+            ${msg.performance_tier ? `<div><span class="text-on-surface-variant">Tier:</span> <span class="text-secondary font-semibold">${msg.performance_tier}</span></div>` : ''}
+            ${msg.format ? `<div><span class="text-on-surface-variant">Format:</span> <span class="text-on-surface">${msg.format}</span></div>` : ''}
+            ${msg.topics ? `<div class="col-span-2"><span class="text-on-surface-variant">Topics:</span> <span class="text-on-surface">${msg.topics}</span></div>` : ''}
+            ${msg.description ? `<div class="col-span-2"><span class="text-on-surface-variant">Description:</span> <span class="text-on-surface">${msg.description}</span></div>` : ''}
+          </div>
+          <div class="mt-4 flex gap-3">
+            <a href="https://wa.me/${msg.contact_no ? msg.contact_no.replace(/\D/g,'') : '919080809088'}" target="_blank"
+               class="inline-flex items-center gap-1.5 text-xs font-bold border border-secondary/40 text-secondary px-3 py-1.5 rounded hover:bg-secondary/10 transition-colors">
+              <span class="material-symbols-outlined text-[14px]">chat</span> WhatsApp
+            </a>
+          </div>
+        </div>
+      `).join('');
+    } catch (e) {
+      list.innerHTML = `<div class="text-error text-center py-12">${e.message}</div>`;
+    }
+  }
+
+  // Initial Load
+  loadProjects();
+
+  // Mobile Sidebar Toggle
+  const sidebar = document.getElementById('sidebar');
+  const sidebarOverlay = document.getElementById('sidebar-overlay');
+  const mobileMenuBtn = document.getElementById('admin-mobile-menu-btn');
+  
+  function toggleSidebar() {
+    const isClosed = sidebar.classList.contains('-translate-x-full');
+    if (isClosed) {
+      sidebar.classList.remove('-translate-x-full');
+      sidebarOverlay.classList.remove('hidden');
+    } else {
+      sidebar.classList.add('-translate-x-full');
+      sidebarOverlay.classList.add('hidden');
+    }
+  }
+  
+  if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', toggleSidebar);
+  if (sidebarOverlay) sidebarOverlay.addEventListener('click', toggleSidebar);
+
+  // Close sidebar on tab switch for mobile
+  const originalSwitchTab = switchTab;
+  switchTab = function(tab) {
+    originalSwitchTab(tab);
+    if (window.innerWidth < 768) {
+      sidebar.classList.add('-translate-x-full');
+      sidebarOverlay.classList.add('hidden');
+    }
+  }
+
+</script>
+</body>
+</html>

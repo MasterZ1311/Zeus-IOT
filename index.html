@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ZEUS IOT — Harness The Bolt | Custom IoT &amp; Software exclusively for College Students</title>
+<meta name="description" content="Zeus IOT is a high-tech engineering service provider specializing in custom IoT and software projects exclusively for college students. Don't just buy from us, Learn from us."/>
+<!-- Open Graph -->
+<meta property="og:title" content="ZEUS IOT — Harness The Bolt"/>
+<meta property="og:description" content="Custom IoT & Software exclusively for College Students. Hardware prototypes, dashboards, and academic-grade engineering."/>
+<meta property="og:url" content="https://zeusiot.in"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="https://zeusiot.in/iot_hero.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="ZEUS IOT — Harness The Bolt"/>
+<meta name="twitter:description" content="Custom IoT & Software for College Students."/>
+<meta name="twitter:image" content="https://zeusiot.in/iot_hero.png"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared-styles.css?v=2"/>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "surface-dim":"#101415","on-tertiary-fixed":"#001f25","tertiary":"#2fd9f4",
+        "on-surface-variant":"#c6c6cd","on-error-container":"#ffdad6",
+        "surface-container-highest":"#323537","outline":"#909097","background":"#101415",
+        "surface-container":"#1d2022","inverse-primary":"#565e74","primary-fixed-dim":"#bec6e0",
+        "surface-container-high":"#272a2c","inverse-on-surface":"#2d3133",
+        "on-primary-container":"#798098","secondary-fixed-dim":"#f9bd22",
+        "primary-container":"#0f172a","tertiary-container":"#001b20","surface-tint":"#bec6e0",
+        "on-tertiary":"#00363e","on-tertiary-container":"#008ea1","on-primary-fixed":"#131b2e",
+        "on-tertiary-fixed-variant":"#004e5a","on-surface":"#e0e3e5",
+        "surface-container-low":"#191c1e","surface-container-lowest":"#0b0f10",
+        "primary":"#bec6e0","tertiary-fixed-dim":"#2fd9f4","outline-variant":"#45464d",
+        "surface":"#101415","inverse-surface":"#e0e3e5","surface-variant":"#323537",
+        "on-secondary-fixed-variant":"#5c4300","error":"#ffb4ab","tertiary-fixed":"#a2eeff",
+        "primary-fixed":"#dae2fd","surface-bright":"#363a3b","on-secondary-container":"#5a4100",
+        "on-primary-fixed-variant":"#3f465c","on-primary":"#283044","on-background":"#e0e3e5",
+        "secondary-container":"#e3aa00","on-error":"#690005","on-secondary-fixed":"#261a00",
+        "secondary-fixed":"#ffdf9f","secondary":"#ffc640","error-container":"#93000a",
+        "on-secondary":"#402d00"
+      },
+      borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},
+      spacing:{unit:"8px","container-max":"1280px","margin-mobile":"16px","margin-desktop":"64px",gutter:"24px"},
+      fontFamily:{
+        "body-lg":["Inter"],"headline-xl":["Montserrat"],"headline-lg-mobile":["Montserrat"],
+        "code-sm":["JetBrains Mono"],"headline-md":["Montserrat"],"headline-lg":["Montserrat"],
+        "label-caps":["JetBrains Mono"],"body-md":["Inter"]
+      },
+      fontSize:{
+        "body-lg":["18px",{lineHeight:"1.6",fontWeight:"400"}],
+        "headline-xl":["48px",{lineHeight:"1.1",letterSpacing:"-0.02em",fontWeight:"800"}],
+        "headline-lg-mobile":["28px",{lineHeight:"1.2",fontWeight:"700"}],
+        "code-sm":["14px",{lineHeight:"1.4",fontWeight:"400"}],
+        "headline-md":["24px",{lineHeight:"1.3",fontWeight:"600"}],
+        "headline-lg":["32px",{lineHeight:"1.2",letterSpacing:"-0.01em",fontWeight:"700"}],
+        "label-caps":["12px",{lineHeight:"1.0",letterSpacing:"0.1em",fontWeight:"700"}],
+        "body-md":["16px",{lineHeight:"1.5",fontWeight:"400"}]
+      }
+    }
+  }
+}
+</script>
+<style>
+body {
+  background-color: #0F172A;
+  background-image: radial-gradient(circle at 50% -20%, rgba(47,217,244,0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 100% 100%, rgba(255,198,64,0.05) 0%, transparent 50%);
+  min-height: 100vh;
+}
+.glass-panel-glow {
+  border-top: 1px solid rgba(47,217,244,0.3);
+  border-left: 1px solid rgba(255,198,64,0.2);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+}
+.bolt-active { border-top: 2px solid #ffc640; box-shadow: inset 0 1px 10px rgba(255,198,64,0.15); }
+.bolt-standby { border-top: 2px solid #2fd9f4; }
+.glow-text { text-shadow: 0 0 8px rgba(255,198,64,0.4); }
+.glow-text-cyan { text-shadow: 0 0 10px rgba(47,217,244,0.4); }
+/* SVG chart animation */
+.dash-anim { stroke-dasharray: 200; stroke-dashoffset: 200; animation: dash 3s ease-out forwards; }
+@keyframes dash { to { stroke-dashoffset: 0; } }
+/* Protocol card glow */
+.protocol-card { position: relative; overflow: hidden; }
+.protocol-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, #2fd9f4, #ffc640); opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.protocol-card:hover::before { opacity: 1; }
+/* Hardware card shimmer */
+.hardware-icon {
+  width: 80px; height: 80px; border-radius: 12px;
+  background: linear-gradient(135deg, rgba(47,217,244,0.1), rgba(255,198,64,0.1));
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(47,217,244,0.2);
+}
+/* FAQ accordion */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16,1,0.3,1), padding 0.3s ease;
+}
+.faq-answer.open {
+  max-height: 200px;
+}
+.faq-icon { transition: transform 0.3s ease; }
+.faq-icon.open { transform: rotate(60deg); }
+
+/* Pricing card featured */
+.pricing-featured {
+  border-color: rgba(255,198,64,0.4) !important;
+  box-shadow: 0 0 40px rgba(255,198,64,0.1), 0 0 80px rgba(47,217,244,0.05);
+  transform: scale(1.03);
+}
+.pricing-featured:hover { transform: scale(1.05) translateY(-4px) !important; }
+
+/* 3D tilt project card */
+.preview-card {
+  transform-style: preserve-3d;
+  transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.preview-card:hover {
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(47,217,244,0.15);
+}
+
+/* Typewriter cursor */
+.typewriter-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1.1em;
+  background: #ffc640;
+  margin-left: 4px;
+  vertical-align: middle;
+  animation: blink 1s ease-in-out infinite;
+}
+@keyframes blink {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+</style>
+</head>
+<body class="text-on-surface antialiased font-body-lg overflow-x-hidden circuit-bg bg-default relative">
+
+<!-- ═══════════════════════ PAGE PRELOADER ═══════════════════════ -->
+<div id="page-preloader">
+  <span class="material-symbols-outlined preloader-bolt" style="font-variation-settings: 'FILL' 1;">bolt</span>
+  <div class="preloader-bar"><div class="preloader-fill"></div></div>
+</div>
+
+<!-- ═══════════════════════ TERMINAL BOOT SEQUENCE ═══════════════════════ -->
+<div id="boot-sequence">
+  <div class="boot-line" data-delay="100"><span class="boot-status-ok">[OK]</span> Initializing Zeus Core Kernel...</div>
+  <div class="boot-line" data-delay="300"><span class="boot-status-ok">[OK]</span> Mounting Neural Coprocessor...</div>
+  <div class="boot-line" data-delay="500"><span class="boot-status-warn">[WARN]</span> Bypass thermal limits engaged.</div>
+  <div class="boot-line" data-delay="700"><span class="boot-status-ok">[OK]</span> Hardware Handshake Successful.</div>
+  <div class="boot-line" data-delay="900"><span class="boot-status-ok">[OK]</span> Uplink Established. Welcome.</div>
+</div>
+
+<!-- Background Blobs -->
+<div class="bg-blob bg-blob-cyan"></div>
+<div class="bg-blob bg-blob-gold"></div>
+<div class="bg-blob bg-blob-dark"></div>
+
+<!-- Particle Background Canvas -->
+<canvas id="particles-bg"></canvas>
+
+<!-- Scroll Progress Bar -->
+<div id="scroll-progress"></div>
+
+<!-- ═══════════════════════ DESKTOP TOP NAV ═══════════════════════ -->
+<header id="desktop-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(47,217,244,0.2)] hidden md:flex items-center justify-between px-margin-desktop h-16 transition-all duration-300">
+  <a href="index.html" class="flex items-center gap-2">
+    <span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+    <span class="font-headline-xl text-headline-md text-secondary drop-shadow-[0_0_8px_rgba(255,198,64,0.4)] tracking-tight">ZEUS IOT</span>
+  </a>
+  <nav class="flex items-center gap-8">
+    <a class="text-secondary font-label-caps text-label-caps border-b-2 border-secondary pb-1 nav-link-animated" href="index.html">HOME</a>
+    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated" href="projects.html">PROJECTS</a>
+    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated" href="contact.html">CONTACT</a>
+    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated" href="pay.html">PAY</a>
+    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated" href="admin.html">ADMIN</a>
+  </nav>
+</header>
+
+<!-- ═══════════════════════ MOBILE TOP NAV ═══════════════════════ -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(47,217,244,0.2)] flex md:hidden items-center justify-between px-margin-mobile h-16" style="z-index:150;">
+  <a href="index.html" class="flex items-center gap-2">
+    <span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+    <span class="font-headline-md text-secondary glow-text">ZEUS IOT</span>
+  </a>
+  <button id="mobile-menu-btn" aria-label="Open menu">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </button>
+</header>
+
+<!-- ═══════════════════════ MOBILE MENU OVERLAY ═══════════════════════ -->
+<div id="mobile-menu-overlay" role="dialog" aria-label="Mobile navigation">
+  <a href="index.html" class="nav-active">HOME</a>
+  <a href="projects.html">PROJECTS</a>
+  <a href="contact.html">CONTACT</a>
+  <a href="pay.html">PAY</a>
+  <a href="learning.html">LEARN</a>
+</div>
+
+<!-- ═══════════════════════ MAIN CONTENT ═══════════════════════ -->
+<main class="pt-24 md:pt-32 pb-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative z-10">
+
+  <!-- ─────────── HERO SECTION ─────────── -->
+  <section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-20 relative reveal">
+    <div class="lg:col-span-8 flex flex-col justify-center z-10">
+      <!-- Status Badge -->
+      <div class="inline-flex items-center gap-2 bg-surface-container-high border border-outline-variant/30 rounded-full px-4 py-1.5 w-max mb-6">
+        <div class="w-2.5 h-2.5 rounded-full bg-secondary animate-breathe shadow-[0_0_8px_rgba(255,198,64,0.6)]"></div>
+        <span class="font-code-sm text-code-sm text-secondary">SYSTEM STATUS: OPTIMAL</span>
+      </div>
+      <!-- Main Headline -->
+      <h1 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-on-surface mb-6 leading-tight uppercase relative">
+        HARNESS THE BOLT: <br/>
+        <span id="scramble-text" class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-tertiary">CUSTOM IOT &amp; SOFTWARE</span><span class="typewriter-cursor"></span> <br/>
+        FOR THE NEXT GEN
+      </h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-8">
+        We architect raw power and precise engineering. From atmospheric sensor arrays to complex enterprise software ecosystems, we build the infrastructure that electrifies modern industry. <strong class="text-tertiary">Don't just buy from us — Learn from us.</strong>
+      </p>
+      <!-- CTA Buttons -->
+      <div class="flex flex-wrap gap-4">
+        <a href="projects.html" id="cta-explore" class="btn-thunderbolt font-label-caps text-label-caps px-8 py-4 uppercase tracking-widest flex items-center gap-2 active:scale-95">
+          <span>EXPLORE PROJECTS</span>
+          <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+        </a>
+        <a href="contact.html" class="btn-ghost font-label-caps text-label-caps px-8 py-4 uppercase tracking-widest active:scale-95">
+          GET IN TOUCH
+        </a>
+      </div>
+    </div>
+
+    <!-- ─── Hero Lightning Bolt Widget ─── -->
+    <div class="lg:col-span-4 mt-10 lg:mt-0 relative group flex items-center justify-center">
+      <div class="glass-panel bolt-active rounded-xl p-8 w-full h-full min-h-[320px] flex flex-col items-center justify-center relative overflow-hidden transition-all duration-500 hover:border-secondary/40 shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
+        <div class="absolute inset-0 -z-10"></div>
+        <div class="absolute -top-10 -left-10 w-40 h-40 bg-tertiary/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <!-- Interactive Glowing Bolt -->
+        <div class="relative flex items-center justify-center w-full h-full min-h-[250px]" id="three-hardware-container">
+        </div>
+
+        <div class="mt-6 text-center">
+          <span class="font-code-sm text-xs text-secondary tracking-widest block uppercase font-bold mb-1">HARNESS THE BOLT</span>
+          <span class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">ZEUS IOT ACTIVE CORE</span>
+        </div>
+      </div>
+      <!-- Decorative background glow behind widget -->
+      <div class="absolute -inset-4 bg-gradient-to-tr from-tertiary/25 to-secondary/15 blur-2xl -z-10 rounded-full opacity-60 group-hover:opacity-100 transition-opacity duration-500"></div>
+    </div>
+  </section>
+
+  <!-- ─────────── ZEUS IN NUMBERS ─────────── -->
+  <section class="mt-20 reveal">
+    <div class="text-center mb-10">
+      <span class="font-code-sm text-code-sm text-tertiary uppercase tracking-widest">ZEUS IN NUMBERS</span>
+      <h2 class="font-headline-lg text-headline-lg text-on-surface mt-2">Results That Speak</h2>
+    </div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-gutter stagger-children">
+      <div class="stat-card glass-panel bolt-standby rounded-xl p-6 text-center">
+        <div class="stat-number" data-target="100" data-suffix="+">0</div>
+        <div class="font-label-caps text-label-caps text-on-surface-variant mt-2 uppercase">Projects Delivered</div>
+        <span class="material-symbols-outlined text-tertiary mt-3 text-2xl">check_circle</span>
+      </div>
+      <div class="stat-card glass-panel bolt-active rounded-xl p-6 text-center">
+        <div class="stat-number" data-target="10" data-suffix="+">0</div>
+        <div class="font-label-caps text-label-caps text-on-surface-variant mt-2 uppercase">Universities Served</div>
+        <span class="material-symbols-outlined text-secondary mt-3 text-2xl">school</span>
+      </div>
+      <div class="stat-card glass-panel bolt-standby rounded-xl p-6 text-center">
+        <div class="stat-number" data-target="99" data-suffix=".7%">0</div>
+        <div class="font-label-caps text-label-caps text-on-surface-variant mt-2 uppercase">On-Time Delivery</div>
+        <span class="material-symbols-outlined text-tertiary mt-3 text-2xl">schedule</span>
+      </div>
+      <div class="stat-card glass-panel bolt-active rounded-xl p-6 text-center">
+        <div class="stat-number" data-target="24" data-suffix="hr">0</div>
+        <div class="font-label-caps text-label-caps text-on-surface-variant mt-2 uppercase">Response Time</div>
+        <span class="material-symbols-outlined text-secondary mt-3 text-2xl">bolt</span>
+      </div>
+    </div>
+
+
+  </section>
+
+  <!-- ─────────── HOW IT WORKS ─────────── -->
+  <section class="mt-32 reveal" id="how-it-works">
+    <div class="text-center mb-16">
+      <span class="font-code-sm text-code-sm text-secondary uppercase tracking-widest">THE PROCESS</span>
+      <h2 class="font-headline-lg text-headline-lg text-on-surface mt-2">How It Works</h2>
+      <p class="font-body-md text-body-md text-on-surface-variant mt-2">From idea to ignition — four simple steps.</p>
+    </div>
+
+    <!-- Desktop Timeline -->
+    <div class="hidden md:flex items-start gap-0" id="timeline-desktop">
+      <!-- Step 1 -->
+      <div class="timeline-step flex-1 flex flex-col items-center text-center px-4">
+        <div class="timeline-dot mb-4 active animate-neon-gold">
+          <span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">edit_note</span>
+        </div>
+        <div class="font-headline-md text-[16px] text-secondary mb-2 uppercase tracking-wider">01 Submit</div>
+        <p class="font-body-md text-sm text-on-surface-variant">Fill out the project initiation form with your requirements, deadline & performance tier.</p>
+      </div>
+      <div class="timeline-connector mt-6 visible"></div>
+      <!-- Step 2 -->
+      <div class="timeline-step flex-1 flex flex-col items-center text-center px-4">
+        <div class="timeline-dot mb-4">
+          <span class="material-symbols-outlined text-tertiary text-2xl" style="font-variation-settings: 'FILL' 1;">manage_search</span>
+        </div>
+        <div class="font-headline-md text-[16px] text-tertiary mb-2 uppercase tracking-wider">02 Review</div>
+        <p class="font-body-md text-sm text-on-surface-variant">Our engineers analyze feasibility and respond within 24 hours via WhatsApp with a technical proposal.</p>
+      </div>
+      <div class="timeline-connector mt-6"></div>
+      <!-- Step 3 -->
+      <div class="timeline-step flex-1 flex flex-col items-center text-center px-4">
+        <div class="timeline-dot mb-4">
+          <span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">construction</span>
+        </div>
+        <div class="font-headline-md text-[16px] text-secondary mb-2 uppercase tracking-wider">03 Build</div>
+        <p class="font-body-md text-sm text-on-surface-variant">We fabricate, code, and test. Milestone-based updates keep you informed throughout the process.</p>
+      </div>
+      <div class="timeline-connector mt-6"></div>
+      <!-- Step 4 -->
+      <div class="timeline-step flex-1 flex flex-col items-center text-center px-4">
+        <div class="timeline-dot mb-4">
+          <span class="material-symbols-outlined text-tertiary text-2xl" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+        </div>
+        <div class="font-headline-md text-[16px] text-tertiary mb-2 uppercase tracking-wider">04 Deliver</div>
+        <p class="font-body-md text-sm text-on-surface-variant">Complete delivery with documentation, walkthroughs, and academic report support included.</p>
+      </div>
+    </div>
+
+    <!-- Mobile Timeline (vertical) -->
+    <div class="flex md:hidden flex-col gap-6">
+      <div class="flex items-start gap-4 glass-panel rounded-xl p-5">
+        <div class="timeline-dot flex-shrink-0 active animate-neon-gold">
+          <span class="material-symbols-outlined text-secondary text-xl" style="font-variation-settings: 'FILL' 1;">edit_note</span>
+        </div>
+        <div>
+          <div class="font-headline-md text-[15px] text-secondary mb-1 uppercase tracking-wider">01 Submit</div>
+          <p class="font-body-md text-sm text-on-surface-variant">Fill out the project initiation form with your requirements.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 glass-panel rounded-xl p-5">
+        <div class="timeline-dot flex-shrink-0">
+          <span class="material-symbols-outlined text-tertiary text-xl" style="font-variation-settings: 'FILL' 1;">manage_search</span>
+        </div>
+        <div>
+          <div class="font-headline-md text-[15px] text-tertiary mb-1 uppercase tracking-wider">02 Review</div>
+          <p class="font-body-md text-sm text-on-surface-variant">Engineers respond within 24 hours via WhatsApp.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 glass-panel rounded-xl p-5">
+        <div class="timeline-dot flex-shrink-0">
+          <span class="material-symbols-outlined text-secondary text-xl" style="font-variation-settings: 'FILL' 1;">construction</span>
+        </div>
+        <div>
+          <div class="font-headline-md text-[15px] text-secondary mb-1 uppercase tracking-wider">03 Build</div>
+          <p class="font-body-md text-sm text-on-surface-variant">Fabricate, code, and test with milestone updates.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 glass-panel rounded-xl p-5">
+        <div class="timeline-dot flex-shrink-0">
+          <span class="material-symbols-outlined text-tertiary text-xl" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+        </div>
+        <div>
+          <div class="font-headline-md text-[15px] text-tertiary mb-1 uppercase tracking-wider">04 Deliver</div>
+          <p class="font-body-md text-sm text-on-surface-variant">Complete delivery with documentation and walkthroughs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── CORE CAPABILITIES BENTO GRID ─────────── -->
+  <section class="mt-32 reveal">
+    <h2 class="font-headline-lg text-headline-lg text-on-surface mb-12 flex items-center gap-4">
+      <span class="w-8 h-1 bg-secondary"></span>
+      CORE CAPABILITIES
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter auto-rows-[250px]">
+      <!-- Custom IoT Hardware -->
+      <div class="md:col-span-7 md:row-span-2 glass-panel bolt-standby rounded-xl p-8 flex flex-col group relative overflow-hidden">
+        <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+          <span class="material-symbols-outlined text-9xl text-tertiary">memory</span>
+        </div>
+        <div class="w-12 h-12 rounded-full bg-tertiary/10 flex items-center justify-center mb-6 border border-tertiary/30">
+          <span class="material-symbols-outlined text-tertiary">sensors</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 z-10">Custom Hardware &amp; IoT</h3>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md z-10 mb-6 flex-grow">
+          We design and fabricate bespoke sensor networks, microcontroller boards, and final-year IoT prototype modules. Built to satisfy rigorous university engineering rubrics and demonstrate clean, production-ready edge concepts.
+        </p>
+        <div class="flex gap-2 z-10 mt-auto flex-wrap">
+          <span class="bg-surface-container-high px-3 py-1 rounded text-xs font-code-sm text-tertiary border border-tertiary/20">ESP32</span>
+          <span class="bg-surface-container-high px-3 py-1 rounded text-xs font-code-sm text-tertiary border border-tertiary/20">Arduino</span>
+          <span class="bg-surface-container-high px-3 py-1 rounded text-xs font-code-sm text-tertiary border border-tertiary/20">Raspberry Pi</span>
+          <span class="bg-surface-container-high px-3 py-1 rounded text-xs font-code-sm text-tertiary border border-tertiary/20">Nvidia Jetson</span>
+          <span class="bg-surface-container-high px-3 py-1 rounded text-xs font-code-sm text-tertiary border border-tertiary/20">Radxa X4</span>
+          <span class="bg-surface-container-high px-3 py-1 rounded text-xs font-code-sm text-tertiary border border-tertiary/20">LattePanda</span>
+          <span class="bg-surface-container-high px-3 py-1 rounded text-xs font-code-sm text-tertiary border border-tertiary/20">Orange Pi</span>
+          <span class="bg-surface-container-high px-3 py-1 rounded text-xs font-code-sm text-tertiary border border-tertiary/20">Banana Pi</span>
+          <span class="bg-surface-container-high px-3 py-1 rounded text-xs font-code-sm text-tertiary border border-tertiary/20">Asus Tinker Board</span>
+        </div>
+      </div>
+      <!-- Software Ecosystems -->
+      <div class="md:col-span-5 md:row-span-2 glass-panel bolt-active rounded-xl p-8 flex flex-col group relative overflow-hidden">
+        <div class="absolute -right-10 -bottom-10 opacity-5 group-hover:opacity-10 transition-opacity">
+          <span class="material-symbols-outlined text-[200px] text-secondary">terminal</span>
+        </div>
+        <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-6 border border-secondary/30">
+          <span class="material-symbols-outlined text-secondary">code_blocks</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-4 z-10">Software Engineering</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant z-10 mb-6">
+          Tailored full-stack applications, secure cloud platforms, custom automation systems, and high-performance database architectures. We build robust digital ecosystems tailored to your exact business requirements.
+        </p>
+        <div class="flex gap-2 z-10 mt-auto flex-wrap">
+          <span class="bg-surface-container-high px-3 py-1 rounded text-xs font-code-sm text-secondary border border-secondary/20">Python</span>
+          <span class="bg-surface-container-high px-3 py-1 rounded text-xs font-code-sm text-secondary border border-secondary/20">JavaScript</span>
+          <span class="bg-surface-container-high px-3 py-1 rounded text-xs font-code-sm text-secondary border border-secondary/20">C++</span>
+          <span class="bg-surface-container-high px-3 py-1 rounded text-xs font-code-sm text-secondary border border-secondary/20">MongoDB</span>
+          <span class="bg-surface-container-high px-3 py-1 rounded text-xs font-code-sm text-secondary border border-secondary/20">AWS</span>
+          <span class="bg-surface-container-high px-3 py-1 rounded text-xs font-code-sm text-secondary border border-secondary/20">React</span>
+          <span class="bg-surface-container-high px-3 py-1 rounded text-xs font-code-sm text-secondary border border-secondary/20">Angular</span>
+          <span class="bg-surface-container-high px-3 py-1 rounded text-xs font-code-sm text-secondary border border-secondary/20">Node.js</span>
+          <span class="bg-surface-container-high px-3 py-1 rounded text-xs font-code-sm text-secondary border border-secondary/20">Django</span>
+        </div>
+      </div>
+
+      <!-- Interactive IoT Sandbox -->
+      <div class="md:col-span-12 glass-panel bolt-active rounded-xl p-8 flex flex-col lg:flex-row gap-8 items-center justify-between relative overflow-hidden group">
+        <div class="absolute inset-0 bg-gradient-to-r from-secondary/5 to-tertiary/5 pointer-events-none"></div>
+        <div class="z-10 lg:w-1/2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high border border-outline-variant/30 rounded-full mb-4">
+            <div class="w-2 h-2 rounded-full bg-secondary animate-pulse"></div>
+            <span class="font-code-sm text-[11px] text-secondary tracking-widest">LIVE DEMO</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-on-surface mb-4">Interactive UI Sandbox</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-6">
+            Test our custom IoT dashboards. Toggle the relay switch below and watch the telemetry meters react in real-time. This is the caliber of software we ship with every hardware node.
+          </p>
+        </div>
+        
+        <!-- The Sandbox Widget -->
+        <div class="z-10 lg:w-1/2 w-full bg-surface-container-lowest border border-outline-variant/20 rounded-xl p-6 shadow-2xl relative">
+          <div class="flex justify-between items-center border-b border-outline-variant/20 pb-4 mb-4">
+            <div class="font-code-sm text-sm text-on-surface font-bold tracking-widest">ESP32_CORE_01</div>
+            <div class="font-code-sm text-xs text-tertiary">UPTIME: <span id="sandbox-uptime">00:00:00</span></div>
+          </div>
+          <div class="grid grid-cols-2 gap-4 mb-6">
+            <div class="bg-surface-container p-4 rounded-lg border border-outline-variant/10 text-center transition-colors" id="sandbox-temp-card">
+              <div class="font-label-caps text-[10px] text-on-surface-variant mb-2 uppercase">Core Temp</div>
+              <div class="font-headline-md text-2xl text-on-surface transition-all duration-300" id="sandbox-temp">42.5°C</div>
+            </div>
+            <div class="bg-surface-container p-4 rounded-lg border border-outline-variant/10 text-center transition-colors" id="sandbox-load-card">
+              <div class="font-label-caps text-[10px] text-on-surface-variant mb-2 uppercase">CPU Load</div>
+              <div class="font-headline-md text-2xl text-on-surface transition-all duration-300" id="sandbox-load">12%</div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between bg-surface-container p-4 rounded-lg border border-outline-variant/20 transition-colors duration-300" id="sandbox-relay-card">
+            <div>
+              <div class="font-label-caps text-[11px] text-on-surface uppercase mb-1">Main Relay Power</div>
+              <div class="font-code-sm text-[10px] text-on-surface-variant">Controls physical hardware state</div>
+            </div>
+            <label class="relative inline-flex items-center cursor-pointer">
+              <input type="checkbox" id="sandbox-toggle" class="sr-only peer">
+              <div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── STUDENT TESTIMONIALS ─────────── -->
+  <section class="mt-32 reveal overflow-hidden">
+    <div class="text-center mb-12">
+      <span class="font-code-sm text-code-sm text-tertiary uppercase tracking-widest">SOCIAL PROOF</span>
+      <h2 class="font-headline-lg text-headline-lg text-on-surface mt-2">What Students Say</h2>
+    </div>
+    <div class="relative">
+      <!-- Fade edges -->
+      <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0F172A] to-transparent z-10 pointer-events-none"></div>
+      <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0F172A] to-transparent z-10 pointer-events-none"></div>
+      
+      <div class="flex gap-6 animate-marquee" style="width: max-content;">
+        <!-- Card 1 -->
+        <div class="testimonial-card">
+          <div class="flex gap-1 mb-3">
+            <span class="text-secondary text-sm">★★★★★</span>
+          </div>
+          <p class="font-body-md text-sm text-on-surface-variant mb-4">"Got my Smart Irrigation System for final year within 10 days. The code documentation was so clean my professor was impressed. Zeus actually explains everything!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-tertiary/30 to-secondary/30 flex items-center justify-center border border-tertiary/30 font-bold text-tertiary font-headline-md">R</div>
+            <div>
+              <div class="font-headline-md text-[14px] text-on-surface">Rahul M.</div>
+              <div class="font-code-sm text-[11px] text-secondary">VIT Chennai · ECE Final Year</div>
+            </div>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="testimonial-card">
+          <div class="flex gap-1 mb-3">
+            <span class="text-secondary text-sm">★★★★★</span>
+          </div>
+          <p class="font-body-md text-sm text-on-surface-variant mb-4">"My warehouse inventory tracking system using BLE and ESP32 worked flawlessly on demo day. Price was very reasonable for the quality delivered."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-secondary/30 to-tertiary/30 flex items-center justify-center border border-secondary/30 font-bold text-secondary font-headline-md">P</div>
+            <div>
+              <div class="font-headline-md text-[14px] text-on-surface">Priya S.</div>
+              <div class="font-code-sm text-[11px] text-secondary">SRM · CSE 3rd Year</div>
+            </div>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="testimonial-card">
+          <div class="flex gap-1 mb-3">
+            <span class="text-secondary text-sm">★★★★★</span>
+          </div>
+          <p class="font-body-md text-sm text-on-surface-variant mb-4">"The 1-on-1 walkthrough session was phenomenal. I understood every circuit connection and could replicate parts of it for my viva. Worth every rupee."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-tertiary/30 to-secondary/30 flex items-center justify-center border border-tertiary/30 font-bold text-tertiary font-headline-md">A</div>
+            <div>
+              <div class="font-headline-md text-[14px] text-on-surface">Arjun K.</div>
+              <div class="font-code-sm text-[11px] text-secondary">Anna University · EEE Final Year</div>
+            </div>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="testimonial-card">
+          <div class="flex gap-1 mb-3">
+            <span class="text-secondary text-sm">★★★★★</span>
+          </div>
+          <p class="font-body-md text-sm text-on-surface-variant mb-4">"They built a full React + Node.js hospital management dashboard for my project. The UI was so premium even my HOD asked who made it!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-secondary/30 to-tertiary/30 flex items-center justify-center border border-secondary/30 font-bold text-secondary font-headline-md">S</div>
+            <div>
+              <div class="font-headline-md text-[14px] text-on-surface">Sneha R.</div>
+              <div class="font-code-sm text-[11px] text-secondary">Amrita · IT Final Year</div>
+            </div>
+          </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="testimonial-card">
+          <div class="flex gap-1 mb-3">
+            <span class="text-secondary text-sm">★★★★★</span>
+          </div>
+          <p class="font-body-md text-sm text-on-surface-variant mb-4">"Fast response on WhatsApp, delivered 3 days before deadline. The LoRaWAN sensor node worked perfectly in outdoor conditions. Highly recommend!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-tertiary/30 to-secondary/30 flex items-center justify-center border border-tertiary/30 font-bold text-tertiary font-headline-md">V</div>
+            <div>
+              <div class="font-headline-md text-[14px] text-on-surface">Vishnu P.</div>
+              <div class="font-code-sm text-[11px] text-secondary">NIT Trichy · EE 4th Year</div>
+            </div>
+          </div>
+        </div>
+        <!-- Card 6 -->
+        <div class="testimonial-card">
+          <div class="flex gap-1 mb-3">
+            <span class="text-secondary text-sm">★★★★★</span>
+          </div>
+          <p class="font-body-md text-sm text-on-surface-variant mb-4">"Academic report was detailed, properly formatted with circuit diagrams and code explanations. Saved me so much time during thesis writing!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-secondary/30 to-tertiary/30 flex items-center justify-center border border-secondary/30 font-bold text-secondary font-headline-md">D</div>
+            <div>
+              <div class="font-headline-md text-[14px] text-on-surface">Divya N.</div>
+              <div class="font-code-sm text-[11px] text-secondary">SASTRA · ECE Final Year</div>
+            </div>
+          </div>
+        </div>
+        <!-- Duplicate set for seamless loop -->
+        <div class="testimonial-card">
+          <div class="flex gap-1 mb-3"><span class="text-secondary text-sm">★★★★★</span></div>
+          <p class="font-body-md text-sm text-on-surface-variant mb-4">"Got my Smart Irrigation System for final year within 10 days. The code documentation was so clean my professor was impressed. Zeus actually explains everything!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-tertiary/30 to-secondary/30 flex items-center justify-center border border-tertiary/30 font-bold text-tertiary font-headline-md">R</div>
+            <div><div class="font-headline-md text-[14px] text-on-surface">Rahul M.</div><div class="font-code-sm text-[11px] text-secondary">VIT Chennai · ECE Final Year</div></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="flex gap-1 mb-3"><span class="text-secondary text-sm">★★★★★</span></div>
+          <p class="font-body-md text-sm text-on-surface-variant mb-4">"My warehouse inventory tracking system using BLE and ESP32 worked flawlessly on demo day. Price was very reasonable for the quality delivered."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-secondary/30 to-tertiary/30 flex items-center justify-center border border-secondary/30 font-bold text-secondary font-headline-md">P</div>
+            <div><div class="font-headline-md text-[14px] text-on-surface">Priya S.</div><div class="font-code-sm text-[11px] text-secondary">SRM · CSE 3rd Year</div></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="flex gap-1 mb-3"><span class="text-secondary text-sm">★★★★★</span></div>
+          <p class="font-body-md text-sm text-on-surface-variant mb-4">"The 1-on-1 walkthrough session was phenomenal. I understood every circuit connection and could replicate parts of it for my viva. Worth every rupee."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-tertiary/30 to-secondary/30 flex items-center justify-center border border-tertiary/30 font-bold text-tertiary font-headline-md">A</div>
+            <div><div class="font-headline-md text-[14px] text-on-surface">Arjun K.</div><div class="font-code-sm text-[11px] text-secondary">Anna University · EEE Final Year</div></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="flex gap-1 mb-3"><span class="text-secondary text-sm">★★★★★</span></div>
+          <p class="font-body-md text-sm text-on-surface-variant mb-4">"They built a full React + Node.js hospital management dashboard for my project. The UI was so premium even my HOD asked who made it!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-secondary/30 to-tertiary/30 flex items-center justify-center border border-secondary/30 font-bold text-secondary font-headline-md">S</div>
+            <div><div class="font-headline-md text-[14px] text-on-surface">Sneha R.</div><div class="font-code-sm text-[11px] text-secondary">Amrita · IT Final Year</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── FORGED CREATIONS PREVIEW ─────────── -->
+  <section class="mt-32 reveal">
+    <h2 class="font-headline-lg text-headline-lg text-on-surface mb-3 flex items-center gap-4">
+      <span class="w-8 h-1 bg-secondary"></span>
+      FORGED CREATIONS
+    </h2>
+    <p class="font-body-md text-body-md text-on-surface-variant mb-12 ml-12">A glimpse at our recent deployments.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter stagger-children">
+      <!-- Project Card 1 -->
+      <div class="preview-card glass-panel bolt-standby rounded-xl overflow-hidden cursor-pointer group tilt-card">
+        <div class="glare"></div>
+        <div class="h-44 relative overflow-hidden z-10" style="background: linear-gradient(135deg, rgba(47,217,244,0.15), rgba(15,23,42,0.9));">
+          <div class="absolute inset-0 flex items-center justify-center opacity-20 group-hover:opacity-30 transition-opacity">
+            <span class="material-symbols-outlined text-[100px] text-tertiary">sensors</span>
+          </div>
+          <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-surface-container/80 backdrop-blur-sm px-2 py-1 rounded-full border border-tertiary/30">
+            <div class="w-1.5 h-1.5 rounded-full bg-tertiary animate-breathe"></div>
+            <span class="font-code-sm text-[10px] text-tertiary">ACTIVE</span>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-surface to-transparent"></div>
+        </div>
+        <div class="p-5 relative z-10">
+          <h3 class="font-headline-md text-[18px] text-on-surface mb-2">Smart Irrigation System</h3>
+          <p class="font-body-md text-sm text-on-surface-variant mb-4">Automated soil moisture monitoring with LoRaWAN communication and mobile dashboard for remote farms.</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-tertiary border border-tertiary/20">ESP32</span>
+            <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-tertiary border border-tertiary/20">LoRaWAN</span>
+            <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-secondary border border-secondary/20">React</span>
+          </div>
+        </div>
+      </div>
+      <!-- Project Card 2 -->
+      <div class="preview-card glass-panel bolt-active rounded-xl overflow-hidden cursor-pointer group tilt-card">
+        <div class="glare"></div>
+        <div class="h-44 relative overflow-hidden z-10" style="background: linear-gradient(135deg, rgba(255,198,64,0.12), rgba(15,23,42,0.9));">
+          <div class="absolute inset-0 flex items-center justify-center opacity-20 group-hover:opacity-30 transition-opacity">
+            <span class="material-symbols-outlined text-[100px] text-secondary">local_hospital</span>
+          </div>
+          <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-surface-container/80 backdrop-blur-sm px-2 py-1 rounded-full border border-secondary/30">
+            <div class="w-1.5 h-1.5 rounded-full bg-secondary animate-breathe"></div>
+            <span class="font-code-sm text-[10px] text-secondary">ACTIVE</span>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-surface to-transparent"></div>
+        </div>
+        <div class="p-5 relative z-10">
+          <h3 class="font-headline-md text-[18px] text-on-surface mb-2">Hospital Management System</h3>
+          <p class="font-body-md text-sm text-on-surface-variant mb-4">Full-stack web platform for patient records, appointment scheduling, and inventory management.</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-secondary border border-secondary/20">Node.js</span>
+            <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-secondary border border-secondary/20">React</span>
+            <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-secondary border border-secondary/20">MongoDB</span>
+          </div>
+        </div>
+      </div>
+      <!-- Project Card 3 -->
+      <div class="preview-card glass-panel bolt-standby rounded-xl overflow-hidden cursor-pointer group tilt-card">
+        <div class="glare"></div>
+        <div class="h-44 relative overflow-hidden z-10" style="background: linear-gradient(135deg, rgba(47,217,244,0.12), rgba(255,198,64,0.08), rgba(15,23,42,0.9));">
+          <div class="absolute inset-0 flex items-center justify-center opacity-20 group-hover:opacity-30 transition-opacity">
+            <span class="material-symbols-outlined text-[100px] text-tertiary">warehouse</span>
+          </div>
+          <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-surface-container/80 backdrop-blur-sm px-2 py-1 rounded-full border border-tertiary/30">
+            <div class="w-1.5 h-1.5 rounded-full bg-tertiary animate-breathe"></div>
+            <span class="font-code-sm text-[10px] text-tertiary">ACTIVE</span>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-surface to-transparent"></div>
+        </div>
+        <div class="p-5 relative z-10">
+          <h3 class="font-headline-md text-[18px] text-on-surface mb-2">BLE Warehouse Tracker</h3>
+          <p class="font-body-md text-sm text-on-surface-variant mb-4">Real-time inventory tracking system using Bluetooth Low Energy beacons and a web dashboard.</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-tertiary border border-tertiary/20">ESP32</span>
+            <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-tertiary border border-tertiary/20">BLE 5.3</span>
+            <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-secondary border border-secondary/20">Python</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-8">
+      <a href="projects.html" class="inline-flex items-center gap-2 text-secondary font-label-caps text-label-caps uppercase hover:gap-4 transition-all duration-300">
+        VIEW ALL PROJECTS <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ─────────── PRICING PREVIEW ─────────── -->
+  <section class="mt-32 reveal">
+    <div class="text-center mb-12">
+      <span class="font-code-sm text-code-sm text-secondary uppercase tracking-widest">INVESTMENT</span>
+      <h2 class="font-headline-lg text-headline-lg text-on-surface mt-2">Simple Pricing Tiers</h2>
+      <p class="font-body-md text-body-md text-on-surface-variant mt-2">Milestone-based billing. 50% upfront, 50% on delivery.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter stagger-children items-center">
+      <!-- Basic -->
+      <div class="glass-panel bolt-standby rounded-xl p-8 flex flex-col h-full group hover:border-tertiary/40 transition-all duration-300">
+        <div class="font-label-caps text-label-caps text-tertiary mb-3 uppercase">Basic Tier</div>
+        <div class="text-4xl font-headline-xl text-on-surface font-extrabold mb-1">₹499<span class="text-lg text-on-surface-variant font-normal font-body-md">+</span></div>
+        <div class="font-code-sm text-xs text-on-surface-variant mb-6">Hardware components not included</div>
+        <ul class="flex flex-col gap-3 flex-grow mb-8">
+          <li class="flex items-center gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-tertiary text-[18px]">check</span>Single microcontroller project</li>
+          <li class="flex items-center gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-tertiary text-[18px]">check</span>Basic wiring diagram</li>
+          <li class="flex items-center gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-tertiary text-[18px]">check</span>Functional source code</li>
+          <li class="flex items-center gap-2 font-body-md text-sm text-on-surface-variant"><span class="material-symbols-outlined text-outline-variant text-[18px]">close</span>1-on-1 session</li>
+          <li class="flex items-center gap-2 font-body-md text-sm text-on-surface-variant"><span class="material-symbols-outlined text-outline-variant text-[18px]">close</span>Academic report</li>
+        </ul>
+        <a href="contact.html" class="btn-ghost font-label-caps text-label-caps py-3 px-6 rounded text-center uppercase tracking-wider">GET STARTED</a>
+      </div>
+      <!-- Custom (Featured) -->
+      <div class="glass-panel pricing-featured rounded-xl p-8 flex flex-col h-full relative">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-secondary text-on-secondary font-label-caps text-[11px] px-4 py-1 rounded-full uppercase tracking-wider font-bold">⚡ MOST POPULAR</div>
+        <div class="font-label-caps text-label-caps text-secondary mb-3 uppercase">Custom Tier</div>
+        <div class="text-4xl font-headline-xl text-on-surface font-extrabold mb-1">₹1,499<span class="text-lg text-on-surface-variant font-normal font-body-md">+</span></div>
+        <div class="font-code-sm text-xs text-on-surface-variant mb-6">Hardware components not included</div>
+        <ul class="flex flex-col gap-3 flex-grow mb-8">
+          <li class="flex items-center gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check</span>Multi-module IoT system</li>
+          <li class="flex items-center gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check</span>Full circuit schematics</li>
+          <li class="flex items-center gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check</span>Documented source code</li>
+          <li class="flex items-center gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check</span>30-min 1-on-1 walkthrough</li>
+          <li class="flex items-center gap-2 font-body-md text-sm text-on-surface-variant"><span class="material-symbols-outlined text-outline-variant text-[18px]">close</span>Full academic report</li>
+        </ul>
+        <a href="contact.html" class="btn-thunderbolt font-label-caps text-label-caps py-3 px-6 text-center uppercase tracking-wider">GET QUOTE</a>
+      </div>
+      <!-- Professional -->
+      <div class="glass-panel bolt-active rounded-xl p-8 flex flex-col h-full group hover:border-secondary/40 transition-all duration-300">
+        <div class="font-label-caps text-label-caps text-secondary mb-3 uppercase">Professional</div>
+        <div class="text-4xl font-headline-xl text-on-surface font-extrabold mb-1">₹3,999<span class="text-lg text-on-surface-variant font-normal font-body-md">+</span></div>
+        <div class="font-code-sm text-xs text-on-surface-variant mb-6">Hardware components not included</div>
+        <ul class="flex flex-col gap-3 flex-grow mb-8">
+          <li class="flex items-center gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check</span>Full-stack software ecosystem</li>
+          <li class="flex items-center gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check</span>PCB design files</li>
+          <li class="flex items-center gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check</span>Production-ready code</li>
+          <li class="flex items-center gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check</span>Full academic report</li>
+          <li class="flex items-center gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check</span>Viva prep session</li>
+        </ul>
+        <a href="contact.html" class="btn-thunderbolt font-label-caps text-label-caps py-3 px-6 text-center uppercase tracking-wider">GET QUOTE</a>
+      </div>
+    </div>
+    <p class="text-center font-code-sm text-xs text-on-surface-variant mt-6">All prices are starting estimates. Contact us for exact project quotes on WhatsApp.</p>
+  </section>
+
+  <!-- ─────────── HARDWARE PANTHEON ─────────── -->
+  <section class="mt-32 reveal">
+    <h2 class="font-headline-lg text-headline-lg text-on-surface mb-3 flex items-center gap-4">
+      <span class="w-8 h-1 bg-tertiary"></span>
+      THE HARDWARE PANTHEON
+    </h2>
+    <p class="font-body-md text-body-md text-on-surface-variant mb-12 ml-12">Our Technical Stack — the foundation of every build.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter stagger-children">
+      <div class="glass-panel rounded-xl p-6 flex flex-col items-center text-center group">
+        <div class="hardware-icon mb-4 group-hover:shadow-[0_0_20px_rgba(47,217,244,0.3)] transition-shadow">
+          <span class="material-symbols-outlined text-tertiary text-3xl">memory</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-1">ESP32</h3>
+        <p class="font-code-sm text-code-sm text-secondary mb-2">Wi-Fi &amp; BLE Powerhouse</p>
+        <p class="font-code-sm text-[11px] text-on-surface-variant tracking-wider">Dual-Core | 240 MHz | Wi-Fi/BLE</p>
+      </div>
+      <div class="glass-panel rounded-xl p-6 flex flex-col items-center text-center group">
+        <div class="hardware-icon mb-4 group-hover:shadow-[0_0_20px_rgba(47,217,244,0.3)] transition-shadow">
+          <span class="material-symbols-outlined text-tertiary text-3xl">developer_board</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-1">STM32</h3>
+        <p class="font-code-sm text-code-sm text-secondary mb-2">Industrial Grade ARM</p>
+        <p class="font-code-sm text-[11px] text-on-surface-variant tracking-wider">Cortex-M | 480 MHz | Real-Time</p>
+      </div>
+      <div class="glass-panel rounded-xl p-6 flex flex-col items-center text-center group">
+        <div class="hardware-icon mb-4 group-hover:shadow-[0_0_20px_rgba(255,198,64,0.3)] transition-shadow">
+          <span class="material-symbols-outlined text-secondary text-3xl">computer</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-1">Raspberry Pi 5</h3>
+        <p class="font-code-sm text-code-sm text-secondary mb-2">Edge Computing Beast</p>
+        <p class="font-code-sm text-[11px] text-on-surface-variant tracking-wider">Quad-Core | 2.4 GHz | 8GB RAM</p>
+      </div>
+      <div class="glass-panel rounded-xl p-6 flex flex-col items-center text-center group">
+        <div class="hardware-icon mb-4 group-hover:shadow-[0_0_20px_rgba(47,217,244,0.3)] transition-shadow">
+          <span class="material-symbols-outlined text-tertiary text-3xl">developer_board</span>
+        </div>
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-1">Arduino UNO / Nano</h3>
+        <p class="font-code-sm text-code-sm text-secondary mb-2">Academic Standard MCU</p>
+        <p class="font-code-sm text-[11px] text-on-surface-variant tracking-wider">ATmega328P/Renesas RA4M1 | 16/48 MHz | 5V/3.3V</p>
+      </div>
+    </div>
+    <div class="text-center mt-8">
+      <a href="projects.html" class="inline-flex items-center gap-2 text-secondary font-label-caps text-label-caps uppercase hover:gap-4 transition-all duration-300">
+        VIEW ALL HARDWARE <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ─────────── COMMUNICATION PROTOCOLS ─────────── -->
+  <section class="mt-32 reveal">
+    <h2 class="font-headline-lg text-headline-lg text-on-surface mb-12 flex items-center gap-4">
+      <span class="w-8 h-1 bg-gradient-to-r from-tertiary to-secondary"></span>
+      COMMUNICATION PROTOCOLS
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter stagger-children">
+      <div class="glass-panel protocol-card rounded-xl p-6 group">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center border border-tertiary/30"><span class="material-symbols-outlined text-tertiary">hub</span></div>
+          <h3 class="font-headline-md text-headline-md text-on-surface">Matter</h3>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant">Unified smart home protocol enabling seamless interoperability across manufacturers and ecosystems.</p>
+      </div>
+      <div class="glass-panel protocol-card rounded-xl p-6 group">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center border border-secondary/30"><span class="material-symbols-outlined text-secondary">cell_tower</span></div>
+          <h3 class="font-headline-md text-headline-md text-on-surface">LoRaWAN</h3>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant">Long-range, low-power wide-area network protocol for industrial IoT and agricultural sensor networks.</p>
+      </div>
+      <div class="glass-panel protocol-card rounded-xl p-6 group">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center border border-tertiary/30"><span class="material-symbols-outlined text-tertiary">signal_cellular_alt</span></div>
+          <h3 class="font-headline-md text-headline-md text-on-surface">NB-IoT</h3>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant">Narrowband cellular connectivity for massive-scale deployments requiring reliable, low-bandwidth communication.</p>
+      </div>
+      <div class="glass-panel protocol-card rounded-xl p-6 group">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center border border-secondary/30"><span class="material-symbols-outlined text-secondary">bluetooth_connected</span></div>
+          <h3 class="font-headline-md text-headline-md text-on-surface">BLE 5.3</h3>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant">Latest Bluetooth Low Energy with enhanced data rates, extended range, and improved coexistence for wearables.</p>
+      </div>
+      <div class="glass-panel protocol-card rounded-xl p-6 group">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center border border-tertiary/30"><span class="material-symbols-outlined text-tertiary">device_hub</span></div>
+          <h3 class="font-headline-md text-headline-md text-on-surface">Zigbee</h3>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant">Low-power mesh networking protocol ideal for smart home devices and building automation systems.</p>
+      </div>
+      <div class="glass-panel protocol-card rounded-xl p-6 group">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center border border-secondary/30"><span class="material-symbols-outlined text-secondary">settings_input_antenna</span></div>
+          <h3 class="font-headline-md text-headline-md text-on-surface">LTE-M</h3>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant">Cat-M1 cellular connectivity for asset tracking and mobile IoT applications requiring moderate throughput.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── LEARN FROM US ─────────── -->
+  <section class="mt-32 reveal">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+      <div class="lg:col-span-7">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-secondary/10 border border-secondary/30 rounded-full mb-6">
+          <span class="material-symbols-outlined text-secondary text-[16px]">school</span>
+          <span class="font-code-sm text-code-sm text-secondary">EDUCATIONAL ENGAGEMENT</span>
+        </div>
+        <h2 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-on-surface mb-4 uppercase">
+          Don't Just Buy From Us — <span class="text-secondary glow-text">Learn From Us</span>
+        </h2>
+        <p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-xl">
+          Book a 1-on-1 consultation for complete project walkthroughs. We don't just deliver solutions — we empower you to understand, replicate, and innovate. Our engineers walk you through every circuit, every line of code.
+        </p>
+        <a href="learning.html" class="btn-thunderbolt font-label-caps text-label-caps px-8 py-4 uppercase tracking-widest inline-flex items-center gap-2 magnetic-btn">
+          <span>BOOK A SESSION</span>
+          <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+        </a>
+      </div>
+      <div class="lg:col-span-5 mt-10 lg:mt-0">
+        <div class="glass-panel bolt-standby rounded-xl p-8 relative overflow-hidden">
+          <div class="absolute top-4 right-4 opacity-10">
+            <span class="material-symbols-outlined text-[120px] text-tertiary">school</span>
+          </div>
+          <div class="space-y-4 relative z-10">
+            <div class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">check_circle</span><span class="font-body-md text-body-md text-on-surface">Complete Hardware Walkthrough</span></div>
+            <div class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">check_circle</span><span class="font-body-md text-body-md text-on-surface">Code Review &amp; Documentation</span></div>
+            <div class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">check_circle</span><span class="font-body-md text-body-md text-on-surface">Protocol Implementation Guide</span></div>
+            <div class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">check_circle</span><span class="font-body-md text-body-md text-on-surface">Deployment &amp; Testing Strategy</span></div>
+            <div class="flex items-center gap-3"><span class="material-symbols-outlined text-tertiary">check_circle</span><span class="font-body-md text-body-md text-on-surface">Academic Report Assistance</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── FAQ ACCORDION ─────────── -->
+  <section class="mt-32 reveal">
+    <div class="text-center mb-12">
+      <span class="font-code-sm text-code-sm text-tertiary uppercase tracking-widest">STUDENT QUERIES</span>
+      <h2 class="font-headline-lg text-headline-lg text-on-surface mt-2">Frequently Asked</h2>
+    </div>
+    <div class="max-w-3xl mx-auto flex flex-col gap-3" id="faq-list">
+      
+      <div class="glass-panel rounded-xl overflow-hidden">
+        <button class="faq-btn w-full flex items-center justify-between p-6 text-left" data-faq="0">
+          <span class="font-headline-md text-[17px] text-on-surface">How much does a typical IoT project cost?</span>
+          <span class="material-symbols-outlined text-secondary faq-icon text-xl flex-shrink-0 ml-4">bolt</span>
+        </button>
+        <div class="faq-answer px-6" id="faq-0">
+          <p class="font-body-md text-body-md text-on-surface-variant pb-5">Starting from ₹499 for basic single-module projects up to ₹3,999+ for full-stack software ecosystems. Hardware component costs are separate. We provide exact quotes within 24 hours after reviewing your requirements on WhatsApp.</p>
+        </div>
+      </div>
+
+      <div class="glass-panel rounded-xl overflow-hidden">
+        <button class="faq-btn w-full flex items-center justify-between p-6 text-left" data-faq="1">
+          <span class="font-headline-md text-[17px] text-on-surface">How long does delivery take?</span>
+          <span class="material-symbols-outlined text-secondary faq-icon text-xl flex-shrink-0 ml-4">bolt</span>
+        </button>
+        <div class="faq-answer px-6" id="faq-1">
+          <p class="font-body-md text-body-md text-on-surface-variant pb-5">Hardware prototypes: 1–2 weeks. Full-stack software: 2–4 weeks. Complex PCB fabrication: 4–6 weeks. We always deliver before your deadline — 99.7% on-time delivery rate is our promise.</p>
+        </div>
+      </div>
+
+      <div class="glass-panel rounded-xl overflow-hidden">
+        <button class="faq-btn w-full flex items-center justify-between p-6 text-left" data-faq="2">
+          <span class="font-headline-md text-[17px] text-on-surface">Will I understand the project for my viva?</span>
+          <span class="material-symbols-outlined text-secondary faq-icon text-xl flex-shrink-0 ml-4">bolt</span>
+        </button>
+        <div class="faq-answer px-6" id="faq-2">
+          <p class="font-body-md text-body-md text-on-surface-variant pb-5">Absolutely. Our "Learn From Us" philosophy means every project comes with documented code and optional 1-on-1 walkthrough sessions where our engineers explain everything from circuit connections to deployment strategy. You'll ace your viva.</p>
+        </div>
+      </div>
+
+      <div class="glass-panel rounded-xl overflow-hidden">
+        <button class="faq-btn w-full flex items-center justify-between p-6 text-left" data-faq="3">
+          <span class="font-headline-md text-[17px] text-on-surface">How do I pay for the project?</span>
+          <span class="material-symbols-outlined text-secondary faq-icon text-xl flex-shrink-0 ml-4">bolt</span>
+        </button>
+        <div class="faq-answer px-6" id="faq-3">
+          <p class="font-body-md text-body-md text-on-surface-variant pb-5">We use milestone-based billing: 50% upfront to procure components and start architecture, 50% on successful delivery. Payments are made via UPI (scan QR on our Pay page). Simple, transparent, no hidden fees.</p>
+        </div>
+      </div>
+
+      <div class="glass-panel rounded-xl overflow-hidden">
+        <button class="faq-btn w-full flex items-center justify-between p-6 text-left" data-faq="4">
+          <span class="font-headline-md text-[17px] text-on-surface">Can you help with the academic report too?</span>
+          <span class="material-symbols-outlined text-secondary faq-icon text-xl flex-shrink-0 ml-4">bolt</span>
+        </button>
+        <div class="faq-answer px-6" id="faq-4">
+          <p class="font-body-md text-body-md text-on-surface-variant pb-5">Yes! We offer standalone academic report writing services that include circuit diagrams, code explanation, literature review, methodology, and results. Check our Report page for details, or include it in your project request on the Contact page.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════════════════ MOBILE BOTTOM NAV ═══════════════════════ -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(47,217,244,0.15)] pb-safe">
+  <div class="flex justify-around items-center py-2 px-4">
+    <a class="flex flex-col items-center justify-center text-secondary bg-on-secondary-container/20 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="index.html">
+      <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+      <span class="font-label-caps text-label-caps mt-1">Home</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="projects.html">
+      <span class="material-symbols-outlined">grid_view</span>
+      <span class="font-label-caps text-label-caps mt-1">Projects</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="contact.html">
+      <span class="material-symbols-outlined">chat</span>
+      <span class="font-label-caps text-label-caps mt-1">Contact</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="pay.html">
+      <span class="material-symbols-outlined">payments</span>
+      <span class="font-label-caps text-label-caps mt-1">Pay</span>
+    </a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer class="w-full mt-auto bg-surface-container-lowest border-t border-outline-variant/20 relative z-10">
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 mb-20 md:mb-0">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <!-- Brand -->
+      <div class="md:col-span-1">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+          <span class="font-headline-lg text-headline-md text-secondary">ZEUS IOT</span>
+        </div>
+        <p class="font-body-md text-sm text-on-surface-variant">Engineering Tomorrow's Connected World. Custom IoT solutions for the next generation.</p>
+      </div>
+      <!-- Quick Links -->
+      <div>
+        <h4 class="font-label-caps text-label-caps text-on-surface mb-4 uppercase">Quick Links</h4>
+        <div class="flex flex-col gap-2">
+          <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="index.html">Home</a>
+          <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="projects.html">Projects</a>
+          <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="contact.html">Contact</a>
+          <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="admin.html">Admin</a>
+        </div>
+      </div>
+      <!-- Services -->
+      <div>
+        <h4 class="font-label-caps text-label-caps text-on-surface mb-4 uppercase">Services</h4>
+        <div class="flex flex-col gap-2">
+          <a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" href="contact.html">Custom IoT Builds</a>
+          <a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" href="contact.html">1-on-1 Consultation</a>
+          <a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" href="report.html">Academic Reports</a>
+          <a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" href="pay.html">Payments</a>
+        </div>
+      </div>
+      <!-- Contact -->
+      <div>
+        <h4 class="font-label-caps text-label-caps text-on-surface mb-4 uppercase">Connect</h4>
+        <div class="flex flex-col gap-2">
+          <a href="mailto:zeusiotprojects@gmail.com" class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors">zeusiotprojects@gmail.com</a>
+          <a href="https://wa.me/919080809088" target="_blank" class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors">WhatsApp: +91 90808 09088</a>
+          <div class="flex gap-3 mt-3">
+            <a href="https://www.linkedin.com/company/zeus-iot" target="_blank" class="social-icon-link" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/zeus.iot" target="_blank" class="social-icon-link" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            </a>
+            <a href="https://github.com/zeus-iot" target="_blank" class="social-icon-link" aria-label="GitHub">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bottom bar -->
+    <div class="flex flex-col md:flex-row justify-between items-center mt-12 pt-6 border-t border-outline-variant/20">
+      <div class="flex gap-6 mb-4 md:mb-0">
+        <a class="text-on-surface-variant hover:text-secondary font-code-sm text-code-sm transition-colors" href="terms.html">Terms</a>
+        <a class="text-on-surface-variant hover:text-secondary font-code-sm text-code-sm transition-colors" href="privacy.html">Privacy</a>
+        <a class="text-on-surface-variant hover:text-secondary font-code-sm text-code-sm transition-colors" href="contact.html">Support</a>
+      </div>
+      <p class="text-tertiary font-code-sm text-code-sm tracking-widest">© 2026 ZEUS IOT. HARNESS THE BOLT.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════ FLOATING WHATSAPP ═══════════════════════ -->
+<a href="https://wa.me/919080809088" target="_blank" class="whatsapp-float" id="whatsapp-float" style="opacity:0;" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.489-1.761-1.663-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+  <div class="tooltip">Chat on WhatsApp ⚡</div>
+</a>
+
+<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script>
+
+// ─── Timeline connector reveal ───
+const timelineObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const connectors = document.querySelectorAll('.timeline-connector');
+      connectors.forEach((c, i) => { setTimeout(() => c.classList.add('visible'), i * 400 + 300); });
+      const dots = document.querySelectorAll('.timeline-dot');
+      dots.forEach((d, i) => { setTimeout(() => { d.style.borderColor = i === 0 ? '#ffc640' : '#2fd9f4'; d.style.boxShadow = `0 0 20px rgba(${i === 0 ? '255,198,64' : '47,217,244'},0.3)`; }, i * 400); });
+    }
+  });
+}, { threshold: 0.3 });
+const timelineEl = document.getElementById('timeline-desktop');
+if (timelineEl) timelineObserver.observe(timelineEl);
+
+// ─── Animated Stats Counter ───
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  const duration = 1800;
+  const step = target / (duration / 16);
+  let current = 0;
+  const timer = setInterval(() => {
+    current = Math.min(current + step, target);
+    el.textContent = Math.floor(current) + suffix;
+    if (current >= target) clearInterval(timer);
+  }, 16);
+}
+const statObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.stat-number').forEach(animateCounter);
+      statObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll('.stagger-children').forEach(el => {
+  if (el.querySelector('.stat-number')) statObserver.observe(el);
+});
+
+// ─── Navbar Scroll Effect ───
+const nav = document.getElementById('desktop-nav');
+const progressBar = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const total = document.body.scrollHeight - window.innerHeight;
+  const pct = (scrolled / total) * 100;
+  if (progressBar) progressBar.style.width = pct + '%';
+  if (nav) {
+    if (scrolled > 60) nav.classList.add('nav-scrolled');
+    else nav.classList.remove('nav-scrolled');
+  }
+});
+
+// ─── FAQ Accordion ───
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const idx = btn.dataset.faq;
+    const answer = document.getElementById('faq-' + idx);
+    const icon = btn.querySelector('.faq-icon');
+    const isOpen = answer.classList.contains('open');
+    document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('open'));
+    if (!isOpen) { answer.classList.add('open'); icon.classList.add('open'); }
+  });
+});
+
+// ─── WhatsApp Float Delayed Reveal ───
+setTimeout(() => {
+  const wa = document.getElementById('whatsapp-float');
+  if (wa) { wa.style.transition = 'opacity 0.5s ease'; wa.style.opacity = '1'; }
+}, 3000);
+
+// ─── Text Scramble Effect ───
+const scrambleEl = document.getElementById('scramble-text');
+if (scrambleEl) {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&';
+  const original = 'CUSTOM IOT & SOFTWARE';
+  let frame = 0;
+  const totalFrames = 30;
+  function scramble() {
+    const progress = frame / totalFrames;
+    let result = '';
+    for (let i = 0; i < original.length; i++) {
+      if (original[i] === ' ' || original[i] === '&') { result += original[i]; continue; }
+      if (i < original.length * progress) { result += original[i]; }
+      else { result += chars[Math.floor(Math.random() * chars.length)]; }
+    }
+    scrambleEl.textContent = result;
+    frame++;
+    if (frame <= totalFrames) requestAnimationFrame(scramble);
+    else scrambleEl.textContent = original;
+  }
+  setTimeout(scramble, 600);
+}
+
+// ─── 3D Tilt on Preview Cards ───
+document.querySelectorAll('.preview-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    card.style.transform = `perspective(800px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) translateY(-4px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
+
+// ─── Live Telemetry Simulation ───
+setInterval(() => {
+  const val = (99.5 + Math.random() * 0.49).toFixed(2);
+  const latency = Math.floor(8 + Math.random() * 15);
+  const telEl = document.getElementById('telemetry-value');
+  const latEl = document.getElementById('latency-value');
+  if (telEl) telEl.textContent = val + '%';
+  if (latEl) latEl.textContent = latency + 'ms';
+}, 4000);
+
+// ─── Preloader ───
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('page-preloader');
+  if (preloader) {
+    setTimeout(() => preloader.classList.add('hidden'), 1000);
+  }
+});
+
+// ─── Mobile Menu ───
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+if (mobileMenuBtn && mobileMenuOverlay) {
+  mobileMenuBtn.addEventListener('click', () => {
+    const isOpen = mobileMenuOverlay.classList.toggle('open');
+    mobileMenuBtn.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  mobileMenuOverlay.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenuOverlay.classList.remove('open');
+      mobileMenuBtn.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+}
+
+// ─── Scroll Reveal ───
+const scrollRevealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('revealed');
+      scrollRevealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.scroll-reveal').forEach(el => scrollRevealObserver.observe(el));
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="animations.js?v=2"></script>
+</body>
+</html>
