@@ -14,15 +14,15 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        "tertiary":"#2fd9f4",
-        "surface-container-highest":"#323537",
-        "surface-container":"#1d2022",
-        "surface-container-high":"#272a2c",
+        "tertiary":"#10B981",
+        "surface-container-highest":"#1d1f1d",
+        "surface-container":"#111311",
+        "surface-container-high":"#161816",
         "on-surface":"#e0e3e5",
-        "surface-container-low":"#191c1e",
-        "surface-container-lowest":"#0b0f10",
+        "surface-container-low":"#0d0f0d",
+        "surface-container-lowest":"#050605",
         "primary":"#bec6e0",
-        "surface":"#101415",
+        "surface":"#080A0A",
         "on-surface-variant":"#c6c6cd",
         "secondary":"#ffc640",
       },
@@ -114,7 +114,7 @@ body {
     <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-40 hidden md:hidden"></div>
 
     <!-- Content Area -->
-    <div class="flex-1 overflow-auto p-8">
+    <div class="flex-1 overflow-auto p-8 pb-24 md:pb-8">
       
       <!-- PROJECTS PANEL -->
       <div id="panel-projects">
@@ -399,7 +399,7 @@ body {
         return;
       }
 
-      const typeColors = { 'Contact Request': '#2fd9f4', 'Report Request': '#ffc640', 'Learning Session': '#4ade80' };
+      const typeColors = { 'Contact Request': '#10B981', 'Report Request': '#ffc640', 'Learning Session': '#4ade80' };
       const typeIcons = { 'Contact Request': 'devices', 'Report Request': 'description', 'Learning Session': 'school' };
 
       list.innerHTML = messages.map(msg => `
@@ -467,6 +467,28 @@ body {
       sidebarOverlay.classList.add('hidden');
     }
   }
+
+  <!-- ═══════════════════════ MOBILE BOTTOM NAV ═══════════════════════ -->
+  <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(16,185,129,0.15)] pb-safe">
+    <div class="flex justify-around items-center py-2 px-4">
+      <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="index.html">
+        <span class="material-symbols-outlined">home</span>
+        <span class="font-label-caps text-label-caps mt-1">Home</span>
+      </a>
+      <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="projects.html">
+        <span class="material-symbols-outlined">grid_view</span>
+        <span class="font-label-caps text-label-caps mt-1">Projects</span>
+      </a>
+      <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="contact.html">
+        <span class="material-symbols-outlined">chat</span>
+        <span class="font-label-caps text-label-caps mt-1">Contact</span>
+      </a>
+      <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="pay.html">
+        <span class="material-symbols-outlined">payments</span>
+        <span class="font-label-caps text-label-caps mt-1">Pay</span>
+      </a>
+    </div>
+  </nav>
 
 </script>
 </body>

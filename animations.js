@@ -8,7 +8,7 @@ function initAllAnimations() {
     initBootSequence,
     init3DHardware,
     initIoTSandbox,
-    initParticlesBackground,
+    // initParticlesBackground,
     initMagneticButtons,
     initTiltCards,
     initScrollReveal
@@ -67,7 +67,7 @@ function initParticlesBackground() {
   let particles = [];
   
   // Theme colors
-  const primaryColor = 'rgba(47, 217, 244, '; // Cyan
+  const primaryColor = 'rgba(16, 185, 129, '; // Cyan
   const secondaryColor = 'rgba(255, 198, 64, '; // Gold
 
   let mouse = { x: null, y: null, radius: 150 };
@@ -110,7 +110,7 @@ function initParticlesBackground() {
       
       // Glow effect
       ctx.shadowBlur = 10;
-      ctx.shadowColor = this.isGold ? '#ffc640' : '#2fd9f4';
+      ctx.shadowColor = this.isGold ? '#ffc640' : '#10B981';
     }
     
     update() {
@@ -216,7 +216,9 @@ function initParticlesBackground() {
 function init3DHardware() {
   const container = document.getElementById('three-hardware-container');
   if (!container || typeof THREE === 'undefined') return;
+  if (window.innerWidth < 768) return; // Optimize for mobile: skip 3D rendering
 
+  container.innerHTML = ''; // Clear the fallback SVG before initializing Three.js
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(50, container.clientWidth / container.clientHeight, 0.1, 1000);
   camera.position.z = 4;
@@ -338,9 +340,9 @@ function initIoTSandbox() {
       if (tempEl) tempEl.className = 'font-headline-md text-2xl text-secondary transition-all duration-300';
       if (loadEl) loadEl.className = 'font-headline-md text-2xl text-secondary transition-all duration-300';
       
-      if (tempCard) tempCard.style.borderColor = 'rgba(47, 217, 244, 0.4)';
-      if (loadCard) loadCard.style.borderColor = 'rgba(47, 217, 244, 0.4)';
-      if (relayCard) relayCard.style.borderColor = 'rgba(47, 217, 244, 0.6)';
+      if (tempCard) tempCard.style.borderColor = 'rgba(16, 185, 129, 0.4)';
+      if (loadCard) loadCard.style.borderColor = 'rgba(16, 185, 129, 0.4)';
+      if (relayCard) relayCard.style.borderColor = 'rgba(16, 185, 129, 0.6)';
     } else {
       tempBase = 42.5;
       loadBase = 12;

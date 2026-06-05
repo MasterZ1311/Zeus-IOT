@@ -30,7 +30,7 @@ export default function Home() {
             FOR THE NEXT GEN
           </h1>
           <p className="font-body-lg text-lg text-on-surface-variant max-w-2xl mb-8">
-            We architect raw power and precise engineering. From atmospheric sensor arrays to complex enterprise software ecosystems, we build the infrastructure that electrifies modern industry. <strong className="text-tertiary">Don't just buy from us — Learn from us.</strong>
+            We architect raw power and precise engineering. From atmospheric sensor arrays to complex enterprise software ecosystems, we build the infrastructure that electrifies modern industry. <strong className="text-emerald-500">Don't just buy from us — Learn from us.</strong>
           </p>
           
           <div className="flex flex-wrap gap-4">
@@ -52,12 +52,12 @@ export default function Home() {
           className="lg:col-span-4 mt-10 lg:mt-0 relative group flex items-center justify-center"
         >
           <div className="glass-panel bolt-active rounded-xl p-8 w-full h-full min-h-[320px] flex flex-col items-center justify-center relative overflow-hidden transition-all duration-500 hover:border-secondary/40">
-            <div className="absolute -top-10 -left-10 w-40 h-40 bg-tertiary/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute -top-10 -left-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
             <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
             
             <div className="relative flex items-center justify-center w-48 h-48 group-hover:scale-105 transition-transform duration-500 cursor-pointer">
               <div className="absolute inset-0 rounded-full bg-secondary/5 border border-secondary/15 animate-[ping_3s_ease-in-out_infinite] opacity-40"></div>
-              <div className="absolute inset-4 rounded-full bg-tertiary/5 border border-tertiary/10 animate-[ping_4s_ease-in-out_infinite] opacity-30"></div>
+              <div className="absolute inset-4 rounded-full bg-emerald-500/5 border border-tertiary/10 animate-[ping_4s_ease-in-out_infinite] opacity-30"></div>
               <SharpBolt className="w-24 h-24 text-secondary drop-shadow-[0_0_20px_rgba(255,198,64,0.7)] animate-[pulse_2s_ease-in-out_infinite]" />
             </div>
 
@@ -75,13 +75,13 @@ export default function Home() {
           <span className="w-8 h-1 bg-secondary"></span>
           CORE CAPABILITIES
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[250px] px-4 md:px-16 max-w-[1280px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:auto-rows-[250px] px-4 md:px-16 max-w-[1280px] mx-auto">
           <motion.div 
             whileHover={{ scale: 1.02, y: -5 }}
             className="md:col-span-7 md:row-span-2 glass-panel bolt-standby rounded-xl p-8 flex flex-col group relative overflow-hidden"
           >
-            <div className="w-12 h-12 rounded-full bg-tertiary/10 flex items-center justify-center mb-6 border border-tertiary/30">
-              <Cpu className="text-tertiary w-6 h-6" />
+            <div className="w-12 h-12 rounded-full bg-emerald-500/10 flex items-center justify-center mb-6 border border-emerald-500/30">
+              <Cpu className="text-emerald-500 w-6 h-6" />
             </div>
             <h3 className="font-headline-md text-2xl text-on-surface mb-4 z-10">Custom Hardware & IoT</h3>
             <p className="font-body-lg text-lg text-on-surface-variant max-w-md z-10 mb-6 flex-grow">
@@ -89,7 +89,7 @@ export default function Home() {
             </p>
             <div className="flex gap-2 z-10 mt-auto flex-wrap">
               {['ESP32', 'Arduino', 'Raspberry Pi', 'Nvidia Jetson', 'Orange Pi', 'Banana Pi', 'Radxa X4', 'Asus Tinker Board', 'LattePanda'].map(t => (
-                <span key={t} className="bg-surface-container-high px-3 py-1 rounded text-xs font-code-sm text-tertiary border border-tertiary/20">{t}</span>
+                <span key={t} className="bg-surface-container-high px-3 py-1 rounded text-xs font-code-sm text-emerald-500 border border-tertiary/20">{t}</span>
               ))}
             </div>
           </motion.div>

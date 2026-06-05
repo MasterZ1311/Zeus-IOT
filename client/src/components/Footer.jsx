@@ -28,21 +28,21 @@ export default function Footer() {
           <div>
             <h4 className="font-label-caps text-label-caps text-on-surface mb-4 uppercase">Services</h4>
             <div className="flex flex-col gap-2">
-              <Link className="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" to="/contact">Custom IoT Builds</Link>
-              <Link className="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" to="/contact">1-on-1 Consultation</Link>
-              <Link className="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" to="/report">Academic Reports</Link>
-              <Link className="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" to="/pay">Payments</Link>
+              <Link className="font-body-md text-sm text-on-surface-variant hover:text-emerald-500 transition-colors" to="/contact">Custom IoT Builds</Link>
+              <Link className="font-body-md text-sm text-on-surface-variant hover:text-emerald-500 transition-colors" to="/contact">1-on-1 Consultation</Link>
+              <Link className="font-body-md text-sm text-on-surface-variant hover:text-emerald-500 transition-colors" to="/report">Academic Reports</Link>
+              <Link className="font-body-md text-sm text-on-surface-variant hover:text-emerald-500 transition-colors" to="/pay">Payments</Link>
             </div>
           </div>
           {/* Contact */}
           <div>
             <h4 className="font-label-caps text-label-caps text-on-surface mb-4 uppercase">Connect</h4>
             <div className="flex flex-col gap-2">
-              <a href="mailto:zeusiotprojects@gmail.com" className="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors">zeusiotprojects@gmail.com</a>
+              <a href="mailto:zeusiotprojects@gmail.com" className="font-body-md text-sm text-on-surface-variant hover:text-emerald-500 transition-colors">zeusiotprojects@gmail.com</a>
               <a href="https://wa.me/919080809088" target="_blank" rel="noreferrer" className="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors">WhatsApp: +91 90808 09088</a>
               <div className="flex gap-3 mt-2">
                 <a href="#" className="text-on-surface-variant hover:text-secondary transition-colors"><Code className="w-5 h-5" /></a>
-                <a href="#" className="text-on-surface-variant hover:text-tertiary transition-colors"><Share2 className="w-5 h-5" /></a>
+                <a href="#" className="text-on-surface-variant hover:text-emerald-500 transition-colors"><Share2 className="w-5 h-5" /></a>
               </div>
             </div>
           </div>
@@ -54,7 +54,7 @@ export default function Footer() {
             <Link className="text-on-surface-variant hover:text-secondary font-code-sm text-xs transition-colors" to="/privacy">Privacy</Link>
             <Link className="text-on-surface-variant hover:text-secondary font-code-sm text-xs transition-colors" to="/support">Support</Link>
           </div>
-          <p className="text-tertiary font-code-sm text-xs tracking-widest">© 2026 ZEUS IOT. HARNESS THE BOLT.</p>
+          <p className="text-emerald-500 font-code-sm text-xs tracking-widest">© 2026 ZEUS IOT. HARNESS THE BOLT.</p>
         </div>
       </div>
     </footer>

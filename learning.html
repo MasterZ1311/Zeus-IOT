@@ -13,20 +13,20 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        "surface-dim":"#101415","on-tertiary-fixed":"#001f25","tertiary":"#2fd9f4",
+        "surface-dim":"#080A0A","on-tertiary-fixed":"#022c22","tertiary":"#10B981",
         "on-surface-variant":"#c6c6cd","on-error-container":"#ffdad6",
-        "surface-container-highest":"#323537","outline":"#909097","background":"#101415",
-        "surface-container":"#1d2022","inverse-primary":"#565e74","primary-fixed-dim":"#bec6e0",
-        "surface-container-high":"#272a2c","inverse-on-surface":"#2d3133",
+        "surface-container-highest":"#1d1f1d","outline":"#7a807a","background":"#080A0A",
+        "surface-container":"#111311","inverse-primary":"#565e74","primary-fixed-dim":"#bec6e0",
+        "surface-container-high":"#161816","inverse-on-surface":"#2d3133",
         "on-primary-container":"#798098","secondary-fixed-dim":"#f9bd22",
-        "primary-container":"#0f172a","tertiary-container":"#001b20","surface-tint":"#bec6e0",
-        "on-tertiary":"#00363e","on-tertiary-container":"#008ea1","on-primary-fixed":"#131b2e",
-        "on-tertiary-fixed-variant":"#004e5a","on-surface":"#e0e3e5",
-        "surface-container-low":"#191c1e","surface-container-lowest":"#0b0f10",
-        "primary":"#bec6e0","tertiary-fixed-dim":"#2fd9f4","outline-variant":"#45464d",
-        "surface":"#101415","inverse-surface":"#e0e3e5","surface-variant":"#323537",
-        "on-secondary-fixed-variant":"#5c4300","error":"#ffb4ab","tertiary-fixed":"#a2eeff",
-        "primary-fixed":"#dae2fd","surface-bright":"#363a3b","on-secondary-container":"#5a4100",
+        "primary-container":"#0f172a","tertiary-container":"#064e3b","surface-tint":"#bec6e0",
+        "on-tertiary":"#ffffff","on-tertiary-container":"#a7f3d0","on-primary-fixed":"#131b2e",
+        "on-tertiary-fixed-variant":"#047857","on-surface":"#e0e3e5",
+        "surface-container-low":"#0d0f0d","surface-container-lowest":"#050605",
+        "primary":"#bec6e0","tertiary-fixed-dim":"#10B981","outline-variant":"#272927",
+        "surface":"#080A0A","inverse-surface":"#e0e3e5","surface-variant":"#323537",
+        "on-secondary-fixed-variant":"#5c4300","error":"#ffb4ab","tertiary-fixed":"#a7f3d0",
+        "primary-fixed":"#dae2fd","surface-bright":"#222422","on-secondary-container":"#5a4100",
         "on-primary-fixed-variant":"#3f465c","on-primary":"#283044","on-background":"#e0e3e5",
         "secondary-container":"#e3aa00","on-error":"#690005","on-secondary-fixed":"#261a00",
         "secondary-fixed":"#ffdf9f","secondary":"#ffc640","error-container":"#93000a",
@@ -55,20 +55,20 @@ tailwind.config = {
 </script>
 <style>
 body {
-  background-color: #0F172A;
+  background-color: #080A0A;
   background-image: radial-gradient(circle at 80% 20%, rgba(255,198,64,0.1) 0%, transparent 40%),
-                    radial-gradient(circle at 20% 80%, rgba(47,217,244,0.15) 0%, transparent 40%);
+                    radial-gradient(circle at 20% 80%, rgba(16,185,129,0.15) 0%, transparent 40%);
   min-height: 100vh;
 }
 .circuit-bg {
-  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 h 20 v 20 h 20' stroke='rgba(255,255,255,0.03)' fill='none' stroke-width='1'/%3E%3Ccircle cx='50' cy='30' r='2' fill='rgba(47,217,244,0.15)'/%3E%3Cpath d='M70 60 h 15 v -15' stroke='rgba(255,255,255,0.02)' fill='none' stroke-width='1'/%3E%3Ccircle cx='85' cy='45' r='1.5' fill='rgba(255,198,64,0.1)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 h 20 v 20 h 20' stroke='rgba(255,255,255,0.03)' fill='none' stroke-width='1'/%3E%3Ccircle cx='50' cy='30' r='2' fill='rgba(16,185,129,0.15)'/%3E%3Cpath d='M70 60 h 15 v -15' stroke='rgba(255,255,255,0.02)' fill='none' stroke-width='1'/%3E%3Ccircle cx='85' cy='45' r='1.5' fill='rgba(255,198,64,0.1)'/%3E%3C/svg%3E");
 }
 .glass-panel {
   background: rgba(255,255,255,0.04);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(47,217,244,0.15);
-  border-top: 1px solid rgba(47,217,244,0.25);
+  border: 1px solid rgba(16,185,129,0.15);
+  border-top: 1px solid rgba(16,185,129,0.25);
   border-left: 1px solid rgba(255,198,64,0.15);
   transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
 }
@@ -77,17 +77,17 @@ body {
   clip-path: polygon(0 0, 95% 0, 100% 100%, 5% 100%);
   transition: all 0.3s ease;
 }
-.btn-thunderbolt:hover { box-shadow: 0 0 15px rgba(47,217,244,0.5); transform: scale(1.02); }
+.btn-thunderbolt:hover { box-shadow: 0 0 15px rgba(16,185,129,0.5); transform: scale(1.02); }
 
 .input-field {
   background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(47, 217, 244, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.2);
   transition: all 0.3s ease;
   color: #e0e3e5;
 }
 .input-field:focus {
-  border-color: #2fd9f4;
-  box-shadow: 0 0 10px rgba(47, 217, 244, 0.2);
+  border-color: #10B981;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
   outline: none;
 }
 .perf-level {
@@ -95,19 +95,19 @@ body {
   border: 1px solid #45464d;
 }
 .perf-level.active {
-  background: rgba(47, 217, 244, 0.1);
-  border-color: #2fd9f4;
-  color: #2fd9f4;
-  box-shadow: inset 0 0 10px rgba(47, 217, 244, 0.2);
+  background: rgba(16, 185, 129, 0.1);
+  border-color: #10B981;
+  color: #10B981;
+  box-shadow: inset 0 0 10px rgba(16, 185, 129, 0.2);
 }
 .upload-area {
   background: rgba(0,0,0,0.2);
-  border: 2px dashed rgba(47, 217, 244, 0.3);
+  border: 2px dashed rgba(16, 185, 129, 0.3);
   transition: all 0.3s ease;
 }
 .upload-area:hover {
-  border-color: #2fd9f4;
-  background: rgba(47, 217, 244, 0.05);
+  border-color: #10B981;
+  background: rgba(16, 185, 129, 0.05);
 }
 .glow-text { text-shadow: 0 0 8px rgba(255,198,64,0.4); }
 </style>
@@ -129,7 +129,7 @@ body {
 <canvas id="particles-bg"></canvas>
 
 <!-- ═══════════════════════ DESKTOP TOP NAV ═══════════════════════ -->
-<header id="desktop-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(47,217,244,0.2)] hidden md:flex items-center justify-between px-margin-desktop h-16 transition-all duration-300">
+<header id="desktop-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] hidden md:flex items-center justify-between px-margin-desktop h-16 transition-all duration-300">
   <a href="index.html" class="flex items-center gap-2">
     <span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
     <span class="font-headline-xl text-headline-md text-secondary drop-shadow-[0_0_8px_rgba(255,198,64,0.4)] tracking-tight">ZEUS IOT</span>
@@ -144,7 +144,7 @@ body {
 </header>
 
 <!-- ═══════════════════════ MOBILE TOP NAV ═══════════════════════ -->
-<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(47,217,244,0.2)] flex md:hidden items-center justify-between px-margin-mobile h-16">
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] flex md:hidden items-center justify-between px-margin-mobile h-16">
   <a href="index.html" class="flex items-center gap-2">
     <span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
     <span class="font-headline-md text-secondary glow-text">ZEUS IOT</span>
@@ -225,7 +225,7 @@ body {
 </main>
 
 <!-- ═══════════════════════ MOBILE BOTTOM NAV ═══════════════════════ -->
-<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(47,217,244,0.15)] pb-safe">
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(16,185,129,0.15)] pb-safe">
   <div class="flex justify-around items-center py-2 px-4">
     <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="index.html">
       <span class="material-symbols-outlined">home</span>
@@ -345,16 +345,7 @@ window.addEventListener('load', () => {
   const p = document.getElementById('page-preloader');
   if (p) setTimeout(() => p.classList.add('hidden'), 800);
 });
-// Mobile menu
-const mBtn = document.getElementById('mobile-menu-btn');
-const mOverlay = document.getElementById('mobile-menu-overlay');
-if (mBtn && mOverlay) {
-  mBtn.addEventListener('click', () => {
-    const open = mOverlay.classList.toggle('open');
-    mBtn.classList.toggle('open', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-  });
-}
+
 </script>
 </body>
 </html>

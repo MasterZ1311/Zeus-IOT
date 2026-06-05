@@ -40,7 +40,7 @@ export default function Projects() {
             <button 
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`font-label-caps text-xs px-6 py-2 rounded-full border transition-all ${filter === cat ? 'bg-secondary/20 border-secondary text-secondary shadow-[0_0_10px_rgba(255,198,64,0.3)]' : 'border-outline-variant text-on-surface-variant hover:border-tertiary hover:text-tertiary'}`}
+              className={`font-label-caps text-xs px-6 py-2 rounded-full border transition-all ${filter === cat ? 'bg-secondary/20 border-secondary text-secondary shadow-[0_0_10px_rgba(255,198,64,0.3)]' : 'border-outline-variant text-on-surface-variant hover:border-tertiary hover:text-emerald-500'}`}
             >
               {cat}
             </button>
@@ -70,12 +70,12 @@ export default function Projects() {
             <div className="absolute -right-10 -top-10 w-32 h-32 bg-secondary/5 rounded-full blur-2xl group-hover:bg-secondary/10 transition-colors"></div>
             
             <div className="flex justify-between items-start mb-6 relative z-10">
-              <div className={`font-code-sm text-[10px] px-3 py-1 rounded border ${p.status === 'ACTIVE' ? 'border-secondary text-secondary bg-secondary/10' : p.status === 'BETA' ? 'border-tertiary text-tertiary bg-tertiary/10' : 'border-outline text-outline bg-outline/10'}`}>
+              <div className={`font-code-sm text-[10px] px-3 py-1 rounded border ${p.status === 'ACTIVE' ? 'border-secondary text-secondary bg-secondary/10' : p.status === 'BETA' ? 'border-tertiary text-emerald-500 bg-emerald-500/10' : 'border-outline text-outline bg-outline/10'}`}>
                 {p.status}
               </div>
               <div className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center border border-outline-variant/30 text-on-surface">
                 {/* Dynamically rendering lucide icon by name in a real app would need a map, using Bolt as fallback */}
-                <SharpBolt className="w-5 h-5 text-on-surface-variant group-hover:text-tertiary transition-colors" />
+                <SharpBolt className="w-5 h-5 text-on-surface-variant group-hover:text-emerald-500 transition-colors" />
               </div>
             </div>
             

@@ -37,7 +37,7 @@ export default function Navbar() {
   return (
     <>
       {/* Desktop Nav */}
-      <header className={`fixed top-0 w-full z-50 transition-all duration-300 hidden md:flex items-center justify-between px-16 h-16 ${isScrolled ? 'bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(47,217,244,0.2)]' : 'bg-transparent'}`}>
+      <header className={`fixed top-0 w-full z-50 transition-all duration-300 hidden md:flex items-center justify-between px-16 h-16 ${isScrolled ? 'bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)]' : 'bg-transparent'}`}>
         <Link to="/" className="flex items-center gap-2">
           <SharpBolt className="text-secondary w-6 h-6" />
           <span className="font-headline-xl text-headline-md text-secondary drop-shadow-[0_0_8px_rgba(255,198,64,0.4)] tracking-tight">ZEUS IOT</span>
@@ -47,7 +47,7 @@ export default function Navbar() {
             <Link 
               key={link.path} 
               to={link.path}
-              className={`font-label-caps text-label-caps transition-colors hover:text-tertiary ${location.pathname === link.path ? 'text-secondary border-b-2 border-secondary pb-1' : 'text-on-surface-variant'}`}
+              className={`font-label-caps text-label-caps transition-colors hover:text-emerald-500 ${location.pathname === link.path ? 'text-secondary border-b-2 border-secondary pb-1' : 'text-on-surface-variant'}`}
             >
               {link.name}
             </Link>
@@ -61,7 +61,7 @@ export default function Navbar() {
       </header>
 
       {/* Mobile Top Nav */}
-      <header className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(47,217,244,0.2)] flex md:hidden items-center justify-between px-4 h-16">
+      <header className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] flex md:hidden items-center justify-between px-4 h-16">
         <Link to="/" className="flex items-center gap-2">
           <SharpBolt className="text-secondary w-6 h-6" />
           <span className="font-headline-md text-secondary glow-text">ZEUS IOT</span>

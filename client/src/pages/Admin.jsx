@@ -69,10 +69,10 @@ export default function Admin() {
 
       {/* TELEMETRY DASHBOARD */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <TelemetryCard title="Signal Strength" value={`${telemetry.signal}`} unit="dBm" icon={<Signal className="text-tertiary" />} pulse />
+        <TelemetryCard title="Signal Strength" value={`${telemetry.signal}`} unit="dBm" icon={<Signal className="text-emerald-500" />} pulse />
         <TelemetryCard title="Battery Voltage" value={`${telemetry.batt}`} unit="V" icon={<Battery className="text-secondary" />} />
-        <TelemetryCard title="System Uptime" value={`${telemetry.uptime}`} unit="%" icon={<Activity className="text-tertiary" />} />
-        <TelemetryCard title="Active Nodes" value={`${telemetry.activeNodes}`} unit="" icon={<Cpu className="text-tertiary" />} valueColor="text-secondary" />
+        <TelemetryCard title="System Uptime" value={`${telemetry.uptime}`} unit="%" icon={<Activity className="text-emerald-500" />} />
+        <TelemetryCard title="Active Nodes" value={`${telemetry.activeNodes}`} unit="" icon={<Cpu className="text-emerald-500" />} valueColor="text-secondary" />
       </div>
 
       <div className="glass-panel rounded-xl p-4 flex flex-col md:flex-row gap-6 justify-around items-center">
@@ -89,7 +89,7 @@ export default function Admin() {
           <div key={p.id} className={`glass-panel glass-panel-glow rounded-xl p-4 flex flex-col gap-4 relative group hover:bg-surface-container-highest/40 transition-colors ${p.status === 'ACTIVE' ? 'border-t-2 border-t-secondary' : p.status === 'BETA' ? 'border-t-2 border-t-tertiary' : 'border-t-2 border-t-outline opacity-70'}`}>
             <div className="flex justify-between items-start">
               <div>
-                <div className={`font-code-sm text-[10px] px-2 py-0.5 rounded-sm inline-block mb-2 border ${p.status === 'ACTIVE' ? 'border-secondary text-secondary bg-secondary/10' : p.status === 'BETA' ? 'border-tertiary text-tertiary bg-tertiary/10' : 'border-outline text-outline bg-outline/10'}`}>
+                <div className={`font-code-sm text-[10px] px-2 py-0.5 rounded-sm inline-block mb-2 border ${p.status === 'ACTIVE' ? 'border-secondary text-secondary bg-secondary/10' : p.status === 'BETA' ? 'border-tertiary text-emerald-500 bg-emerald-500/10' : 'border-outline text-outline bg-outline/10'}`}>
                   {p.status}
                 </div>
                 <h2 className="font-headline-md text-xl text-on-surface">{p.title}</h2>
@@ -101,7 +101,7 @@ export default function Admin() {
             <div className="grid grid-cols-2 gap-2 mt-2">
               <div className="bg-surface-container-low p-2 rounded-lg border border-outline-variant/30">
                 <span className="block text-on-surface-variant font-label-caps mb-1 uppercase text-[10px]">Nodes</span>
-                <span className="font-code-sm text-tertiary text-xs">{p.nodesOnline} / {p.nodesTotal}</span>
+                <span className="font-code-sm text-emerald-500 text-xs">{p.nodesOnline} / {p.nodesTotal}</span>
               </div>
               <div className="bg-surface-container-low p-2 rounded-lg border border-outline-variant/30">
                 <span className="block text-on-surface-variant font-label-caps mb-1 uppercase text-[10px]">{p.status === 'ACTIVE' ? 'Uptime' : 'Status'}</span>
@@ -110,7 +110,7 @@ export default function Admin() {
             </div>
 
             <div className="flex justify-end gap-2 mt-2 pt-4 border-t border-outline-variant/20">
-              <button className="btn-ghost-static text-on-surface p-2 rounded-lg flex items-center justify-center hover:bg-tertiary/10 text-tertiary border border-tertiary/30">
+              <button className="btn-ghost-static text-on-surface p-2 rounded-lg flex items-center justify-center hover:bg-emerald-500/10 text-emerald-500 border border-emerald-500/30">
                 <Edit className="w-4 h-4" />
               </button>
               <button onClick={() => deleteProject(p.id)} className="text-error border border-error/30 hover:bg-error/10 p-2 rounded-lg flex items-center justify-center transition-colors">

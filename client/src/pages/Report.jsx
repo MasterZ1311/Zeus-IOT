@@ -53,8 +53,8 @@ export default function Report() {
     <div className="px-4 md:px-16 max-w-[1280px] mx-auto w-full pt-10">
       
       <div className="text-center max-w-3xl mx-auto mb-12">
-        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-tertiary/10 border border-tertiary/30 mb-6">
-          <FileText className="w-8 h-8 text-tertiary" />
+        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 mb-6">
+          <FileText className="w-8 h-8 text-emerald-500" />
         </div>
         <h1 className="font-headline-xl text-4xl md:text-5xl text-on-surface mb-6 uppercase">ACADEMIC REPORTS & PAPERS</h1>
         <p className="font-body-lg text-lg text-on-surface-variant">
@@ -69,10 +69,10 @@ export default function Report() {
       >
         {status === 'success' ? (
           <div className="flex flex-col items-center justify-center py-20 text-center h-full">
-            <CheckCircle className="w-20 h-20 text-tertiary mb-6" />
+            <CheckCircle className="w-20 h-20 text-emerald-500 mb-6" />
             <h3 className="font-headline-md text-2xl text-on-surface mb-2">Request Transmitted</h3>
             <p className="font-body-md text-on-surface-variant">Your report specifications have been uploaded. Our technical writers will contact you shortly.</p>
-            <button onClick={() => setStatus('idle')} className="mt-8 text-tertiary font-label-caps text-sm border border-tertiary/30 px-6 py-2 rounded">SUBMIT ANOTHER</button>
+            <button onClick={() => setStatus('idle')} className="mt-8 text-emerald-500 font-label-caps text-sm border border-emerald-500/30 px-6 py-2 rounded">SUBMIT ANOTHER</button>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">
@@ -131,11 +131,11 @@ export default function Report() {
 
             <div>
               <label className="block font-code-sm text-xs text-on-surface-variant mb-2 uppercase tracking-widest">Supporting Documents (Optional)</label>
-              <input type="file" onChange={handleFileChange} className="w-full text-sm text-on-surface-variant file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-tertiary/10 file:text-tertiary hover:file:bg-tertiary/20 file:transition-colors cursor-pointer" />
+              <input type="file" onChange={handleFileChange} className="w-full text-sm text-on-surface-variant file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-emerald-500/10 file:text-emerald-500 hover:file:bg-emerald-500/20 file:transition-colors cursor-pointer" />
               <p className="text-xs text-on-surface-variant mt-2">Upload any base papers, rubrics, or abstracts (Max 25MB).</p>
             </div>
 
-            <button type="submit" disabled={status === 'submitting'} className="bg-tertiary text-on-tertiary font-headline-md text-base uppercase tracking-widest py-4 mt-6 rounded flex justify-center items-center gap-2 hover:bg-tertiary-fixed transition-colors w-full shadow-[0_0_15px_rgba(47,217,244,0.3)]">
+            <button type="submit" disabled={status === 'submitting'} className="bg-emerald-500 text-on-tertiary font-headline-md text-base uppercase tracking-widest py-4 mt-6 rounded flex justify-center items-center gap-2 hover:bg-emerald-500-fixed transition-colors w-full shadow-[0_0_15px_rgba(16,185,129,0.3)]">
               <span>{status === 'submitting' ? 'UPLOADING...' : 'REQUEST REPORT'}</span>
               <Send className="w-5 h-5" />
             </button>

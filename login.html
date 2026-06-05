@@ -15,20 +15,20 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        "surface-dim":"#101415","on-tertiary-fixed":"#001f25","tertiary":"#2fd9f4",
+        "surface-dim":"#080A0A","on-tertiary-fixed":"#022c22","tertiary":"#10B981",
         "on-surface-variant":"#c6c6cd","on-error-container":"#ffdad6",
-        "surface-container-highest":"#323537","outline":"#909097","background":"#101415",
-        "surface-container":"#1d2022","inverse-primary":"#565e74","primary-fixed-dim":"#bec6e0",
-        "surface-container-high":"#272a2c","inverse-on-surface":"#2d3133",
+        "surface-container-highest":"#1d1f1d","outline":"#7a807a","background":"#080A0A",
+        "surface-container":"#111311","inverse-primary":"#565e74","primary-fixed-dim":"#bec6e0",
+        "surface-container-high":"#161816","inverse-on-surface":"#2d3133",
         "on-primary-container":"#798098","secondary-fixed-dim":"#f9bd22",
-        "primary-container":"#0f172a","tertiary-container":"#001b20","surface-tint":"#bec6e0",
-        "on-tertiary":"#00363e","on-tertiary-container":"#008ea1","on-primary-fixed":"#131b2e",
-        "on-tertiary-fixed-variant":"#004e5a","on-surface":"#e0e3e5",
-        "surface-container-low":"#191c1e","surface-container-lowest":"#0b0f10",
-        "primary":"#bec6e0","tertiary-fixed-dim":"#2fd9f4","outline-variant":"#45464d",
-        "surface":"#101415","inverse-surface":"#e0e3e5","surface-variant":"#323537",
-        "on-secondary-fixed-variant":"#5c4300","error":"#ffb4ab","tertiary-fixed":"#a2eeff",
-        "primary-fixed":"#dae2fd","surface-bright":"#363a3b","on-secondary-container":"#5a4100",
+        "primary-container":"#0f172a","tertiary-container":"#064e3b","surface-tint":"#bec6e0",
+        "on-tertiary":"#ffffff","on-tertiary-container":"#a7f3d0","on-primary-fixed":"#131b2e",
+        "on-tertiary-fixed-variant":"#047857","on-surface":"#e0e3e5",
+        "surface-container-low":"#0d0f0d","surface-container-lowest":"#050605",
+        "primary":"#bec6e0","tertiary-fixed-dim":"#10B981","outline-variant":"#272927",
+        "surface":"#080A0A","inverse-surface":"#e0e3e5","surface-variant":"#323537",
+        "on-secondary-fixed-variant":"#5c4300","error":"#ffb4ab","tertiary-fixed":"#a7f3d0",
+        "primary-fixed":"#dae2fd","surface-bright":"#222422","on-secondary-container":"#5a4100",
         "on-primary-fixed-variant":"#3f465c","on-primary":"#283044","on-background":"#e0e3e5",
         "secondary-container":"#e3aa00","on-error":"#690005","on-secondary-fixed":"#261a00",
         "secondary-fixed":"#ffdf9f","secondary":"#ffc640","error-container":"#93000a",
@@ -53,16 +53,16 @@ tailwind.config = {
 </script>
 <style>
 body {
-  background-color: #0F172A;
-  background-image: radial-gradient(circle at center, rgba(47,217,244,0.08) 0%, transparent 60%);
+  background-color: #080A0A;
+  background-image: radial-gradient(circle at center, rgba(16,185,129,0.08) 0%, transparent 60%);
   min-height: 100vh;
 }
 .glass-panel {
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(47, 217, 244, 0.15);
-  border-top: 1px solid rgba(47, 217, 244, 0.25);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  border-top: 1px solid rgba(16, 185, 129, 0.25);
   border-left: 1px solid rgba(255, 198, 64, 0.15);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
@@ -72,7 +72,7 @@ body {
 .login-input-group { position: relative; margin-bottom: 0; }
 .login-input {
   background: rgba(0,0,0,0.3);
-  border: 1px solid rgba(47,217,244,0.2);
+  border: 1px solid rgba(16,185,129,0.2);
   color: #e0e3e5;
   transition: all 0.3s ease;
   padding: 16px 14px 8px;
@@ -82,8 +82,8 @@ body {
   font-size: 16px;
 }
 .login-input:focus {
-  border-color: #2fd9f4;
-  box-shadow: 0 0 0 3px rgba(47,217,244,0.1), 0 0 15px rgba(47,217,244,0.15);
+  border-color: #10B981;
+  box-shadow: 0 0 0 3px rgba(16,185,129,0.1), 0 0 15px rgba(16,185,129,0.15);
   outline: none;
 }
 .login-input-label {
@@ -95,7 +95,7 @@ body {
 }
 .login-input:focus ~ .login-input-label,
 .login-input:not(:placeholder-shown) ~ .login-input-label {
-  top: 5px; font-size: 9px; color: #2fd9f4;
+  top: 5px; font-size: 9px; color: #10B981;
 }
 
 /* Password strength */
@@ -141,7 +141,7 @@ body {
     <!-- Bolt 1 (top left) -->
     <path class="bg-bolt" d="M200 50 L160 220 H195 L148 400 L260 170 H220 L240 50Z" fill="#ffc640"/>
     <!-- Bolt 2 (bottom right) -->
-    <path class="bg-bolt-2" d="M1050 400 L1010 570 H1045 L998 750 L1110 520 H1070 L1090 400Z" fill="#2fd9f4"/>
+    <path class="bg-bolt-2" d="M1050 400 L1010 570 H1045 L998 750 L1110 520 H1070 L1090 400Z" fill="#10B981"/>
     <!-- Bolt 3 (center right) -->
     <path class="bg-bolt-3" d="M900 100 L875 220 H898 L865 330 L935 200 H908 L920 100Z" fill="#ffc640"/>
   </svg>
@@ -230,7 +230,7 @@ body {
       reset() {
         this.x = Math.random() * lCanvas.width; this.y = Math.random() * lCanvas.height;
         this.size = Math.random() * 1.5 + 0.5; this.sx = (Math.random()-.5)*.2; this.sy = (Math.random()-.5)*.2;
-        this.opacity = Math.random()*.3+.05; this.color = Math.random()>.5?'47,217,244':'255,198,64';
+        this.opacity = Math.random()*.3+.05; this.color = Math.random()>.5?'16,185,129':'255,198,64';
       }
       update() { this.x+=this.sx; this.y+=this.sy; if(this.x<0||this.x>lCanvas.width||this.y<0||this.y>lCanvas.height) this.reset(); }
       draw() { lCtx.beginPath(); lCtx.arc(this.x,this.y,this.size,0,Math.PI*2); lCtx.fillStyle=`rgba(${this.color},${this.opacity})`; lCtx.fill(); }
@@ -272,7 +272,7 @@ body {
         { pct: '40%', color: '#f97316', text: 'Fair' },
         { pct: '60%', color: '#eab308', text: 'Good' },
         { pct: '80%', color: '#22c55e', text: 'Strong' },
-        { pct: '100%', color: '#2fd9f4', text: 'Very Strong' },
+        { pct: '100%', color: '#10B981', text: 'Very Strong' },
       ];
       const cfg = configs[Math.min(strength, 5)];
       fill.style.width = cfg.pct;

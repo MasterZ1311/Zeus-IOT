@@ -18,7 +18,7 @@ export default function Layout() {
       <Footer />
 
       {/* Mobile Bottom Nav */}
-      <nav className="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(47,217,244,0.15)] pb-safe">
+      <nav className="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-emerald-500/30 shadow-[0_-4px_20px_rgba(16,185,129,0.15)] pb-safe">
         <div className="flex justify-around items-center py-2 px-4">
           <Link to="/" className={`flex flex-col items-center justify-center rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150 ${location.pathname === '/' ? 'text-secondary bg-on-secondary-container/20' : 'text-on-surface-variant/70 hover:bg-surface-variant/50'}`}>
             <Home className="w-5 h-5 mb-1" />

@@ -14,42 +14,42 @@
             theme: {
                 extend: {
                     colors: {
-                        "surface-dim": "#101415",
-                        "on-tertiary-fixed": "#001f25",
-                        "tertiary": "#2fd9f4",
+                        "surface-dim": "#080A0A",
+                        "on-tertiary-fixed": "#022c22",
+                        "tertiary": "#10B981",
                         "on-surface-variant": "#c6c6cd",
                         "on-error-container": "#ffdad6",
-                        "surface-container-highest": "#323537",
-                        "outline": "#909097",
-                        "background": "#101415",
-                        "surface-container": "#1d2022",
+                        "surface-container-highest": "#1d1f1d",
+                        "outline": "#7a807a",
+                        "background": "#080A0A",
+                        "surface-container": "#111311",
                         "inverse-primary": "#565e74",
                         "primary-fixed-dim": "#bec6e0",
-                        "surface-container-high": "#272a2c",
+                        "surface-container-high": "#161816",
                         "inverse-on-surface": "#2d3133",
                         "on-primary-container": "#798098",
                         "secondary-fixed-dim": "#f9bd22",
                         "primary-container": "#0f172a",
-                        "tertiary-container": "#001b20",
+                        "tertiary-container": "#064e3b",
                         "surface-tint": "#bec6e0",
-                        "on-tertiary": "#00363e",
-                        "on-tertiary-container": "#008ea1",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#a7f3d0",
                         "on-primary-fixed": "#131b2e",
-                        "on-tertiary-fixed-variant": "#004e5a",
+                        "on-tertiary-fixed-variant": "#047857",
                         "on-surface": "#e0e3e5",
-                        "surface-container-low": "#191c1e",
-                        "surface-container-lowest": "#0b0f10",
+                        "surface-container-low": "#0d0f0d",
+                        "surface-container-lowest": "#050605",
                         "primary": "#bec6e0",
-                        "tertiary-fixed-dim": "#2fd9f4",
-                        "outline-variant": "#45464d",
-                        "surface": "#101415",
+                        "tertiary-fixed-dim": "#10B981",
+                        "outline-variant": "#272927",
+                        "surface": "#080A0A",
                         "inverse-surface": "#e0e3e5",
                         "surface-variant": "#323537",
                         "on-secondary-fixed-variant": "#5c4300",
                         "error": "#ffb4ab",
-                        "tertiary-fixed": "#a2eeff",
+                        "tertiary-fixed": "#a7f3d0",
                         "primary-fixed": "#dae2fd",
-                        "surface-bright": "#363a3b",
+                        "surface-bright": "#222422",
                         "on-secondary-container": "#5a4100",
                         "on-primary-fixed-variant": "#3f465c",
                         "on-primary": "#283044",
@@ -101,8 +101,8 @@
     </script>
 <style>
         body {
-            background-color: #0F172A;
-            background-image: radial-gradient(circle at top right, rgba(47, 217, 244, 0.05), transparent 40%),
+            background-color: #080A0A;
+            background-image: radial-gradient(circle at top right, rgba(16, 185, 129, 0.05), transparent 40%),
                               radial-gradient(circle at bottom left, rgba(255, 198, 64, 0.05), transparent 40%);
             background-attachment: fixed;
         }
@@ -111,27 +111,27 @@
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(47, 217, 244, 0.1);
-            border-top: 1px solid rgba(47, 217, 244, 0.3);
+            border: 1px solid rgba(16, 185, 129, 0.1);
+            border-top: 1px solid rgba(16, 185, 129, 0.3);
             border-left: 1px solid rgba(255, 198, 64, 0.2);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
 
         .glass-panel:hover {
             background: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 8px 32px 0 rgba(47, 217, 244, 0.1);
-            border-top: 1px solid rgba(47, 217, 244, 0.5);
+            box-shadow: 0 8px 32px 0 rgba(16, 185, 129, 0.1);
+            border-top: 1px solid rgba(16, 185, 129, 0.5);
         }
 
         .input-field {
             background: rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(47, 217, 244, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.2);
             transition: all 0.3s ease;
         }
 
         .input-field:focus {
-            border-color: #2fd9f4;
-            box-shadow: 0 0 10px rgba(47, 217, 244, 0.2);
+            border-color: #10B981;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
             outline: none;
         }
 
@@ -143,7 +143,7 @@
         }
 
         .btn-primary:hover {
-            box-shadow: 0 0 15px rgba(47, 217, 244, 0.4);
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
             transform: translateY(-2px);
         }
 
@@ -156,19 +156,19 @@
         
         .upload-area {
             background: rgba(0,0,0,0.2);
-            border: 2px dashed rgba(47, 217, 244, 0.3);
+            border: 2px dashed rgba(16, 185, 129, 0.3);
             transition: all 0.3s ease;
         }
         
         .upload-area:hover {
-            border-color: #2fd9f4;
-            background: rgba(47, 217, 244, 0.05);
+            border-color: #10B981;
+            background: rgba(16, 185, 129, 0.05);
         }
     </style>
 </head>
 <body class="text-on-background min-h-screen flex flex-col font-body-lg pt-16">
 <!-- TopAppBar -->
-<header class="bg-surface/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(47,217,244,0.2)] flex items-center justify-between px-margin-mobile h-16 w-full hidden md:flex">
+<header class="bg-surface/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] flex items-center justify-between px-margin-mobile h-16 w-full hidden md:flex">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">bolt</span>
 <span class="font-headline-xl text-headline-md-mobile text-secondary drop-shadow-[0_0_8px_rgba(255,198,64,0.4)]">ZEUS IOT</span>
@@ -275,7 +275,7 @@
 </div>
 </footer>
 <!-- BottomNavBar (Mobile) -->
-<nav class="bg-surface-container/90 backdrop-blur-xl fixed bottom-0 w-full z-50 rounded-t-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(47,217,244,0.15)] fixed bottom-0 left-0 w-full flex justify-around items-center py-2 px-4 pb-safe md:hidden">
+<nav class="bg-surface-container/90 backdrop-blur-xl fixed bottom-0 w-full z-50 rounded-t-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(16,185,129,0.15)] fixed bottom-0 left-0 w-full flex justify-around items-center py-2 px-4 pb-safe md:hidden">
 <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 active:scale-90 transition-transform duration-150 p-2 rounded" href="#">
 <span class="material-symbols-outlined">home</span>
 <span class="font-label-caps text-label-caps">Home</span>

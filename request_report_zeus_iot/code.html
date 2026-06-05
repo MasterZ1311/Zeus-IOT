@@ -16,52 +16,52 @@
             extend: {
               "colors": {
                       "on-secondary": "#402d00",
-                      "surface-container-highest": "#323537",
+                      "surface-container-highest": "#1d1f1d",
                       "on-secondary-fixed": "#261a00",
-                      "surface-dim": "#101415",
+                      "surface-dim": "#080A0A",
                       "error-container": "#93000a",
                       "on-secondary-fixed-variant": "#5c4300",
-                      "tertiary": "#2fd9f4",
-                      "surface-bright": "#363a3b",
-                      "on-tertiary-container": "#008ea1",
+                      "tertiary": "#10B981",
+                      "surface-bright": "#222422",
+                      "on-tertiary-container": "#a7f3d0",
                       "on-error": "#690005",
                       "primary-fixed": "#dae2fd",
-                      "on-tertiary": "#00363e",
-                      "on-tertiary-fixed": "#001f25",
+                      "on-tertiary": "#ffffff",
+                      "on-tertiary-fixed": "#022c22",
                       "error": "#ffb4ab",
                       "on-error-container": "#ffdad6",
                       "primary-container": "#0f172a",
                       "surface-variant": "#323537",
-                      "surface-container": "#1d2022",
+                      "surface-container": "#111311",
                       "inverse-primary": "#565e74",
                       "on-primary-fixed": "#131b2e",
                       "primary-fixed-dim": "#bec6e0",
                       "on-primary": "#283044",
-                      "surface": "#101415",
+                      "surface": "#080A0A",
                       "secondary-fixed": "#ffdf9f",
                       "on-primary-fixed-variant": "#3f465c",
-                      "on-tertiary-fixed-variant": "#004e5a",
-                      "outline-variant": "#45464d",
+                      "on-tertiary-fixed-variant": "#047857",
+                      "outline-variant": "#272927",
                       "on-primary-container": "#798098",
                       "on-background": "#e0e3e5",
-                      "surface-container-high": "#272a2c",
-                      "tertiary-fixed": "#a2eeff",
+                      "surface-container-high": "#161816",
+                      "tertiary-fixed": "#a7f3d0",
                       "secondary-container": "#e3aa00",
-                      "background": "#101415",
+                      "background": "#080A0A",
                       "on-surface-variant": "#c6c6cd",
-                      "tertiary-fixed-dim": "#2fd9f4",
+                      "tertiary-fixed-dim": "#10B981",
                       "surface-tint": "#bec6e0",
-                      "surface-container-low": "#191c1e",
+                      "surface-container-low": "#0d0f0d",
                       "on-secondary-container": "#5a4100",
-                      "outline": "#909097",
+                      "outline": "#7a807a",
                       "primary": "#bec6e0",
                       "on-surface": "#e0e3e5",
                       "secondary-fixed-dim": "#f9bd22",
                       "inverse-on-surface": "#2d3133",
-                      "surface-container-lowest": "#0b0f10",
+                      "surface-container-lowest": "#050605",
                       "secondary": "#ffc640",
                       "inverse-surface": "#e0e3e5",
-                      "tertiary-container": "#001b20"
+                      "tertiary-container": "#064e3b"
               },
               "borderRadius": {
                       "DEFAULT": "0.125rem",
@@ -169,8 +169,8 @@
       </script>
 <style>
         body {
-            background-color: #0F172A; /* Deep Storm base */
-            background-image: radial-gradient(circle at 50% 0%, rgba(47,217,244,0.05) 0%, transparent 70%);
+            background-color: #080A0A; /* Deep Storm base */
+            background-image: radial-gradient(circle at 50% 0%, rgba(16,185,129,0.05) 0%, transparent 70%);
             color: theme('colors.on-surface');
         }
         
@@ -178,7 +178,7 @@
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(47, 217, 244, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.2);
             box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.05);
         }
         
@@ -188,7 +188,7 @@
             top: 0; left: 0; right: 0; bottom: 0;
             border-radius: inherit;
             padding: 1px;
-            background: linear-gradient(135deg, rgba(47,217,244,0.5) 0%, rgba(255,198,64,0.2) 50%, transparent 100%);
+            background: linear-gradient(135deg, rgba(16,185,129,0.5) 0%, rgba(255,198,64,0.2) 50%, transparent 100%);
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
@@ -203,7 +203,7 @@
         }
         
         .bolt-btn:hover {
-            box-shadow: 0 0 15px rgba(47,217,244,0.6);
+            box-shadow: 0 0 15px rgba(16,185,129,0.6);
             transform: translateY(-2px);
         }
 
@@ -215,7 +215,7 @@
         }
         
         .ghost-btn:hover {
-            background: rgba(47,217,244,0.1);
+            background: rgba(16,185,129,0.1);
         }
 
         .input-circuit {
@@ -226,11 +226,11 @@
         
         .input-circuit:focus-within {
             border-color: theme('colors.tertiary');
-            box-shadow: 0 0 10px rgba(47,217,244,0.2);
+            box-shadow: 0 0 10px rgba(16,185,129,0.2);
         }
 
         .circuit-bg {
-            background-image: radial-gradient(circle at 2px 2px, rgba(47, 217, 244, 0.1) 1px, transparent 0);
+            background-image: radial-gradient(circle at 2px 2px, rgba(16, 185, 129, 0.1) 1px, transparent 0);
             background-size: 32px 32px;
         }
     </style>
@@ -242,7 +242,7 @@
 </head>
 <body class="min-h-screen flex flex-col font-body-md text-body-md overflow-x-hidden selection:bg-tertiary/30 selection:text-tertiary">
 <!-- TopAppBar -->
-<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-[0_2px_15px_-3px_rgba(47,217,244,0.2)] border-b border-primary/20 flex items-center justify-between px-margin-mobile h-16 w-full hidden md:flex">
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] border-b border-primary/20 flex items-center justify-between px-margin-mobile h-16 w-full hidden md:flex">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-secondary font-headline-md text-headline-md-mobile drop-shadow-[0_0_8px_rgba(255,198,64,0.4)]" data-icon="bolt">bolt</span>
 <span class="font-headline-xl text-headline-md-mobile text-secondary drop-shadow-[0_0_8px_rgba(255,198,64,0.4)]">ZEUS IOT</span>
@@ -279,7 +279,7 @@
         <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-tertiary to-secondary"></div>
         <label class="block font-code-sm text-code-sm text-on-surface-variant mb-4 uppercase">Performance Tier</label>
         <div class="flex flex-col sm:flex-row gap-3 mb-4" id="tier-levels">
-          <button data-desc="Standard technical summary with core data visualization." class="tier-btn input-circuit active flex-1 py-3 px-4 rounded text-on-surface-variant font-label-caps text-label-caps transition-all text-center border-tertiary text-tertiary" style="background: rgba(47, 217, 244, 0.1);" type="button">BASIC</button>
+          <button data-desc="Standard technical summary with core data visualization." class="tier-btn input-circuit active flex-1 py-3 px-4 rounded text-on-surface-variant font-label-caps text-label-caps transition-all text-center border-tertiary text-tertiary" style="background: rgba(16, 185, 129, 0.1);" type="button">BASIC</button>
           <button data-desc="Tailored report with custom analysis and formatted output." class="tier-btn input-circuit flex-1 py-3 px-4 rounded text-on-surface-variant font-label-caps text-label-caps transition-all text-center" type="button">CUSTOM</button>
           <button data-desc="Publication-ready documentation with comprehensive analysis." class="tier-btn input-circuit flex-1 py-3 px-4 rounded text-on-surface-variant font-label-caps text-label-caps transition-all text-center" type="button">PROFESSIONAL</button>
         </div>
@@ -371,7 +371,7 @@
   </div>
 </main>
 <!-- BottomNavBar (Mobile Only) -->
-<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(47,217,244,0.15)] fixed bottom-0 left-0 w-full flex justify-around items-center py-2 px-4 pb-safe md:hidden">
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(16,185,129,0.15)] fixed bottom-0 left-0 w-full flex justify-around items-center py-2 px-4 pb-safe md:hidden">
 <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 active:scale-90 transition-transform duration-150 p-2 rounded-xl" href="#">
 <span class="material-symbols-outlined" data-icon="home">home</span>
 <span class="font-label-caps text-[10px] mt-1">Home</span>
@@ -412,7 +412,7 @@
         b.style.background = '';
       });
       this.classList.add('active', 'border-tertiary', 'text-tertiary');
-      this.style.background = 'rgba(47, 217, 244, 0.1)';
+      this.style.background = 'rgba(16, 185, 129, 0.1)';
       const desc = this.getAttribute('data-desc');
       tierDesc.innerHTML = `<span class="material-symbols-outlined text-[18px]">info</span> ${desc}`;
     });

@@ -41,7 +41,7 @@ export default function Terms() {
 
           <section>
             <h2 className="font-headline-md text-2xl text-secondary mb-4 flex items-center gap-2">
-              <AlertTriangle className="w-5 h-5 text-tertiary" /> 3. Liability and Warranties
+              <AlertTriangle className="w-5 h-5 text-emerald-500" /> 3. Liability and Warranties
             </h2>
             <p className="font-body-md text-on-surface-variant leading-relaxed mb-4">
               We warrant that custom hardware is free from defects at the time of handover. However, due to the experimental nature of IoT prototypes, we are not liable for damages resulting from improper handling, incorrect power supply, or environmental damage post-delivery.

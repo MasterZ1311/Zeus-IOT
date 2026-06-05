@@ -7,8 +7,8 @@ export default function Privacy() {
       <div className="max-w-4xl mx-auto">
         
         <div className="flex items-center gap-4 mb-8">
-          <div className="w-12 h-12 rounded-full bg-tertiary/10 flex items-center justify-center border border-tertiary/30">
-            <Lock className="text-tertiary w-6 h-6" />
+          <div className="w-12 h-12 rounded-full bg-emerald-500/10 flex items-center justify-center border border-emerald-500/30">
+            <Lock className="text-emerald-500 w-6 h-6" />
           </div>
           <h1 className="font-headline-xl text-4xl text-on-surface uppercase">Privacy Policy</h1>
         </div>
@@ -19,7 +19,7 @@ export default function Privacy() {
           className="glass-panel p-8 rounded-xl flex flex-col gap-8"
         >
           <section>
-            <h2 className="font-headline-md text-2xl text-tertiary mb-4 flex items-center gap-2">
+            <h2 className="font-headline-md text-2xl text-emerald-500 mb-4 flex items-center gap-2">
               <Eye className="w-5 h-5" /> 1. Information We Collect
             </h2>
             <p className="font-body-md text-on-surface-variant leading-relaxed mb-4">
@@ -28,7 +28,7 @@ export default function Privacy() {
           </section>
 
           <section>
-            <h2 className="font-headline-md text-2xl text-tertiary mb-4 flex items-center gap-2">
+            <h2 className="font-headline-md text-2xl text-emerald-500 mb-4 flex items-center gap-2">
               <Database className="w-5 h-5" /> 2. How We Use Your Data
             </h2>
             <p className="font-body-md text-on-surface-variant leading-relaxed mb-4">
@@ -42,14 +42,14 @@ export default function Privacy() {
           </section>
 
           <section>
-            <h2 className="font-headline-md text-2xl text-tertiary mb-4">3. Data Protection and Security</h2>
+            <h2 className="font-headline-md text-2xl text-emerald-500 mb-4">3. Data Protection and Security</h2>
             <p className="font-body-md text-on-surface-variant leading-relaxed mb-4">
               We employ industry-standard encryption (AES-256 for databases, TLS for transit) to protect your project specifications and intellectual property. We do not sell, rent, or lease your personal information or project ideas to any third party. Academic project ideas are kept strictly confidential until you present them.
             </p>
           </section>
 
           <section>
-            <h2 className="font-headline-md text-2xl text-tertiary mb-4">4. Your Rights</h2>
+            <h2 className="font-headline-md text-2xl text-emerald-500 mb-4">4. Your Rights</h2>
             <p className="font-body-md text-on-surface-variant leading-relaxed mb-4">
               You have the right to request the deletion of your personal data and project files from our servers post-delivery. To initiate a data purge, please contact our support team.
             </p>

@@ -44,7 +44,7 @@ export default function Contact() {
         {/* INFO */}
         <div>
           <h1 className="font-headline-xl text-4xl md:text-5xl text-on-surface mb-6 uppercase flex items-center gap-4">
-            <span className="w-8 h-1 bg-tertiary inline-block"></span>
+            <span className="w-8 h-1 bg-emerald-500 inline-block"></span>
             GET IN TOUCH
           </h1>
           <p className="font-body-lg text-lg text-on-surface-variant mb-10 max-w-lg">
@@ -75,7 +75,7 @@ export default function Contact() {
               <CheckCircle className="w-20 h-20 text-secondary mb-6" />
               <h3 className="font-headline-md text-2xl text-on-surface mb-2">Request Transmitted</h3>
               <p className="font-body-md text-on-surface-variant">Our engineering team will review your specifications and contact you shortly.</p>
-              <button onClick={() => setStatus('idle')} className="mt-8 text-tertiary font-label-caps text-sm">SEND ANOTHER MESSAGE</button>
+              <button onClick={() => setStatus('idle')} className="mt-8 text-emerald-500 font-label-caps text-sm">SEND ANOTHER MESSAGE</button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">

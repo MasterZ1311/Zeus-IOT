@@ -34,7 +34,7 @@ export default function Support() {
             transition={{ delay: 0.1 }}
             className="glass-panel p-6 rounded-xl flex flex-col gap-4"
           >
-            <div className="flex items-center gap-3 text-tertiary">
+            <div className="flex items-center gap-3 text-emerald-500">
               <FileCode className="w-5 h-5" />
               <h3 className="font-headline-md text-xl">Software & Code Bugs</h3>
             </div>
@@ -63,7 +63,7 @@ export default function Support() {
               </div>
               <div className="bg-surface-container-high rounded p-3 border border-outline-variant/30 flex-1">
                 <span className="block font-code-sm text-xs text-on-surface-variant uppercase mb-1">Email Support</span>
-                <span className="font-body-md text-tertiary">zeusiotprojects@gmail.com</span>
+                <span className="font-body-md text-emerald-500">zeusiotprojects@gmail.com</span>
               </div>
             </div>
           </motion.div>

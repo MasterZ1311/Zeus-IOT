@@ -15,9 +15,9 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        "tertiary":"#2fd9f4","surface-container":"#1d2022","surface-container-low":"#191c1e",
-        "surface-container-lowest":"#0b0f10","on-surface":"#e0e3e5","on-surface-variant":"#c6c6cd",
-        "surface":"#101415","secondary":"#ffc640","outline-variant":"#45464d","error":"#ffb4ab"
+        "tertiary":"#10B981","surface-container":"#111311","surface-container-low":"#0d0f0d",
+        "surface-container-lowest":"#050605","on-surface":"#e0e3e5","on-surface-variant":"#c6c6cd",
+        "surface":"#080A0A","secondary":"#ffc640","outline-variant":"#272927","error":"#ffb4ab"
       },
       fontFamily:{"body-lg":["Inter"],"headline-xl":["Montserrat"],"headline-md":["Montserrat"],"code-sm":["JetBrains Mono"],"label-caps":["JetBrains Mono"]}
     }
@@ -43,7 +43,7 @@ body { background-color: #0b0f10; min-height: 100vh; }
   width: 100%; height: 100%;
 }
 .glitch::before {
-  color: #2fd9f4;
+  color: #10B981;
   animation: glitch-1 3s infinite;
   clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
 }
@@ -67,7 +67,7 @@ body { background-color: #0b0f10; min-height: 100vh; }
 </style>
 </head>
 <body class="text-on-surface antialiased font-body-lg flex items-center justify-center min-h-screen px-6">
-  <div class="text-center max-w-lg">
+  <div class="text-center max-w-lg pb-24">
     <div class="flex justify-center mb-4">
       <div class="glitch">404</div>
     </div>
@@ -88,5 +88,27 @@ body { background-color: #0b0f10; min-height: 100vh; }
       © 2026 ZEUS IOT — HARNESS THE BOLT
     </div>
   </div>
+<!-- ═══════════════════════ MOBILE BOTTOM NAV ═══════════════════════ -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(16,185,129,0.15)] pb-safe">
+  <div class="flex justify-around items-center py-2 px-4">
+    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="index.html">
+      <span class="material-symbols-outlined">home</span>
+      <span class="font-label-caps text-label-caps mt-1">Home</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="projects.html">
+      <span class="material-symbols-outlined">grid_view</span>
+      <span class="font-label-caps text-label-caps mt-1">Projects</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="contact.html">
+      <span class="material-symbols-outlined">chat</span>
+      <span class="font-label-caps text-label-caps mt-1">Contact</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="pay.html">
+      <span class="material-symbols-outlined">payments</span>
+      <span class="font-label-caps text-label-caps mt-1">Pay</span>
+    </a>
+  </div>
+</nav>
+
 </body>
 </html>

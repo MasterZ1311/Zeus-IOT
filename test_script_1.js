@@ -7,7 +7,7 @@ const timelineObserver = new IntersectionObserver((entries) => {
       const connectors = document.querySelectorAll('.timeline-connector');
       connectors.forEach((c, i) => { setTimeout(() => c.classList.add('visible'), i * 400 + 300); });
       const dots = document.querySelectorAll('.timeline-dot');
-      dots.forEach((d, i) => { setTimeout(() => { d.style.borderColor = i === 0 ? '#ffc640' : '#2fd9f4'; d.style.boxShadow = `0 0 20px rgba(${i === 0 ? '255,198,64' : '47,217,244'},0.3)`; }, i * 400); });
+      dots.forEach((d, i) => { setTimeout(() => { d.style.borderColor = i === 0 ? '#ffc640' : '#10B981'; d.style.boxShadow = `0 0 20px rgba(${i === 0 ? '255,198,64' : '47,217,244'},0.3)`; }, i * 400); });
     }
   });
 }, { threshold: 0.3 });

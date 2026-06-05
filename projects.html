@@ -22,20 +22,20 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        "surface-dim":"#101415","on-tertiary-fixed":"#001f25","tertiary":"#2fd9f4",
+        "surface-dim":"#080A0A","on-tertiary-fixed":"#022c22","tertiary":"#10B981",
         "on-surface-variant":"#c6c6cd","on-error-container":"#ffdad6",
-        "surface-container-highest":"#323537","outline":"#909097","background":"#101415",
-        "surface-container":"#1d2022","inverse-primary":"#565e74","primary-fixed-dim":"#bec6e0",
-        "surface-container-high":"#272a2c","inverse-on-surface":"#2d3133",
+        "surface-container-highest":"#1d1f1d","outline":"#7a807a","background":"#080A0A",
+        "surface-container":"#111311","inverse-primary":"#565e74","primary-fixed-dim":"#bec6e0",
+        "surface-container-high":"#161816","inverse-on-surface":"#2d3133",
         "on-primary-container":"#798098","secondary-fixed-dim":"#f9bd22",
-        "primary-container":"#0f172a","tertiary-container":"#001b20","surface-tint":"#bec6e0",
-        "on-tertiary":"#00363e","on-tertiary-container":"#008ea1","on-primary-fixed":"#131b2e",
-        "on-tertiary-fixed-variant":"#004e5a","on-surface":"#e0e3e5",
-        "surface-container-low":"#191c1e","surface-container-lowest":"#0b0f10",
-        "primary":"#bec6e0","tertiary-fixed-dim":"#2fd9f4","outline-variant":"#45464d",
-        "surface":"#101415","inverse-surface":"#e0e3e5","surface-variant":"#323537",
-        "on-secondary-fixed-variant":"#5c4300","error":"#ffb4ab","tertiary-fixed":"#a2eeff",
-        "primary-fixed":"#dae2fd","surface-bright":"#363a3b","on-secondary-container":"#5a4100",
+        "primary-container":"#0f172a","tertiary-container":"#064e3b","surface-tint":"#bec6e0",
+        "on-tertiary":"#ffffff","on-tertiary-container":"#a7f3d0","on-primary-fixed":"#131b2e",
+        "on-tertiary-fixed-variant":"#047857","on-surface":"#e0e3e5",
+        "surface-container-low":"#0d0f0d","surface-container-lowest":"#050605",
+        "primary":"#bec6e0","tertiary-fixed-dim":"#10B981","outline-variant":"#272927",
+        "surface":"#080A0A","inverse-surface":"#e0e3e5","surface-variant":"#323537",
+        "on-secondary-fixed-variant":"#5c4300","error":"#ffb4ab","tertiary-fixed":"#a7f3d0",
+        "primary-fixed":"#dae2fd","surface-bright":"#222422","on-secondary-container":"#5a4100",
         "on-primary-fixed-variant":"#3f465c","on-primary":"#283044","on-background":"#e0e3e5",
         "secondary-container":"#e3aa00","on-error":"#690005","on-secondary-fixed":"#261a00",
         "secondary-fixed":"#ffdf9f","secondary":"#ffc640","error-container":"#93000a",
@@ -64,8 +64,8 @@ tailwind.config = {
 </script>
 <style>
 body {
-  background-color: #0F172A;
-  background-image: radial-gradient(circle at 30% -10%, rgba(47,217,244,0.12) 0%, transparent 50%),
+  background-color: #080A0A;
+  background-image: radial-gradient(circle at 30% -10%, rgba(16,185,129,0.12) 0%, transparent 50%),
                     radial-gradient(circle at 90% 90%, rgba(255,198,64,0.06) 0%, transparent 50%);
   min-height: 100vh;
 }
@@ -74,13 +74,13 @@ body {
 /* Search input */
 .search-input {
   background: rgba(0,0,0,0.25);
-  border: 1px solid rgba(47,217,244,0.2);
+  border: 1px solid rgba(16,185,129,0.2);
   color: #e0e3e5;
   transition: all 0.3s ease;
 }
 .search-input:focus {
-  border-color: #2fd9f4;
-  box-shadow: 0 0 0 3px rgba(47,217,244,0.1), 0 0 20px rgba(47,217,244,0.15);
+  border-color: #10B981;
+  box-shadow: 0 0 0 3px rgba(16,185,129,0.1), 0 0 20px rgba(16,185,129,0.15);
   outline: none;
 }
 .search-input::placeholder { color: #909097; }
@@ -113,7 +113,7 @@ body {
 </div>
 
 <!-- ═══════════════════════ DESKTOP TOP NAV ═══════════════════════ -->
-<header id="desktop-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(47,217,244,0.2)] hidden md:flex items-center justify-between px-margin-desktop h-16 transition-all duration-300">
+<header id="desktop-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] hidden md:flex items-center justify-between px-margin-desktop h-16 transition-all duration-300">
   <a href="index.html" class="flex items-center gap-2">
     <span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
     <span class="font-headline-xl text-headline-md text-secondary drop-shadow-[0_0_8px_rgba(255,198,64,0.4)] tracking-tight">ZEUS IOT</span>
@@ -128,42 +128,99 @@ body {
 </header>
 
 <!-- ═══════════════════════ MOBILE TOP NAV ═══════════════════════ -->
-<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(47,217,244,0.2)] flex md:hidden items-center justify-between px-margin-mobile h-16" style="z-index:150;">
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] flex md:hidden items-center justify-between px-margin-mobile h-16" style="z-index:150;">
   <a href="index.html" class="flex items-center gap-2">
     <span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
     <span class="font-headline-md text-secondary glow-text">ZEUS IOT</span>
   </a>
-  <button id="mobile-menu-btn" aria-label="Open menu">
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-  </button>
 </header>
-
-<!-- ═══════════════════════ MOBILE MENU OVERLAY ═══════════════════════ -->
-<div id="mobile-menu-overlay" role="dialog" aria-label="Mobile navigation">
-  <a href="index.html">HOME</a>
-  <a href="projects.html" class="nav-active">PROJECTS</a>
-  <a href="contact.html">CONTACT</a>
-  <a href="pay.html">PAY</a>
-  <a href="learning.html">LEARN</a>
-</div>
 
 <!-- ═══════════════════════ MAIN CONTENT ═══════════════════════ -->
 <main class="pt-24 md:pt-32 pb-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative z-10">
 
   <!-- ─────────── HERO SECTION ─────────── -->
   <section class="mb-12 reveal">
-    <div class="inline-flex items-center gap-2 bg-surface-container-high border border-outline-variant/30 rounded-full px-4 py-1.5 w-max mb-6">
-      <div class="w-2.5 h-2.5 rounded-full bg-tertiary animate-breathe shadow-[0_0_8px_rgba(47,217,244,0.6)]"></div>
-      <span class="font-code-sm text-code-sm text-tertiary">6 PROJECTS AVAILABLE</span>
+        <div class="inline-flex items-center gap-2 bg-surface-container-high border border-outline-variant/30 rounded-full px-4 py-1.5 w-max mb-6">
+      <div class="w-2.5 h-2.5 rounded-full bg-tertiary animate-breathe shadow-[0_0_8px_rgba(16,185,129,0.6)]"></div>
+      <span class="font-code-sm text-code-sm text-tertiary">100+ PROJECTS AVAILABLE</span>
     </div>
     <h1 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-transparent bg-clip-text bg-gradient-to-r from-secondary to-tertiary mb-4 uppercase">
       Our Arsenal
     </h1>
-    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-6">
       Explore our deployable technical solutions. From standalone hardware units to comprehensive IoT ecosystems — each project fully documented and presentation-ready.
     </p>
+
+    <!-- Idea List Accordion / Container -->
+    <div class="bg-surface-container-high border border-outline-variant/50 rounded-xl p-6 max-w-2xl">
+      <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Have no idea?</h3>
+      <p class="text-on-surface-variant text-body-md mb-4">Choose from our extended list of 100+ project ideas below:</p>
+      
+      <div class="max-h-64 overflow-y-auto pr-4 custom-scrollbar">
+        <ul class="text-sm font-body-md">
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Build a Smart ESP32 GPS Tracker with SIM800L and NEO6M Module</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Smart Life Band: An IoT-Based Health, Sleep, and Safety Monitoring Wearable</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to Send SMS with Arduino UNO R4 via Internet?</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> TheAssitBot : Wearable AI Assistant for the Deaf and Mute</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Build a Speaking Alarm Clock Using the XIAO ESP32-S3</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Smart Library System</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to Build a Smart Indian Currency Recognition Using ESP32-CAM</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> SmartLearn Avatar</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Build a Real-Time GPS Tracker with Raspberry Pi Pico &amp; SIM800L GSM Module</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Interfacing the A7672S 4G LTE GNSS Module with Arduino</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Hand Gesture Recognition using ESP32 and Python</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> C.A.R.E. (COGNITIVE AMBIENCE RESPIRATORY ENGINE)</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Send SMS Alert Using Seeed Studio Xiao ESP32</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Build a Raspberry Pi-Based SMS Alert System Using Cloud API</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Automatic Waste Segregation System Using Arduino UNO Q</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> ESP32-S3 Box 3 Smart Weather Station: Real-Time Field Monitoring for Farmers from Home</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> AI Based Smart Parking System using ESP32-CAM</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Maixduino AI and IoT Face Recognition with Alert</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Getting Started with Adafruit MEMENTO: Python Programmable DIY Camera Board</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> S3 Private AI Station: The 100% Private Desktop Assistant</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Built an ESP32-CAM Telegram Bot for Image &amp; Video Capture</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to Do Object Detection With ESP32-Cam Using CircuitDigest Cloud</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to Send Email Notifications using ESP32-CAM</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to Send WhatsApp Messages from Arduino Uno R4 Wifi Board</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to Build a Desktop Weather Station Using ESP32 and E-ink Display</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> iN-Car Drowsiness Detection and Alert System with CAN Bus Integration</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Smart Home Energy Management with IoT and Renewables</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Build a Smart Traffic Management System Using IoT</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Build an ESP32 GSM Calling Device with Auto Answer using GeoLinker</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to Use ESP32-CAM for Face Detection using CircuitDigest Cloud</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Find My Book – AI &amp; IoT Smart Library Navigation &amp; Inventory</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Memento SafeEdge Guardian - AI Child Safety Monitoring for Home Danger Zones</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> IOT Based Smart Energy Meter With SMS Alert</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to Build Smart Grid in IoT Using Arduino UNO R4 WIFI</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Smart Desk Bot</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to build a Smoke and Fire Alarm System using Arduino with SMS Notification</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to Send WhatsApp Messages from ESP32</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> ESP32 Air Mouse using Bluetooth and MPU6050</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to Do Helmet Detection with ESP32-CAM Using CircuitDigest Cloud</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Wireless Stepper Motor Controller with ESP32 and TMC2240</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to Use ESP32-CAM for Attendance System using CircuitDigest Cloud</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Real-Time Image Capture and Send Email Using ESP32-CAM</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Smart Home Automation &amp; Monitoring Hub</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Raspberry Pi Pico Based Rain Detection System with WhatsApp Alert</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> AgriSafe Rot-Spotter: A Multi-Modal Edge-AI System for Early Post-Harvest Spoilage Detection</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to Build an IoT-based Weather Monitoring System Using Arduino?</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> DoseRight - Smart Automatic Medicine Manager</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Ezo A Pet Robot</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Adaptive Musical Instrument for Physically Challenged Persons</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Rugged Outdoor Fitness Tracker</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> AIR-Buddy - A Buddy for Monitor Air Quality</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Core Posture: Smart IoT Posture Corrector and Hydration Assistant</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> ESP32 Interactive Voice Response (IVR) System with GeoLinker Integration</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to Send an Image on WhatsApp Using ESP32-CAM</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> iBIGS - Infant Behavior Intelligent Guardian System</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Kavach</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to use nRF24L01 module with Arduino?</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Smart WLED Clock with RTC, PIR, Audio feedback and Environmental Monitoring</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Build a GPS Tracker with Seeed Studio XIAO ESP32-S3 and Geofencing</li>
+          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> HomePod S3 - A Smart Desk companion</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <!-- ─────────── SEARCH + FILTER ─────────── -->
@@ -189,7 +246,7 @@ body {
     <!-- Project Card 1: Smart Irrigation -->
     <div class="project-card project-card-item glass-panel bolt-standby rounded-xl overflow-hidden group cursor-pointer tilt-card" data-category="iot hardware" data-tags="smart irrigation lorawan esp32 agriculture moisture">
       <div class="glare"></div>
-      <div class="h-52 relative overflow-hidden z-10" style="background: linear-gradient(135deg, rgba(47,217,244,0.18) 0%, rgba(15,23,42,0.95) 100%);">
+      <div class="h-52 relative overflow-hidden z-10" style="background: linear-gradient(135deg, rgba(16,185,129,0.18) 0%, rgba(15,23,42,0.95) 100%);">
         <div class="absolute inset-0 flex items-center justify-center">
           <span class="material-symbols-outlined text-[90px] text-tertiary/20 group-hover:text-tertiary/30 transition-opacity group-hover:scale-110 transition-transform duration-500">water_drop</span>
         </div>
@@ -256,7 +313,7 @@ body {
     <!-- Project Card 3: BLE Warehouse Tracker -->
     <div class="project-card project-card-item glass-panel bolt-standby rounded-xl overflow-hidden group cursor-pointer tilt-card" data-category="iot hardware" data-tags="esp32 ble bluetooth warehouse tracker inventory python">
       <div class="glare"></div>
-      <div class="h-52 relative overflow-hidden z-10" style="background: linear-gradient(135deg, rgba(47,217,244,0.12) 0%, rgba(255,198,64,0.08) 50%, rgba(15,23,42,0.95) 100%);">
+      <div class="h-52 relative overflow-hidden z-10" style="background: linear-gradient(135deg, rgba(16,185,129,0.12) 0%, rgba(255,198,64,0.08) 50%, rgba(15,23,42,0.95) 100%);">
         <div class="absolute inset-0 flex items-center justify-center">
           <span class="material-symbols-outlined text-[90px] text-tertiary/20 group-hover:text-tertiary/30 transition-opacity group-hover:scale-110 transition-transform duration-500">warehouse</span>
         </div>
@@ -289,7 +346,7 @@ body {
     <!-- Project Card 4: Air Quality Monitor -->
     <div class="project-card project-card-item glass-panel bolt-standby rounded-xl overflow-hidden group cursor-pointer tilt-card" data-category="iot education" data-tags="raspberry pi air quality aqi sensor mqtt dashboard education">
       <div class="glare"></div>
-      <div class="h-52 relative overflow-hidden z-10" style="background: linear-gradient(135deg, rgba(47,217,244,0.18) 0%, rgba(15,23,42,0.95) 100%);">
+      <div class="h-52 relative overflow-hidden z-10" style="background: linear-gradient(135deg, rgba(16,185,129,0.18) 0%, rgba(15,23,42,0.95) 100%);">
         <div class="absolute inset-0 flex items-center justify-center">
           <span class="material-symbols-outlined text-[90px] text-tertiary/20 group-hover:text-tertiary/30 transition-opacity group-hover:scale-110 transition-transform duration-500">air</span>
         </div>
@@ -322,7 +379,7 @@ body {
     <!-- Project Card 5: Student Attendance -->
     <div class="project-card project-card-item glass-panel bolt-active rounded-xl overflow-hidden group cursor-pointer tilt-card" data-category="software education" data-tags="rfid attendance python django education student">
       <div class="glare"></div>
-      <div class="h-52 relative overflow-hidden z-10" style="background: linear-gradient(135deg, rgba(255,198,64,0.12) 0%, rgba(47,217,244,0.06) 50%, rgba(15,23,42,0.95) 100%);">
+      <div class="h-52 relative overflow-hidden z-10" style="background: linear-gradient(135deg, rgba(255,198,64,0.12) 0%, rgba(16,185,129,0.06) 50%, rgba(15,23,42,0.95) 100%);">
         <div class="absolute inset-0 flex items-center justify-center">
           <span class="material-symbols-outlined text-[90px] text-secondary/20 group-hover:text-secondary/30 transition-opacity group-hover:scale-110 transition-transform duration-500">how_to_reg</span>
         </div>
@@ -355,7 +412,7 @@ body {
     <!-- Project Card 6: PCB Line Follower -->
     <div class="project-card project-card-item glass-panel bolt-standby rounded-xl overflow-hidden group cursor-pointer tilt-card" data-category="hardware education" data-tags="stm32 pcb robot line follower hardware motor driver">
       <div class="glare"></div>
-      <div class="h-52 relative overflow-hidden z-10" style="background: linear-gradient(135deg, rgba(255,198,64,0.08) 0%, rgba(47,217,244,0.14) 50%, rgba(15,23,42,0.95) 100%);">
+      <div class="h-52 relative overflow-hidden z-10" style="background: linear-gradient(135deg, rgba(255,198,64,0.08) 0%, rgba(16,185,129,0.14) 50%, rgba(15,23,42,0.95) 100%);">
         <div class="absolute inset-0 flex items-center justify-center">
           <span class="material-symbols-outlined text-[90px] text-tertiary/20 group-hover:text-tertiary/30 transition-opacity group-hover:scale-110 transition-transform duration-500">smart_toy</span>
         </div>
@@ -391,14 +448,14 @@ body {
     <div class="flex flex-col items-center justify-center py-20 text-center">
       <!-- Animated Circuit SVG -->
       <svg width="160" height="120" viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="mb-6">
-        <path d="M20 60 h 30 v -20 h 20 v 40 h 20 v -30 h 30" stroke="rgba(47,217,244,0.4)" stroke-width="2" fill="none" class="circuit-anim"/>
-        <circle cx="20" cy="60" r="4" fill="#2fd9f4" opacity="0.5"/>
+        <path d="M20 60 h 30 v -20 h 20 v 40 h 20 v -30 h 30" stroke="rgba(16,185,129,0.4)" stroke-width="2" fill="none" class="circuit-anim"/>
+        <circle cx="20" cy="60" r="4" fill="#10B981" opacity="0.5"/>
         <circle cx="120" cy="50" r="4" fill="#ffc640" opacity="0.5"/>
         <path d="M80 10 L70 30 H80 L72 50 L95 25 H82 L88 10 Z" fill="url(#noResultGrad)" class="bolt-strike"/>
         <defs>
           <linearGradient id="noResultGrad" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stop-color="#ffc640"/>
-            <stop offset="100%" stop-color="#2fd9f4"/>
+            <stop offset="100%" stop-color="#10B981"/>
           </linearGradient>
         </defs>
       </svg>
@@ -430,7 +487,7 @@ body {
 </main>
 
 <!-- ═══════════════════════ MOBILE BOTTOM NAV ═══════════════════════ -->
-<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(47,217,244,0.15)] pb-safe">
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(16,185,129,0.15)] pb-safe">
   <div class="flex justify-around items-center py-2 px-4">
     <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="index.html">
       <span class="material-symbols-outlined">home</span>
@@ -524,23 +581,7 @@ window.addEventListener('load', () => {
   if (preloader) setTimeout(() => preloader.classList.add('hidden'), 800);
 });
 
-// ─── Mobile Menu ───
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-if (mobileMenuBtn && mobileMenuOverlay) {
-  mobileMenuBtn.addEventListener('click', () => {
-    const isOpen = mobileMenuOverlay.classList.toggle('open');
-    mobileMenuBtn.classList.toggle('open', isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-  });
-  mobileMenuOverlay.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenuOverlay.classList.remove('open');
-      mobileMenuBtn.classList.remove('open');
-      document.body.style.overflow = '';
-    });
-  });
-}
+
 
 // ─── Navbar scroll ───
 const nav = document.getElementById('desktop-nav');

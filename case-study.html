@@ -22,9 +22,9 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        "tertiary":"#2fd9f4","surface-container":"#1d2022","surface-container-high":"#272a2c",
+        "tertiary":"#10B981","surface-container":"#111311","surface-container-high":"#161816",
         "on-surface":"#e0e3e5","on-surface-variant":"#c6c6cd","secondary":"#ffc640",
-        "surface":"#101415","outline-variant":"#45464d","error":"#ffb4ab"
+        "surface":"#080A0A","outline-variant":"#272927","error":"#ffb4ab"
       },
       fontFamily:{"body-lg":["Inter"],"headline-xl":["Montserrat"],"headline-md":["Montserrat"],"headline-lg":["Montserrat"],"code-sm":["JetBrains Mono"],"label-caps":["JetBrains Mono"],"body-md":["Inter"]}
     }
@@ -33,27 +33,27 @@ tailwind.config = {
 </script>
 <style>
 body {
-  background-color: #0F172A;
-  background-image: radial-gradient(circle at 30% -10%, rgba(47,217,244,0.1) 0%, transparent 50%),
+  background-color: #080A0A;
+  background-image: radial-gradient(circle at 30% -10%, rgba(16,185,129,0.1) 0%, transparent 50%),
                     radial-gradient(circle at 90% 90%, rgba(255,198,64,0.06) 0%, transparent 50%);
   min-height: 100vh;
 }
 .glow-text { text-shadow: 0 0 8px rgba(255,198,64,0.4); }
 .hero-banner {
   height: 320px;
-  background: linear-gradient(135deg, rgba(47,217,244,0.15) 0%, rgba(15,23,42,0.95) 100%);
+  background: linear-gradient(135deg, rgba(16,185,129,0.15) 0%, rgba(15,23,42,0.95) 100%);
   display: flex; align-items: center; justify-content: center;
   position: relative; overflow: hidden;
 }
-.banner-icon-bg { font-size: 140px; color: rgba(47,217,244,0.12); position: absolute; }
+.banner-icon-bg { font-size: 140px; color: rgba(16,185,129,0.12); position: absolute; }
 .stat-card {
   background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(47,217,244,0.15);
+  border: 1px solid rgba(16,185,129,0.15);
   border-radius: 8px; padding: 1.5rem; text-align: center;
 }
 .tag-chip {
-  background: rgba(47,217,244,0.08); border: 1px solid rgba(47,217,244,0.2);
-  color: #2fd9f4; font-family: 'JetBrains Mono', monospace;
+  background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2);
+  color: #10B981; font-family: 'JetBrains Mono', monospace;
   font-size: 11px; padding: 4px 10px; border-radius: 4px;
 }
 </style>
@@ -70,7 +70,7 @@ body {
 <div id="scroll-progress"></div>
 
 <!-- DESKTOP NAV -->
-<header id="desktop-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(47,217,244,0.2)] hidden md:flex items-center justify-between px-16 h-16 transition-all duration-300">
+<header id="desktop-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] hidden md:flex items-center justify-between px-16 h-16 transition-all duration-300">
   <a href="index.html" class="flex items-center gap-2">
     <span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
     <span class="font-headline-xl text-[24px] text-secondary glow-text tracking-tight">ZEUS IOT</span>
@@ -90,17 +90,7 @@ body {
     <span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
     <span class="font-headline-md text-secondary glow-text">ZEUS IOT</span>
   </a>
-  <button id="mobile-menu-btn" aria-label="Open menu">
-    <div class="bar"></div><div class="bar"></div><div class="bar"></div>
-  </button>
 </header>
-<div id="mobile-menu-overlay" role="dialog">
-  <a href="index.html">HOME</a>
-  <a href="projects.html" class="nav-active">PROJECTS</a>
-  <a href="contact.html">CONTACT</a>
-  <a href="pay.html">PAY</a>
-  <a href="learning.html">LEARN</a>
-</div>
 
 <!-- LOADING STATE -->
 <div id="loading-state" class="pt-32 flex flex-col items-center justify-center min-h-screen">
@@ -114,7 +104,7 @@ body {
   <!-- HERO BANNER -->
   <div id="hero-banner" class="hero-banner mt-16">
     <span id="banner-icon" class="material-symbols-outlined banner-icon-bg" style="font-variation-settings:'FILL' 1;">memory</span>
-    <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A] to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#080A0A] to-transparent"></div>
     <div class="absolute bottom-0 left-0 right-0 px-6 md:px-16 pb-8 z-10">
       <div class="max-w-5xl mx-auto">
         <span id="cs-category" class="font-code-sm text-[11px] text-tertiary uppercase tracking-widest block mb-2">IoT · Hardware</span>
@@ -213,15 +203,7 @@ window.addEventListener('load', () => {
   if (p) setTimeout(() => p.classList.add('hidden'), 800);
 });
 
-const mBtn = document.getElementById('mobile-menu-btn');
-const mOverlay = document.getElementById('mobile-menu-overlay');
-if (mBtn && mOverlay) {
-  mBtn.addEventListener('click', () => {
-    const open = mOverlay.classList.toggle('open');
-    mBtn.classList.toggle('open', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-  });
-}
+
 
 const deskNav = document.getElementById('desktop-nav');
 window.addEventListener('scroll', () => {
@@ -285,6 +267,28 @@ function showError() {
 
 loadProject();
 </script>
+<!-- ═══════════════════════ MOBILE BOTTOM NAV ═══════════════════════ -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(16,185,129,0.15)] pb-safe">
+  <div class="flex justify-around items-center py-2 px-4">
+    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="index.html">
+      <span class="material-symbols-outlined">home</span>
+      <span class="font-label-caps text-label-caps mt-1">Home</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-secondary bg-on-secondary-container/20 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="projects.html">
+      <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+      <span class="font-label-caps text-label-caps mt-1">Projects</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="contact.html">
+      <span class="material-symbols-outlined">chat</span>
+      <span class="font-label-caps text-label-caps mt-1">Contact</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="pay.html">
+      <span class="material-symbols-outlined">payments</span>
+      <span class="font-label-caps text-label-caps mt-1">Pay</span>
+    </a>
+  </div>
+</nav>
+
 <script src="animations.js?v=2"></script>
 </body>
 </html>

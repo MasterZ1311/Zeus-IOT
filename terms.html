@@ -15,10 +15,10 @@
       theme: {
         extend: {
           colors: {
-            primary: '#0F172A',
-            secondary: '#2fd9f4',
+            primary: '#080A0A',
+            secondary: '#10B981',
             tertiary: '#ffc640',
-            surface: '#0F172A',
+            surface: '#080A0A',
             'surface-container-low': '#1A233A',
             'surface-container': '#1E293B',
             'surface-container-high': '#334155',
@@ -44,7 +44,7 @@
   <div id="scroll-progress"></div>
 
   <!-- DESKTOP TOP NAV -->
-  <header id="desktop-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(47,217,244,0.2)] hidden md:flex items-center justify-between px-8 h-16 transition-all duration-300">
+  <header id="desktop-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] hidden md:flex items-center justify-between px-8 h-16 transition-all duration-300">
     <a href="index.html" class="flex items-center gap-2">
       <span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
       <span class="font-headline-lg text-xl text-secondary drop-shadow-[0_0_8px_rgba(255,198,64,0.4)] tracking-tight font-bold">ZEUS IOT</span>
@@ -114,7 +114,7 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="w-full bg-surface border-t border-outline-variant/20 relative z-10 pt-16 pb-8 md:pb-12 px-4 md:px-8">
+  <footer class="w-full bg-surface border-t border-outline-variant/20 relative z-10 pt-16 pb-24 md:pb-12 px-4 md:px-8">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center mt-12 pt-6 border-t border-outline-variant/20">
       <div class="flex gap-6 mb-4 md:mb-0">
         <a class="text-on-surface-variant hover:text-secondary font-code-sm text-sm transition-colors" href="terms.html">Terms</a>
@@ -126,5 +126,27 @@
   </footer>
 
   <script src="animations.js?v=2"></script>
+<!-- ═══════════════════════ MOBILE BOTTOM NAV ═══════════════════════ -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(16,185,129,0.15)] pb-safe">
+  <div class="flex justify-around items-center py-2 px-4">
+    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="index.html">
+      <span class="material-symbols-outlined">home</span>
+      <span class="font-label-caps text-label-caps mt-1">Home</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="projects.html">
+      <span class="material-symbols-outlined">grid_view</span>
+      <span class="font-label-caps text-label-caps mt-1">Projects</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="contact.html">
+      <span class="material-symbols-outlined">chat</span>
+      <span class="font-label-caps text-label-caps mt-1">Contact</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="pay.html">
+      <span class="material-symbols-outlined">payments</span>
+      <span class="font-label-caps text-label-caps mt-1">Pay</span>
+    </a>
+  </div>
+</nav>
+
 </body>
 </html>

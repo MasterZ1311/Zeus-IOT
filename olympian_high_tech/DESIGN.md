@@ -1,34 +1,34 @@
 ---
 name: Olympian High-Tech
 colors:
-  surface: '#101415'
-  surface-dim: '#101415'
-  surface-bright: '#363a3b'
-  surface-container-lowest: '#0b0f10'
-  surface-container-low: '#191c1e'
-  surface-container: '#1d2022'
-  surface-container-high: '#272a2c'
-  surface-container-highest: '#323537'
+  surface: '#080A0A'
+  surface-dim: '#080A0A'
+  surface-bright: '#222422'
+  surface-container-lowest: '#050605'
+  surface-container-low: '#0d0f0d'
+  surface-container: '#111311'
+  surface-container-high: '#161816'
+  surface-container-highest: '#1d1f1d'
   on-surface: '#e0e3e5'
   on-surface-variant: '#c6c6cd'
   inverse-surface: '#e0e3e5'
   inverse-on-surface: '#2d3133'
-  outline: '#909097'
-  outline-variant: '#45464d'
+  outline: '#7a807a'
+  outline-variant: '#272927'
   surface-tint: '#bec6e0'
   primary: '#bec6e0'
   on-primary: '#283044'
-  primary-container: '#0f172a'
+  primary-container: '#0b0d0c'
   on-primary-container: '#798098'
   inverse-primary: '#565e74'
   secondary: '#ffc640'
   on-secondary: '#402d00'
   secondary-container: '#e3aa00'
   on-secondary-container: '#5a4100'
-  tertiary: '#2fd9f4'
-  on-tertiary: '#00363e'
-  tertiary-container: '#001b20'
-  on-tertiary-container: '#008ea1'
+  tertiary: '#10B981'
+  on-tertiary: '#ffffff'
+  tertiary-container: '#064e3b'
+  on-tertiary-container: '#a7f3d0'
   error: '#ffb4ab'
   on-error: '#690005'
   error-container: '#93000a'
@@ -41,13 +41,13 @@ colors:
   secondary-fixed-dim: '#f9bd22'
   on-secondary-fixed: '#261a00'
   on-secondary-fixed-variant: '#5c4300'
-  tertiary-fixed: '#a2eeff'
-  tertiary-fixed-dim: '#2fd9f4'
-  on-tertiary-fixed: '#001f25'
-  on-tertiary-fixed-variant: '#004e5a'
-  background: '#101415'
+  tertiary-fixed: '#a7f3d0'
+  tertiary-fixed-dim: '#10B981'
+  on-tertiary-fixed: '#022c22'
+  on-tertiary-fixed-variant: '#047857'
+  background: '#080A0A'
   on-background: '#e0e3e5'
-  surface-variant: '#323537'
+  surface-variant: '#1d1f1d'
 typography:
   headline-xl:
     fontFamily: Montserrat
@@ -117,12 +117,12 @@ The visual style is a fusion of **Glassmorphism** and **High-Tech Modernism**. I
 
 The palette is rooted in a "Stormy Night" dark mode to maximize the impact of "Electric" accents.
 
-- **Primary (Deep Storm):** `#0F172A` — Used for the canvas and deep architectural layers. It provides a stable, professional foundation.
+- **Primary (Deep Storm):** `#080A0A` — Used for the canvas and deep architectural layers. It provides a stable, professional foundation.
 - **Secondary (Electric Gold):** `#FBBF24` — Reserved for high-priority actions, achievement markers, and "Zeus" motifs. It represents the spark of power.
-- **Tertiary (Neon Cyan):** `#22D3EE` — Used for technical data, IoT connectivity indicators, and glowing "live" states.
+- **Tertiary (Neon Green):** `#10B981` — Used for technical data, IoT connectivity indicators, and glowing "live" states.
 - **Neutral (Cloud White):** `#F8FAFC` — Ensures high-contrast legibility for body text and structural outlines.
 
-Apply gradients sparingly, specifically using a "Lightning Gradient" (Cyan to Gold) for progress bars or active states to simulate energy flow.
+Apply gradients sparingly, specifically using a "Lightning Gradient" (Green to Gold) for progress bars or active states to simulate energy flow.
 
 ## Typography
 
@@ -147,10 +147,10 @@ The layout follows a **Rigid Geometric Grid** with expansive outer margins to cr
 
 Depth is achieved through **Glassmorphic stacking** rather than traditional drop shadows.
 
-1.  **Base Layer:** The Deep Storm (#0F172A) background with a subtle "Circuitry" SVG pattern at 5% opacity.
+1.  **Base Layer:** The Deep Storm (#080A0A) background with a subtle "Circuitry" SVG pattern at 5% opacity.
 2.  **Glass Panels:** Semi-transparent surfaces (White at 5-10% opacity) with a `backdrop-filter: blur(12px)`.
-3.  **Outlines:** Instead of shadows, use 1px "Inner Glow" borders. Use a top-left gradient border (Cyan to Gold) to suggest light hitting the edge of a crystalline surface.
-4.  **Active Elevation:** When a component is hovered or active, increase the `backdrop-filter` strength and add a soft external glow (`box-shadow`) using the Tertiary Cyan at 20% opacity.
+3.  **Outlines:** Instead of shadows, use 1px "Inner Glow" borders. Use a top-left gradient border (Green to Gold) to suggest light hitting the edge of a crystalline surface.
+4.  **Active Elevation:** When a component is hovered or active, increase the `backdrop-filter` strength and add a soft external glow (`box-shadow`) using the Tertiary Green at 20% opacity.
 
 ## Shapes
 

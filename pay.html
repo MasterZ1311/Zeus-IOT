@@ -14,20 +14,20 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        "surface-dim":"#101415","on-tertiary-fixed":"#001f25","tertiary":"#2fd9f4",
+        "surface-dim":"#080A0A","on-tertiary-fixed":"#022c22","tertiary":"#10B981",
         "on-surface-variant":"#c6c6cd","on-error-container":"#ffdad6",
-        "surface-container-highest":"#323537","outline":"#909097","background":"#101415",
-        "surface-container":"#1d2022","inverse-primary":"#565e74","primary-fixed-dim":"#bec6e0",
-        "surface-container-high":"#272a2c","inverse-on-surface":"#2d3133",
+        "surface-container-highest":"#1d1f1d","outline":"#7a807a","background":"#080A0A",
+        "surface-container":"#111311","inverse-primary":"#565e74","primary-fixed-dim":"#bec6e0",
+        "surface-container-high":"#161816","inverse-on-surface":"#2d3133",
         "on-primary-container":"#798098","secondary-fixed-dim":"#f9bd22",
-        "primary-container":"#0f172a","tertiary-container":"#001b20","surface-tint":"#bec6e0",
-        "on-tertiary":"#00363e","on-tertiary-container":"#008ea1","on-primary-fixed":"#131b2e",
-        "on-tertiary-fixed-variant":"#004e5a","on-surface":"#e0e3e5",
-        "surface-container-low":"#191c1e","surface-container-lowest":"#0b0f10",
-        "primary":"#bec6e0","tertiary-fixed-dim":"#2fd9f4","outline-variant":"#45464d",
-        "surface":"#101415","inverse-surface":"#e0e3e5","surface-variant":"#323537",
-        "on-secondary-fixed-variant":"#5c4300","error":"#ffb4ab","tertiary-fixed":"#a2eeff",
-        "primary-fixed":"#dae2fd","surface-bright":"#363a3b","on-secondary-container":"#5a4100",
+        "primary-container":"#0f172a","tertiary-container":"#064e3b","surface-tint":"#bec6e0",
+        "on-tertiary":"#ffffff","on-tertiary-container":"#a7f3d0","on-primary-fixed":"#131b2e",
+        "on-tertiary-fixed-variant":"#047857","on-surface":"#e0e3e5",
+        "surface-container-low":"#0d0f0d","surface-container-lowest":"#050605",
+        "primary":"#bec6e0","tertiary-fixed-dim":"#10B981","outline-variant":"#272927",
+        "surface":"#080A0A","inverse-surface":"#e0e3e5","surface-variant":"#323537",
+        "on-secondary-fixed-variant":"#5c4300","error":"#ffb4ab","tertiary-fixed":"#a7f3d0",
+        "primary-fixed":"#dae2fd","surface-bright":"#222422","on-secondary-container":"#5a4100",
         "on-primary-fixed-variant":"#3f465c","on-primary":"#283044","on-background":"#e0e3e5",
         "secondary-container":"#e3aa00","on-error":"#690005","on-secondary-fixed":"#261a00",
         "secondary-fixed":"#ffdf9f","secondary":"#ffc640","error-container":"#93000a",
@@ -66,27 +66,27 @@ tailwind.config = {
   position: absolute;
   left: 10%; right: 10%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #2fd9f4, transparent);
-  box-shadow: 0 0 8px #2fd9f4;
+  background: linear-gradient(90deg, transparent, #10B981, transparent);
+  box-shadow: 0 0 8px #10B981;
   animation: shieldScan 3s ease-in-out infinite;
 }
 @keyframes shieldPulse {
-  0%, 100% { filter: drop-shadow(0 0 8px rgba(47,217,244,0.5)); }
-  50% { filter: drop-shadow(0 0 20px rgba(47,217,244,0.8)); }
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(16,185,129,0.5)); }
+  50% { filter: drop-shadow(0 0 20px rgba(16,185,129,0.8)); }
 }
 .shield-icon { animation: shieldPulse 3s ease-in-out infinite; }
 
 /* Upload drag-over */
 .upload-drag-over {
-  border-color: #2fd9f4 !important;
-  background: rgba(47,217,244,0.08) !important;
-  box-shadow: 0 0 30px rgba(47,217,244,0.2) !important;
+  border-color: #10B981 !important;
+  background: rgba(16,185,129,0.08) !important;
+  box-shadow: 0 0 30px rgba(16,185,129,0.2) !important;
 }
 
 /* Background */
 .bg-storm {
-  background-color: #0F172A;
-  background-image: radial-gradient(rgba(47, 217, 244, 0.05) 1px, transparent 1px), radial-gradient(rgba(47, 217, 244, 0.05) 1px, transparent 1px);
+  background-color: #080A0A;
+  background-image: radial-gradient(rgba(16, 185, 129, 0.05) 1px, transparent 1px), radial-gradient(rgba(16, 185, 129, 0.05) 1px, transparent 1px);
   background-size: 40px 40px;
   background-position: 0 0, 20px 20px;
 }
@@ -97,7 +97,7 @@ tailwind.config = {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-top: 1px solid rgba(47, 217, 244, 0.3);
+  border-top: 1px solid rgba(16, 185, 129, 0.3);
   border-left: 1px solid rgba(255, 198, 64, 0.3);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
@@ -113,7 +113,7 @@ tailwind.config = {
   content: '';
   position: absolute;
   top: -2px; left: -2px; right: -2px; bottom: -2px;
-  background: linear-gradient(45deg, #2fd9f4, transparent, #ffc640, transparent);
+  background: linear-gradient(45deg, #10B981, transparent, #ffc640, transparent);
   z-index: -1;
   border-radius: 14px;
   animation: animateBorder 4s linear infinite;
@@ -127,8 +127,8 @@ tailwind.config = {
 .scanner-line {
   position: absolute;
   top: 0; left: 0; right: 0; height: 2px;
-  background: #2fd9f4;
-  box-shadow: 0 0 10px #2fd9f4, 0 0 20px #2fd9f4;
+  background: #10B981;
+  box-shadow: 0 0 10px #10B981, 0 0 20px #10B981;
   animation: scan 2s linear infinite;
   z-index: 10;
 }
@@ -150,7 +150,7 @@ tailwind.config = {
   transform: skewX(10deg);
 }
 .btn-thunderbolt:hover {
-  box-shadow: 0 0 15px rgba(47, 217, 244, 0.6);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
   transform: skewX(-10deg) translateY(-2px);
 }
 
@@ -159,7 +159,7 @@ tailwind.config = {
   background: transparent;
 }
 .btn-ghost:hover {
-  background-color: rgba(47, 217, 244, 0.1);
+  background-color: rgba(16, 185, 129, 0.1);
 }
 
 /* Input Field */
@@ -167,8 +167,8 @@ tailwind.config = {
   transition: all 0.3s ease;
 }
 .input-circuit:focus-within {
-  border-color: #2fd9f4;
-  box-shadow: 0 0 10px rgba(47, 217, 244, 0.2) inset, 0 0 10px rgba(47, 217, 244, 0.3);
+  border-color: #10B981;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.2) inset, 0 0 10px rgba(16, 185, 129, 0.3);
 }
 
 .glow-text { text-shadow: 0 0 8px rgba(255,198,64,0.4); }
@@ -194,7 +194,7 @@ tailwind.config = {
 <div id="scroll-progress"></div>
 
 <!-- ═══════════════════════ DESKTOP TOP NAV (SIMPLIFIED) ═══════════════════════ -->
-<header id="desktop-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(47,217,244,0.2)] hidden md:flex items-center justify-between px-margin-desktop h-16 transition-all duration-300">
+<header id="desktop-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] hidden md:flex items-center justify-between px-margin-desktop h-16 transition-all duration-300">
   <a href="index.html" class="flex items-center gap-2">
     <span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
     <span class="font-headline-xl text-headline-md text-secondary drop-shadow-[0_0_8px_rgba(255,198,64,0.4)] tracking-tight">ZEUS IOT</span>
@@ -206,7 +206,7 @@ tailwind.config = {
 </header>
 
 <!-- ═══════════════════════ MOBILE TOP NAV ═══════════════════════ -->
-<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(47,217,244,0.2)] flex md:hidden items-center justify-between px-margin-mobile h-16">
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] flex md:hidden items-center justify-between px-margin-mobile h-16">
   <a href="index.html" class="flex items-center gap-2">
     <span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
     <span class="font-headline-md text-secondary glow-text">ZEUS IOT</span>
@@ -351,7 +351,7 @@ tailwind.config = {
 </main>
 
 <!-- ═══════════════════════ MOBILE BOTTOM NAV ═══════════════════════ -->
-<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(47,217,244,0.15)] pb-safe">
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(16,185,129,0.15)] pb-safe">
   <div class="flex justify-around items-center py-2 px-4">
     <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="index.html">
       <span class="material-symbols-outlined">home</span>
@@ -391,7 +391,7 @@ tailwind.config = {
     </button>
     
     <!-- Modal Card Wrapper -->
-    <div class="bg-white rounded-2xl p-5 shadow-2xl relative w-full aspect-square flex items-center justify-center border-2 border-tertiary shadow-[0_0_30px_rgba(47,217,244,0.3)]">
+    <div class="bg-white rounded-2xl p-5 shadow-2xl relative w-full aspect-square flex items-center justify-center border-2 border-tertiary shadow-[0_0_30px_rgba(16,185,129,0.3)]">
       <!-- Corner Accents inside modal for consistency -->
       <div class="absolute top-2 left-2 w-6 h-6 border-t-4 border-l-4 border-tertiary rounded-tl-md"></div>
       <div class="absolute top-2 right-2 w-6 h-6 border-t-4 border-r-4 border-tertiary rounded-tr-md"></div>
@@ -527,16 +527,7 @@ window.addEventListener('load', () => {
   const p = document.getElementById('page-preloader');
   if (p) setTimeout(() => p.classList.add('hidden'), 800);
 });
-// Mobile menu
-const mBtn = document.getElementById('mobile-menu-btn');
-const mOverlay = document.getElementById('mobile-menu-overlay');
-if (mBtn && mOverlay) {
-  mBtn.addEventListener('click', () => {
-    const open = mOverlay.classList.toggle('open');
-    mBtn.classList.toggle('open', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-  });
-}
+
 </script>
 </body>
 </html>

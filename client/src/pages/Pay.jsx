@@ -39,10 +39,10 @@ export default function Pay() {
 
         {/* BANK TRANSFER */}
         <div className="glass-panel rounded-xl p-8 flex flex-col relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-32 h-32 bg-tertiary/10 rounded-br-full blur-2xl"></div>
+          <div className="absolute top-0 left-0 w-32 h-32 bg-emerald-500/10 rounded-br-full blur-2xl"></div>
           
-          <div className="w-16 h-16 rounded-full bg-tertiary/10 flex items-center justify-center border border-tertiary/30 mb-6">
-            <ShieldCheck className="w-8 h-8 text-tertiary" />
+          <div className="w-16 h-16 rounded-full bg-emerald-500/10 flex items-center justify-center border border-emerald-500/30 mb-6">
+            <ShieldCheck className="w-8 h-8 text-emerald-500" />
           </div>
           
           <h2 className="font-headline-md text-2xl text-on-surface mb-2">Bank Transfer</h2>
@@ -55,7 +55,7 @@ export default function Pay() {
             </div>
             <div className="border-b border-outline-variant/30 pb-3">
               <span className="block font-code-sm text-xs text-on-surface-variant uppercase mb-1">Account Number</span>
-              <span className="font-code-sm text-tertiary tracking-widest text-lg font-bold">50200012345678</span>
+              <span className="font-code-sm text-emerald-500 tracking-widest text-lg font-bold">50200012345678</span>
             </div>
             <div className="border-b border-outline-variant/30 pb-3">
               <span className="block font-code-sm text-xs text-on-surface-variant uppercase mb-1">IFSC Code</span>
