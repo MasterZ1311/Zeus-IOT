@@ -335,7 +335,7 @@ body {
             </div>
 
             <div class="float-label-group mb-1">
-              <textarea id="input-desc" placeholder=" " rows="4" maxlength="200" style="resize:none;" required></textarea>
+              <textarea id="input-desc" placeholder=" " rows="4" maxlength="500" style="resize:none;" required></textarea>
               <label for="input-desc">Project Description *</label>
             </div>
             <div class="flex justify-between items-center mb-5">
@@ -343,7 +343,7 @@ body {
                 <span class="material-symbols-outlined text-[14px]">info</span>
                 Software-heavy projects need extended timelines.
               </div>
-              <div class="font-code-sm text-[12px] text-on-surface-variant" id="char-count">0 / 200</div>
+              <div class="font-code-sm text-[12px] text-on-surface-variant" id="char-count">0 / 500</div>
             </div>
 
             <div class="flex justify-between gap-3 mt-4">
@@ -564,8 +564,8 @@ document.getElementById('step3-back').addEventListener('click', () => goToStep(2
 const textarea = document.getElementById('input-desc');
 const charCount = document.getElementById('char-count');
 textarea.addEventListener('input', function() {
-  charCount.textContent = `${this.value.length} / 200`;
-  if (this.value.length > 180) charCount.classList.add('text-secondary');
+  charCount.textContent = `${this.value.length} / 500`;
+  if (this.value.length > 450) charCount.classList.add('text-secondary');
   else charCount.classList.remove('text-secondary');
 });
 
@@ -638,7 +638,7 @@ form.addEventListener('submit', async (e) => {
     showSuccessModal();
     form.reset();
     goToStep(1);
-    charCount.textContent = '0 / 200';
+    charCount.textContent = '0 / 500';
     document.getElementById('selected-tier').value = 'CUSTOM';
     document.querySelectorAll('.tier-card').forEach(c => c.classList.remove('selected'));
     document.querySelector('[data-tier="CUSTOM"]').classList.add('selected');
@@ -705,6 +705,27 @@ window.addEventListener('pageshow', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Query parameter pre-fill from Arsenal
+  const params = new URLSearchParams(window.location.search);
+  const projTitle = params.get('project');
+  const projDesc = params.get('desc');
+  if (projTitle) {
+    const descField = document.getElementById('input-desc');
+    if (descField) {
+      let prefText = `I would like to order the project: "${projTitle}"`;
+      if (projDesc) {
+        prefText += ` - ${projDesc}`;
+      }
+      prefText += ` from the Arsenal.`;
+      descField.value = prefText;
+      
+      const countLabel = document.getElementById('char-count');
+      if (countLabel) {
+        countLabel.textContent = `${prefText.length} / 500`;
+      }
+    }
+  }
+
   const preloader = document.getElementById('page-preloader');
   if (!preloader) return;
   const preloaderImg = preloader.querySelector('.preloader-bolt');
