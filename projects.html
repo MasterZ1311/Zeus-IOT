@@ -1,652 +1,984 @@
 <!DOCTYPE html>
 <html class="dark" lang="en">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Projects — ZEUS IOT | Our Arsenal of Custom IoT &amp; Software</title>
-<meta name="description" content="Browse Zeus IOT's portfolio of custom IoT hardware and software projects built for college students. Filter by category, search by tech stack."/>
-<!-- Open Graph -->
-<meta property="og:title" content="Projects — ZEUS IOT"/>
-<meta property="og:description" content="Our arsenal of custom IoT & software projects. Hardware, dashboards, and academic prototypes built for college students."/>
-<meta property="og:url" content="https://zeusiot.in/projects.html"/>
-<meta property="og:type" content="website"/>
-<meta property="og:image" content="https://zeusiot.in/iot_hero.png"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="shared-styles.css?v=2"/>
-<script>
-tailwind.config = {
-  darkMode: "class",
-  theme: {
-    extend: {
-      colors: {
-        "surface-dim":"#080A0A","on-tertiary-fixed":"#022c22","tertiary":"#10B981",
-        "on-surface-variant":"#c6c6cd","on-error-container":"#ffdad6",
-        "surface-container-highest":"#1d1f1d","outline":"#7a807a","background":"#080A0A",
-        "surface-container":"#111311","inverse-primary":"#565e74","primary-fixed-dim":"#bec6e0",
-        "surface-container-high":"#161816","inverse-on-surface":"#2d3133",
-        "on-primary-container":"#798098","secondary-fixed-dim":"#f9bd22",
-        "primary-container":"#0f172a","tertiary-container":"#064e3b","surface-tint":"#bec6e0",
-        "on-tertiary":"#ffffff","on-tertiary-container":"#a7f3d0","on-primary-fixed":"#131b2e",
-        "on-tertiary-fixed-variant":"#047857","on-surface":"#e0e3e5",
-        "surface-container-low":"#0d0f0d","surface-container-lowest":"#050605",
-        "primary":"#bec6e0","tertiary-fixed-dim":"#10B981","outline-variant":"#272927",
-        "surface":"#080A0A","inverse-surface":"#e0e3e5","surface-variant":"#323537",
-        "on-secondary-fixed-variant":"#5c4300","error":"#ffb4ab","tertiary-fixed":"#a7f3d0",
-        "primary-fixed":"#dae2fd","surface-bright":"#222422","on-secondary-container":"#5a4100",
-        "on-primary-fixed-variant":"#3f465c","on-primary":"#283044","on-background":"#e0e3e5",
-        "secondary-container":"#e3aa00","on-error":"#690005","on-secondary-fixed":"#261a00",
-        "secondary-fixed":"#ffdf9f","secondary":"#ffc640","error-container":"#93000a",
-        "on-secondary":"#402d00"
-      },
-      borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},
-      spacing:{unit:"8px","container-max":"1280px","margin-mobile":"16px","margin-desktop":"64px",gutter:"24px"},
-      fontFamily:{
-        "body-lg":["Inter"],"headline-xl":["Montserrat"],"headline-lg-mobile":["Montserrat"],
-        "code-sm":["JetBrains Mono"],"headline-md":["Montserrat"],"headline-lg":["Montserrat"],
-        "label-caps":["JetBrains Mono"],"body-md":["Inter"]
-      },
-      fontSize:{
-        "body-lg":["18px",{lineHeight:"1.6",fontWeight:"400"}],
-        "headline-xl":["48px",{lineHeight:"1.1",letterSpacing:"-0.02em",fontWeight:"800"}],
-        "headline-lg-mobile":["28px",{lineHeight:"1.2",fontWeight:"700"}],
-        "code-sm":["14px",{lineHeight:"1.4",fontWeight:"400"}],
-        "headline-md":["24px",{lineHeight:"1.3",fontWeight:"600"}],
-        "headline-lg":["32px",{lineHeight:"1.2",letterSpacing:"-0.01em",fontWeight:"700"}],
-        "label-caps":["12px",{lineHeight:"1.0",letterSpacing:"0.1em",fontWeight:"700"}],
-        "body-md":["16px",{lineHeight:"1.5",fontWeight:"400"}]
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Projects — ZEUS IOT | Our Arsenal of Custom IoT &amp; Software</title>
+  <meta name="description"
+    content="Browse Zeus IOT's portfolio of custom IoT hardware and software projects built for college students. Filter by category, search by tech stack." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Projects — ZEUS IOT" />
+  <meta property="og:description"
+    content="Our arsenal of custom IoT & software projects. Hardware, dashboards, and academic prototypes built for college students." />
+  <meta property="og:url" content="https://zeusiot.in/projects.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://zeusiot.in/iot_hero.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="shared-styles.css?v=2" />
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-dim": "#080A0A", "on-tertiary-fixed": "#022c22", "tertiary": "#10B981",
+            "on-surface-variant": "#c6c6cd", "on-error-container": "#ffdad6",
+            "surface-container-highest": "#1d1f1d", "outline": "#7a807a", "background": "#080A0A",
+            "surface-container": "#111311", "inverse-primary": "#565e74", "primary-fixed-dim": "#bec6e0",
+            "surface-container-high": "#161816", "inverse-on-surface": "#2d3133",
+            "on-primary-container": "#798098", "secondary-fixed-dim": "#f9bd22",
+            "primary-container": "#0f172a", "tertiary-container": "#064e3b", "surface-tint": "#bec6e0",
+            "on-tertiary": "#ffffff", "on-tertiary-container": "#a7f3d0", "on-primary-fixed": "#131b2e",
+            "on-tertiary-fixed-variant": "#047857", "on-surface": "#e0e3e5",
+            "surface-container-low": "#0d0f0d", "surface-container-lowest": "#050605",
+            "primary": "#bec6e0", "tertiary-fixed-dim": "#10B981", "outline-variant": "#272927",
+            "surface": "#080A0A", "inverse-surface": "#e0e3e5", "surface-variant": "#323537",
+            "on-secondary-fixed-variant": "#5c4300", "error": "#ffb4ab", "tertiary-fixed": "#a7f3d0",
+            "primary-fixed": "#dae2fd", "surface-bright": "#222422", "on-secondary-container": "#5a4100",
+            "on-primary-fixed-variant": "#3f465c", "on-primary": "#283044", "on-background": "#e0e3e5",
+            "secondary-container": "#e3aa00", "on-error": "#690005", "on-secondary-fixed": "#261a00",
+            "secondary-fixed": "#ffdf9f", "secondary": "#ffc640", "error-container": "#93000a",
+            "on-secondary": "#402d00"
+          },
+          borderRadius: { DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem" },
+          spacing: { unit: "8px", "container-max": "1280px", "margin-mobile": "16px", "margin-desktop": "64px", gutter: "24px" },
+          fontFamily: {
+            "body-lg": ["Inter"], "headline-xl": ["Montserrat"], "headline-lg-mobile": ["Montserrat"],
+            "code-sm": ["JetBrains Mono"], "headline-md": ["Montserrat"], "headline-lg": ["Montserrat"],
+            "label-caps": ["JetBrains Mono"], "body-md": ["Inter"]
+          },
+          fontSize: {
+            "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+            "headline-xl": ["48px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "headline-lg-mobile": ["28px", { lineHeight: "1.2", fontWeight: "700" }],
+            "code-sm": ["14px", { lineHeight: "1.4", fontWeight: "400" }],
+            "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+            "headline-lg": ["32px", { lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "label-caps": ["12px", { lineHeight: "1.0", letterSpacing: "0.1em", fontWeight: "700" }],
+            "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }]
+          }
+        }
       }
     }
-  }
-}
-</script>
-<style>
-body {
-  background-color: #080A0A;
-  background-image: radial-gradient(circle at 30% -10%, rgba(16,185,129,0.12) 0%, transparent 50%),
-                    radial-gradient(circle at 90% 90%, rgba(255,198,64,0.06) 0%, transparent 50%);
-  min-height: 100vh;
-}
-.glow-text { text-shadow: 0 0 8px rgba(255,198,64,0.4); }
+  </script>
+  <style>
+    body {
+      background-color: #080A0A;
+      background-image: radial-gradient(circle at 30% -10%, rgba(16, 185, 129, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 90% 90%, rgba(255, 198, 64, 0.06) 0%, transparent 50%);
+      min-height: 100vh;
+    }
 
-/* Search input */
-.search-input {
-  background: rgba(0,0,0,0.25);
-  border: 1px solid rgba(16,185,129,0.2);
-  color: #e0e3e5;
-  transition: all 0.3s ease;
-}
-.search-input:focus {
-  border-color: #10B981;
-  box-shadow: 0 0 0 3px rgba(16,185,129,0.1), 0 0 20px rgba(16,185,129,0.15);
-  outline: none;
-}
-.search-input::placeholder { color: #909097; }
+    .glow-text {
+      text-shadow: 0 0 8px rgba(255, 198, 64, 0.4);
+    }
 
-/* Card hidden state for filtering */
-.project-card-item { transition: all 0.4s cubic-bezier(0.4,0,0.2,1); }
-.project-card-item.hidden-card {
-  opacity: 0; transform: scale(0.9);
-  pointer-events: none; height: 0; overflow: hidden; margin: 0; padding: 0;
-}
-</style>
+    /* Search input */
+    .search-input {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      color: #e0e3e5;
+      transition: all 0.3s ease;
+    }
+
+    .search-input:focus {
+      border-color: #10B981;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1), 0 0 20px rgba(16, 185, 129, 0.15);
+      outline: none;
+    }
+
+    .search-input::placeholder {
+      color: #909097;
+    }
+
+    /* Card hidden state for filtering */
+    .project-card-item {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .project-card-item.hidden-card {
+      opacity: 0;
+      transform: scale(0.9);
+      pointer-events: none;
+      height: 0;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
 </head>
+
 <body class="text-on-surface antialiased font-body-lg overflow-x-hidden circuit-bg relative">
 
-<!-- Background Blobs -->
-<div class="bg-blob bg-blob-cyan"></div>
-<div class="bg-blob bg-blob-gold"></div>
-<div class="bg-blob bg-blob-dark"></div>
+  <!-- Background Blobs -->
+  <div class="bg-blob bg-blob-cyan"></div>
+  <div class="bg-blob bg-blob-gold"></div>
+  <div class="bg-blob bg-blob-dark"></div>
 
-<!-- Particle Background Canvas -->
-<canvas id="particles-bg"></canvas>
+  <!-- Particle Background Canvas -->
+  <canvas id="particles-bg"></canvas>
 
-<!-- Scroll Progress Bar -->
-<div id="scroll-progress"></div>
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
 
-<!-- ═══════════════════════ PAGE PRELOADER ═══════════════════════ -->
-<div id="page-preloader">
-  <span class="material-symbols-outlined preloader-bolt" style="font-variation-settings: 'FILL' 1;">bolt</span>
-  <div class="preloader-bar"><div class="preloader-fill"></div></div>
-</div>
+  <!-- ═══════════════════════ PAGE PRELOADER ═══════════════════════ -->
+  <div id="page-preloader">
+    <img src="preloader.png" class="preloader-bolt" alt="ZEUS IOT Preloader"/>
+    <div class="preloader-bar">
+      <div class="preloader-fill"></div>
+    </div>
+  </div>
 
-<!-- ═══════════════════════ DESKTOP TOP NAV ═══════════════════════ -->
-<header id="desktop-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] hidden md:flex items-center justify-between px-margin-desktop h-16 transition-all duration-300">
-  <a href="index.html" class="flex items-center gap-2">
-    <span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
-    <span class="font-headline-xl text-headline-md text-secondary drop-shadow-[0_0_8px_rgba(255,198,64,0.4)] tracking-tight">ZEUS IOT</span>
-  </a>
-  <nav class="flex items-center gap-8">
-    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated" href="index.html">HOME</a>
-    <a class="text-secondary font-label-caps text-label-caps border-b-2 border-secondary pb-1" href="projects.html">PROJECTS</a>
-    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated" href="contact.html">CONTACT</a>
-    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated" href="pay.html">PAY</a>
-    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated" href="admin.html">ADMIN</a>
+  <!-- ═══════════════════════ DESKTOP TOP NAV ═══════════════════════ -->
+  <header id="desktop-nav"
+    class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] hidden md:flex items-center justify-between px-margin-desktop h-16 transition-all duration-300">
+    <a href="index.html" class="flex items-center gap-2">
+      <img src="logo.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
+      <span
+        class="font-headline-xl text-headline-md text-secondary drop-shadow-[0_0_8px_rgba(255,198,64,0.4)] tracking-tight">ZEUS
+        IOT</span>
+    </a>
+    <nav class="flex items-center gap-8">
+      <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated"
+        href="index.html">HOME</a>
+      <a class="text-secondary font-label-caps text-label-caps border-b-2 border-secondary pb-1"
+        href="projects.html">PROJECTS</a>
+      <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated"
+        href="contact.html">CONTACT</a>
+      <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated"
+        href="pay.html">PAY</a>
+      <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated"
+        href="admin.html">ADMIN</a>
+    </nav>
+  </header>
+
+  <!-- ═══════════════════════ MOBILE TOP NAV ═══════════════════════ -->
+  <header
+    class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] flex md:hidden items-center justify-between px-margin-mobile h-16"
+    style="z-index:150;">
+    <a href="index.html" class="flex items-center gap-2">
+      <img src="logo.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
+      <span class="font-headline-md text-secondary glow-text">ZEUS IOT</span>
+    </a>
+  </header>
+
+  <!-- ═══════════════════════ MAIN CONTENT ═══════════════════════ -->
+  <main class="pt-24 md:pt-32 pb-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative z-10">
+
+    <!-- ─────────── HERO SECTION ─────────── -->
+    <section class="mb-12 reveal">
+      <div
+        class="inline-flex items-center gap-2 bg-surface-container-high border border-outline-variant/30 rounded-full px-4 py-1.5 w-max mb-6">
+        <div class="w-2.5 h-2.5 rounded-full bg-tertiary animate-breathe shadow-[0_0_8px_rgba(16,185,129,0.6)]"></div>
+        <span class="font-code-sm text-code-sm text-tertiary">100+ PROJECTS AVAILABLE</span>
+      </div>
+      <h1
+        class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-transparent bg-clip-text bg-gradient-to-r from-secondary to-tertiary mb-4 uppercase">
+        Our Arsenal
+      </h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-6">
+        Explore our deployable technical solutions. From standalone hardware units to comprehensive IoT ecosystems —
+        each project fully documented and presentation-ready.
+      </p>
+
+      <!-- ─────────── SEARCH + FILTER ─────────── -->
+      <section class="mb-10 reveal">
+        <!-- Search Bar -->
+        <div class="relative mb-6 max-w-3xl mx-auto">
+          <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-xl">search</span>
+          <input id="project-search" type="text" placeholder="Search by keyword, tech stack, or category..."
+            class="search-input w-full rounded-lg pl-12 pr-4 py-3.5 font-body-md text-body-md" />
+        </div>
+        <!-- Filter Pills -->
+        <div class="flex flex-wrap justify-center gap-3 mb-8" id="filter-pills">
+          <button class="filter-pill active" data-filter="all">ALL</button>
+          <button class="filter-pill" data-filter="iot">IOT</button>
+          <button class="filter-pill" data-filter="software">SOFTWARE</button>
+          <button class="filter-pill" data-filter="hardware">HARDWARE</button>
+          <button class="filter-pill" data-filter="education">EDUCATION</button>
+        </div>
+      </section>
+
+      <!-- ─────────── PROJECTS LIST ─────────── -->
+      <section class="mb-16 reveal max-w-5xl mx-auto">
+        <div class="glass-panel rounded-xl overflow-hidden border border-outline-variant/30">
+          <div class="divide-y divide-outline-variant/20" id="projects-list">
+            <!-- Dynamic rows will be rendered here -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────────── NO RESULTS (hidden by default) ─────────── -->
+      <div id="no-results" class="hidden mt-12 mb-16">
+        <div class="flex flex-col items-center justify-center py-20 text-center">
+          <!-- Animated Circuit SVG -->
+          <svg width="160" height="120" viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="mb-6">
+            <path d="M20 60 h 30 v -20 h 20 v 40 h 20 v -30 h 30" stroke="rgba(16,185,129,0.4)" stroke-width="2" fill="none" class="circuit-anim"/>
+            <circle cx="20" cy="60" r="4" fill="#10B981" opacity="0.5"/>
+            <circle cx="120" cy="50" r="4" fill="#ffc640" opacity="0.5"/>
+            <path d="M80 10 L70 30 H80 L72 50 L95 25 H82 L88 10 Z" fill="url(#noResultGrad)" class="bolt-strike"/>
+            <defs>
+              <linearGradient id="noResultGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#ffc640"/>
+                <stop offset="100%" stop-color="#10B981"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <h3 class="font-headline-md text-[22px] text-on-surface mb-2">No Projects Found</h3>
+          <p class="font-body-md text-sm text-on-surface-variant mb-6 max-w-sm">Try a different search term or category filter. Can't find what you need?</p>
+          <a href="contact.html" class="btn-thunderbolt font-label-caps text-label-caps px-6 py-3 uppercase tracking-widest inline-flex items-center gap-2">
+            Request a Custom Build <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- ─────────── CTA BANNER ─────────── -->
+      <section class="mt-20 reveal max-w-5xl mx-auto">
+        <div class="glass-panel bolt-active rounded-xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+          <div class="absolute -right-10 -bottom-10 opacity-5">
+            <span class="material-symbols-outlined text-[200px] text-secondary">bolt</span>
+          </div>
+          <div class="z-10">
+            <h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Don't see what you need?</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant">We build custom solutions. Describe your idea and get a quote within 24 hours.</p>
+          </div>
+          <a href="contact.html" class="btn-thunderbolt font-label-caps text-label-caps px-8 py-4 uppercase tracking-widest flex items-center gap-2 flex-shrink-0 z-10">
+            <span>SUMMON THE BOLT</span>
+            <span class="material-symbols-outlined text-[18px]">bolt</span>
+          </a>
+        </div>
+      </section>
+
+  </main>
+
+  <!-- ═══════════════════════ MOBILE BOTTOM NAV ═══════════════════════ -->
+  <nav
+    class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(16,185,129,0.15)] pb-safe">
+    <div class="flex justify-around items-center py-2 px-4">
+      <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150"
+        href="index.html">
+        <span class="material-symbols-outlined">home</span>
+        <span class="font-label-caps text-label-caps mt-1">Home</span>
+      </a>
+      <a class="flex flex-col items-center justify-center text-secondary bg-on-secondary-container/20 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150"
+        href="projects.html">
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+        <span class="font-label-caps text-label-caps mt-1">Projects</span>
+      </a>
+      <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150"
+        href="contact.html">
+        <span class="material-symbols-outlined">chat</span>
+        <span class="font-label-caps text-label-caps mt-1">Contact</span>
+      </a>
+      <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150"
+        href="pay.html">
+        <span class="material-symbols-outlined">payments</span>
+        <span class="font-label-caps text-label-caps mt-1">Pay</span>
+      </a>
+    </div>
   </nav>
-</header>
 
-<!-- ═══════════════════════ MOBILE TOP NAV ═══════════════════════ -->
-<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] flex md:hidden items-center justify-between px-margin-mobile h-16" style="z-index:150;">
-  <a href="index.html" class="flex items-center gap-2">
-    <span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
-    <span class="font-headline-md text-secondary glow-text">ZEUS IOT</span>
-  </a>
-</header>
-
-<!-- ═══════════════════════ MAIN CONTENT ═══════════════════════ -->
-<main class="pt-24 md:pt-32 pb-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative z-10">
-
-  <!-- ─────────── HERO SECTION ─────────── -->
-  <section class="mb-12 reveal">
-        <div class="inline-flex items-center gap-2 bg-surface-container-high border border-outline-variant/30 rounded-full px-4 py-1.5 w-max mb-6">
-      <div class="w-2.5 h-2.5 rounded-full bg-tertiary animate-breathe shadow-[0_0_8px_rgba(16,185,129,0.6)]"></div>
-      <span class="font-code-sm text-code-sm text-tertiary">100+ PROJECTS AVAILABLE</span>
-    </div>
-    <h1 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-transparent bg-clip-text bg-gradient-to-r from-secondary to-tertiary mb-4 uppercase">
-      Our Arsenal
-    </h1>
-    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-6">
-      Explore our deployable technical solutions. From standalone hardware units to comprehensive IoT ecosystems — each project fully documented and presentation-ready.
-    </p>
-
-    <!-- Idea List Accordion / Container -->
-    <div class="bg-surface-container-high border border-outline-variant/50 rounded-xl p-6 max-w-2xl">
-      <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Have no idea?</h3>
-      <p class="text-on-surface-variant text-body-md mb-4">Choose from our extended list of 100+ project ideas below:</p>
-      
-      <div class="max-h-64 overflow-y-auto pr-4 custom-scrollbar">
-        <ul class="text-sm font-body-md">
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Build a Smart ESP32 GPS Tracker with SIM800L and NEO6M Module</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Smart Life Band: An IoT-Based Health, Sleep, and Safety Monitoring Wearable</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to Send SMS with Arduino UNO R4 via Internet?</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> TheAssitBot : Wearable AI Assistant for the Deaf and Mute</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Build a Speaking Alarm Clock Using the XIAO ESP32-S3</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Smart Library System</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to Build a Smart Indian Currency Recognition Using ESP32-CAM</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> SmartLearn Avatar</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Build a Real-Time GPS Tracker with Raspberry Pi Pico &amp; SIM800L GSM Module</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Interfacing the A7672S 4G LTE GNSS Module with Arduino</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Hand Gesture Recognition using ESP32 and Python</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> C.A.R.E. (COGNITIVE AMBIENCE RESPIRATORY ENGINE)</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Send SMS Alert Using Seeed Studio Xiao ESP32</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Build a Raspberry Pi-Based SMS Alert System Using Cloud API</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Automatic Waste Segregation System Using Arduino UNO Q</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> ESP32-S3 Box 3 Smart Weather Station: Real-Time Field Monitoring for Farmers from Home</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> AI Based Smart Parking System using ESP32-CAM</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Maixduino AI and IoT Face Recognition with Alert</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Getting Started with Adafruit MEMENTO: Python Programmable DIY Camera Board</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> S3 Private AI Station: The 100% Private Desktop Assistant</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Built an ESP32-CAM Telegram Bot for Image &amp; Video Capture</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to Do Object Detection With ESP32-Cam Using CircuitDigest Cloud</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to Send Email Notifications using ESP32-CAM</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to Send WhatsApp Messages from Arduino Uno R4 Wifi Board</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to Build a Desktop Weather Station Using ESP32 and E-ink Display</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> iN-Car Drowsiness Detection and Alert System with CAN Bus Integration</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Smart Home Energy Management with IoT and Renewables</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Build a Smart Traffic Management System Using IoT</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Build an ESP32 GSM Calling Device with Auto Answer using GeoLinker</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to Use ESP32-CAM for Face Detection using CircuitDigest Cloud</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Find My Book – AI &amp; IoT Smart Library Navigation &amp; Inventory</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Memento SafeEdge Guardian - AI Child Safety Monitoring for Home Danger Zones</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> IOT Based Smart Energy Meter With SMS Alert</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to Build Smart Grid in IoT Using Arduino UNO R4 WIFI</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Smart Desk Bot</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to build a Smoke and Fire Alarm System using Arduino with SMS Notification</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to Send WhatsApp Messages from ESP32</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> ESP32 Air Mouse using Bluetooth and MPU6050</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to Do Helmet Detection with ESP32-CAM Using CircuitDigest Cloud</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Wireless Stepper Motor Controller with ESP32 and TMC2240</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to Use ESP32-CAM for Attendance System using CircuitDigest Cloud</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Real-Time Image Capture and Send Email Using ESP32-CAM</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Smart Home Automation &amp; Monitoring Hub</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Raspberry Pi Pico Based Rain Detection System with WhatsApp Alert</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> AgriSafe Rot-Spotter: A Multi-Modal Edge-AI System for Early Post-Harvest Spoilage Detection</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to Build an IoT-based Weather Monitoring System Using Arduino?</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> DoseRight - Smart Automatic Medicine Manager</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Ezo A Pet Robot</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Adaptive Musical Instrument for Physically Challenged Persons</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Rugged Outdoor Fitness Tracker</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> AIR-Buddy - A Buddy for Monitor Air Quality</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Core Posture: Smart IoT Posture Corrector and Hydration Assistant</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> ESP32 Interactive Voice Response (IVR) System with GeoLinker Integration</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to Send an Image on WhatsApp Using ESP32-CAM</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> iBIGS - Infant Behavior Intelligent Guardian System</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Kavach</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> How to use nRF24L01 module with Arduino?</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Smart WLED Clock with RTC, PIR, Audio feedback and Environmental Monitoring</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> Build a GPS Tracker with Seeed Studio XIAO ESP32-S3 and Geofencing</li>
-          <li class="py-2 border-b border-outline-variant/30 last:border-0 text-on-surface hover:text-tertiary transition-colors flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">bolt</span> HomePod S3 - A Smart Desk companion</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─────────── SEARCH + FILTER ─────────── -->
-  <section class="mb-10 reveal">
-    <!-- Search Bar -->
-    <div class="relative mb-6">
-      <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-xl">search</span>
-      <input id="project-search" type="text" placeholder="Search by keyword, tech stack, or category..." class="search-input w-full rounded-lg pl-12 pr-4 py-3.5 font-body-md text-body-md"/>
-    </div>
-    <!-- Filter Pills -->
-    <div class="flex flex-wrap gap-3" id="filter-pills">
-      <button class="filter-pill active" data-filter="all">ALL</button>
-      <button class="filter-pill" data-filter="iot">IOT</button>
-      <button class="filter-pill" data-filter="software">SOFTWARE</button>
-      <button class="filter-pill" data-filter="hardware">HARDWARE</button>
-      <button class="filter-pill" data-filter="education">EDUCATION</button>
-    </div>
-  </section>
-
-  <!-- ─────────── PROJECT GRID ─────────── -->
-  <section id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter stagger-children">
-
-    <!-- Project Card 1: Smart Irrigation -->
-    <div class="project-card project-card-item glass-panel bolt-standby rounded-xl overflow-hidden group cursor-pointer tilt-card" data-category="iot hardware" data-tags="smart irrigation lorawan esp32 agriculture moisture">
-      <div class="glare"></div>
-      <div class="h-52 relative overflow-hidden z-10" style="background: linear-gradient(135deg, rgba(16,185,129,0.18) 0%, rgba(15,23,42,0.95) 100%);">
-        <div class="absolute inset-0 flex items-center justify-center">
-          <span class="material-symbols-outlined text-[90px] text-tertiary/20 group-hover:text-tertiary/30 transition-opacity group-hover:scale-110 transition-transform duration-500">water_drop</span>
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer class="w-full mt-auto bg-surface-container-lowest border-t border-outline-variant/20 relative z-10">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 mb-20 md:mb-0">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="md:col-span-1">
+          <div class="flex items-center gap-2 mb-4">
+            <img src="logo.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
+            <span class="font-headline-lg text-headline-md text-secondary">ZEUS IOT</span>
+          </div>
+          <p class="font-body-md text-sm text-on-surface-variant">Engineering Tomorrow's Connected World. Custom IoT
+            solutions for the next generation.</p>
         </div>
-        <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-surface-container/90 backdrop-blur-sm px-3 py-1 rounded-full border border-tertiary/30">
-          <div class="w-1.5 h-1.5 rounded-full bg-tertiary animate-breathe"></div>
-          <span class="font-code-sm text-[10px] text-tertiary uppercase">ACTIVE</span>
+        <div>
+          <h4 class="font-label-caps text-label-caps text-on-surface mb-4 uppercase">Quick Links</h4>
+          <div class="flex flex-col gap-2">
+            <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors"
+              href="index.html">Home</a>
+            <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors"
+              href="projects.html">Projects</a>
+            <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors"
+              href="contact.html">Contact</a>
+            <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors"
+              href="admin.html">Admin</a>
+          </div>
         </div>
-        <div class="absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-[#101415] to-transparent"></div>
-        <div class="absolute bottom-4 left-5">
-          <span class="font-code-sm text-[11px] text-tertiary uppercase tracking-widest">IoT · Agriculture</span>
+        <div>
+          <h4 class="font-label-caps text-label-caps text-on-surface mb-4 uppercase">Services</h4>
+          <div class="flex flex-col gap-2">
+            <a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors"
+              href="contact.html">Custom IoT Builds</a>
+            <a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors"
+              href="contact.html">1-on-1 Consultation</a>
+            <a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors"
+              href="report.html">Academic Reports</a>
+            <a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors"
+              href="pay.html">Payments</a>
+          </div>
         </div>
-      </div>
-      <div class="p-6">
-        <h3 class="font-headline-md text-[20px] text-on-surface mb-2 group-hover:text-tertiary transition-colors">Smart Irrigation System</h3>
-        <p class="font-body-md text-sm text-on-surface-variant mb-5 line-clamp-2">Automated soil moisture monitoring with LoRaWAN communication and mobile dashboard for remote farm management.</p>
-        <div class="flex flex-wrap gap-1.5 mb-4">
-          <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-tertiary border border-tertiary/20">ESP32</span>
-          <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-tertiary border border-tertiary/20">LoRaWAN</span>
-          <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-secondary border border-secondary/20">React</span>
-          <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-secondary border border-secondary/20">Node.js</span>
-        </div>
-        <a href="contact.html" class="inline-flex items-center gap-1.5 text-secondary font-label-caps text-[11px] uppercase hover:gap-3 transition-all duration-200">
-          Request Similar <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-        </a>
-        <a href="case-study.html" class="inline-flex items-center gap-1.5 text-on-surface-variant font-label-caps text-[11px] uppercase hover:text-tertiary transition-all duration-200 ml-4">
-          View Details <span class="material-symbols-outlined text-[14px]">open_in_new</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- Project Card 2: Hospital Management -->
-    <div class="project-card project-card-item glass-panel bolt-active rounded-xl overflow-hidden group cursor-pointer tilt-card" data-category="software fullstack" data-tags="hospital management healthcare react nodejs mongodb web">
-      <div class="glare"></div>
-      <div class="h-52 relative overflow-hidden z-10" style="background: linear-gradient(135deg, rgba(255,198,64,0.15) 0%, rgba(15,23,42,0.95) 100%);">
-        <div class="absolute inset-0 flex items-center justify-center">
-          <span class="material-symbols-outlined text-[90px] text-secondary/20 group-hover:text-secondary/30 transition-opacity group-hover:scale-110 transition-transform duration-500">local_hospital</span>
-        </div>
-        <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-surface-container/90 backdrop-blur-sm px-3 py-1 rounded-full border border-secondary/30">
-          <div class="w-1.5 h-1.5 rounded-full bg-secondary animate-breathe"></div>
-          <span class="font-code-sm text-[10px] text-secondary uppercase">ACTIVE</span>
-        </div>
-        <div class="absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-[#101415] to-transparent"></div>
-        <div class="absolute bottom-4 left-5">
-          <span class="font-code-sm text-[11px] text-secondary uppercase tracking-widest">Software · Healthcare</span>
-        </div>
-      </div>
-      <div class="p-6">
-        <h3 class="font-headline-md text-[20px] text-on-surface mb-2 group-hover:text-secondary transition-colors">Hospital Management System</h3>
-        <p class="font-body-md text-sm text-on-surface-variant mb-5 line-clamp-2">Full-stack web platform for patient records, appointment scheduling, billing, and inventory management.</p>
-        <div class="flex flex-wrap gap-1.5 mb-4">
-          <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-secondary border border-secondary/20">Node.js</span>
-          <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-secondary border border-secondary/20">React</span>
-          <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-secondary border border-secondary/20">MongoDB</span>
-        </div>
-        <a href="contact.html" class="inline-flex items-center gap-1.5 text-secondary font-label-caps text-[11px] uppercase hover:gap-3 transition-all duration-200">
-          Request Similar <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-        </a>
-        <a href="case-study.html" class="inline-flex items-center gap-1.5 text-on-surface-variant font-label-caps text-[11px] uppercase hover:text-tertiary transition-all duration-200 ml-4">
-          View Details <span class="material-symbols-outlined text-[14px]">open_in_new</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- Project Card 3: BLE Warehouse Tracker -->
-    <div class="project-card project-card-item glass-panel bolt-standby rounded-xl overflow-hidden group cursor-pointer tilt-card" data-category="iot hardware" data-tags="esp32 ble bluetooth warehouse tracker inventory python">
-      <div class="glare"></div>
-      <div class="h-52 relative overflow-hidden z-10" style="background: linear-gradient(135deg, rgba(16,185,129,0.12) 0%, rgba(255,198,64,0.08) 50%, rgba(15,23,42,0.95) 100%);">
-        <div class="absolute inset-0 flex items-center justify-center">
-          <span class="material-symbols-outlined text-[90px] text-tertiary/20 group-hover:text-tertiary/30 transition-opacity group-hover:scale-110 transition-transform duration-500">warehouse</span>
-        </div>
-        <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-surface-container/90 backdrop-blur-sm px-3 py-1 rounded-full border border-tertiary/30">
-          <div class="w-1.5 h-1.5 rounded-full bg-tertiary animate-breathe"></div>
-          <span class="font-code-sm text-[10px] text-tertiary uppercase">ACTIVE</span>
-        </div>
-        <div class="absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-[#101415] to-transparent"></div>
-        <div class="absolute bottom-4 left-5">
-          <span class="font-code-sm text-[11px] text-tertiary uppercase tracking-widest">IoT · Hardware</span>
-        </div>
-      </div>
-      <div class="p-6">
-        <h3 class="font-headline-md text-[20px] text-on-surface mb-2 group-hover:text-tertiary transition-colors">BLE Warehouse Tracker</h3>
-        <p class="font-body-md text-sm text-on-surface-variant mb-5 line-clamp-2">Real-time asset tracking system using BLE beacons and ESP32 gateways with web-based live map dashboard.</p>
-        <div class="flex flex-wrap gap-1.5 mb-4">
-          <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-tertiary border border-tertiary/20">ESP32</span>
-          <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-tertiary border border-tertiary/20">BLE 5.3</span>
-          <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-secondary border border-secondary/20">Python</span>
-        </div>
-        <a href="contact.html" class="inline-flex items-center gap-1.5 text-secondary font-label-caps text-[11px] uppercase hover:gap-3 transition-all duration-200">
-          Request Similar <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-        </a>
-        <a href="case-study.html" class="inline-flex items-center gap-1.5 text-on-surface-variant font-label-caps text-[11px] uppercase hover:text-tertiary transition-all duration-200 ml-4">
-          View Details <span class="material-symbols-outlined text-[14px]">open_in_new</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- Project Card 4: Air Quality Monitor -->
-    <div class="project-card project-card-item glass-panel bolt-standby rounded-xl overflow-hidden group cursor-pointer tilt-card" data-category="iot education" data-tags="raspberry pi air quality aqi sensor mqtt dashboard education">
-      <div class="glare"></div>
-      <div class="h-52 relative overflow-hidden z-10" style="background: linear-gradient(135deg, rgba(16,185,129,0.18) 0%, rgba(15,23,42,0.95) 100%);">
-        <div class="absolute inset-0 flex items-center justify-center">
-          <span class="material-symbols-outlined text-[90px] text-tertiary/20 group-hover:text-tertiary/30 transition-opacity group-hover:scale-110 transition-transform duration-500">air</span>
-        </div>
-        <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-surface-container/90 backdrop-blur-sm px-3 py-1 rounded-full border border-tertiary/30">
-          <div class="w-1.5 h-1.5 rounded-full bg-tertiary animate-breathe"></div>
-          <span class="font-code-sm text-[10px] text-tertiary uppercase">ACTIVE</span>
-        </div>
-        <div class="absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-[#101415] to-transparent"></div>
-        <div class="absolute bottom-4 left-5">
-          <span class="font-code-sm text-[11px] text-tertiary uppercase tracking-widest">IoT · Education</span>
-        </div>
-      </div>
-      <div class="p-6">
-        <h3 class="font-headline-md text-[20px] text-on-surface mb-2 group-hover:text-tertiary transition-colors">AQI Monitoring Station</h3>
-        <p class="font-body-md text-sm text-on-surface-variant mb-5 line-clamp-2">Raspberry Pi-based air quality station measuring PM2.5, CO2, humidity and publishing via MQTT to live dashboard.</p>
-        <div class="flex flex-wrap gap-1.5 mb-4">
-          <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-tertiary border border-tertiary/20">Raspberry Pi 4</span>
-          <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-tertiary border border-tertiary/20">MQTT</span>
-          <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-secondary border border-secondary/20">Python</span>
-        </div>
-        <a href="contact.html" class="inline-flex items-center gap-1.5 text-secondary font-label-caps text-[11px] uppercase hover:gap-3 transition-all duration-200">
-          Request Similar <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-        </a>
-        <a href="case-study.html" class="inline-flex items-center gap-1.5 text-on-surface-variant font-label-caps text-[11px] uppercase hover:text-tertiary transition-all duration-200 ml-4">
-          View Details <span class="material-symbols-outlined text-[14px]">open_in_new</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- Project Card 5: Student Attendance -->
-    <div class="project-card project-card-item glass-panel bolt-active rounded-xl overflow-hidden group cursor-pointer tilt-card" data-category="software education" data-tags="rfid attendance python django education student">
-      <div class="glare"></div>
-      <div class="h-52 relative overflow-hidden z-10" style="background: linear-gradient(135deg, rgba(255,198,64,0.12) 0%, rgba(16,185,129,0.06) 50%, rgba(15,23,42,0.95) 100%);">
-        <div class="absolute inset-0 flex items-center justify-center">
-          <span class="material-symbols-outlined text-[90px] text-secondary/20 group-hover:text-secondary/30 transition-opacity group-hover:scale-110 transition-transform duration-500">how_to_reg</span>
-        </div>
-        <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-surface-container/90 backdrop-blur-sm px-3 py-1 rounded-full border border-secondary/30">
-          <div class="w-1.5 h-1.5 rounded-full bg-secondary animate-breathe"></div>
-          <span class="font-code-sm text-[10px] text-secondary uppercase">ACTIVE</span>
-        </div>
-        <div class="absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-[#101415] to-transparent"></div>
-        <div class="absolute bottom-4 left-5">
-          <span class="font-code-sm text-[11px] text-secondary uppercase tracking-widest">Software · Education</span>
-        </div>
-      </div>
-      <div class="p-6">
-        <h3 class="font-headline-md text-[20px] text-on-surface mb-2 group-hover:text-secondary transition-colors">RFID Attendance System</h3>
-        <p class="font-body-md text-sm text-on-surface-variant mb-5 line-clamp-2">Automated student attendance using RFID cards with Django backend, SMS alerts and Excel export functionality.</p>
-        <div class="flex flex-wrap gap-1.5 mb-4">
-          <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-tertiary border border-tertiary/20">Arduino</span>
-          <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-tertiary border border-tertiary/20">RFID RC522</span>
-          <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-secondary border border-secondary/20">Django</span>
-        </div>
-        <a href="contact.html" class="inline-flex items-center gap-1.5 text-secondary font-label-caps text-[11px] uppercase hover:gap-3 transition-all duration-200">
-          Request Similar <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-        </a>
-        <a href="case-study.html" class="inline-flex items-center gap-1.5 text-on-surface-variant font-label-caps text-[11px] uppercase hover:text-tertiary transition-all duration-200 ml-4">
-          View Details <span class="material-symbols-outlined text-[14px]">open_in_new</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- Project Card 6: PCB Line Follower -->
-    <div class="project-card project-card-item glass-panel bolt-standby rounded-xl overflow-hidden group cursor-pointer tilt-card" data-category="hardware education" data-tags="stm32 pcb robot line follower hardware motor driver">
-      <div class="glare"></div>
-      <div class="h-52 relative overflow-hidden z-10" style="background: linear-gradient(135deg, rgba(255,198,64,0.08) 0%, rgba(16,185,129,0.14) 50%, rgba(15,23,42,0.95) 100%);">
-        <div class="absolute inset-0 flex items-center justify-center">
-          <span class="material-symbols-outlined text-[90px] text-tertiary/20 group-hover:text-tertiary/30 transition-opacity group-hover:scale-110 transition-transform duration-500">smart_toy</span>
-        </div>
-        <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-surface-container/90 backdrop-blur-sm px-3 py-1 rounded-full border border-outline-variant/40">
-          <div class="w-1.5 h-1.5 rounded-full bg-outline animate-breathe"></div>
-          <span class="font-code-sm text-[10px] text-on-surface-variant uppercase">ARCHIVED</span>
-        </div>
-        <div class="absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-[#101415] to-transparent"></div>
-        <div class="absolute bottom-4 left-5">
-          <span class="font-code-sm text-[11px] text-tertiary uppercase tracking-widest">Hardware · Education</span>
-        </div>
-      </div>
-      <div class="p-6">
-        <h3 class="font-headline-md text-[20px] text-on-surface mb-2 group-hover:text-tertiary transition-colors">STM32 Line-Follower Robot</h3>
-        <p class="font-body-md text-sm text-on-surface-variant mb-5 line-clamp-2">Custom PCB designed line follower robot with PID control using STM32 and IR sensor array. Includes PCB Gerber files.</p>
-        <div class="flex flex-wrap gap-1.5 mb-4">
-          <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-tertiary border border-tertiary/20">STM32</span>
-          <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-tertiary border border-tertiary/20">KiCad PCB</span>
-          <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-secondary border border-secondary/20">C++</span>
-        </div>
-        <a href="contact.html" class="inline-flex items-center gap-1.5 text-secondary font-label-caps text-[11px] uppercase hover:gap-3 transition-all duration-200">
-          Request Similar <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-        </a>
-        <a href="case-study.html" class="inline-flex items-center gap-1.5 text-on-surface-variant font-label-caps text-[11px] uppercase hover:text-tertiary transition-all duration-200 ml-4">
-          View Details <span class="material-symbols-outlined text-[14px]">open_in_new</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─────────── NO RESULTS (hidden by default) ─────────── -->
-  <div id="no-results" class="hidden mt-12">
-    <div class="flex flex-col items-center justify-center py-20 text-center">
-      <!-- Animated Circuit SVG -->
-      <svg width="160" height="120" viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="mb-6">
-        <path d="M20 60 h 30 v -20 h 20 v 40 h 20 v -30 h 30" stroke="rgba(16,185,129,0.4)" stroke-width="2" fill="none" class="circuit-anim"/>
-        <circle cx="20" cy="60" r="4" fill="#10B981" opacity="0.5"/>
-        <circle cx="120" cy="50" r="4" fill="#ffc640" opacity="0.5"/>
-        <path d="M80 10 L70 30 H80 L72 50 L95 25 H82 L88 10 Z" fill="url(#noResultGrad)" class="bolt-strike"/>
-        <defs>
-          <linearGradient id="noResultGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#ffc640"/>
-            <stop offset="100%" stop-color="#10B981"/>
-          </linearGradient>
-        </defs>
-      </svg>
-      <h3 class="font-headline-md text-[22px] text-on-surface mb-2">No Projects Found</h3>
-      <p class="font-body-md text-sm text-on-surface-variant mb-6 max-w-sm">Try a different search term or category filter. Can't find what you need?</p>
-      <a href="contact.html" class="btn-thunderbolt font-label-caps text-label-caps px-6 py-3 uppercase tracking-widest inline-flex items-center gap-2">
-        Request a Custom Build <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- ─────────── CTA BANNER ─────────── -->
-  <section class="mt-20 reveal">
-    <div class="glass-panel bolt-active rounded-xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
-      <div class="absolute -right-10 -bottom-10 opacity-5">
-        <span class="material-symbols-outlined text-[200px] text-secondary">bolt</span>
-      </div>
-      <div class="z-10">
-        <h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Don't see what you need?</h2>
-        <p class="font-body-md text-body-md text-on-surface-variant">We build custom solutions. Describe your idea and get a quote within 24 hours.</p>
-      </div>
-      <a href="contact.html" class="btn-thunderbolt font-label-caps text-label-caps px-8 py-4 uppercase tracking-widest flex items-center gap-2 flex-shrink-0 z-10">
-        <span>SUMMON THE BOLT</span>
-        <span class="material-symbols-outlined text-[18px]">bolt</span>
-      </a>
-    </div>
-  </section>
-
-</main>
-
-<!-- ═══════════════════════ MOBILE BOTTOM NAV ═══════════════════════ -->
-<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(16,185,129,0.15)] pb-safe">
-  <div class="flex justify-around items-center py-2 px-4">
-    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="index.html">
-      <span class="material-symbols-outlined">home</span>
-      <span class="font-label-caps text-label-caps mt-1">Home</span>
-    </a>
-    <a class="flex flex-col items-center justify-center text-secondary bg-on-secondary-container/20 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="projects.html">
-      <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grid_view</span>
-      <span class="font-label-caps text-label-caps mt-1">Projects</span>
-    </a>
-    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="contact.html">
-      <span class="material-symbols-outlined">chat</span>
-      <span class="font-label-caps text-label-caps mt-1">Contact</span>
-    </a>
-    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="pay.html">
-      <span class="material-symbols-outlined">payments</span>
-      <span class="font-label-caps text-label-caps mt-1">Pay</span>
-    </a>
-  </div>
-</nav>
-
-<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
-<footer class="w-full mt-auto bg-surface-container-lowest border-t border-outline-variant/20 relative z-10">
-  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 mb-20 md:mb-0">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-      <div class="md:col-span-1">
-        <div class="flex items-center gap-2 mb-4">
-          <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">bolt</span>
-          <span class="font-headline-lg text-headline-md text-secondary">ZEUS IOT</span>
-        </div>
-        <p class="font-body-md text-sm text-on-surface-variant">Engineering Tomorrow's Connected World. Custom IoT solutions for the next generation.</p>
-      </div>
-      <div>
-        <h4 class="font-label-caps text-label-caps text-on-surface mb-4 uppercase">Quick Links</h4>
-        <div class="flex flex-col gap-2">
-          <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="index.html">Home</a>
-          <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="projects.html">Projects</a>
-          <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="contact.html">Contact</a>
-          <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="admin.html">Admin</a>
-        </div>
-      </div>
-      <div>
-        <h4 class="font-label-caps text-label-caps text-on-surface mb-4 uppercase">Services</h4>
-        <div class="flex flex-col gap-2">
-          <a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" href="contact.html">Custom IoT Builds</a>
-          <a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" href="contact.html">1-on-1 Consultation</a>
-          <a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" href="report.html">Academic Reports</a>
-          <a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" href="pay.html">Payments</a>
-        </div>
-      </div>
-      <div>
-        <h4 class="font-label-caps text-label-caps text-on-surface mb-4 uppercase">Connect</h4>
-        <div class="flex flex-col gap-2">
-          <a href="mailto:zeusiotprojects@gmail.com" class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors">zeusiotprojects@gmail.com</a>
-          <a href="https://wa.me/919080809088" target="_blank" class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors">WhatsApp: +91 90808 09088</a>
-          <div class="flex gap-3 mt-3">
-            <a href="https://www.linkedin.com/company/zeus-iot" target="_blank" class="social-icon-link" aria-label="LinkedIn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </a>
-            <a href="https://www.instagram.com/zeus.iot" target="_blank" class="social-icon-link" aria-label="Instagram">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-            </a>
-            <a href="https://github.com/zeus-iot" target="_blank" class="social-icon-link" aria-label="GitHub">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-            </a>
+        <div>
+          <h4 class="font-label-caps text-label-caps text-on-surface mb-4 uppercase">Connect</h4>
+          <div class="flex flex-col gap-2">
+            <a href="mailto:zeusiotprojects@gmail.com"
+              class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors">zeusiotprojects@gmail.com</a>
+            <a href="https://wa.me/919080809088" target="_blank"
+              class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors">WhatsApp: +91
+              90808 09088</a>
+            <div class="flex gap-3 mt-3">
+              <a href="https://www.linkedin.com/company/zeus-iot" target="_blank" class="social-icon-link"
+                aria-label="LinkedIn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+              </a>
+              <a href="https://www.instagram.com/zeus.iot" target="_blank" class="social-icon-link"
+                aria-label="Instagram">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+                </svg>
+              </a>
+              <a href="https://github.com/zeus-iot" target="_blank" class="social-icon-link" aria-label="GitHub">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="flex flex-col md:flex-row justify-between items-center mt-12 pt-6 border-t border-outline-variant/20">
-      <div class="flex gap-6 mb-4 md:mb-0">
-        <a class="text-on-surface-variant hover:text-secondary font-code-sm text-code-sm transition-colors" href="terms.html">Terms</a>
-        <a class="text-on-surface-variant hover:text-secondary font-code-sm text-code-sm transition-colors" href="privacy.html">Privacy</a>
-        <a class="text-on-surface-variant hover:text-secondary font-code-sm text-code-sm transition-colors" href="contact.html">Support</a>
+      <div class="flex flex-col md:flex-row justify-between items-center mt-12 pt-6 border-t border-outline-variant/20">
+        <div class="flex gap-6 mb-4 md:mb-0">
+          <a class="text-on-surface-variant hover:text-secondary font-code-sm text-code-sm transition-colors"
+            href="terms.html">Terms</a>
+          <a class="text-on-surface-variant hover:text-secondary font-code-sm text-code-sm transition-colors"
+            href="privacy.html">Privacy</a>
+          <a class="text-on-surface-variant hover:text-secondary font-code-sm text-code-sm transition-colors"
+            href="contact.html">Support</a>
+        </div>
+        <p class="text-tertiary font-code-sm text-code-sm tracking-widest">© 2026 ZEUS IOT. HARNESS THE BOLT.</p>
       </div>
-      <p class="text-tertiary font-code-sm text-code-sm tracking-widest">© 2026 ZEUS IOT. HARNESS THE BOLT.</p>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- ═══════════════════════ FLOATING WHATSAPP ═══════════════════════ -->
-<a href="https://wa.me/919080809088" target="_blank" class="whatsapp-float" id="whatsapp-float" style="opacity:0;" aria-label="Chat on WhatsApp">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.489-1.761-1.663-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-  <div class="tooltip">Chat on WhatsApp ⚡</div>
-</a>
+  <!-- ═══════════════════════ FLOATING WHATSAPP ═══════════════════════ -->
+  <a href="https://wa.me/919080809088" target="_blank" class="whatsapp-float" id="whatsapp-float" style="opacity:0;"
+    aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.489-1.761-1.663-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+    </svg>
+    <div class="tooltip">Chat on WhatsApp ⚡</div>
+  </a>
 
-<script>
+  <script>
 
-// ─── Preloader ───
+    // ─── Preloader & Page Transitions ───
 window.addEventListener('load', () => {
   const preloader = document.getElementById('page-preloader');
-  if (preloader) setTimeout(() => preloader.classList.add('hidden'), 800);
+  if (preloader) {
+    setTimeout(() => preloader.classList.add('hidden'), 800);
+  }
 });
 
-
-
-// ─── Navbar scroll ───
-const nav = document.getElementById('desktop-nav');
-const progressBar = document.getElementById('scroll-progress');
-window.addEventListener('scroll', () => {
-  const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-  if (progressBar) progressBar.style.width = pct + '%';
-  if (nav) { if (window.scrollY > 60) nav.classList.add('nav-scrolled'); else nav.classList.remove('nav-scrolled'); }
+window.addEventListener('pageshow', () => {
+  const preloaderImg = document.querySelector('#page-preloader .preloader-bolt');
+  if (preloaderImg) {
+    preloaderImg.classList.remove('preloader-rotate-active');
+  }
 });
 
-// ─── WhatsApp float ───
-setTimeout(() => { const wa = document.getElementById('whatsapp-float'); if (wa) { wa.style.transition = 'opacity 0.5s ease'; wa.style.opacity = '1'; } }, 3000);
-
-// ─── Scroll Reveal ───
-const scrollRevealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('revealed');
-      scrollRevealObserver.unobserve(entry.target);
+document.addEventListener('DOMContentLoaded', () => {
+  const preloader = document.getElementById('page-preloader');
+  if (!preloader) return;
+  const preloaderImg = preloader.querySelector('.preloader-bolt');
+  
+  document.body.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (!link) return;
+    
+    const href = link.getAttribute('href');
+    const target = link.getAttribute('target');
+    
+    if (
+      href && 
+      !href.startsWith('#') && 
+      !href.startsWith('javascript:') && 
+      !href.startsWith('tel:') && 
+      !href.startsWith('mailto:') && 
+      (!target || target === '_self') &&
+      !link.classList.contains('no-transition')
+    ) {
+      e.preventDefault();
+      
+      preloader.classList.remove('hidden');
+      preloader.style.opacity = '1';
+      preloader.style.visibility = 'visible';
+      
+      const fill = preloader.querySelector('.preloader-fill');
+      if (fill) {
+        fill.style.animation = 'none';
+        fill.offsetHeight; // trigger reflow
+        fill.style.animation = 'preloader-fill 0.8s ease-out forwards';
+      }
+      
+      if (preloaderImg) {
+        preloaderImg.classList.add('preloader-rotate-active');
+      }
+      
+      setTimeout(() => {
+        window.location.href = href;
+      }, 800);
     }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.scroll-reveal').forEach(el => scrollRevealObserver.observe(el));
-
-// ─── Filter Pills ───
-let activeFilter = 'all';
-document.querySelectorAll('.filter-pill').forEach(pill => {
-  pill.addEventListener('click', () => {
-    document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
-    pill.classList.add('active');
-    activeFilter = pill.dataset.filter;
-    applyFilters();
-  });
 });
 
-// ─── Search ───
-let searchDebounce;
-document.getElementById('project-search').addEventListener('input', (e) => {
-  clearTimeout(searchDebounce);
-  searchDebounce = setTimeout(() => applyFilters(), 200);
-});
 
-function applyFilters() {
-  const query = document.getElementById('project-search').value.toLowerCase().trim();
-  const cards = document.querySelectorAll('.project-card-item');
-  let visibleCount = 0;
-  cards.forEach(card => {
-    const category = card.dataset.category || '';
-    const tags = card.dataset.tags || '';
-    const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
-    const desc = card.querySelector('p')?.textContent.toLowerCase() || '';
-    const matchesFilter = activeFilter === 'all' || category.includes(activeFilter);
-    const matchesSearch = !query || title.includes(query) || tags.includes(query) || desc.includes(query) || category.includes(query);
-    if (matchesFilter && matchesSearch) {
-      card.classList.remove('card-hidden', 'hidden-card');
-      card.style.display = '';
-      visibleCount++;
-    } else {
-      card.classList.add('card-hidden', 'hidden-card');
-      setTimeout(() => { if (card.classList.contains('card-hidden')) card.style.display = 'none'; }, 400);
+
+    // ─── Navbar scroll ───
+    const nav = document.getElementById('desktop-nav');
+    const progressBar = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', () => {
+      const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      if (progressBar) progressBar.style.width = pct + '%';
+      if (nav) { if (window.scrollY > 60) nav.classList.add('nav-scrolled'); else nav.classList.remove('nav-scrolled'); }
+    });
+
+    // ─── WhatsApp float ───
+    setTimeout(() => { const wa = document.getElementById('whatsapp-float'); if (wa) { wa.style.transition = 'opacity 0.5s ease'; wa.style.opacity = '1'; } }, 3000);
+
+    // ─── Scroll Reveal ───
+    const scrollRevealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          scrollRevealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.scroll-reveal').forEach(el => scrollRevealObserver.observe(el));
+
+    // ─── Projects Data ───
+    const projectsData = [
+      {
+        title: "Smart ESP32 GPS Tracker with SIM800L and NEO6M Module",
+        category: "iot hardware",
+        desc: "Real-time location tracker using GPS and cellular network with custom map dashboard integration.",
+        tags: ["ESP32", "SIM800L", "NEO6M GPS", "IoT", "HTTP"],
+        icon: "location_on"
+      },
+      {
+        title: "Smart Life Band: Health, Sleep, and Safety Wearable",
+        category: "iot hardware",
+        desc: "A wellness bracelet tracking heart rate, sleep cycles, and fall detection with automatic emergency alerts.",
+        tags: ["ESP32", "MPU6050", "Pulse Sensor", "Bluetooth", "IoT"],
+        icon: "watch"
+      },
+      {
+        title: "Arduino UNO R4 Cloud SMS Broadcaster",
+        category: "iot education",
+        desc: "Send high-priority SMS notifications over the internet using HTTP client protocols directly from Arduino R4.",
+        tags: ["Arduino R4", "WiFi", "SMS API", "HTTP Client"],
+        icon: "sms"
+      },
+      {
+        title: "TheAssitBot: Wearable AI Assistant for Deaf & Mute",
+        category: "software hardware",
+        desc: "Assistive glove that translates hand gestures into clear spoken text and visual alerts via smart display.",
+        tags: ["ESP32", "Flex Sensors", "Text-to-Speech", "AI", "Python"],
+        icon: "assist_walker"
+      },
+      {
+        title: "Speaking Alarm Clock Using XIAO ESP32-S3",
+        category: "hardware",
+        desc: "A custom desk clock with voice synthesis, climate telemetry, and interactive touch controls.",
+        tags: ["XIAO ESP32-S3", "DFPlayer Mini", "RTC", "DHT11"],
+        icon: "alarm"
+      },
+      {
+        title: "Smart Library System",
+        category: "iot software",
+        desc: "Integrated library automation checking books in/out using RFID readers and updating database.",
+        tags: ["RFID RC522", "ESP8266", "SQL", "Node.js", "Dashboard"],
+        icon: "local_library"
+      },
+      {
+        title: "Indian Currency Recognition Using ESP32-CAM",
+        category: "software hardware",
+        desc: "Edge-AI device analyzing currency notes using neural network classification models with vocal feedback.",
+        tags: ["ESP32-CAM", "EdgeAI", "TensorFlow Lite", "Audio Output"],
+        icon: "payments"
+      },
+      {
+        title: "SmartLearn Avatar",
+        category: "software",
+        desc: "An educational AI companion with visual mouth-syncing avatar and responsive speech synthesis.",
+        tags: ["Python", "OpenAI API", "Pygame", "Text-to-Speech"],
+        icon: "school"
+      },
+      {
+        title: "GPS Tracker with Raspberry Pi Pico & SIM800L",
+        category: "iot hardware",
+        desc: "Ultra-compact telemetry tracking node built with Pico and cellular modem for asset logs.",
+        tags: ["Pi Pico", "SIM800L", "NEO-6M", "MicroPython"],
+        icon: "gps_fixed"
+      },
+      {
+        title: "Interfacing A7672S 4G LTE GNSS with Arduino",
+        category: "hardware iot",
+        desc: "Establish low-latency 4G LTE internet pipeline and GPS telemetry logging on Arduino platform.",
+        tags: ["Arduino", "A7672S 4G", "GNSS", "LTE Data"],
+        icon: "cell_tower"
+      },
+      {
+        title: "Hand Gesture Recognition using ESP32 & Python",
+        category: "software",
+        desc: "OpenCV vision scripts tracking hand gestures to control servos and relays connected to ESP32.",
+        tags: ["ESP32", "Python", "OpenCV", "MediaPipe", "WiFi"],
+        icon: "front_hand"
+      },
+      {
+        title: "C.A.R.E. (Cognitive Ambience Respiratory Engine)",
+        category: "iot hardware",
+        desc: "Eco-health system monitoring air safety variables and activating smart air filtration units.",
+        tags: ["ESP32", "SGP30 TVOC", "PM2.5 Sensor", "Blynk IoT"],
+        icon: "medical_services"
+      },
+      {
+        title: "Send SMS Alert Using Seeed Studio Xiao ESP32",
+        category: "iot hardware",
+        desc: "Miniature alert transmitter node dispatching cellular messages under custom trigger thresholds.",
+        tags: ["Xiao ESP32", "SIM800L", "GSM SMS", "C++"],
+        icon: "emergency_home"
+      },
+      {
+        title: "Raspberry Pi SMS Alert System via Cloud API",
+        category: "software iot",
+        desc: "A reliable backend server dispatching text updates to target users using Twilio API triggers.",
+        tags: ["Raspberry Pi", "Python", "Twilio API", "Cloud Messaging"],
+        icon: "mail"
+      },
+      {
+        title: "Automatic Waste Segregator Using Arduino",
+        category: "hardware education",
+        desc: "Sort scrap materials into dry, organic, or mechanical bins using sensor arrays and mechanical flaps.",
+        tags: ["Arduino UNO", "Servo Motors", "Moisture Sensor", "Inductive Sensor"],
+        icon: "delete_sweep"
+      },
+      {
+        title: "ESP32-S3 Box 3 Agricultural Weather Station",
+        category: "iot hardware",
+        desc: "Weather station checking local wind, rain, and soil metrics with real-time field reports for farms.",
+        tags: ["ESP32-S3 Box", "Soil Sensors", "DHT22", "MQTTS", "Dashboard"],
+        icon: "agriculture"
+      },
+      {
+        title: "AI Based Smart Parking System using ESP32-CAM",
+        category: "iot software",
+        desc: "Smart parking manager reading license plates at gates and tracking vacant spots on Firebase.",
+        tags: ["ESP32-CAM", "OpenCV", "License Plate Recognition", "Firebase"],
+        icon: "local_parking"
+      },
+      {
+        title: "Maixduino AI and IoT Face Recognition Alert System",
+        category: "software hardware",
+        desc: "Edge-AI scanner identifying individuals and triggering automated database entries and safety alerts.",
+        tags: ["Maixduino", "K210 AI Chip", "ESP32", "Face Detection", "IoT"],
+        icon: "face"
+      },
+      {
+        title: "Getting Started with Adafruit MEMENTO Camera",
+        category: "hardware education",
+        desc: "Customizable DIY smart camera board programmed in CircuitPython for object detection.",
+        tags: ["Adafruit MEMENTO", "CircuitPython", "DIY Camera", "Education"],
+        icon: "camera"
+      },
+      {
+        title: "S3 Private AI Station: Desktop Assistant",
+        category: "software hardware",
+        desc: "Secure voice processor parsing offline questions and managing local device smart controls.",
+        tags: ["XIAO ESP32-S3", "Offline STT", "Local LLM", "OLED Display"],
+        icon: "voice_over_off"
+      },
+      {
+        title: "ESP32-CAM Telegram Telemetry Bot",
+        category: "iot software",
+        desc: "Control camera stream and receive instant snapshot photos via direct Telegram messages.",
+        tags: ["ESP32-CAM", "Telegram Bot API", "WiFi", "Camera Server"],
+        icon: "robot_2"
+      },
+      {
+        title: "Object Detection With ESP32-Cam on CircuitDigest Cloud",
+        category: "software hardware",
+        desc: "Relay camera feed to cloud dashboard parsing objects and bounding boxes on real-time stream.",
+        tags: ["ESP32-CAM", "CircuitDigest Cloud", "Object Detection", "APIs"],
+        icon: "center_focus_weak"
+      },
+      {
+        title: "Email Notifications via Motion-Triggered ESP32-CAM",
+        category: "iot software",
+        desc: "Send snapshot security emails instantly upon motion detection logs.",
+        tags: ["ESP32-CAM", "PIR Motion Sensor", "SMTP", "Email Alerts"],
+        icon: "forward_to_inbox"
+      },
+      {
+        title: "WhatsApp Telemetry Alerts from Arduino Uno R4",
+        category: "iot software",
+        desc: "Code template to forward system variables directly to WhatsApp using Twilio backend integrations.",
+        tags: ["Arduino R4", "WiFi", "WhatsApp API", "Webhooks"],
+        icon: "chat"
+      },
+      {
+        title: "E-ink Desktop Weather Station via ESP32",
+        category: "hardware",
+        desc: "Ultra-low power desk display rendering local forecast maps retrieved from OpenWeather API.",
+        tags: ["ESP32", "E-ink Display", "OpenWeather API", "Deep Sleep"],
+        icon: "wb_sunny"
+      },
+      {
+        title: "iN-Car Drowsiness Detection with CAN Bus Hub",
+        category: "software hardware",
+        desc: "Computer vision script tracing blinking patterns to trigger cabin sound alarms via CAN bus relays.",
+        tags: ["Python", "OpenCV", "Dlib", "CAN Bus", "Arduino"],
+        icon: "drive_eta"
+      },
+      {
+        title: "Smart Home Energy Management Hub",
+        category: "iot hardware",
+        desc: "Measure power draws on lines and toggle solar batteries versus mains grid dynamically.",
+        tags: ["ESP32", "Current Sensors", "Relay Module", "IoT Cloud"],
+        icon: "electric_bolt"
+      },
+      {
+        title: "Traffic Management System Using Computer Vision",
+        category: "iot software",
+        desc: "Analyze crossroad congestion via cameras to set light timers dynamically.",
+        tags: ["ESP32-CAM", "Raspberry Pi", "Image Processing", "Traffic Lights"],
+        icon: "traffic"
+      },
+      {
+        title: "Auto-Answer GSM Device using GeoLinker & ESP32",
+        category: "hardware",
+        desc: "Pocket communication tracker answering calls automatically to open audio stream and report coordinates.",
+        tags: ["ESP32", "SIM800L", "GeoLinker", "GSM Call", "Audio"],
+        icon: "phone_in_talk"
+      },
+      {
+        title: "Face Recognition Attendance via ESP32-CAM & Cloud",
+        category: "software hardware",
+        desc: "Track student or worker attendance with edge verification syncing to administrative sheets.",
+        tags: ["ESP32-CAM", "Face Recognition", "Cloud API", "Web Stream"],
+        icon: "face_5"
+      },
+      {
+        title: "Find My Book: Smart Library Navigation System",
+        category: "iot software",
+        desc: "Barcode search scanner that lights up specific shelf address LEDs to locate books.",
+        tags: ["Arduino", "ESP8266", "LED Matrix", "Barcode Reader", "AI Search"],
+        icon: "travel_explore"
+      },
+      {
+        title: "Memento SafeEdge Guardian: Child Safety Watch",
+        category: "software hardware",
+        desc: "Warn children and notify parents when camera detects entry into home kitchen or stairs.",
+        tags: ["Adafruit MEMENTO", "EdgeAI", "Voice Warning", "Smart Home"],
+        icon: "child_care"
+      },
+      {
+        title: "IoT Smart Energy Meter with SMS Alerts",
+        category: "iot hardware",
+        desc: "Measure house load current/voltage and send monthly balance calculations via cellular text.",
+        tags: ["Arduino", "PZEM-004T", "SIM800L", "GSM SMS", "LCD"],
+        icon: "electric_meter"
+      },
+      {
+        title: "Arduino UNO R4 WiFi Smart Grid Simulator",
+        category: "iot education",
+        desc: "Control relays simulating load isolation and emergency backup nodes on microgrid mockup.",
+        tags: ["Arduino R4", "WiFi", "Blynk IoT", "Relay Control"],
+        icon: "grid_3x3"
+      },
+      {
+        title: "Smart Desk Bot",
+        category: "hardware",
+        desc: "A companion robot showing notifications and reacting to proximity sensors.",
+        tags: ["ESP32", "OLED", "Servo Motors", "WiFi Client"],
+        icon: "smart_toy"
+      },
+      {
+        title: "SMS-Notified Smoke and Fire Detector",
+        category: "hardware",
+        desc: "Initiate local sirens and transmit emergency text alerts when dangerous CO/smoke levels build.",
+        tags: ["Arduino", "MQ2 Gas Sensor", "Flame Sensor", "SIM800L"],
+        icon: "local_fire_department"
+      },
+      {
+        title: "WhatsApp Telemetry Link for ESP32 Nodes",
+        category: "iot software",
+        desc: "Push data alerts from isolated ESP32 field sensors straight to standard WhatsApp chats.",
+        tags: ["ESP32", "HTTPS Client", "CallMeBot API", "WhatsApp"],
+        icon: "chat_bubble"
+      },
+      {
+        title: "Bluetooth Air Mouse using MPU6050 & ESP32",
+        category: "hardware wearable",
+        desc: "Track hand tilt angles to emulate standard computer mouse coordinates over BLE.",
+        tags: ["ESP32", "MPU6050 Gyro", "BLE HID", "C++"],
+        icon: "mouse"
+      },
+      {
+        title: "Helmet Detection Safety System via ESP32-CAM",
+        category: "software hardware",
+        desc: "Scan gates in active workspaces to verify helmet compliance before unlocking barriers.",
+        tags: ["ESP32-CAM", "Cloud AI", "Safety Detection", "Image Classifier"],
+        icon: "sports_motorsports"
+      },
+      {
+        title: "Wireless Stepper Motor Driver with TMC2240",
+        category: "hardware",
+        desc: "Silent motor control interface with wireless configuration and status diagnostics panel.",
+        tags: ["ESP32", "TMC2240 Driver", "Web Sockets", "Stepper Motor"],
+        icon: "settings_motion"
+      },
+      {
+        title: "ESP32-CAM Face Verification Attendance Logger",
+        category: "software hardware",
+        desc: "Check-in log capturing portraits at doorways, referencing face library, and printing sheets.",
+        tags: ["ESP32-CAM", "Face Recognition", "Google Sheets", "API Sync"],
+        icon: "co_present"
+      },
+      {
+        title: "SMTP Security Camera using ESP32-CAM",
+        category: "iot software",
+        desc: "Capture security frames on motion detect logs and forward immediately via secure mail.",
+        tags: ["ESP32-CAM", "PIR Sensor", "SMTP Server", "Security"],
+        icon: "security"
+      },
+      {
+        title: "Home Automation Central Dashboard Hub",
+        category: "iot software",
+        desc: "Relay command panel mapping climate trends and operating high-power home breakers.",
+        tags: ["ESP32", "Relay Modules", "DHT11", "Web Server", "HomeAssistant"],
+        icon: "home_iot_device"
+      },
+      {
+        title: "Pico Rain Sentinel with WhatsApp Messenger",
+        category: "iot hardware",
+        desc: "Detect moisture thresholds on crops and alert farmer via automated messaging systems.",
+        tags: ["Pi Pico", "Rain Sensor", "WiFi Module", "WhatsApp API"],
+        icon: "rainy"
+      },
+      {
+        title: "AgriSafe Crop Spoilage Edge-AI Classifier",
+        category: "software hardware",
+        desc: "Classify early stage post-harvest food rot from image samples using edge machine learning.",
+        tags: ["Raspberry Pi", "EdgeAI", "VOC Sensors", "TensorFlow Lite"],
+        icon: "compost"
+      },
+      {
+        title: "Arduino IoT Weather Logger on ThingSpeak",
+        category: "iot education",
+        desc: "Upload temperature, barometer, and humidity metrics to public API telemetry graphs.",
+        tags: ["Arduino", "ESP8266", "BMP280", "ThingSpeak API"],
+        icon: "cloudy_snowing"
+      },
+      {
+        title: "DoseRight: Scheduled Automatic Pill Dispenser",
+        category: "iot hardware",
+        desc: "Rotate pill compartment at schedules, buzz cabinet doors, and log miss logs via WhatsApp.",
+        tags: ["ESP32", "Servo Motors", "RTC Module", "WhatsApp Alert"],
+        icon: "pill"
+      },
+      {
+        title: "Ezo Pet Assistant Robot",
+        category: "hardware",
+        desc: "An interactive desktop robot pet with screen animations, voice reactions, and custom actions.",
+        tags: ["ESP32", "LCD SPI", "Servo Motors", "Battery Management"],
+        icon: "pets"
+      },
+      {
+        title: "Adaptive Acoustic Synthesizer Interface",
+        category: "hardware education",
+        desc: "Create musical pitches via breathing pressure and light block sensors for accessibility.",
+        tags: ["Arduino Nano", "Buzzer", "LDR Sensor", "Pressure Sensor"],
+        icon: "music_note"
+      },
+      {
+        title: "Rugged GPS Tracker Wearable",
+        category: "hardware wearable",
+        desc: "Activity tracker compiling coordinates onto local storage with paper screen layout.",
+        tags: ["ESP32", "E-paper", "GPS Module", "MPU6050"],
+        icon: "fitness_center"
+      },
+      {
+        title: "AIR-Buddy Desktop Air Quality Indicator",
+        category: "iot hardware",
+        desc: "Companion device glowing different colors according to local TVOC and CO2 hazards.",
+        tags: ["ESP8266", "NeoPixel Ring", "MQ135 Sensor", "SGP30"],
+        icon: "sentiment_satisfied"
+      },
+      {
+        title: "Core Posture: Smart Posture & Water Monitor",
+        category: "iot wearable",
+        desc: "Track posture orientation and calculate hydration levels via telemetry scale sensor.",
+        tags: ["ESP32", "Flex Sensors", "Load Cell", "Blynk Cloud"],
+        icon: "accessibility"
+      },
+      {
+        title: "ESP32 IVR Phone Server",
+        category: "iot hardware",
+        desc: "Receive phone calls, decode DTMF keypress commands, and vocalize live house status.",
+        tags: ["ESP32", "SIM800L", "DTMF Decoder", "IVR Voice"],
+        icon: "phone_callback"
+      },
+      {
+        title: "WhatsApp Security Photo Sender via ESP32-CAM",
+        category: "iot software",
+        desc: "Record room pictures on tripwires and push details instantly onto WhatsApp chat logs.",
+        tags: ["ESP32-CAM", "WhatsApp API", "Security", "C++"],
+        icon: "camera_front"
+      },
+      {
+        title: "iBIGS Infant Guardian Audio Watcher",
+        category: "software hardware",
+        desc: "AI audio processor filtering crying signatures and alerting parents on cellular devices.",
+        tags: ["Raspberry Pi", "TensorFlow Lite", "Audio AI", "Push Notifications"],
+        icon: "baby_changing_station"
+      },
+      {
+        title: "Kavach Smart Mining Safety Helmet",
+        category: "iot hardware",
+        desc: "Mining crew helmet compiling methane level, fall logs, and transmitting GPS warnings.",
+        tags: ["Arduino Nano", "SIM800L", "MPU6050", "MQ4 Sensor"],
+        icon: "sports_header"
+      },
+      {
+        title: "nRF24L01 Mesh Network Arduino Node Pipeline",
+        category: "hardware communication",
+        desc: "RF mesh setup routing remote weather indicators through relay points back to central receiver.",
+        tags: ["Arduino", "nRF24L01 RF", "SPI Protocol", "Sensor Mesh"],
+        icon: "rss_feed"
+      },
+      {
+        title: "Smart WLED Environmental Wall Clock",
+        category: "iot",
+        desc: "Synchronize wall LED layouts with weather variables, web timers, and local motion alerts.",
+        tags: ["ESP32", "WLED", "PIR Motion", "RTC", "DFPlayer"],
+        icon: "watch_later"
+      },
+      {
+        title: "XIAO ESP32-S3 Geofenced Security Node",
+        category: "iot hardware",
+        desc: "Secure tracking node dispatching alerts when entering/exiting software boundaries.",
+        tags: ["XIAO ESP32-S3", "GPS NEO6M", "Blynk IoT", "Geofencing"],
+        icon: "explore"
+      },
+      {
+        title: "HomePod S3 Desk companion",
+        category: "hardware iot",
+        desc: "Desktop weather terminal with personal schedules, local music capabilities, and dashboard widgets.",
+        tags: ["ESP32-S3", "TFT SPI", "DFPlayer", "WiFi Sync"],
+        icon: "desk"
+      }
+    ];
+
+    // ─── Render Projects List ───
+    function renderProjects(data) {
+      const container = document.getElementById('projects-list');
+      if (!container) return;
+      container.innerHTML = '';
+
+      if (data.length === 0) {
+        document.getElementById('no-results').classList.remove('hidden');
+        return;
+      } else {
+        document.getElementById('no-results').classList.add('hidden');
+      }
+
+      data.forEach((p) => {
+        const row = document.createElement('div');
+        row.className = 'flex flex-col md:flex-row md:items-center justify-between p-5 hover:bg-surface-container-high/40 transition-all gap-4 group border-b border-outline-variant/20 last:border-0';
+
+        const badgesHtml = p.tags.map(t => `
+          <span class="bg-surface-container-high px-2 py-0.5 rounded text-[10px] font-code-sm text-tertiary border border-tertiary/20 whitespace-nowrap">${t}</span>
+        `).join('');
+
+        row.innerHTML = `
+          <div class="flex items-center gap-4 min-w-0 flex-1">
+            <div class="w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant/30 flex items-center justify-center flex-shrink-0 group-hover:border-secondary/50 group-hover:bg-secondary/5 transition-colors duration-300">
+              <span class="material-symbols-outlined text-outline group-hover:text-secondary transition-colors duration-300">${p.icon || 'bolt'}</span>
+            </div>
+            <div class="min-w-0">
+              <h3 class="font-headline-md text-base md:text-lg text-on-surface font-semibold group-hover:text-secondary transition-colors duration-300 truncate">${p.title}</h3>
+              <p class="font-body-md text-xs text-on-surface-variant line-clamp-1 mt-0.5">${p.desc || ''}</p>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-1.5 items-center md:justify-center max-w-xs md:max-w-none">
+            ${badgesHtml}
+          </div>
+
+          <div class="flex items-center justify-between md:justify-end gap-6 flex-shrink-0 border-t border-outline-variant/20 pt-3 md:pt-0 md:border-0">
+            <div class="flex items-center gap-1.5">
+              <div class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.6)]"></div>
+              <span class="font-code-sm text-[10px] text-tertiary uppercase tracking-wider">Active</span>
+            </div>
+            <a href="contact.html?project=${encodeURIComponent(p.title)}" class="btn-thunderbolt font-label-caps text-[11px] px-4 py-2 uppercase tracking-widest flex items-center gap-1.5">
+              <span>Summon</span>
+              <span class="material-symbols-outlined text-xs">bolt</span>
+            </a>
+          </div>
+        `;
+        container.appendChild(row);
+      });
     }
-  });
-  document.getElementById('no-results').classList.toggle('hidden', visibleCount > 0);
-}
-</script>
-<script src="animations.js?v=2"></script>
+
+    // ─── Filter Pills ───
+    let activeFilter = 'all';
+    document.querySelectorAll('.filter-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        activeFilter = pill.dataset.filter.toLowerCase();
+        applyFilters();
+      });
+    });
+
+    // ─── Search ───
+    let searchDebounce;
+    document.getElementById('project-search').addEventListener('input', () => {
+      clearTimeout(searchDebounce);
+      searchDebounce = setTimeout(() => applyFilters(), 200);
+    });
+
+    function applyFilters() {
+      const query = document.getElementById('project-search').value.toLowerCase().trim();
+      const filtered = projectsData.filter(p => {
+        const matchesFilter = activeFilter === 'all' || p.category.includes(activeFilter);
+        const matchesSearch = !query ||
+          p.title.toLowerCase().includes(query) ||
+          p.desc.toLowerCase().includes(query) ||
+          p.tags.some(t => t.toLowerCase().includes(query)) ||
+          p.category.toLowerCase().includes(query);
+        return matchesFilter && matchesSearch;
+      });
+
+      renderProjects(filtered);
+    }
+
+    // Initial load
+    renderProjects(projectsData);
+  </script>
+  <script src="animations.js?v=2"></script>
 </body>
+
 </html>

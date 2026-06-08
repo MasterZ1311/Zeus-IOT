@@ -104,60 +104,52 @@
                       ]
               },
               "fontSize": {
-                      "code-sm": [
-                              "14px",
+                      "code-sm": ["11px",
                               {
                                       "lineHeight": "1.4",
                                       "fontWeight": "400"
                               }
                       ],
-                      "headline-xl": [
-                              "48px",
+                      "headline-xl": ["24px",
                               {
                                       "lineHeight": "1.1",
                                       "letterSpacing": "-0.02em",
                                       "fontWeight": "800"
                               }
                       ],
-                      "headline-lg-mobile": [
-                              "28px",
+                      "headline-lg-mobile": ["20px",
                               {
                                       "lineHeight": "1.2",
                                       "fontWeight": "700"
                               }
                       ],
-                      "body-md": [
-                              "16px",
+                      "body-md": ["13px",
                               {
                                       "lineHeight": "1.5",
                                       "fontWeight": "400"
                               }
                       ],
-                      "label-caps": [
-                              "12px",
+                      "label-caps": ["9.5px",
                               {
                                       "lineHeight": "1.0",
                                       "letterSpacing": "0.1em",
                                       "fontWeight": "700"
                               }
                       ],
-                      "headline-lg": [
-                              "32px",
+                      "headline-lg": ["20px",
                               {
                                       "lineHeight": "1.2",
                                       "letterSpacing": "-0.01em",
                                       "fontWeight": "700"
                               }
                       ],
-                      "headline-md": [
-                              "24px",
+                      "headline-md": ["16px",
                               {
                                       "lineHeight": "1.3",
                                       "fontWeight": "600"
                               }
                       ],
-                      "body-lg": [
-                              "18px",
+                      "body-lg": ["14px",
                               {
                                       "lineHeight": "1.6",
                                       "fontWeight": "400"
@@ -238,10 +230,68 @@
         .card-top-line-standby {
             border-top: 2px solid #10B981;
         }
-    </style>
+    
+        /* COMPACT MOBILE OVERRIDES */
+        body {
+            min-height: 100vh !important;
+        }
+        main {
+            padding-top: 4.5rem !important;
+            padding-bottom: 5.5rem !important;
+        }
+        .p-8 { padding: 1.25rem !important; }
+        .p-6 { padding: 1rem !important; }
+        .px-8 { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+        .py-8 { padding-top: 1.25rem !important; padding-bottom: 1.25rem !important; }
+        .py-6 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+        .pb-32 { padding-bottom: 4rem !important; }
+        .pt-24 { padding-top: 4.5rem !important; }
+        .glass-panel {
+            padding: 1.25rem !important;
+        }
+        .stat-card {
+            padding: 0.75rem !important;
+        }
+        .stat-number {
+            font-size: 28px !important;
+        }
+        .testimonial-card {
+            padding: 1rem !important;
+            min-width: 250px !important;
+            max-width: 300px !important;
+        }
+        .preview-card {
+            padding: 0.75rem !important;
+        }
+        .preview-card .p-5 {
+            padding: 0.75rem !important;
+        }
+        .protocol-card {
+            padding: 0.75rem !important;
+        }
+        .mt-32, .my-32 { margin-top: 2rem !important; }
+        .mb-32, .my-32 { margin-bottom: 2rem !important; }
+        .mt-20, .my-20 { margin-top: 1.25rem !important; }
+        .mb-20, .my-20 { margin-bottom: 1.25rem !important; }
+        .mt-16, .my-16 { margin-top: 1rem !important; }
+        .mb-16, .my-16 { margin-bottom: 1rem !important; }
+        .mt-12, .my-12 { margin-top: 0.75rem !important; }
+        .mb-12, .my-12 { margin-bottom: 0.75rem !important; }
+        .mt-10, .my-10 { margin-top: 0.75rem !important; }
+        .mb-10, .my-10 { margin-bottom: 0.75rem !important; }
+        .mt-8, .my-8 { margin-top: 0.5rem !important; }
+        .mb-8, .my-8 { margin-bottom: 0.5rem !important; }
+        .mt-6, .my-6 { margin-top: 0.5rem !important; }
+        .mb-6, .my-6 { margin-bottom: 0.5rem !important; }
+        .gap-gutter, .gap-8 { gap: 0.75rem !important; }
+        .btn-thunderbolt, .btn-ghost, .bolt-btn {
+            padding: 0.55rem 1.25rem !important;
+            font-size: 11.5px !important;
+        }
+</style>
 <style>
     body {
-      min-height: max(884px, 100dvh);
+      min-height: 100vh;
     }
   </style>
   </head>
@@ -249,7 +299,7 @@
 <!-- TopAppBar -->
 <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 w-full">
 <div class="flex items-center gap-unit">
-<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<img src="../logo.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
 <span class="font-headline-md text-headline-md-mobile md:font-headline-xl md:text-headline-xl text-secondary drop-shadow-[0_0_8px_rgba(255,198,64,0.4)] tracking-tighter">ZEUS IOT</span>
 </div>
 <!-- Desktop Nav -->

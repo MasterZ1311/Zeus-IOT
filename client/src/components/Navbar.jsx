@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { LogOut, Menu, X } from 'lucide-react';
-import { SharpBolt } from './SharpBolt';
+
 import { useState, useEffect } from 'react';
 
 export default function Navbar() {
@@ -39,7 +39,7 @@ export default function Navbar() {
       {/* Desktop Nav */}
       <header className={`fixed top-0 w-full z-50 transition-all duration-300 hidden md:flex items-center justify-between px-16 h-16 ${isScrolled ? 'bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)]' : 'bg-transparent'}`}>
         <Link to="/" className="flex items-center gap-2">
-          <SharpBolt className="text-secondary w-6 h-6" />
+          <img src="/logo.png" alt="Zeus IOT Logo" className="w-8 h-8 object-contain rounded-md" />
           <span className="font-headline-xl text-headline-md text-secondary drop-shadow-[0_0_8px_rgba(255,198,64,0.4)] tracking-tight">ZEUS IOT</span>
         </Link>
         <nav className="flex items-center gap-8">
@@ -63,7 +63,7 @@ export default function Navbar() {
       {/* Mobile Top Nav */}
       <header className="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] flex md:hidden items-center justify-between px-4 h-16">
         <Link to="/" className="flex items-center gap-2">
-          <SharpBolt className="text-secondary w-6 h-6" />
+          <img src="/logo.png" alt="Zeus IOT Logo" className="w-8 h-8 object-contain rounded-md" />
           <span className="font-headline-md text-secondary glow-text">ZEUS IOT</span>
         </Link>
       </header>

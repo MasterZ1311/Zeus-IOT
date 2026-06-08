@@ -62,7 +62,7 @@ body {
 
 <!-- PAGE PRELOADER -->
 <div id="page-preloader">
-  <span class="material-symbols-outlined preloader-bolt" style="font-variation-settings: 'FILL' 1;">bolt</span>
+  <img src="preloader.png" class="preloader-bolt" alt="ZEUS IOT Preloader"/>
   <div class="preloader-bar"><div class="preloader-fill"></div></div>
 </div>
 
@@ -72,7 +72,7 @@ body {
 <!-- DESKTOP NAV -->
 <header id="desktop-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] hidden md:flex items-center justify-between px-16 h-16 transition-all duration-300">
   <a href="index.html" class="flex items-center gap-2">
-    <span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+    <img src="logo.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
     <span class="font-headline-xl text-[24px] text-secondary glow-text tracking-tight">ZEUS IOT</span>
   </a>
   <nav class="flex items-center gap-8">
@@ -87,7 +87,7 @@ body {
 <!-- MOBILE NAV -->
 <header class="fixed top-0 w-full bg-surface/80 backdrop-blur-md border-b border-primary/20 flex md:hidden items-center justify-between px-4 h-16" style="z-index:150;">
   <a href="index.html" class="flex items-center gap-2">
-    <span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+    <img src="logo.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
     <span class="font-headline-md text-secondary glow-text">ZEUS IOT</span>
   </a>
 </header>
@@ -198,9 +198,64 @@ body {
 </a>
 
 <script>
+// ─── Preloader & Page Transitions ───
 window.addEventListener('load', () => {
-  const p = document.getElementById('page-preloader');
-  if (p) setTimeout(() => p.classList.add('hidden'), 800);
+  const preloader = document.getElementById('page-preloader');
+  if (preloader) {
+    setTimeout(() => preloader.classList.add('hidden'), 800);
+  }
+});
+
+window.addEventListener('pageshow', () => {
+  const preloaderImg = document.querySelector('#page-preloader .preloader-bolt');
+  if (preloaderImg) {
+    preloaderImg.classList.remove('preloader-rotate-active');
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const preloader = document.getElementById('page-preloader');
+  if (!preloader) return;
+  const preloaderImg = preloader.querySelector('.preloader-bolt');
+  
+  document.body.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (!link) return;
+    
+    const href = link.getAttribute('href');
+    const target = link.getAttribute('target');
+    
+    if (
+      href && 
+      !href.startsWith('#') && 
+      !href.startsWith('javascript:') && 
+      !href.startsWith('tel:') && 
+      !href.startsWith('mailto:') && 
+      (!target || target === '_self') &&
+      !link.classList.contains('no-transition')
+    ) {
+      e.preventDefault();
+      
+      preloader.classList.remove('hidden');
+      preloader.style.opacity = '1';
+      preloader.style.visibility = 'visible';
+      
+      const fill = preloader.querySelector('.preloader-fill');
+      if (fill) {
+        fill.style.animation = 'none';
+        fill.offsetHeight; // trigger reflow
+        fill.style.animation = 'preloader-fill 0.8s ease-out forwards';
+      }
+      
+      if (preloaderImg) {
+        preloaderImg.classList.add('preloader-rotate-active');
+      }
+      
+      setTimeout(() => {
+        window.location.href = href;
+      }, 800);
+    }
+  });
 });
 
 

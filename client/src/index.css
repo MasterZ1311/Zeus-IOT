@@ -46,6 +46,8 @@
   --color-on-secondary-fixed: #261a00;
   --color-secondary-fixed: #ffdf9f;
   --color-secondary: #ffc640;
+  --color-pro-purple: #d946ef;
+  --color-on-pro-purple: #ffffff;
   --color-error-container: #93000a;
   --color-on-secondary: #402d00;
 
@@ -114,6 +116,21 @@
   .bolt-standby { 
     border-top: 2px solid var(--color-tertiary); 
   }
+  .bolt-pro { 
+    border-top: 2px solid var(--color-pro-purple); 
+    box-shadow: inset 0 1px 10px rgba(217,70,239,0.15); 
+  }
+
+  .pricing-pro:hover {
+    box-shadow: 0 0 35px rgba(217,70,239,0.18), inset 0 0 15px rgba(217,70,239,0.05) !important;
+    border-color: rgba(217,70,239,0.4) !important;
+  }
+
+  .pricing-featured:hover {
+    transform: scale(1.05) translateY(-4px) !important;
+    box-shadow: 0 0 40px rgba(255,198,64,0.25), 0 0 80px rgba(255,198,64,0.1) !important;
+    border-color: rgba(255,198,64,0.6) !important;
+  }
   
   .btn-thunderbolt {
     background: var(--color-secondary);
@@ -142,6 +159,34 @@
     transform: scale(1.04);
   }
 
+  .btn-pro-purple {
+    background: linear-gradient(135deg, var(--color-pro-purple) 0%, #8b5cf6 100%);
+    color: var(--color-on-pro-purple);
+    clip-path: polygon(0 0, 95% 0, 100% 100%, 5% 100%);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    font-weight: 700;
+  }
+  .btn-pro-purple::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    background: rgba(255,255,255,0.4);
+    transform: rotate(35deg);
+    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  .btn-pro-purple:hover::after {
+    left: 120%;
+  }
+  .btn-pro-purple:hover {
+    box-shadow: 0 0 20px rgba(217, 70, 239, 0.6);
+    transform: scale(1.04);
+  }
+
   .btn-ghost {
     background: transparent;
     border: 1px solid var(--color-tertiary);
@@ -167,3 +212,84 @@
     outline: none;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   COMPACT MOBILE LAYOUT OVERRIDES (Widths <= 767px)
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+  body {
+    min-height: 100vh !important;
+  }
+  main {
+    padding-top: 4.5rem !important;
+    padding-bottom: 5.5rem !important;
+  }
+  
+  /* Container Padding Reductions */
+  .p-8 { padding: 1.25rem !important; }
+  .p-6 { padding: 1rem !important; }
+  .px-8 { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+  .py-8 { padding-top: 1.25rem !important; padding-bottom: 1.25rem !important; }
+  .py-6 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+  .pb-32 { padding-bottom: 4rem !important; }
+  .pt-24 { padding-top: 4.5rem !important; }
+
+  /* Glass Panels and Cards */
+  .glass-panel {
+    padding: 1.25rem !important;
+  }
+  .stat-card {
+    padding: 0.75rem !important;
+  }
+  .stat-number {
+    font-size: 28px !important;
+  }
+  .testimonial-card {
+    padding: 1rem !important;
+    min-width: 250px !important;
+    max-width: 300px !important;
+  }
+  .preview-card {
+    padding: 0.75rem !important;
+  }
+  .preview-card .p-5 {
+    padding: 0.75rem !important;
+  }
+  .protocol-card {
+    padding: 0.75rem !important;
+  }
+  
+  /* Spacing and Margins */
+  .mt-32, .my-32 { margin-top: 2rem !important; }
+  .mb-32, .my-32 { margin-bottom: 2rem !important; }
+  .mt-20, .my-20 { margin-top: 1.25rem !important; }
+  .mb-20, .my-20 { margin-bottom: 1.25rem !important; }
+  .mt-16, .my-16 { margin-top: 1rem !important; }
+  .mb-16, .my-16 { margin-bottom: 1rem !important; }
+  .mt-12, .my-12 { margin-top: 0.75rem !important; }
+  .mb-12, .my-12 { margin-bottom: 0.75rem !important; }
+  .mt-10, .my-10 { margin-top: 0.75rem !important; }
+  .mb-10, .my-10 { margin-bottom: 0.75rem !important; }
+  .mt-8, .my-8 { margin-top: 0.5rem !important; }
+  .mb-8, .my-8 { margin-bottom: 0.5rem !important; }
+  .mt-6, .my-6 { margin-top: 0.5rem !important; }
+  .mb-6, .my-6 { margin-bottom: 0.5rem !important; }
+  .gap-gutter, .gap-8 { gap: 0.75rem !important; }
+
+  /* Interactive Elements */
+  .btn-thunderbolt, .btn-ghost, .bolt-btn {
+    padding: 0.55rem 1.25rem !important;
+    font-size: 11.5px !important;
+  }
+  
+  /* Typography Scale Down */
+  .text-headline-xl { font-size: 24px !important; line-height: 1.15 !important; }
+  .text-headline-lg { font-size: 20px !important; line-height: 1.2 !important; }
+  .text-headline-lg-mobile { font-size: 20px !important; line-height: 1.2 !important; }
+  .text-headline-md { font-size: 16px !important; line-height: 1.25 !important; }
+  .text-body-lg { font-size: 14px !important; line-height: 1.4 !important; }
+  .text-body-md { font-size: 13px !important; line-height: 1.4 !important; }
+  .text-code-sm { font-size: 11px !important; }
+  .text-label-caps { font-size: 9px !important; }
+}
+

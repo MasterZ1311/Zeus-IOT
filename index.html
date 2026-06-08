@@ -25,6 +25,7 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
+        "pro-purple":"#d946ef",
         "surface-dim":"#080A0A","on-tertiary-fixed":"#022c22","tertiary":"#10B981",
         "on-surface-variant":"#c6c6cd","on-error-container":"#ffdad6",
         "surface-container-highest":"#1d1f1d","outline":"#7a807a","background":"#080A0A",
@@ -79,6 +80,11 @@ body {
 }
 .bolt-active { border-top: 2px solid #ffc640; box-shadow: inset 0 1px 10px rgba(255,198,64,0.15); }
 .bolt-standby { border-top: 2px solid #10B981; }
+.bolt-pro { border-top: 2px solid #d946ef; box-shadow: inset 0 1px 10px rgba(217,70,239,0.15); }
+.pricing-pro:hover {
+  box-shadow: 0 0 35px rgba(217,70,239,0.18), inset 0 0 15px rgba(217,70,239,0.05) !important;
+  border-color: rgba(217,70,239,0.4) !important;
+}
 .glow-text { text-shadow: 0 0 8px rgba(255,198,64,0.4); }
 .glow-text-cyan { text-shadow: 0 0 10px rgba(16,185,129,0.4); }
 /* SVG chart animation */
@@ -119,6 +125,24 @@ body {
 }
 .pricing-featured:hover { transform: scale(1.05) translateY(-4px) !important; }
 
+/* Interactive creations selector */
+.creation-selector {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0.6;
+}
+.creation-selector:hover {
+  opacity: 0.95;
+  transform: translateX(4px);
+}
+.creation-selector.active {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+}
+#showcase-detail-panel {
+  transition: opacity 0.3s ease;
+}
+
 /* 3D tilt project card */
 .preview-card {
   transform-style: preserve-3d;
@@ -148,7 +172,7 @@ body {
 
 <!-- ═══════════════════════ PAGE PRELOADER ═══════════════════════ -->
 <div id="page-preloader">
-  <span class="material-symbols-outlined preloader-bolt" style="font-variation-settings: 'FILL' 1;">bolt</span>
+  <img src="preloader.png" class="preloader-bolt" alt="ZEUS IOT Preloader"/>
   <div class="preloader-bar"><div class="preloader-fill"></div></div>
 </div>
 
@@ -175,7 +199,7 @@ body {
 <!-- ═══════════════════════ DESKTOP TOP NAV ═══════════════════════ -->
 <header id="desktop-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] hidden md:flex items-center justify-between px-margin-desktop h-16 transition-all duration-300">
   <a href="index.html" class="flex items-center gap-2">
-    <span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+    <img src="logo.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
     <span class="font-headline-xl text-headline-md text-secondary drop-shadow-[0_0_8px_rgba(255,198,64,0.4)] tracking-tight">ZEUS IOT</span>
   </a>
   <nav class="flex items-center gap-8">
@@ -190,7 +214,7 @@ body {
 <!-- ═══════════════════════ MOBILE TOP NAV ═══════════════════════ -->
 <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] flex md:hidden items-center justify-between px-margin-mobile h-16" style="z-index:150;">
   <a href="index.html" class="flex items-center gap-2">
-    <span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+    <img src="logo.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
     <span class="font-headline-md text-secondary glow-text">ZEUS IOT</span>
   </a>
 </header>
@@ -227,43 +251,19 @@ body {
       </div>
     </div>
 
-    <!-- ─── Hero Lightning Bolt Widget ─── -->
+    <!-- ─── Hero Graphic ─── -->
     <div class="lg:col-span-4 mt-10 lg:mt-0 relative group flex items-center justify-center">
-      <div class="glass-panel bolt-active rounded-xl p-8 w-full h-full min-h-[320px] flex flex-col items-center justify-center relative overflow-hidden transition-all duration-500 hover:border-secondary/40 shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
+      <div class="glass-panel bolt-active rounded-xl p-2 w-full h-full min-h-[320px] flex flex-col items-center justify-center relative overflow-hidden transition-all duration-500 hover:border-secondary/40 shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
         <div class="absolute inset-0 -z-10"></div>
         <div class="absolute -top-10 -left-10 w-40 h-40 bg-tertiary/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
         
-        <!-- Interactive Glowing Bolt -->
-        <div class="relative flex items-center justify-center w-full h-full min-h-[250px]" id="three-hardware-container">
-          <svg class="w-32 h-32 drop-shadow-[0_0_20px_rgba(255,198,64,0.7)] filter hover:brightness-125 transition-all duration-300" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="boltGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#ffc640"></stop>
-                <stop offset="50%" stop-color="#ffdf9f"></stop>
-                <stop offset="100%" stop-color="#10B981"></stop>
-              </linearGradient>
-              <filter id="glowFilter" x="-20%" y="-20%" width="140%" height="140%">
-                <feGaussianBlur stdDeviation="3" result="blur"></feGaussianBlur>
-                <feMerge>
-                  <feMergeNode in="blur"></feMergeNode>
-                  <feMergeNode in="SourceGraphic"></feMergeNode>
-                </feMerge>
-              </filter>
-            </defs>
-            <!-- Bolt Path -->
-            <path d="M58 8L25 52H48L38 92L75 44H50L58 8Z" fill="url(#boltGrad)" filter="url(#glowFilter)" stroke="#ffc640" stroke-width="1.5" stroke-linejoin="round" class="animate-pulse" style="animation-duration: 2s;"></path>
-          </svg>
-        </div>
-
-        <div class="mt-6 text-center">
-          <span class="font-code-sm text-xs text-secondary tracking-widest block uppercase font-bold mb-1">HARNESS THE BOLT</span>
-          <span class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">ZEUS IOT ACTIVE CORE</span>
-        </div>
+        <img src="digital_olympus.jpg" class="w-full h-full object-cover rounded-lg shadow-2xl" alt="Command the Digital Olympus"/>
       </div>
-      <!-- Decorative background glow behind widget -->
+      <!-- Decorative background glow behind image -->
       <div class="absolute -inset-4 bg-gradient-to-tr from-tertiary/25 to-secondary/15 blur-2xl -z-10 rounded-full opacity-60 group-hover:opacity-100 transition-opacity duration-500"></div>
     </div>
+
   </section>
 
   <!-- ─────────── ZEUS IN NUMBERS ─────────── -->
@@ -620,88 +620,148 @@ body {
     </div>
   </section>
 
-  <!-- ─────────── FORGED CREATIONS PREVIEW ─────────── -->
+  <!-- ─────────── FORGED CREATIONS SHOWCASE ─────────── -->
   <section class="mt-32 reveal">
     <h2 class="font-headline-lg text-headline-lg text-on-surface mb-3 flex items-center gap-4">
       <span class="w-8 h-1 bg-secondary"></span>
       FORGED CREATIONS
     </h2>
-    <p class="font-body-md text-body-md text-on-surface-variant mb-12 ml-12">A glimpse at our recent deployments.</p>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter stagger-children">
-      <!-- Project Card 1 -->
-      <div class="preview-card glass-panel bolt-standby rounded-xl overflow-hidden cursor-pointer group tilt-card">
-        <div class="glare"></div>
-        <div class="h-44 relative overflow-hidden z-10" style="background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(15,23,42,0.9));">
-          <div class="absolute inset-0 flex items-center justify-center opacity-20 group-hover:opacity-30 transition-opacity">
-            <span class="material-symbols-outlined text-[100px] text-tertiary">sensors</span>
+    <p class="font-body-md text-body-md text-on-surface-variant mb-12 ml-12">A live showcase of our recent deployments. Hover or click to inspect systems.</p>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+      <!-- Left side: Project selectors (5 cols) -->
+      <div class="lg:col-span-5 flex flex-col gap-4">
+        <!-- Item 1 -->
+        <div class="creation-selector active glass-panel border-l-4 border-l-tertiary p-5 rounded-xl cursor-pointer transition-all duration-300 hover:bg-white/5 flex gap-4" data-project="irrigation">
+          <div class="w-12 h-12 rounded-lg bg-tertiary/10 border border-tertiary/20 flex items-center justify-center text-tertiary shrink-0">
+            <span class="material-symbols-outlined text-2xl">sensors</span>
           </div>
-          <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-surface-container/80 backdrop-blur-sm px-2 py-1 rounded-full border border-tertiary/30">
-            <div class="w-1.5 h-1.5 rounded-full bg-tertiary animate-breathe"></div>
-            <span class="font-code-sm text-[10px] text-tertiary">ACTIVE</span>
+          <div class="flex-grow">
+            <div class="flex justify-between items-start mb-1">
+              <h3 class="font-headline-md text-[16px] text-on-surface">Smart Irrigation System</h3>
+              <span class="font-code-sm text-[9px] bg-tertiary/10 border border-tertiary/20 text-tertiary px-2 py-0.5 rounded-full uppercase">ACTIVE</span>
+            </div>
+            <p class="font-body-md text-xs text-on-surface-variant line-clamp-2">Automated soil moisture monitoring with LoRaWAN communication and solar array powering.</p>
+            <div class="flex gap-2 mt-2">
+              <span class="text-[10px] font-code-sm text-tertiary">#ESP32</span>
+              <span class="text-[10px] font-code-sm text-tertiary">#LoRaWAN</span>
+              <span class="text-[10px] font-code-sm text-secondary">#React</span>
+            </div>
           </div>
-          <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-surface to-transparent"></div>
         </div>
-        <div class="p-5 relative z-10">
-          <h3 class="font-headline-md text-[18px] text-on-surface mb-2">Smart Irrigation System</h3>
-          <p class="font-body-md text-sm text-on-surface-variant mb-4">Automated soil moisture monitoring with LoRaWAN communication and mobile dashboard for remote farms.</p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-tertiary border border-tertiary/20">ESP32</span>
-            <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-tertiary border border-tertiary/20">LoRaWAN</span>
-            <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-secondary border border-secondary/20">React</span>
+
+        <!-- Item 2 -->
+        <div class="creation-selector glass-panel border-l-4 border-l-secondary p-5 rounded-xl cursor-pointer transition-all duration-300 hover:bg-white/5 flex gap-4" data-project="hospital">
+          <div class="w-12 h-12 rounded-lg bg-secondary/10 border border-secondary/20 flex items-center justify-center text-secondary shrink-0">
+            <span class="material-symbols-outlined text-2xl">local_hospital</span>
+          </div>
+          <div class="flex-grow">
+            <div class="flex justify-between items-start mb-1">
+              <h3 class="font-headline-md text-[16px] text-on-surface">Hospital Management</h3>
+              <span class="font-code-sm text-[9px] bg-secondary/10 border border-secondary/20 text-secondary px-2 py-0.5 rounded-full uppercase">ACTIVE</span>
+            </div>
+            <p class="font-body-md text-xs text-on-surface-variant line-clamp-2">Full-stack web platform patient scheduling system with secure encrypted ledgers.</p>
+            <div class="flex gap-2 mt-2">
+              <span class="text-[10px] font-code-sm text-secondary">#NodeJS</span>
+              <span class="text-[10px] font-code-sm text-secondary">#React</span>
+              <span class="text-[10px] font-code-sm text-secondary">#MongoDB</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="creation-selector glass-panel border-l-4 border-l-pro-purple p-5 rounded-xl cursor-pointer transition-all duration-300 hover:bg-white/5 flex gap-4" data-project="ble">
+          <div class="w-12 h-12 rounded-lg bg-pro-purple/10 border border-pro-purple/20 flex items-center justify-center text-pro-purple shrink-0">
+            <span class="material-symbols-outlined text-2xl">warehouse</span>
+          </div>
+          <div class="flex-grow">
+            <div class="flex justify-between items-start mb-1">
+              <h3 class="font-headline-md text-[16px] text-on-surface">BLE Warehouse Tracker</h3>
+              <span class="font-code-sm text-[9px] bg-pro-purple/10 border border-pro-purple/20 text-pro-purple px-2 py-0.5 rounded-full uppercase">ACTIVE</span>
+            </div>
+            <p class="font-body-md text-xs text-on-surface-variant line-clamp-2">Real-time asset positioning system using BLE beacons and ESP32 gateway trilateration.</p>
+            <div class="flex gap-2 mt-2">
+              <span class="text-[10px] font-code-sm text-pro-purple">#FastAPI</span>
+              <span class="text-[10px] font-code-sm text-tertiary">#ESP32</span>
+              <span class="text-[10px] font-code-sm text-secondary">#Python</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-4">
+          <a href="projects.html" class="inline-flex items-center gap-2 text-secondary font-label-caps text-label-caps uppercase hover:gap-4 transition-all duration-300">
+            VIEW ALL PORTFOLIO <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right side: Interactive showcase detail panel (7 cols) -->
+      <div class="lg:col-span-7 flex">
+        <div class="glass-panel rounded-xl overflow-hidden flex flex-col h-auto lg:h-[530px] w-full transition-all duration-500 relative" id="showcase-detail-panel">
+          <!-- Header Image (mock dashboard) -->
+          <div class="h-52 relative overflow-hidden shrink-0 border-b border-white/10">
+            <img id="detail-image" src="smart_irrigation_preview.png" alt="Showcase Preview" class="w-full h-full object-cover transition-all duration-500"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#080A0A] via-[#080A0A]/40 to-transparent"></div>
+            <!-- Top stats -->
+            <div class="absolute top-4 left-5 bg-[#080A0A]/85 backdrop-blur-md px-3 py-1 rounded border border-white/10 flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-tertiary animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.8)]" id="detail-status-indicator"></span>
+              <span class="font-code-sm text-[11px] text-on-surface" id="detail-system-status">SYS STAT: ONLINE</span>
+            </div>
+          </div>
+          
+          <!-- Content area -->
+          <div class="p-6 flex flex-col flex-grow min-h-0">
+            <!-- Title and Description -->
+            <div class="mb-4">
+              <h3 class="font-headline-md text-2xl text-on-surface uppercase mb-1" id="detail-title">Smart Irrigation System</h3>
+              <p class="font-body-md text-sm text-on-surface-variant" id="detail-desc">Automated soil moisture monitoring with LoRaWAN communication and mobile dashboard for remote farm management.</p>
+            </div>
+            
+            <!-- Mid section: Specs & Live console logs side-by-side -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 flex-grow min-h-0 mb-6">
+              <!-- Specs -->
+              <div class="bg-black/30 rounded-lg p-4 border border-outline-variant/20 flex flex-col justify-center gap-3">
+                <div class="flex items-center justify-between text-xs">
+                  <span class="font-code-sm text-on-surface-variant">DIFFICULTY:</span>
+                  <span class="font-code-sm text-secondary font-bold" id="detail-difficulty">INTERMEDIATE</span>
+                </div>
+                <div class="flex items-center justify-between text-xs">
+                  <span class="font-code-sm text-on-surface-variant">EST. BUILD TIME:</span>
+                  <span class="font-code-sm text-on-surface font-bold" id="detail-buildtime">14 DAYS</span>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <span class="font-code-sm text-[10px] text-on-surface-variant uppercase">HARDWARE STACK:</span>
+                  <p class="font-body-md text-xs text-on-surface font-semibold" id="detail-hardware">ESP32 MCU, Capacitive Sensor, Solenoid, Solar Array</p>
+                </div>
+              </div>
+              
+              <!-- Console Logs -->
+              <div class="bg-black/80 rounded-lg p-4 border border-outline-variant/30 font-mono text-[10px] flex flex-col overflow-hidden relative min-h-[120px] md:min-h-0">
+                <div class="absolute top-2 right-3 flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                  <span class="text-[8px] text-tertiary tracking-wider font-bold">FEED</span>
+                </div>
+                <div class="text-on-surface-variant border-b border-white/10 pb-1.5 mb-2 font-bold select-none uppercase tracking-wider flex items-center gap-1.5 shrink-0">
+                  <span class="material-symbols-outlined text-[12px]">terminal</span> LIVE TELEMETRY LOGS
+                </div>
+                <div class="flex-grow overflow-y-auto pr-1 flex flex-col gap-1 custom-scrollbar text-emerald-500/90 leading-tight whitespace-pre-wrap select-none" id="detail-console-logs">
+                  <!-- JS will inject logs here -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Actions -->
+            <div class="flex gap-4 shrink-0 mt-auto">
+              <a href="contact.html" class="flex-grow btn-thunderbolt font-label-caps text-xs py-3.5 text-center uppercase tracking-widest active:scale-95" id="detail-action-request">
+                REQUEST SIMILAR DEPLOYMENT
+              </a>
+              <a href="case-study.html" class="btn-ghost font-label-caps text-xs py-3.5 px-6 text-center uppercase tracking-widest active:scale-95 border-outline-variant/60 text-on-surface hover:border-secondary hover:text-secondary flex items-center gap-2 shrink-0">
+                DETAILS <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-      <!-- Project Card 2 -->
-      <div class="preview-card glass-panel bolt-active rounded-xl overflow-hidden cursor-pointer group tilt-card">
-        <div class="glare"></div>
-        <div class="h-44 relative overflow-hidden z-10" style="background: linear-gradient(135deg, rgba(255,198,64,0.12), rgba(15,23,42,0.9));">
-          <div class="absolute inset-0 flex items-center justify-center opacity-20 group-hover:opacity-30 transition-opacity">
-            <span class="material-symbols-outlined text-[100px] text-secondary">local_hospital</span>
-          </div>
-          <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-surface-container/80 backdrop-blur-sm px-2 py-1 rounded-full border border-secondary/30">
-            <div class="w-1.5 h-1.5 rounded-full bg-secondary animate-breathe"></div>
-            <span class="font-code-sm text-[10px] text-secondary">ACTIVE</span>
-          </div>
-          <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-surface to-transparent"></div>
-        </div>
-        <div class="p-5 relative z-10">
-          <h3 class="font-headline-md text-[18px] text-on-surface mb-2">Hospital Management System</h3>
-          <p class="font-body-md text-sm text-on-surface-variant mb-4">Full-stack web platform for patient records, appointment scheduling, and inventory management.</p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-secondary border border-secondary/20">Node.js</span>
-            <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-secondary border border-secondary/20">React</span>
-            <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-secondary border border-secondary/20">MongoDB</span>
-          </div>
-        </div>
-      </div>
-      <!-- Project Card 3 -->
-      <div class="preview-card glass-panel bolt-standby rounded-xl overflow-hidden cursor-pointer group tilt-card">
-        <div class="glare"></div>
-        <div class="h-44 relative overflow-hidden z-10" style="background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(255,198,64,0.08), rgba(15,23,42,0.9));">
-          <div class="absolute inset-0 flex items-center justify-center opacity-20 group-hover:opacity-30 transition-opacity">
-            <span class="material-symbols-outlined text-[100px] text-tertiary">warehouse</span>
-          </div>
-          <div class="absolute top-3 right-3 flex items-center gap-1.5 bg-surface-container/80 backdrop-blur-sm px-2 py-1 rounded-full border border-tertiary/30">
-            <div class="w-1.5 h-1.5 rounded-full bg-tertiary animate-breathe"></div>
-            <span class="font-code-sm text-[10px] text-tertiary">ACTIVE</span>
-          </div>
-          <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-surface to-transparent"></div>
-        </div>
-        <div class="p-5 relative z-10">
-          <h3 class="font-headline-md text-[18px] text-on-surface mb-2">BLE Warehouse Tracker</h3>
-          <p class="font-body-md text-sm text-on-surface-variant mb-4">Real-time inventory tracking system using Bluetooth Low Energy beacons and a web dashboard.</p>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-tertiary border border-tertiary/20">ESP32</span>
-            <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-tertiary border border-tertiary/20">BLE 5.3</span>
-            <span class="bg-surface-container-high px-2 py-0.5 rounded text-[11px] font-code-sm text-secondary border border-secondary/20">Python</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="text-center mt-8">
-      <a href="projects.html" class="inline-flex items-center gap-2 text-secondary font-label-caps text-label-caps uppercase hover:gap-4 transition-all duration-300">
-        VIEW ALL PROJECTS <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-      </a>
     </div>
   </section>
 
@@ -743,18 +803,18 @@ body {
         <a href="contact.html" class="btn-thunderbolt font-label-caps text-label-caps py-3 px-6 text-center uppercase tracking-wider">GET QUOTE</a>
       </div>
       <!-- Professional -->
-      <div class="glass-panel bolt-active rounded-xl p-8 flex flex-col h-full group hover:border-secondary/40 transition-all duration-300 mobile-carousel-item w-[290px] md:w-auto">
-        <div class="font-label-caps text-label-caps text-secondary mb-3 uppercase">Professional</div>
+      <div class="glass-panel bolt-pro pricing-pro rounded-xl p-8 flex flex-col h-full group hover:border-pro-purple/40 transition-all duration-300 mobile-carousel-item w-[290px] md:w-auto">
+        <div class="font-label-caps text-label-caps text-pro-purple mb-3 uppercase">Professional</div>
         <div class="text-4xl font-headline-xl text-on-surface font-extrabold mb-1">₹3,999<span class="text-lg text-on-surface-variant font-normal font-body-md">+</span></div>
         <div class="font-code-sm text-xs text-on-surface-variant mb-6">Hardware components not included</div>
         <ul class="flex flex-col gap-3 flex-grow mb-8">
-          <li class="flex items-center gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check</span>Full-stack software ecosystem</li>
-          <li class="flex items-center gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check</span>PCB design files</li>
-          <li class="flex items-center gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check</span>Production-ready code</li>
-          <li class="flex items-center gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check</span>Full academic report</li>
-          <li class="flex items-center gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check</span>Viva prep session</li>
+          <li class="flex items-center gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-pro-purple text-[18px]">check</span>Full-stack software ecosystem</li>
+          <li class="flex items-center gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-pro-purple text-[18px]">check</span>PCB design files</li>
+          <li class="flex items-center gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-pro-purple text-[18px]">check</span>Production-ready code</li>
+          <li class="flex items-center gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-pro-purple text-[18px]">check</span>Full academic report</li>
+          <li class="flex items-center gap-2 font-body-md text-sm text-on-surface"><span class="material-symbols-outlined text-pro-purple text-[18px]">check</span>Viva prep session</li>
         </ul>
-        <a href="contact.html" class="btn-thunderbolt font-label-caps text-label-caps py-3 px-6 text-center uppercase tracking-wider">GET QUOTE</a>
+        <a href="contact.html" class="btn-pro-purple font-label-caps text-label-caps py-3 px-6 text-center uppercase tracking-wider">GET QUOTE</a>
       </div>
     </div>
     <p class="text-center font-code-sm text-xs text-on-surface-variant mt-6">All prices are starting estimates. Contact us for exact project quotes on WhatsApp.</p>
@@ -988,7 +1048,7 @@ body {
       <!-- Brand -->
       <div class="md:col-span-1">
         <div class="flex items-center gap-2 mb-4">
-          <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+          <img src="logo.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
           <span class="font-headline-lg text-headline-md text-secondary">ZEUS IOT</span>
         </div>
         <p class="font-body-md text-sm text-on-surface-variant">Engineering Tomorrow's Connected World. Custom IoT solutions for the next generation.</p>
@@ -1149,18 +1209,176 @@ if (scrambleEl) {
   setTimeout(scramble, 600);
 }
 
-// ─── 3D Tilt on Preview Cards ───
-document.querySelectorAll('.preview-card').forEach(card => {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
+// ─── 3D Tilt on Showcase Panel ───
+const showcasePanel = document.getElementById('showcase-detail-panel');
+if (showcasePanel) {
+  showcasePanel.addEventListener('mousemove', (e) => {
+    const rect = showcasePanel.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
-    card.style.transform = `perspective(800px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) translateY(-4px)`;
+    showcasePanel.style.transform = `perspective(800px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg)`;
   });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
+  showcasePanel.addEventListener('mouseleave', () => {
+    showcasePanel.style.transform = '';
   });
+}
+
+// ─── Interactive Creations Showcase Switcher ───
+const projectData = {
+  irrigation: {
+    title: 'Smart Irrigation System',
+    desc: 'Automated soil moisture monitoring with LoRaWAN communication and mobile dashboard for remote farm management.',
+    image: 'smart_irrigation_preview.png',
+    difficulty: 'INTERMEDIATE',
+    difficultyClass: 'text-tertiary',
+    buildtime: '14 DAYS',
+    hardware: 'ESP32 MCU, Capacitive Sensor, Solenoid, Solar Array',
+    status: 'SYS STAT: ONLINE',
+    statusColor: 'bg-tertiary',
+    actionText: 'REQUEST SIMILAR DEPLOYMENT',
+    logs: [
+      '[00:00:01] System boot successful.',
+      '[00:00:02] LoRaWAN gateway connection: established.',
+      '[00:00:15] Telemetry poll: Sensor_1 (Moisture: 32.4%, Temp: 28°C)',
+      '[00:00:16] Threshold check: 32.4% < 40.0% (Action Required)',
+      '[00:00:17] Actuator command: Valve Solenoid -> OPEN',
+      '[00:00:30] Telemetry poll: Sensor_1 (Moisture: 45.2%)',
+      '[00:00:31] Actuator command: Valve Solenoid -> CLOSE'
+    ]
+  },
+  hospital: {
+    title: 'Hospital Management',
+    desc: 'Full-stack web platform patient records management, scheduling system, and secure ledger database.',
+    image: 'hospital_management_preview.png',
+    difficulty: 'ADVANCED',
+    difficultyClass: 'text-secondary',
+    buildtime: '21 DAYS',
+    hardware: 'AWS EC2 / Host Node, Client Terminal, Barcode Scanner',
+    status: 'SYS STAT: ONLINE',
+    statusColor: 'bg-secondary',
+    actionText: 'REQUEST PORTAL BUILD',
+    logs: [
+      '[12:04:10] Server listening on port 5000 (HTTPS)',
+      '[12:04:15] DB connection: MongoDB cluster synchronized.',
+      '[12:05:01] JWT Auth verified: admin_sess_9a8f2',
+      '[12:05:02] API request: GET /api/v1/patients/records/all (200 OK - 14ms)',
+      '[12:05:33] Ledger sync: Cryptographic integrity check: VALID'
+    ]
+  },
+  ble: {
+    title: 'BLE Warehouse Tracker',
+    desc: 'Real-time asset positioning system using BLE beacons and ESP32 gateway trilateration localization.',
+    image: 'ble_tracker_preview.png',
+    difficulty: 'ADVANCED',
+    difficultyClass: 'text-pro-purple',
+    buildtime: '18 DAYS',
+    hardware: 'ESP32 BLE Gateways (3x), Bluetooth beacons, FastAPI Server',
+    status: 'SYS STAT: ONLINE',
+    statusColor: 'bg-pro-purple',
+    actionText: 'REQUEST TRACKING DEPLOYMENT',
+    logs: [
+      '[15:10:00] Gateway_01: Listening on channels 37, 38, 39.',
+      '[15:10:02] Tag_0xF49A: RSSI -64dBm -> Distance ~3.2m',
+      '[15:10:02] Tag_0x3B8C: RSSI -78dBm -> Distance ~8.1m',
+      '[15:10:03] Trilateration engine: Node_0xF49A localized to Zone B, Row 4.',
+      '[15:10:03] WebSocket: Broadcasted coordinates to dashboard.'
+    ]
+  }
+};
+
+let currentInterval = null;
+
+function renderLogs(logs) {
+  const container = document.getElementById('detail-console-logs');
+  if (!container) return;
+  container.innerHTML = '';
+  let i = 0;
+  
+  function addLogLine() {
+    if (i < logs.length) {
+      const line = document.createElement('div');
+      line.className = 'font-mono text-[10px] opacity-0 transition-opacity duration-300';
+      line.textContent = logs[i];
+      container.appendChild(line);
+      // force reflow
+      line.offsetHeight;
+      line.classList.remove('opacity-0');
+      container.scrollTop = container.scrollHeight;
+      i++;
+    } else {
+      // Loop the logs after showing all
+      setTimeout(() => {
+        container.innerHTML = '';
+        i = 0;
+      }, 3000);
+    }
+  }
+
+  // Clear previous intervals
+  if (currentInterval) clearInterval(currentInterval);
+  
+  // Start printing log lines
+  addLogLine();
+  currentInterval = setInterval(addLogLine, 1200);
+}
+
+function selectProject(projId) {
+  const data = projectData[projId];
+  if (!data) return;
+
+  // Update classes for selectors
+  document.querySelectorAll('.creation-selector').forEach(sel => {
+    if (sel.dataset.project === projId) {
+      sel.classList.add('active');
+    } else {
+      sel.classList.remove('active');
+    }
+  });
+
+  // Update featured details with smooth transition
+  const panel = document.getElementById('showcase-detail-panel');
+  if (panel) {
+    panel.style.opacity = '0.7';
+    
+    setTimeout(() => {
+      document.getElementById('detail-title').textContent = data.title;
+      document.getElementById('detail-desc').textContent = data.desc;
+      document.getElementById('detail-image').src = data.image;
+      
+      const diff = document.getElementById('detail-difficulty');
+      diff.textContent = data.difficulty;
+      diff.className = `font-code-sm font-bold ${data.difficultyClass}`;
+      
+      document.getElementById('detail-buildtime').textContent = data.buildtime;
+      document.getElementById('detail-hardware').textContent = data.hardware;
+      document.getElementById('detail-system-status').textContent = data.status;
+      
+      const indicator = document.getElementById('detail-status-indicator');
+      indicator.className = `w-2.5 h-2.5 rounded-full animate-pulse ${data.statusColor}`;
+      
+      document.getElementById('detail-action-request').textContent = data.actionText;
+      
+      // Smooth fade back in
+      panel.style.opacity = '1';
+      
+      // Start logs feed
+      renderLogs(data.logs);
+    }, 200);
+  }
+}
+
+// Attach event listeners
+document.querySelectorAll('.creation-selector').forEach(sel => {
+  const handler = () => {
+    const projId = sel.dataset.project;
+    selectProject(projId);
+  };
+  sel.addEventListener('click', handler);
+  sel.addEventListener('mouseenter', handler);
 });
+
+// Initialize first item
+selectProject('irrigation');
 
 // ─── Live Telemetry Simulation ───
 setInterval(() => {
@@ -1172,12 +1390,64 @@ setInterval(() => {
   if (latEl) latEl.textContent = latency + 'ms';
 }, 4000);
 
-// ─── Preloader ───
+// ─── Preloader & Page Transitions ───
 window.addEventListener('load', () => {
   const preloader = document.getElementById('page-preloader');
   if (preloader) {
-    setTimeout(() => preloader.classList.add('hidden'), 1000);
+    setTimeout(() => preloader.classList.add('hidden'), 800);
   }
+});
+
+window.addEventListener('pageshow', () => {
+  const preloaderImg = document.querySelector('#page-preloader .preloader-bolt');
+  if (preloaderImg) {
+    preloaderImg.classList.remove('preloader-rotate-active');
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const preloader = document.getElementById('page-preloader');
+  if (!preloader) return;
+  const preloaderImg = preloader.querySelector('.preloader-bolt');
+  
+  document.body.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (!link) return;
+    
+    const href = link.getAttribute('href');
+    const target = link.getAttribute('target');
+    
+    if (
+      href && 
+      !href.startsWith('#') && 
+      !href.startsWith('javascript:') && 
+      !href.startsWith('tel:') && 
+      !href.startsWith('mailto:') && 
+      (!target || target === '_self') &&
+      !link.classList.contains('no-transition')
+    ) {
+      e.preventDefault();
+      
+      preloader.classList.remove('hidden');
+      preloader.style.opacity = '1';
+      preloader.style.visibility = 'visible';
+      
+      const fill = preloader.querySelector('.preloader-fill');
+      if (fill) {
+        fill.style.animation = 'none';
+        fill.offsetHeight; // trigger reflow
+        fill.style.animation = 'preloader-fill 0.8s ease-out forwards';
+      }
+      
+      if (preloaderImg) {
+        preloaderImg.classList.add('preloader-rotate-active');
+      }
+      
+      setTimeout(() => {
+        window.location.href = href;
+      }, 800);
+    }
+  });
 });
 
 
