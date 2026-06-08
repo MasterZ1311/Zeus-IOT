@@ -15,52 +15,52 @@
                 extend: {
                     "colors": {
                         "on-secondary": "#402d00",
-                        "surface-container-highest": "#1d1f1d",
+                        "surface-container-highest": "#17254a",
                         "on-secondary-fixed": "#261a00",
-                        "surface-dim": "#080A0A",
+                        "surface-dim": "#070c1e",
                         "error-container": "#93000a",
                         "on-secondary-fixed-variant": "#5c4300",
-                        "tertiary": "#10B981",
-                        "surface-bright": "#222422",
-                        "on-tertiary-container": "#a7f3d0",
+                        "tertiary": "#00d2ff",
+                        "surface-bright": "#101b3a",
+                        "on-tertiary-container": "#b9f3ff",
                         "on-error": "#690005",
                         "primary-fixed": "#dae2fd",
                         "on-tertiary": "#ffffff",
-                        "on-tertiary-fixed": "#022c22",
+                        "on-tertiary-fixed": "#002a35",
                         "error": "#ffb4ab",
                         "on-error-container": "#ffdad6",
                         "primary-container": "#0f172a",
                         "surface-variant": "#323537",
-                        "surface-container": "#111311",
+                        "surface-container": "#0b132b",
                         "inverse-primary": "#565e74",
                         "on-primary-fixed": "#131b2e",
                         "primary-fixed-dim": "#bec6e0",
                         "on-primary": "#283044",
-                        "surface": "#080A0A",
+                        "surface": "#070c1e",
                         "secondary-fixed": "#ffdf9f",
                         "on-primary-fixed-variant": "#3f465c",
-                        "on-tertiary-fixed-variant": "#047857",
-                        "outline-variant": "#272927",
+                        "on-tertiary-fixed-variant": "#007b96",
+                        "outline-variant": "#1e2d5a",
                         "on-primary-container": "#798098",
                         "on-background": "#e0e3e5",
-                        "surface-container-high": "#161816",
-                        "tertiary-fixed": "#a7f3d0",
+                        "surface-container-high": "#111c3a",
+                        "tertiary-fixed": "#b9f3ff",
                         "secondary-container": "#e3aa00",
-                        "background": "#080A0A",
+                        "background": "#070c1e",
                         "on-surface-variant": "#c6c6cd",
-                        "tertiary-fixed-dim": "#10B981",
+                        "tertiary-fixed-dim": "#00d2ff",
                         "surface-tint": "#bec6e0",
-                        "surface-container-low": "#0d0f0d",
+                        "surface-container-low": "#080e20",
                         "on-secondary-container": "#5a4100",
-                        "outline": "#7a807a",
+                        "outline": "#4f6190",
                         "primary": "#bec6e0",
                         "on-surface": "#e0e3e5",
                         "secondary-fixed-dim": "#f9bd22",
                         "inverse-on-surface": "#2d3133",
-                        "surface-container-lowest": "#050605",
-                        "secondary": "#ffc640",
+                        "surface-container-lowest": "#03050c",
+                        "secondary": "#e5a93c",
                         "inverse-surface": "#e0e3e5",
-                        "tertiary-container": "#064e3b"
+                        "tertiary-container": "#004b5c"
                     },
                     "borderRadius": {
                         "DEFAULT": "0.125rem",
@@ -101,8 +101,8 @@
     </script>
 <style>
         .circuit-bg {
-            background-color: #080A0A;
-            background-image: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.05) 0%, transparent 100%);
+            background-color: #070c1e;
+            background-image: radial-gradient(circle at 50% 50%, rgba(0, 210, 255, 0.05) 0%, transparent 100%);
             position: relative;
             overflow: hidden;
         }
@@ -111,41 +111,41 @@
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(16, 185, 129, 0.2);
-            border-top: 1px solid rgba(255, 198, 64, 0.4);
-            border-left: 1px solid rgba(16, 185, 129, 0.4);
+            border: 1px solid rgba(0, 210, 255, 0.2);
+            border-top: 1px solid rgba(229, 169, 60, 0.4);
+            border-left: 1px solid rgba(0, 210, 255, 0.4);
         }
 
         .glass-panel:hover {
             background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
         }
 
         .btn-thunderbolt {
-            background: #ffc640;
+            background: #e5a93c;
             color: #000;
             clip-path: polygon(0 0, 95% 0, 100% 100%, 5% 100%);
             transition: all 0.3s ease;
         }
 
         .btn-thunderbolt:hover {
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
             transform: scale(1.02);
         }
 
         .btn-ghost {
             background: transparent;
-            border: 1px solid #10B981;
-            color: #10B981;
+            border: 1px solid #00d2ff;
+            color: #00d2ff;
             transition: all 0.3s ease;
         }
 
         .btn-ghost:hover {
-            background: rgba(16, 185, 129, 0.1);
+            background: rgba(0, 210, 255, 0.1);
         }
 
         .glow-text-secondary {
-            text-shadow: 0 0 8px rgba(255, 198, 64, 0.4);
+            text-shadow: 0 0 8px rgba(229, 169, 60, 0.4);
         }
 
         /* Nav specific overrides */
@@ -227,7 +227,7 @@
   </head>
 <body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col circuit-bg selection:bg-tertiary selection:text-on-tertiary">
 <!-- TopAppBar -->
-<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md text-secondary shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)]">
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md text-secondary shadow-[0_2px_15px_-3px_rgba(0,210,255,0.2)]">
 <div class="flex items-center justify-between px-margin-mobile h-16 w-full max-w-container-max mx-auto">
 <div class="flex items-center gap-2">
 <img src="../logo.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
@@ -321,7 +321,7 @@
 </section>
 </main>
 <!-- BottomNavBar (Mobile Only) -->
-<nav class="mobile-nav-only fixed bottom-0 left-0 w-full flex justify-around items-center py-2 px-4 pb-safe bg-surface-container/90 backdrop-blur-xl rounded-t-xl z-50 border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(16,185,129,0.15)]">
+<nav class="mobile-nav-only fixed bottom-0 left-0 w-full flex justify-around items-center py-2 px-4 pb-safe bg-surface-container/90 backdrop-blur-xl rounded-t-xl z-50 border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(0,210,255,0.15)]">
 <a class="flex flex-col items-center justify-center text-secondary bg-on-secondary-container/20 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="#">
 <span class="material-symbols-outlined text-[24px]">home</span>
 <span class="font-label-caps text-label-caps mt-1">Home</span>

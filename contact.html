@@ -16,23 +16,23 @@ tailwind.config = {
     extend: {
       colors: {
         "pro-purple":"#d946ef",
-        "surface-dim":"#080A0A","on-tertiary-fixed":"#022c22","tertiary":"#10B981",
+        "surface-dim":"#050816","on-tertiary-fixed":"#002a35","tertiary":"#00d2ff",
         "on-surface-variant":"#c6c6cd","on-error-container":"#ffdad6",
-        "surface-container-highest":"#1d1f1d","outline":"#7a807a","background":"#080A0A",
-        "surface-container":"#111311","inverse-primary":"#565e74","primary-fixed-dim":"#bec6e0",
-        "surface-container-high":"#161816","inverse-on-surface":"#2d3133",
+        "surface-container-highest":"#17254a","outline":"#4f6190","background":"#070c1e",
+        "surface-container":"#0b132b","inverse-primary":"#565e74","primary-fixed-dim":"#bec6e0",
+        "surface-container-high":"#111c3a","inverse-on-surface":"#2d3133",
         "on-primary-container":"#798098","secondary-fixed-dim":"#f9bd22",
-        "primary-container":"#0f172a","tertiary-container":"#064e3b","surface-tint":"#bec6e0",
-        "on-tertiary":"#ffffff","on-tertiary-container":"#a7f3d0","on-primary-fixed":"#131b2e",
-        "on-tertiary-fixed-variant":"#047857","on-surface":"#e0e3e5",
-        "surface-container-low":"#0d0f0d","surface-container-lowest":"#050605",
-        "primary":"#bec6e0","tertiary-fixed-dim":"#10B981","outline-variant":"#272927",
-        "surface":"#080A0A","inverse-surface":"#e0e3e5","surface-variant":"#323537",
-        "on-secondary-fixed-variant":"#5c4300","error":"#ffb4ab","tertiary-fixed":"#a7f3d0",
-        "primary-fixed":"#dae2fd","surface-bright":"#222422","on-secondary-container":"#5a4100",
+        "primary-container":"#070c1e","tertiary-container":"#004b5c","surface-tint":"#bec6e0",
+        "on-tertiary":"#ffffff","on-tertiary-container":"#b9f3ff","on-primary-fixed":"#131b2e",
+        "on-tertiary-fixed-variant":"#007b96","on-surface":"#e0e3e5",
+        "surface-container-low":"#080e20","surface-container-lowest":"#03050c",
+        "primary":"#bec6e0","tertiary-fixed-dim":"#00d2ff","outline-variant":"#1e2d5a",
+        "surface":"#070c1e","inverse-surface":"#e0e3e5","surface-variant":"#111c3a",
+        "on-secondary-fixed-variant":"#5c4300","error":"#ffb4ab","tertiary-fixed":"#b9f3ff",
+        "primary-fixed":"#dae2fd","surface-bright":"#101b3a","on-secondary-container":"#5a4100",
         "on-primary-fixed-variant":"#3f465c","on-primary":"#283044","on-background":"#e0e3e5",
         "secondary-container":"#e3aa00","on-error":"#690005","on-secondary-fixed":"#261a00",
-        "secondary-fixed":"#ffdf9f","secondary":"#ffc640","error-container":"#93000a",
+        "secondary-fixed":"#ffdf9f","secondary":"#e5a93c","error-container":"#93000a",
         "on-secondary":"#402d00"
       },
       borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},
@@ -54,15 +54,15 @@ tailwind.config = {
 </script>
 <style>
 body {
-  background-color: #080A0A;
-  background-image: radial-gradient(circle at 10% 20%, rgba(16,185,129,0.15) 0%, transparent 40%),
-                    radial-gradient(circle at 90% 80%, rgba(255,198,64,0.1) 0%, transparent 40%);
+  background-color: #070c1e;
+  background-image: radial-gradient(circle at 10% 20%, rgba(0,210,255,0.15) 0%, transparent 40%),
+                    radial-gradient(circle at 90% 80%, rgba(229,169,60,0.1) 0%, transparent 40%);
   min-height: 100vh;
 }
-.glow-text { text-shadow: 0 0 8px rgba(255,198,64,0.4); }
+.glow-text { text-shadow: 0 0 8px rgba(229,169,60,0.4); }
 .glass-panel-gradient-top {
   border-top: 2px solid transparent;
-  border-image: linear-gradient(to right, #10B981, #ffc640) 1;
+  border-image: linear-gradient(to right, #00d2ff, #e5a93c) 1;
 }
 
 /* Floating label inputs */
@@ -71,7 +71,7 @@ body {
 .float-label-group textarea,
 .float-label-group select {
   background: rgba(0,0,0,0.25);
-  border: 1px solid rgba(16,185,129,0.2);
+  border: 1px solid rgba(0,210,255,0.2);
   color: #e0e3e5;
   transition: all 0.3s ease;
   padding: 16px 14px 8px;
@@ -83,8 +83,8 @@ body {
 .float-label-group input:focus,
 .float-label-group textarea:focus,
 .float-label-group select:focus {
-  border-color: #10B981;
-  box-shadow: 0 0 0 3px rgba(16,185,129,0.1);
+  border-color: #00d2ff;
+  box-shadow: 0 0 0 3px rgba(0,210,255,0.1);
   outline: none;
 }
 .float-label-group label {
@@ -99,7 +99,7 @@ body {
 .float-label-group textarea:focus ~ label,
 .float-label-group textarea:not(:placeholder-shown) ~ label,
 .float-label-group select:focus ~ label {
-  top: 5px; font-size: 9px; color: #10B981;
+  top: 5px; font-size: 9px; color: #00d2ff;
 }
 
 /* Perf tier cards */
@@ -111,25 +111,25 @@ body {
 }
 /* Basic (Green) */
 .tier-card[data-tier="BASIC"] .material-symbols-outlined { color: #909097; transition: color 0.3s; }
-.tier-card[data-tier="BASIC"]:hover { border-color: rgba(16,185,129,0.4); background: rgba(16,185,129,0.05); }
+.tier-card[data-tier="BASIC"]:hover { border-color: rgba(0,210,255,0.4); background: rgba(0,210,255,0.05); }
 .tier-card[data-tier="BASIC"].selected {
-  border-color: #10B981;
-  background: rgba(16,185,129,0.08);
-  box-shadow: 0 0 25px rgba(16,185,129,0.15), inset 0 0 15px rgba(16,185,129,0.05);
+  border-color: #00d2ff;
+  background: rgba(0,210,255,0.08);
+  box-shadow: 0 0 25px rgba(0,210,255,0.15), inset 0 0 15px rgba(0,210,255,0.05);
 }
-.tier-card[data-tier="BASIC"].selected .material-symbols-outlined { color: #10B981; }
-.tier-card[data-tier="BASIC"].selected .tier-title { color: #10B981; }
+.tier-card[data-tier="BASIC"].selected .material-symbols-outlined { color: #00d2ff; }
+.tier-card[data-tier="BASIC"].selected .tier-title { color: #00d2ff; }
 
 /* Custom (Gold) */
 .tier-card[data-tier="CUSTOM"] .material-symbols-outlined { color: #909097; transition: color 0.3s; }
-.tier-card[data-tier="CUSTOM"]:hover { border-color: rgba(255,198,64,0.4); background: rgba(255,198,64,0.05); }
+.tier-card[data-tier="CUSTOM"]:hover { border-color: rgba(229,169,60,0.4); background: rgba(229,169,60,0.05); }
 .tier-card[data-tier="CUSTOM"].selected {
-  border-color: #ffc640;
-  background: rgba(255,198,64,0.08);
-  box-shadow: 0 0 25px rgba(255,198,64,0.15), inset 0 0 15px rgba(255,198,64,0.05);
+  border-color: #e5a93c;
+  background: rgba(229,169,60,0.08);
+  box-shadow: 0 0 25px rgba(229,169,60,0.15), inset 0 0 15px rgba(229,169,60,0.05);
 }
-.tier-card[data-tier="CUSTOM"].selected .material-symbols-outlined { color: #ffc640; }
-.tier-card[data-tier="CUSTOM"].selected .tier-title { color: #ffc640; }
+.tier-card[data-tier="CUSTOM"].selected .material-symbols-outlined { color: #e5a93c; }
+.tier-card[data-tier="CUSTOM"].selected .tier-title { color: #e5a93c; }
 
 /* Pro (Purple) */
 .tier-card[data-tier="PROFESSIONAL"] .material-symbols-outlined { color: #909097; transition: color 0.3s; }
@@ -145,15 +145,15 @@ body {
 /* Upload area */
 .upload-zone {
   background: rgba(0,0,0,0.2);
-  border: 2px dashed rgba(16,185,129,0.3);
+  border: 2px dashed rgba(0,210,255,0.3);
   transition: all 0.3s ease;
 }
 .upload-zone.drag-over {
-  border-color: #10B981;
-  background: rgba(16,185,129,0.07);
-  box-shadow: 0 0 30px rgba(16,185,129,0.15);
+  border-color: #00d2ff;
+  background: rgba(0,210,255,0.07);
+  box-shadow: 0 0 30px rgba(0,210,255,0.15);
 }
-.upload-zone:hover { border-color: rgba(16,185,129,0.6); background: rgba(16,185,129,0.04); }
+.upload-zone:hover { border-color: rgba(0,210,255,0.6); background: rgba(0,210,255,0.04); }
 
 /* Date input float label fix */
 .float-label-group input[type="date"] {
@@ -165,7 +165,7 @@ body {
   color: #909097;
 }
 .float-label-group input[type="date"]:focus ~ label {
-  color: #10B981;
+  color: #00d2ff;
 }
 </style>
 </head>
@@ -189,10 +189,10 @@ body {
 <div id="scroll-progress"></div>
 
 <!-- ═══════════════════════ DESKTOP TOP NAV ═══════════════════════ -->
-<header id="desktop-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] hidden md:flex items-center justify-between px-margin-desktop h-16 transition-all duration-300">
+<header id="desktop-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(0,210,255,0.2)] hidden md:flex items-center justify-between px-margin-desktop h-16 transition-all duration-300">
   <a href="index.html" class="flex items-center gap-2">
     <img src="logo.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
-    <span class="font-headline-xl text-headline-md text-secondary drop-shadow-[0_0_8px_rgba(255,198,64,0.4)] tracking-tight">ZEUS IOT</span>
+    <span class="font-headline-xl text-headline-md text-secondary drop-shadow-[0_0_8px_rgba(229,169,60,0.4)] tracking-tight">ZEUS IOT</span>
   </a>
   <nav class="flex items-center gap-8">
     <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated" href="index.html">HOME</a>
@@ -204,7 +204,7 @@ body {
 </header>
 
 <!-- ═══════════════════════ MOBILE TOP NAV ═══════════════════════ -->
-<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] flex md:hidden items-center justify-between px-margin-mobile h-16">
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(0,210,255,0.2)] flex md:hidden items-center justify-between px-margin-mobile h-16">
   <a href="index.html" class="flex items-center gap-2">
     <img src="logo.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
     <span class="font-headline-md text-secondary glow-text">ZEUS IOT</span>
@@ -438,8 +438,8 @@ body {
       <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="modalBoltGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#ffc640"/>
-            <stop offset="100%" stop-color="#10B981"/>
+            <stop offset="0%" stop-color="#e5a93c"/>
+            <stop offset="100%" stop-color="#00d2ff"/>
           </linearGradient>
         </defs>
         <path d="M37 6L16 34H30L24 58L48 28H32L37 6Z" fill="url(#modalBoltGrad)" opacity="0.9"/>
@@ -453,7 +453,7 @@ body {
 </div>
 
 <!-- ═══════════════════════ MOBILE BOTTOM NAV ═══════════════════════ -->
-<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(16,185,129,0.15)] pb-safe">
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(0,210,255,0.15)] pb-safe">
   <div class="flex justify-around items-center py-2 px-4">
     <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="index.html"><span class="material-symbols-outlined">home</span><span class="font-label-caps text-label-caps mt-1">Home</span></a>
     <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="projects.html"><span class="material-symbols-outlined">grid_view</span><span class="font-label-caps text-label-caps mt-1">Projects</span></a>
@@ -656,7 +656,7 @@ form.addEventListener('submit', async (e) => {
 
 // ─── Confetti ───
 function launchConfetti() {
-  const colors = ['#ffc640','#10B981','#ffffff','#ffa500'];
+  const colors = ['#e5a93c','#00d2ff','#ffffff','#ffa500'];
   for (let i = 0; i < 50; i++) {
     const piece = document.createElement('div');
     piece.className = 'confetti-piece';

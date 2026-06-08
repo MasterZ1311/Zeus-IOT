@@ -76,8 +76,8 @@ export default function Home() {
             alt="Command the Digital Olympus"
           />
           {/* Gradient overlay so text reads on the image */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#080A0A] via-[#080A0A]/50 to-transparent pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#080A0A]/60 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#070c1e] via-[#070c1e]/50 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#070c1e]/60 via-transparent to-transparent pointer-events-none" />
 
           {/* Overlaid hero text */}
           <motion.div
@@ -99,7 +99,7 @@ export default function Home() {
 
             <p className="font-body-lg text-base text-white/80 max-w-2xl mb-7 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
               We architect raw power and precise engineering. From atmospheric sensor arrays to complex enterprise software ecosystems, we build the infrastructure that electrifies modern industry.{' '}
-              <strong className="text-emerald-400">Don't just buy from us — Learn from us.</strong>
+              <strong className="text-sky-400">Don't just buy from us — Learn from us.</strong>
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -134,7 +134,7 @@ export default function Home() {
           </h1>
           <p className="font-body-lg text-base text-on-surface-variant max-w-xl mb-6">
             We architect raw power and precise engineering. From atmospheric sensor arrays to enterprise software ecosystems, we build the infrastructure that electrifies modern industry.{' '}
-            <strong className="text-emerald-500">Don't just buy from us — Learn from us.</strong>
+            <strong className="text-sky-400">Don't just buy from us — Learn from us.</strong>
           </p>
           <div className="flex flex-wrap gap-3 mb-8">
             <Link to="/projects" className="btn-thunderbolt font-label-caps text-xs px-6 py-3 uppercase tracking-widest flex items-center gap-2 active:scale-95">
@@ -164,8 +164,8 @@ export default function Home() {
             whileHover={{ scale: 1.02, y: -5 }}
             className="md:col-span-7 md:row-span-2 glass-panel bolt-standby rounded-xl p-8 flex flex-col group relative overflow-hidden"
           >
-            <div className="w-12 h-12 rounded-full bg-emerald-500/10 flex items-center justify-center mb-6 border border-emerald-500/30">
-              <Cpu className="text-emerald-500 w-6 h-6" />
+            <div className="w-12 h-12 rounded-full bg-sky-400/10 flex items-center justify-center mb-6 border border-sky-400/30">
+              <Cpu className="text-sky-400 w-6 h-6" />
             </div>
             <h3 className="font-headline-md text-2xl text-on-surface mb-4 z-10">Custom Hardware & IoT</h3>
             <p className="font-body-lg text-lg text-on-surface-variant max-w-md z-10 mb-6 flex-grow">
@@ -173,7 +173,7 @@ export default function Home() {
             </p>
             <div className="flex gap-2 z-10 mt-auto flex-wrap">
               {['ESP32', 'Arduino', 'Raspberry Pi', 'Nvidia Jetson', 'Orange Pi', 'Banana Pi', 'Radxa X4', 'Asus Tinker Board', 'LattePanda'].map(t => (
-                <span key={t} className="bg-surface-container-high px-3 py-1 rounded text-xs font-code-sm text-emerald-500 border border-tertiary/20">{t}</span>
+                <span key={t} className="bg-surface-container-high px-3 py-1 rounded text-xs font-code-sm text-sky-400 border border-tertiary/20">{t}</span>
               ))}
             </div>
           </motion.div>
@@ -217,7 +217,7 @@ export default function Home() {
             <div className="z-10 lg:w-1/2 w-full bg-surface-container-lowest border border-outline-variant/20 rounded-xl p-6 shadow-2xl relative">
               <div className="flex justify-between items-center border-b border-outline-variant/20 pb-4 mb-4">
                 <div className="font-code-sm text-sm text-on-surface font-bold tracking-widest flex items-center gap-2">
-                  <Wifi className="w-4 h-4 text-emerald-500 animate-pulse" />
+                  <Wifi className="w-4 h-4 text-sky-400 animate-pulse" />
                   ESP32_CORE_01
                 </div>
                 <div className="font-code-sm text-xs text-tertiary font-bold">
@@ -226,7 +226,7 @@ export default function Home() {
               </div>
               
               <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className={`bg-surface-container p-4 rounded-lg border text-center transition-all duration-300 ${relayActive ? 'border-emerald-500/40 shadow-[0_0_15px_rgba(16,185,129,0.15)]' : 'border-outline-variant/10'}`}>
+                <div className={`bg-surface-container p-4 rounded-lg border text-center transition-all duration-300 ${relayActive ? 'border-sky-400/40 shadow-[0_0_15px_rgba(0,210,255,0.15)]' : 'border-outline-variant/10'}`}>
                   <div className="font-label-caps text-[10px] text-on-surface-variant mb-2 uppercase flex items-center justify-center gap-1">
                     <Thermometer className="w-3.5 h-3.5 text-secondary" />
                     Core Temp
@@ -236,7 +236,7 @@ export default function Home() {
                   </div>
                 </div>
                 
-                <div className={`bg-surface-container p-4 rounded-lg border text-center transition-all duration-300 ${relayActive ? 'border-emerald-500/40 shadow-[0_0_15px_rgba(16,185,129,0.15)]' : 'border-outline-variant/10'}`}>
+                <div className={`bg-surface-container p-4 rounded-lg border text-center transition-all duration-300 ${relayActive ? 'border-sky-400/40 shadow-[0_0_15px_rgba(0,210,255,0.15)]' : 'border-outline-variant/10'}`}>
                   <div className="font-label-caps text-[10px] text-on-surface-variant mb-2 uppercase flex items-center justify-center gap-1">
                     <Activity className="w-3.5 h-3.5 text-secondary" />
                     CPU Load
@@ -247,7 +247,7 @@ export default function Home() {
                 </div>
               </div>
               
-              <div className={`flex items-center justify-between bg-surface-container p-4 rounded-lg border transition-all duration-300 ${relayActive ? 'border-emerald-500/60 shadow-[0_0_20px_rgba(16,185,129,0.2)]' : 'border-outline-variant/20'}`}>
+              <div className={`flex items-center justify-between bg-surface-container p-4 rounded-lg border transition-all duration-300 ${relayActive ? 'border-sky-400/60 shadow-[0_0_20px_rgba(0,210,255,0.2)]' : 'border-outline-variant/20'}`}>
                 <div>
                   <div className="font-label-caps text-[11px] text-on-surface uppercase mb-1 flex items-center gap-1.5 font-bold">
                     <Zap className={`w-3.5 h-3.5 ${relayActive ? 'text-secondary animate-bounce' : 'text-on-surface-variant'}`} />
@@ -288,11 +288,11 @@ function HomePreloader({ onDone }) {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, scale: 1.05 }}
       transition={{ duration: 0.55, ease: 'easeInOut' }}
-      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#080A0A]"
+      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#070c1e]"
     >
       {/* Ambient radial glows */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-emerald-500/8 blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-sky-400/8 blur-3xl"></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-secondary/8 blur-3xl"></div>
       </div>
 

@@ -14,42 +14,42 @@
             theme: {
                 extend: {
                     colors: {
-                        "surface-dim": "#080A0A",
-                        "on-tertiary-fixed": "#022c22",
-                        "tertiary": "#10B981",
+                        "surface-dim": "#070c1e",
+                        "on-tertiary-fixed": "#002a35",
+                        "tertiary": "#00d2ff",
                         "on-surface-variant": "#c6c6cd",
                         "on-error-container": "#ffdad6",
-                        "surface-container-highest": "#1d1f1d",
-                        "outline": "#7a807a",
-                        "background": "#080A0A",
-                        "surface-container": "#111311",
+                        "surface-container-highest": "#17254a",
+                        "outline": "#4f6190",
+                        "background": "#070c1e",
+                        "surface-container": "#0b132b",
                         "inverse-primary": "#565e74",
                         "primary-fixed-dim": "#bec6e0",
-                        "surface-container-high": "#161816",
+                        "surface-container-high": "#111c3a",
                         "inverse-on-surface": "#2d3133",
                         "on-primary-container": "#798098",
                         "secondary-fixed-dim": "#f9bd22",
                         "primary-container": "#0f172a",
-                        "tertiary-container": "#064e3b",
+                        "tertiary-container": "#004b5c",
                         "surface-tint": "#bec6e0",
                         "on-tertiary": "#ffffff",
-                        "on-tertiary-container": "#a7f3d0",
+                        "on-tertiary-container": "#b9f3ff",
                         "on-primary-fixed": "#131b2e",
-                        "on-tertiary-fixed-variant": "#047857",
+                        "on-tertiary-fixed-variant": "#007b96",
                         "on-surface": "#e0e3e5",
-                        "surface-container-low": "#0d0f0d",
-                        "surface-container-lowest": "#050605",
+                        "surface-container-low": "#080e20",
+                        "surface-container-lowest": "#03050c",
                         "primary": "#bec6e0",
-                        "tertiary-fixed-dim": "#10B981",
-                        "outline-variant": "#272927",
-                        "surface": "#080A0A",
+                        "tertiary-fixed-dim": "#00d2ff",
+                        "outline-variant": "#1e2d5a",
+                        "surface": "#070c1e",
                         "inverse-surface": "#e0e3e5",
                         "surface-variant": "#323537",
                         "on-secondary-fixed-variant": "#5c4300",
                         "error": "#ffb4ab",
-                        "tertiary-fixed": "#a7f3d0",
+                        "tertiary-fixed": "#b9f3ff",
                         "primary-fixed": "#dae2fd",
-                        "surface-bright": "#222422",
+                        "surface-bright": "#101b3a",
                         "on-secondary-container": "#5a4100",
                         "on-primary-fixed-variant": "#3f465c",
                         "on-primary": "#283044",
@@ -58,7 +58,7 @@
                         "on-error": "#690005",
                         "on-secondary-fixed": "#261a00",
                         "secondary-fixed": "#ffdf9f",
-                        "secondary": "#ffc640",
+                        "secondary": "#e5a93c",
                         "error-container": "#93000a",
                         "on-secondary": "#402d00"
                     },
@@ -101,9 +101,9 @@
     </script>
 <style>
         body {
-            background-color: #080A0A;
-            background-image: radial-gradient(circle at top right, rgba(16, 185, 129, 0.05), transparent 40%),
-                              radial-gradient(circle at bottom left, rgba(255, 198, 64, 0.05), transparent 40%);
+            background-color: #070c1e;
+            background-image: radial-gradient(circle at top right, rgba(0, 210, 255, 0.05), transparent 40%),
+                              radial-gradient(circle at bottom left, rgba(229, 169, 60, 0.05), transparent 40%);
             background-attachment: fixed;
         }
         
@@ -111,67 +111,67 @@
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(16, 185, 129, 0.1);
-            border-top: 1px solid rgba(16, 185, 129, 0.3);
-            border-left: 1px solid rgba(255, 198, 64, 0.2);
+            border: 1px solid rgba(0, 210, 255, 0.1);
+            border-top: 1px solid rgba(0, 210, 255, 0.3);
+            border-left: 1px solid rgba(229, 169, 60, 0.2);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
 
         .glass-panel:hover {
             background: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 8px 32px 0 rgba(16, 185, 129, 0.1);
-            border-top: 1px solid rgba(16, 185, 129, 0.5);
+            box-shadow: 0 8px 32px 0 rgba(0, 210, 255, 0.1);
+            border-top: 1px solid rgba(0, 210, 255, 0.5);
         }
 
         .input-field {
             background: rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(0, 210, 255, 0.2);
             transition: all 0.3s ease;
         }
 
         .input-field:focus {
-            border-color: #10B981;
-            box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+            border-color: #00d2ff;
+            box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
             outline: none;
         }
 
         .btn-primary {
-            background: #ffc640;
+            background: #e5a93c;
             color: #101415;
             clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
             transition: all 0.3s ease;
         }
 
         .btn-primary:hover {
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
             transform: translateY(-2px);
         }
 
         .perf-level.active {
-            background: rgba(255, 198, 64, 0.1);
-            border-color: #ffc640;
-            color: #ffc640;
-            box-shadow: inset 0 0 10px rgba(255, 198, 64, 0.2);
+            background: rgba(229, 169, 60, 0.1);
+            border-color: #e5a93c;
+            color: #e5a93c;
+            box-shadow: inset 0 0 10px rgba(229, 169, 60, 0.2);
         }
         
         .upload-area {
             background: rgba(0,0,0,0.2);
-            border: 2px dashed rgba(16, 185, 129, 0.3);
+            border: 2px dashed rgba(0, 210, 255, 0.3);
             transition: all 0.3s ease;
         }
         
         .upload-area:hover {
-            border-color: #10B981;
-            background: rgba(16, 185, 129, 0.05);
+            border-color: #00d2ff;
+            background: rgba(0, 210, 255, 0.05);
         }
     </style>
 </head>
 <body class="text-on-background min-h-screen flex flex-col font-body-lg pt-16">
 <!-- TopAppBar -->
-<header class="bg-surface/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] flex items-center justify-between px-margin-mobile h-16 w-full hidden md:flex">
+<header class="bg-surface/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(0,210,255,0.2)] flex items-center justify-between px-margin-mobile h-16 w-full hidden md:flex">
 <div class="flex items-center gap-2">
 <img src="../logo.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
-<span class="font-headline-xl text-headline-md-mobile text-secondary drop-shadow-[0_0_8px_rgba(255,198,64,0.4)]">ZEUS IOT</span>
+<span class="font-headline-xl text-headline-md-mobile text-secondary drop-shadow-[0_0_8px_rgba(229,169,60,0.4)]">ZEUS IOT</span>
 </div>
 <nav class="flex gap-6">
 <a class="text-on-surface-variant font-headline-md hover:text-tertiary transition-colors active:scale-95 duration-200" href="#">Home</a>
@@ -275,7 +275,7 @@
 </div>
 </footer>
 <!-- BottomNavBar (Mobile) -->
-<nav class="bg-surface-container/90 backdrop-blur-xl fixed bottom-0 w-full z-50 rounded-t-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(16,185,129,0.15)] fixed bottom-0 left-0 w-full flex justify-around items-center py-2 px-4 pb-safe md:hidden">
+<nav class="bg-surface-container/90 backdrop-blur-xl fixed bottom-0 w-full z-50 rounded-t-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(0,210,255,0.15)] fixed bottom-0 left-0 w-full flex justify-around items-center py-2 px-4 pb-safe md:hidden">
 <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 active:scale-90 transition-transform duration-150 p-2 rounded" href="#">
 <span class="material-symbols-outlined">home</span>
 <span class="font-label-caps text-label-caps">Home</span>

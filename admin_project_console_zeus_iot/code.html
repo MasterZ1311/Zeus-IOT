@@ -16,51 +16,51 @@
           theme: {
             extend: {
               "colors": {
-                      "surface-container-highest": "#1d1f1d",
+                      "surface-container-highest": "#17254a",
                       "primary-container": "#0f172a",
                       "on-surface-variant": "#c6c6cd",
                       "on-background": "#e0e3e5",
                       "inverse-on-surface": "#2d3133",
-                      "tertiary": "#10B981",
-                      "on-tertiary-fixed-variant": "#047857",
+                      "tertiary": "#00d2ff",
+                      "on-tertiary-fixed-variant": "#007b96",
                       "secondary-container": "#e3aa00",
                       "on-primary": "#283044",
-                      "surface-container": "#111311",
+                      "surface-container": "#0b132b",
                       "error-container": "#93000a",
                       "on-surface": "#e0e3e5",
                       "on-primary-container": "#798098",
                       "error": "#ffb4ab",
                       "on-primary-fixed-variant": "#3f465c",
-                      "surface-container-lowest": "#050605",
-                      "surface-container-low": "#0d0f0d",
-                      "outline-variant": "#272927",
-                      "on-tertiary-container": "#a7f3d0",
+                      "surface-container-lowest": "#03050c",
+                      "surface-container-low": "#080e20",
+                      "outline-variant": "#1e2d5a",
+                      "on-tertiary-container": "#b9f3ff",
                       "primary": "#bec6e0",
                       "surface-tint": "#bec6e0",
-                      "surface": "#080A0A",
+                      "surface": "#070c1e",
                       "on-secondary-fixed": "#261a00",
                       "secondary-fixed": "#ffdf9f",
-                      "surface-bright": "#222422",
-                      "outline": "#7a807a",
+                      "surface-bright": "#101b3a",
+                      "outline": "#4f6190",
                       "on-error-container": "#ffdad6",
-                      "secondary": "#ffc640",
+                      "secondary": "#e5a93c",
                       "inverse-primary": "#565e74",
                       "primary-fixed": "#dae2fd",
                       "inverse-surface": "#e0e3e5",
-                      "surface-dim": "#080A0A",
-                      "on-tertiary-fixed": "#022c22",
+                      "surface-dim": "#070c1e",
+                      "on-tertiary-fixed": "#002a35",
                       "surface-variant": "#323537",
                       "on-secondary-container": "#5a4100",
-                      "tertiary-fixed-dim": "#10B981",
-                      "tertiary-container": "#064e3b",
+                      "tertiary-fixed-dim": "#00d2ff",
+                      "tertiary-container": "#004b5c",
                       "on-primary-fixed": "#131b2e",
-                      "tertiary-fixed": "#a7f3d0",
+                      "tertiary-fixed": "#b9f3ff",
                       "on-secondary": "#402d00",
                       "on-error": "#690005",
                       "on-tertiary": "#ffffff",
                       "secondary-fixed-dim": "#f9bd22",
-                      "surface-container-high": "#161816",
-                      "background": "#080A0A",
+                      "surface-container-high": "#111c3a",
+                      "background": "#070c1e",
                       "primary-fixed-dim": "#bec6e0",
                       "on-secondary-fixed-variant": "#5c4300"
               },
@@ -163,8 +163,8 @@
 <style>
         /* Pattern Overlay */
         .bg-storm-pattern {
-            background-color: #080A0A;
-            background-image: radial-gradient(circle at center, rgba(16, 185, 129, 0.05) 0%, transparent 70%);
+            background-color: #070c1e;
+            background-image: radial-gradient(circle at center, rgba(0, 210, 255, 0.05) 0%, transparent 70%);
         }
         
         /* Glassmorphism Classes */
@@ -172,50 +172,50 @@
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(0, 210, 255, 0.1);
         }
         .glass-panel-glow {
-            border-top: 1px solid rgba(16, 185, 129, 0.3);
-            border-left: 1px solid rgba(255, 198, 64, 0.2);
+            border-top: 1px solid rgba(0, 210, 255, 0.3);
+            border-left: 1px solid rgba(229, 169, 60, 0.2);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
         
         .nav-active-glow {
-            box-shadow: inset 0 0 10px rgba(16, 185, 129, 0.2);
+            box-shadow: inset 0 0 10px rgba(0, 210, 255, 0.2);
         }
 
         /* Thunderbolt Button */
         .btn-thunderbolt {
-            background-color: #ffc640;
+            background-color: #e5a93c;
             color: #000000;
             clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
             transition: all 0.3s ease;
         }
         .btn-thunderbolt:hover {
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.6);
             background-color: #e3aa00;
         }
 
         .btn-ghost-static {
             background: transparent;
-            border: 1px solid #10B981;
+            border: 1px solid #00d2ff;
             transition: all 0.3s ease;
         }
         .btn-ghost-static:hover {
-            background: rgba(16, 185, 129, 0.1);
-            box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+            background: rgba(0, 210, 255, 0.1);
+            box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
         }
         
         /* Status Chips */
         .chip-active {
-            border-left: 3px solid #ffc640;
-            background: rgba(255, 198, 64, 0.1);
-            color: #ffc640;
+            border-left: 3px solid #e5a93c;
+            background: rgba(229, 169, 60, 0.1);
+            color: #e5a93c;
         }
         .chip-beta {
-            border-left: 3px solid #10B981;
-            background: rgba(16, 185, 129, 0.1);
-            color: #10B981;
+            border-left: 3px solid #00d2ff;
+            background: rgba(0, 210, 255, 0.1);
+            color: #00d2ff;
         }
         .chip-archived {
             border-left: 3px solid #909097;
@@ -225,10 +225,10 @@
         
         /* Card Top Line */
         .card-top-line-active {
-            border-top: 2px solid #ffc640;
+            border-top: 2px solid #e5a93c;
         }
         .card-top-line-standby {
-            border-top: 2px solid #10B981;
+            border-top: 2px solid #00d2ff;
         }
     
         /* COMPACT MOBILE OVERRIDES */
@@ -297,10 +297,10 @@
   </head>
 <body class="bg-storm-pattern text-on-surface min-h-screen flex flex-col pt-16 pb-20 md:pb-0">
 <!-- TopAppBar -->
-<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 w-full">
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(0,210,255,0.2)] flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 w-full">
 <div class="flex items-center gap-unit">
 <img src="../logo.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
-<span class="font-headline-md text-headline-md-mobile md:font-headline-xl md:text-headline-xl text-secondary drop-shadow-[0_0_8px_rgba(255,198,64,0.4)] tracking-tighter">ZEUS IOT</span>
+<span class="font-headline-md text-headline-md-mobile md:font-headline-xl md:text-headline-xl text-secondary drop-shadow-[0_0_8px_rgba(229,169,60,0.4)] tracking-tighter">ZEUS IOT</span>
 </div>
 <!-- Desktop Nav -->
 <nav class="hidden md:flex items-center gap-gutter">
@@ -420,7 +420,7 @@
 </div>
 </main>
 <!-- BottomNavBar (Mobile Only) -->
-<nav class="md:hidden bg-surface-container/90 backdrop-blur-xl font-label-caps text-label-caps font-headline-xl text-secondary fixed bottom-0 w-full z-50 rounded-t-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(16,185,129,0.15)] active:scale-90 transition-transform duration-150 fixed bottom-0 left-0 w-full flex justify-around items-center py-2 px-4 pb-safe">
+<nav class="md:hidden bg-surface-container/90 backdrop-blur-xl font-label-caps text-label-caps font-headline-xl text-secondary fixed bottom-0 w-full z-50 rounded-t-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(0,210,255,0.15)] active:scale-90 transition-transform duration-150 fixed bottom-0 left-0 w-full flex justify-around items-center py-2 px-4 pb-safe">
 <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 p-2 rounded-xl transition-colors" href="#">
 <span class="material-symbols-outlined mb-1">home</span>
 <span>Home</span>

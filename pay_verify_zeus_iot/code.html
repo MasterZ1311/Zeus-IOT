@@ -17,52 +17,52 @@
             extend: {
               "colors": {
                       "on-secondary": "#402d00",
-                      "surface-container-highest": "#1d1f1d",
+                      "surface-container-highest": "#17254a",
                       "on-secondary-fixed": "#261a00",
-                      "surface-dim": "#080A0A",
+                      "surface-dim": "#070c1e",
                       "error-container": "#93000a",
                       "on-secondary-fixed-variant": "#5c4300",
-                      "tertiary": "#10B981",
-                      "surface-bright": "#222422",
-                      "on-tertiary-container": "#a7f3d0",
+                      "tertiary": "#00d2ff",
+                      "surface-bright": "#101b3a",
+                      "on-tertiary-container": "#b9f3ff",
                       "on-error": "#690005",
                       "primary-fixed": "#dae2fd",
                       "on-tertiary": "#ffffff",
-                      "on-tertiary-fixed": "#022c22",
+                      "on-tertiary-fixed": "#002a35",
                       "error": "#ffb4ab",
                       "on-error-container": "#ffdad6",
                       "primary-container": "#0f172a",
                       "surface-variant": "#323537",
-                      "surface-container": "#111311",
+                      "surface-container": "#0b132b",
                       "inverse-primary": "#565e74",
                       "on-primary-fixed": "#131b2e",
                       "primary-fixed-dim": "#bec6e0",
                       "on-primary": "#283044",
-                      "surface": "#080A0A",
+                      "surface": "#070c1e",
                       "secondary-fixed": "#ffdf9f",
                       "on-primary-fixed-variant": "#3f465c",
-                      "on-tertiary-fixed-variant": "#047857",
-                      "outline-variant": "#272927",
+                      "on-tertiary-fixed-variant": "#007b96",
+                      "outline-variant": "#1e2d5a",
                       "on-primary-container": "#798098",
                       "on-background": "#e0e3e5",
-                      "surface-container-high": "#161816",
-                      "tertiary-fixed": "#a7f3d0",
+                      "surface-container-high": "#111c3a",
+                      "tertiary-fixed": "#b9f3ff",
                       "secondary-container": "#e3aa00",
-                      "background": "#080A0A",
+                      "background": "#070c1e",
                       "on-surface-variant": "#c6c6cd",
-                      "tertiary-fixed-dim": "#10B981",
+                      "tertiary-fixed-dim": "#00d2ff",
                       "surface-tint": "#bec6e0",
-                      "surface-container-low": "#0d0f0d",
+                      "surface-container-low": "#080e20",
                       "on-secondary-container": "#5a4100",
-                      "outline": "#7a807a",
+                      "outline": "#4f6190",
                       "primary": "#bec6e0",
                       "on-surface": "#e0e3e5",
                       "secondary-fixed-dim": "#f9bd22",
                       "inverse-on-surface": "#2d3133",
-                      "surface-container-lowest": "#050605",
-                      "secondary": "#ffc640",
+                      "surface-container-lowest": "#03050c",
+                      "secondary": "#e5a93c",
                       "inverse-surface": "#e0e3e5",
-                      "tertiary-container": "#064e3b"
+                      "tertiary-container": "#004b5c"
               },
               "borderRadius": {
                       "DEFAULT": "0.125rem",
@@ -162,8 +162,8 @@
       </script>
 <style>
         body {
-            background-color: #080A0A; /* Deep Storm base */
-            background-image: radial-gradient(circle at 50% 0%, rgba(16,185,129,0.05) 0%, transparent 70%);
+            background-color: #070c1e; /* Deep Storm base */
+            background-image: radial-gradient(circle at 50% 0%, rgba(0,210,255,0.05) 0%, transparent 70%);
             color: theme('colors.on-surface');
         }
         
@@ -171,7 +171,7 @@
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(0, 210, 255, 0.2);
             box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.05);
         }
         
@@ -181,7 +181,7 @@
             top: 0; left: 0; right: 0; bottom: 0;
             border-radius: inherit;
             padding: 1px;
-            background: linear-gradient(135deg, rgba(16,185,129,0.5) 0%, rgba(255,198,64,0.2) 50%, transparent 100%);
+            background: linear-gradient(135deg, rgba(0,210,255,0.5) 0%, rgba(229,169,60,0.2) 50%, transparent 100%);
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
@@ -196,7 +196,7 @@
         }
         
         .bolt-btn:hover {
-            box-shadow: 0 0 15px rgba(16,185,129,0.6);
+            box-shadow: 0 0 15px rgba(0,210,255,0.6);
             transform: translateY(-2px);
         }
 
@@ -208,7 +208,7 @@
         }
         
         .ghost-btn:hover {
-            background: rgba(16,185,129,0.1);
+            background: rgba(0,210,255,0.1);
         }
 
         .input-circuit {
@@ -219,7 +219,7 @@
         
         .input-circuit:focus-within {
             border-color: theme('colors.tertiary');
-            box-shadow: 0 0 10px rgba(16,185,129,0.2);
+            box-shadow: 0 0 10px rgba(0,210,255,0.2);
         }
 
         /* Nav active state override for semantic mapping to 'Pay' */
@@ -294,8 +294,8 @@
   </head>
 <body class="min-h-screen flex flex-col font-body-md text-body-md selection:bg-tertiary selection:text-black">
 <!-- TopAppBar -->
-<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] flex items-center justify-between px-margin-mobile h-16 w-full hidden md:flex">
-<div class="flex items-center gap-2 text-secondary font-headline-md text-headline-md-mobile drop-shadow-[0_0_8px_rgba(255,198,64,0.4)]">
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(0,210,255,0.2)] flex items-center justify-between px-margin-mobile h-16 w-full hidden md:flex">
+<div class="flex items-center gap-2 text-secondary font-headline-md text-headline-md-mobile drop-shadow-[0_0_8px_rgba(229,169,60,0.4)]">
 <img src="../logo.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
 <span class="font-headline-md text-headline-md tracking-tight uppercase">ZEUS IOT</span>
 </div>
@@ -331,7 +331,7 @@
 <!-- Payment Panel -->
 <div class="glass-panel rounded-xl p-8 flex flex-col items-center relative overflow-hidden group">
 <!-- Power Indicator Line -->
-<div class="absolute top-0 left-0 w-full h-1 bg-secondary shadow-[0_0_10px_rgba(255,198,64,0.8)]"></div>
+<div class="absolute top-0 left-0 w-full h-1 bg-secondary shadow-[0_0_10px_rgba(229,169,60,0.8)]"></div>
 <h2 class="font-headline-md text-headline-md text-on-surface mb-6 self-start flex items-center gap-2">
 <span class="material-symbols-outlined text-secondary">qr_code_scanner</span>
                     Scan &amp; Pay
@@ -365,7 +365,7 @@
 <!-- Verification Panel -->
 <div class="glass-panel rounded-xl p-8 flex flex-col relative">
 <!-- Power Indicator Line -->
-<div class="absolute top-0 left-0 w-full h-1 bg-tertiary shadow-[0_0_10px_rgba(16,185,129,0.5)]"></div>
+<div class="absolute top-0 left-0 w-full h-1 bg-tertiary shadow-[0_0_10px_rgba(0,210,255,0.5)]"></div>
 <h2 class="font-headline-md text-headline-md text-on-surface mb-6 flex items-center gap-2">
 <span class="material-symbols-outlined text-tertiary">verified</span>
                     Verification
@@ -395,7 +395,7 @@
 </div>
 </main>
 <!-- BottomNavBar (Mobile Only) -->
-<nav class="md:hidden fixed bottom-0 w-full z-50 bg-surface-container/90 backdrop-blur-xl rounded-t-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(16,185,129,0.15)] flex justify-around items-center py-2 px-4 pb-safe">
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-surface-container/90 backdrop-blur-xl rounded-t-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(0,210,255,0.15)] flex justify-around items-center py-2 px-4 pb-safe">
 <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 transition-colors duration-150 rounded-xl px-3 py-1 font-label-caps text-label-caps" href="#">
 <span class="material-symbols-outlined">home</span>
             Home
@@ -425,7 +425,7 @@
 </footer>
 
 <!-- Fullscreen QR Modal -->
-<div id="qr-modal" class="fixed inset-0 z-50 hidden flex flex-col items-center justify-center bg-[#080A0A]/95 backdrop-blur-md transition-all duration-300 opacity-0 px-4 py-8">
+<div id="qr-modal" class="fixed inset-0 z-50 hidden flex flex-col items-center justify-center bg-[#070c1e]/95 backdrop-blur-md transition-all duration-300 opacity-0 px-4 py-8">
   <div class="relative w-full max-w-md flex flex-col items-center">
     <!-- Close Button -->
     <button id="close-modal" class="absolute top-[-3.5rem] right-0 flex items-center justify-center w-10 h-10 rounded-full bg-[#1d2022] border border-[#45464d] hover:border-tertiary text-on-surface hover:text-tertiary transition-all duration-200 shadow-lg active:scale-95">
@@ -433,7 +433,7 @@
     </button>
     
     <!-- Modal Card Wrapper -->
-    <div class="bg-white rounded-2xl p-5 shadow-2xl relative w-full aspect-square flex items-center justify-center border-2 border-tertiary shadow-[0_0_30px_rgba(16,185,129,0.3)]">
+    <div class="bg-white rounded-2xl p-5 shadow-2xl relative w-full aspect-square flex items-center justify-center border-2 border-tertiary shadow-[0_0_30px_rgba(0,210,255,0.3)]">
       <!-- Corner Accents inside modal for consistency -->
       <div class="absolute top-2 left-2 w-6 h-6 border-t-4 border-l-4 border-tertiary rounded-tl-md"></div>
       <div class="absolute top-2 right-2 w-6 h-6 border-t-4 border-r-4 border-tertiary rounded-tr-md"></div>

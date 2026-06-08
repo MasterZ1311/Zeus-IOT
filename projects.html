@@ -28,23 +28,23 @@
       theme: {
         extend: {
           colors: {
-            "surface-dim": "#080A0A", "on-tertiary-fixed": "#022c22", "tertiary": "#10B981",
+            "surface-dim": "#050816", "on-tertiary-fixed": "#002a35", "tertiary": "#00d2ff",
             "on-surface-variant": "#c6c6cd", "on-error-container": "#ffdad6",
-            "surface-container-highest": "#1d1f1d", "outline": "#7a807a", "background": "#080A0A",
-            "surface-container": "#111311", "inverse-primary": "#565e74", "primary-fixed-dim": "#bec6e0",
-            "surface-container-high": "#161816", "inverse-on-surface": "#2d3133",
+            "surface-container-highest": "#17254a", "outline": "#4f6190", "background": "#070c1e",
+            "surface-container": "#0b132b", "inverse-primary": "#565e74", "primary-fixed-dim": "#bec6e0",
+            "surface-container-high": "#111c3a", "inverse-on-surface": "#2d3133",
             "on-primary-container": "#798098", "secondary-fixed-dim": "#f9bd22",
-            "primary-container": "#0f172a", "tertiary-container": "#064e3b", "surface-tint": "#bec6e0",
-            "on-tertiary": "#ffffff", "on-tertiary-container": "#a7f3d0", "on-primary-fixed": "#131b2e",
-            "on-tertiary-fixed-variant": "#047857", "on-surface": "#e0e3e5",
-            "surface-container-low": "#0d0f0d", "surface-container-lowest": "#050605",
-            "primary": "#bec6e0", "tertiary-fixed-dim": "#10B981", "outline-variant": "#272927",
-            "surface": "#080A0A", "inverse-surface": "#e0e3e5", "surface-variant": "#323537",
-            "on-secondary-fixed-variant": "#5c4300", "error": "#ffb4ab", "tertiary-fixed": "#a7f3d0",
-            "primary-fixed": "#dae2fd", "surface-bright": "#222422", "on-secondary-container": "#5a4100",
+            "primary-container": "#070c1e", "tertiary-container": "#004b5c", "surface-tint": "#bec6e0",
+            "on-tertiary": "#ffffff", "on-tertiary-container": "#b9f3ff", "on-primary-fixed": "#131b2e",
+            "on-tertiary-fixed-variant": "#007b96", "on-surface": "#e0e3e5",
+            "surface-container-low": "#080e20", "surface-container-lowest": "#03050c",
+            "primary": "#bec6e0", "tertiary-fixed-dim": "#00d2ff", "outline-variant": "#1e2d5a",
+            "surface": "#070c1e", "inverse-surface": "#e0e3e5", "surface-variant": "#111c3a",
+            "on-secondary-fixed-variant": "#5c4300", "error": "#ffb4ab", "tertiary-fixed": "#b9f3ff",
+            "primary-fixed": "#dae2fd", "surface-bright": "#101b3a", "on-secondary-container": "#5a4100",
             "on-primary-fixed-variant": "#3f465c", "on-primary": "#283044", "on-background": "#e0e3e5",
             "secondary-container": "#e3aa00", "on-error": "#690005", "on-secondary-fixed": "#261a00",
-            "secondary-fixed": "#ffdf9f", "secondary": "#ffc640", "error-container": "#93000a",
+            "secondary-fixed": "#ffdf9f", "secondary": "#e5a93c", "error-container": "#93000a",
             "on-secondary": "#402d00"
           },
           borderRadius: { DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem" },
@@ -70,27 +70,27 @@
   </script>
   <style>
     body {
-      background-color: #080A0A;
-      background-image: radial-gradient(circle at 30% -10%, rgba(16, 185, 129, 0.12) 0%, transparent 50%),
-        radial-gradient(circle at 90% 90%, rgba(255, 198, 64, 0.06) 0%, transparent 50%);
+      background-color: #070c1e;
+      background-image: radial-gradient(circle at 30% -10%, rgba(0, 210, 255, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 90% 90%, rgba(229, 169, 60, 0.06) 0%, transparent 50%);
       min-height: 100vh;
     }
 
     .glow-text {
-      text-shadow: 0 0 8px rgba(255, 198, 64, 0.4);
+      text-shadow: 0 0 8px rgba(229, 169, 60, 0.4);
     }
 
     /* Search input */
     .search-input {
       background: rgba(0, 0, 0, 0.25);
-      border: 1px solid rgba(16, 185, 129, 0.2);
+      border: 1px solid rgba(0, 210, 255, 0.2);
       color: #e0e3e5;
       transition: all 0.3s ease;
     }
 
     .search-input:focus {
-      border-color: #10B981;
-      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1), 0 0 20px rgba(16, 185, 129, 0.15);
+      border-color: #00d2ff;
+      box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.1), 0 0 20px rgba(0, 210, 255, 0.15);
       outline: none;
     }
 
@@ -138,11 +138,11 @@
 
   <!-- ═══════════════════════ DESKTOP TOP NAV ═══════════════════════ -->
   <header id="desktop-nav"
-    class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] hidden md:flex items-center justify-between px-margin-desktop h-16 transition-all duration-300">
+    class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(0,210,255,0.2)] hidden md:flex items-center justify-between px-margin-desktop h-16 transition-all duration-300">
     <a href="index.html" class="flex items-center gap-2">
       <img src="logo.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
       <span
-        class="font-headline-xl text-headline-md text-secondary drop-shadow-[0_0_8px_rgba(255,198,64,0.4)] tracking-tight">ZEUS
+        class="font-headline-xl text-headline-md text-secondary drop-shadow-[0_0_8px_rgba(229,169,60,0.4)] tracking-tight">ZEUS
         IOT</span>
     </a>
     <nav class="flex items-center gap-8">
@@ -176,7 +176,7 @@
     <section class="mb-12 reveal">
       <div
         class="inline-flex items-center gap-2 bg-surface-container-high border border-outline-variant/30 rounded-full px-4 py-1.5 w-max mb-6">
-        <div class="w-2.5 h-2.5 rounded-full bg-tertiary animate-breathe shadow-[0_0_8px_rgba(16,185,129,0.6)]"></div>
+        <div class="w-2.5 h-2.5 rounded-full bg-tertiary animate-breathe shadow-[0_0_8px_rgba(0,210,255,0.6)]"></div>
         <span class="font-code-sm text-code-sm text-tertiary">100+ PROJECTS AVAILABLE</span>
       </div>
       <h1
@@ -220,14 +220,14 @@
         <div class="flex flex-col items-center justify-center py-20 text-center">
           <!-- Animated Circuit SVG -->
           <svg width="160" height="120" viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="mb-6">
-            <path d="M20 60 h 30 v -20 h 20 v 40 h 20 v -30 h 30" stroke="rgba(16,185,129,0.4)" stroke-width="2" fill="none" class="circuit-anim"/>
-            <circle cx="20" cy="60" r="4" fill="#10B981" opacity="0.5"/>
-            <circle cx="120" cy="50" r="4" fill="#ffc640" opacity="0.5"/>
+            <path d="M20 60 h 30 v -20 h 20 v 40 h 20 v -30 h 30" stroke="rgba(0,210,255,0.4)" stroke-width="2" fill="none" class="circuit-anim"/>
+            <circle cx="20" cy="60" r="4" fill="#00d2ff" opacity="0.5"/>
+            <circle cx="120" cy="50" r="4" fill="#e5a93c" opacity="0.5"/>
             <path d="M80 10 L70 30 H80 L72 50 L95 25 H82 L88 10 Z" fill="url(#noResultGrad)" class="bolt-strike"/>
             <defs>
               <linearGradient id="noResultGrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#ffc640"/>
-                <stop offset="100%" stop-color="#10B981"/>
+                <stop offset="0%" stop-color="#e5a93c"/>
+                <stop offset="100%" stop-color="#00d2ff"/>
               </linearGradient>
             </defs>
           </svg>
@@ -260,7 +260,7 @@
 
   <!-- ═══════════════════════ MOBILE BOTTOM NAV ═══════════════════════ -->
   <nav
-    class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(16,185,129,0.15)] pb-safe">
+    class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(0,210,255,0.15)] pb-safe">
     <div class="flex justify-around items-center py-2 px-4">
       <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150"
         href="index.html">
@@ -929,7 +929,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           <div class="flex items-center justify-between md:justify-end gap-6 flex-shrink-0 border-t border-outline-variant/20 pt-3 md:pt-0 md:border-0">
             <div class="flex items-center gap-1.5">
-              <div class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.6)]"></div>
+              <div class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse shadow-[0_0_8px_rgba(0,210,255,0.6)]"></div>
               <span class="font-code-sm text-[10px] text-tertiary uppercase tracking-wider">Active</span>
             </div>
             <a href="contact.html?project=${encodeURIComponent(p.title)}" class="btn-thunderbolt font-label-caps text-[11px] px-4 py-2 uppercase tracking-widest flex items-center gap-1.5">

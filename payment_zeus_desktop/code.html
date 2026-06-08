@@ -16,42 +16,42 @@
           theme: {
             extend: {
               "colors": {
-                      "surface-dim": "#080A0A",
-                      "on-tertiary-fixed": "#022c22",
-                      "tertiary": "#10B981",
+                      "surface-dim": "#070c1e",
+                      "on-tertiary-fixed": "#002a35",
+                      "tertiary": "#00d2ff",
                       "on-surface-variant": "#c6c6cd",
                       "on-error-container": "#ffdad6",
-                      "surface-container-highest": "#1d1f1d",
-                      "outline": "#7a807a",
-                      "background": "#080A0A",
-                      "surface-container": "#111311",
+                      "surface-container-highest": "#17254a",
+                      "outline": "#4f6190",
+                      "background": "#070c1e",
+                      "surface-container": "#0b132b",
                       "inverse-primary": "#565e74",
                       "primary-fixed-dim": "#bec6e0",
-                      "surface-container-high": "#161816",
+                      "surface-container-high": "#111c3a",
                       "inverse-on-surface": "#2d3133",
                       "on-primary-container": "#798098",
                       "secondary-fixed-dim": "#f9bd22",
                       "primary-container": "#0f172a",
-                      "tertiary-container": "#064e3b",
+                      "tertiary-container": "#004b5c",
                       "surface-tint": "#bec6e0",
                       "on-tertiary": "#ffffff",
-                      "on-tertiary-container": "#a7f3d0",
+                      "on-tertiary-container": "#b9f3ff",
                       "on-primary-fixed": "#131b2e",
-                      "on-tertiary-fixed-variant": "#047857",
+                      "on-tertiary-fixed-variant": "#007b96",
                       "on-surface": "#e0e3e5",
-                      "surface-container-low": "#0d0f0d",
-                      "surface-container-lowest": "#050605",
+                      "surface-container-low": "#080e20",
+                      "surface-container-lowest": "#03050c",
                       "primary": "#bec6e0",
-                      "tertiary-fixed-dim": "#10B981",
-                      "outline-variant": "#272927",
-                      "surface": "#080A0A",
+                      "tertiary-fixed-dim": "#00d2ff",
+                      "outline-variant": "#1e2d5a",
+                      "surface": "#070c1e",
                       "inverse-surface": "#e0e3e5",
                       "surface-variant": "#323537",
                       "on-secondary-fixed-variant": "#5c4300",
                       "error": "#ffb4ab",
-                      "tertiary-fixed": "#a7f3d0",
+                      "tertiary-fixed": "#b9f3ff",
                       "primary-fixed": "#dae2fd",
-                      "surface-bright": "#222422",
+                      "surface-bright": "#101b3a",
                       "on-secondary-container": "#5a4100",
                       "on-primary-fixed-variant": "#3f465c",
                       "on-primary": "#283044",
@@ -60,7 +60,7 @@
                       "on-error": "#690005",
                       "on-secondary-fixed": "#261a00",
                       "secondary-fixed": "#ffdf9f",
-                      "secondary": "#ffc640",
+                      "secondary": "#e5a93c",
                       "error-container": "#93000a",
                       "on-secondary": "#402d00"
               },
@@ -171,8 +171,8 @@
 <style>
         /* Custom Circuitry Pattern for Background */
         .bg-storm {
-            background-color: #080A0A;
-            background-image: radial-gradient(rgba(16, 185, 129, 0.05) 1px, transparent 1px), radial-gradient(rgba(16, 185, 129, 0.05) 1px, transparent 1px);
+            background-color: #070c1e;
+            background-image: radial-gradient(rgba(0, 210, 255, 0.05) 1px, transparent 1px), radial-gradient(rgba(0, 210, 255, 0.05) 1px, transparent 1px);
             background-size: 40px 40px;
             background-position: 0 0, 20px 20px;
         }
@@ -183,8 +183,8 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-top: 1px solid rgba(16, 185, 129, 0.3);
-            border-left: 1px solid rgba(255, 198, 64, 0.3);
+            border-top: 1px solid rgba(0, 210, 255, 0.3);
+            border-left: 1px solid rgba(229, 169, 60, 0.3);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
         }
 
@@ -200,7 +200,7 @@
             content: '';
             position: absolute;
             top: -2px; left: -2px; right: -2px; bottom: -2px;
-            background: linear-gradient(45deg, #10B981, transparent, #ffc640, transparent);
+            background: linear-gradient(45deg, #00d2ff, transparent, #e5a93c, transparent);
             z-index: -1;
             border-radius: 14px;
             animation: animateBorder 4s linear infinite;
@@ -218,8 +218,8 @@
             left: 0;
             right: 0;
             height: 2px;
-            background: #10B981;
-            box-shadow: 0 0 10px #10B981, 0 0 20px #10B981;
+            background: #00d2ff;
+            box-shadow: 0 0 10px #00d2ff, 0 0 20px #00d2ff;
             animation: scan 2s linear infinite;
         }
 
@@ -239,7 +239,7 @@
             transform: skewX(10deg);
         }
         .btn-thunderbolt:hover {
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.6);
             transform: skewX(-10deg) translateY(-2px);
         }
         
@@ -247,7 +247,7 @@
             transition: all 0.3s ease;
         }
         .btn-ghost:hover {
-            background-color: rgba(16, 185, 129, 0.1);
+            background-color: rgba(0, 210, 255, 0.1);
         }
 
         /* Input Field */
@@ -255,17 +255,17 @@
             transition: all 0.3s ease;
         }
         .input-circuit:focus-within {
-            border-color: #10B981;
-            box-shadow: 0 0 10px rgba(16, 185, 129, 0.2) inset, 0 0 10px rgba(16, 185, 129, 0.3);
+            border-color: #00d2ff;
+            box-shadow: 0 0 10px rgba(0, 210, 255, 0.2) inset, 0 0 10px rgba(0, 210, 255, 0.3);
         }
     </style>
 </head>
 <body class="bg-storm text-on-surface min-h-screen flex flex-col font-body-lg text-body-lg selection:bg-tertiary selection:text-on-tertiary">
 <!-- TopAppBar (Transactional - Hidden Nav Links) -->
-<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] flex items-center justify-between px-margin-desktop h-16">
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(0,210,255,0.2)] flex items-center justify-between px-margin-desktop h-16">
 <div class="flex items-center gap-2">
 <img src="../logo.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
-<span class="font-headline-md text-headline-md text-secondary drop-shadow-[0_0_8px_rgba(255,198,64,0.4)] tracking-tight">ZEUS IOT</span>
+<span class="font-headline-md text-headline-md text-secondary drop-shadow-[0_0_8px_rgba(229,169,60,0.4)] tracking-tight">ZEUS IOT</span>
 </div>
 <div class="flex items-center gap-2 text-on-surface-variant">
 <span class="material-symbols-outlined text-tertiary">lock</span>
@@ -375,7 +375,7 @@
     </button>
     
     <!-- Modal Card Wrapper -->
-    <div class="bg-white rounded-2xl p-5 shadow-2xl relative w-full aspect-square flex items-center justify-center border-2 border-tertiary shadow-[0_0_30px_rgba(16,185,129,0.3)]">
+    <div class="bg-white rounded-2xl p-5 shadow-2xl relative w-full aspect-square flex items-center justify-center border-2 border-tertiary shadow-[0_0_30px_rgba(0,210,255,0.3)]">
       <!-- Corner Accents inside modal for consistency -->
       <div class="absolute top-2 left-2 w-6 h-6 border-t-4 border-l-4 border-tertiary rounded-tl-md"></div>
       <div class="absolute top-2 right-2 w-6 h-6 border-t-4 border-r-4 border-tertiary rounded-tr-md"></div>

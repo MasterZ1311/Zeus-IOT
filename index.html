@@ -26,23 +26,23 @@ tailwind.config = {
     extend: {
       colors: {
         "pro-purple":"#d946ef",
-        "surface-dim":"#080A0A","on-tertiary-fixed":"#022c22","tertiary":"#10B981",
+        "surface-dim":"#050816","on-tertiary-fixed":"#002a35","tertiary":"#00d2ff",
         "on-surface-variant":"#c6c6cd","on-error-container":"#ffdad6",
-        "surface-container-highest":"#1d1f1d","outline":"#7a807a","background":"#080A0A",
-        "surface-container":"#111311","inverse-primary":"#565e74","primary-fixed-dim":"#bec6e0",
-        "surface-container-high":"#161816","inverse-on-surface":"#2d3133",
+        "surface-container-highest":"#17254a","outline":"#4f6190","background":"#070c1e",
+        "surface-container":"#0b132b","inverse-primary":"#565e74","primary-fixed-dim":"#bec6e0",
+        "surface-container-high":"#111c3a","inverse-on-surface":"#2d3133",
         "on-primary-container":"#798098","secondary-fixed-dim":"#f9bd22",
-        "primary-container":"#0f172a","tertiary-container":"#064e3b","surface-tint":"#bec6e0",
-        "on-tertiary":"#ffffff","on-tertiary-container":"#a7f3d0","on-primary-fixed":"#131b2e",
-        "on-tertiary-fixed-variant":"#047857","on-surface":"#e0e3e5",
-        "surface-container-low":"#0d0f0d","surface-container-lowest":"#050605",
-        "primary":"#bec6e0","tertiary-fixed-dim":"#10B981","outline-variant":"#272927",
-        "surface":"#080A0A","inverse-surface":"#e0e3e5","surface-variant":"#323537",
-        "on-secondary-fixed-variant":"#5c4300","error":"#ffb4ab","tertiary-fixed":"#a7f3d0",
-        "primary-fixed":"#dae2fd","surface-bright":"#222422","on-secondary-container":"#5a4100",
+        "primary-container":"#070c1e","tertiary-container":"#004b5c","surface-tint":"#bec6e0",
+        "on-tertiary":"#ffffff","on-tertiary-container":"#b9f3ff","on-primary-fixed":"#131b2e",
+        "on-tertiary-fixed-variant":"#007b96","on-surface":"#e0e3e5",
+        "surface-container-low":"#080e20","surface-container-lowest":"#03050c",
+        "primary":"#bec6e0","tertiary-fixed-dim":"#00d2ff","outline-variant":"#1e2d5a",
+        "surface":"#070c1e","inverse-surface":"#e0e3e5","surface-variant":"#111c3a",
+        "on-secondary-fixed-variant":"#5c4300","error":"#ffb4ab","tertiary-fixed":"#b9f3ff",
+        "primary-fixed":"#dae2fd","surface-bright":"#101b3a","on-secondary-container":"#5a4100",
         "on-primary-fixed-variant":"#3f465c","on-primary":"#283044","on-background":"#e0e3e5",
         "secondary-container":"#e3aa00","on-error":"#690005","on-secondary-fixed":"#261a00",
-        "secondary-fixed":"#ffdf9f","secondary":"#ffc640","error-container":"#93000a",
+        "secondary-fixed":"#ffdf9f","secondary":"#e5a93c","error-container":"#93000a",
         "on-secondary":"#402d00"
       },
       borderRadius:{DEFAULT:"0.125rem",lg:"0.25rem",xl:"0.5rem",full:"0.75rem"},
@@ -68,25 +68,25 @@ tailwind.config = {
 </script>
 <style>
 body {
-  background-color: #080A0A;
-  background-image: radial-gradient(circle at 50% -20%, rgba(16,185,129,0.1) 0%, transparent 50%),
-                    radial-gradient(circle at 100% 100%, rgba(255,198,64,0.05) 0%, transparent 50%);
+  background-color: #070c1e;
+  background-image: radial-gradient(circle at 50% -20%, rgba(0,210,255,0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 100% 100%, rgba(229,169,60,0.05) 0%, transparent 50%);
   min-height: 100vh;
 }
 .glass-panel-glow {
-  border-top: 1px solid rgba(16,185,129,0.3);
-  border-left: 1px solid rgba(255,198,64,0.2);
+  border-top: 1px solid rgba(0,210,255,0.3);
+  border-left: 1px solid rgba(229,169,60,0.2);
   box-shadow: 0 4px 30px rgba(0,0,0,0.1);
 }
-.bolt-active { border-top: 2px solid #ffc640; box-shadow: inset 0 1px 10px rgba(255,198,64,0.15); }
-.bolt-standby { border-top: 2px solid #10B981; }
+.bolt-active { border-top: 2px solid #e5a93c; box-shadow: inset 0 1px 10px rgba(229,169,60,0.15); }
+.bolt-standby { border-top: 2px solid #00d2ff; }
 .bolt-pro { border-top: 2px solid #d946ef; box-shadow: inset 0 1px 10px rgba(217,70,239,0.15); }
 .pricing-pro:hover {
   box-shadow: 0 0 35px rgba(217,70,239,0.18), inset 0 0 15px rgba(217,70,239,0.05) !important;
   border-color: rgba(217,70,239,0.4) !important;
 }
-.glow-text { text-shadow: 0 0 8px rgba(255,198,64,0.4); }
-.glow-text-cyan { text-shadow: 0 0 10px rgba(16,185,129,0.4); }
+.glow-text { text-shadow: 0 0 8px rgba(229,169,60,0.4); }
+.glow-text-cyan { text-shadow: 0 0 10px rgba(0,210,255,0.4); }
 /* SVG chart animation */
 .dash-anim { stroke-dasharray: 200; stroke-dashoffset: 200; animation: dash 3s ease-out forwards; }
 @keyframes dash { to { stroke-dashoffset: 0; } }
@@ -94,16 +94,16 @@ body {
 .protocol-card { position: relative; overflow: hidden; }
 .protocol-card::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, #10B981, #ffc640); opacity: 0;
+  background: linear-gradient(90deg, #00d2ff, #e5a93c); opacity: 0;
   transition: opacity 0.3s ease;
 }
 .protocol-card:hover::before { opacity: 1; }
 /* Hardware card shimmer */
 .hardware-icon {
   width: 80px; height: 80px; border-radius: 12px;
-  background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(255,198,64,0.1));
+  background: linear-gradient(135deg, rgba(0,210,255,0.1), rgba(229,169,60,0.1));
   display: flex; align-items: center; justify-content: center;
-  border: 1px solid rgba(16,185,129,0.2);
+  border: 1px solid rgba(0,210,255,0.2);
 }
 /* FAQ accordion */
 .faq-answer {
@@ -119,8 +119,8 @@ body {
 
 /* Pricing card featured */
 .pricing-featured {
-  border-color: rgba(255,198,64,0.4) !important;
-  box-shadow: 0 0 40px rgba(255,198,64,0.1), 0 0 80px rgba(16,185,129,0.05);
+  border-color: rgba(229,169,60,0.4) !important;
+  box-shadow: 0 0 40px rgba(229,169,60,0.1), 0 0 80px rgba(0,210,255,0.05);
   transform: scale(1.03);
 }
 .pricing-featured:hover { transform: scale(1.05) translateY(-4px) !important; }
@@ -149,7 +149,7 @@ body {
   transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
 }
 .preview-card:hover {
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(16,185,129,0.15);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(0,210,255,0.15);
 }
 
 /* Typewriter cursor */
@@ -157,7 +157,7 @@ body {
   display: inline-block;
   width: 3px;
   height: 1.1em;
-  background: #ffc640;
+  background: #e5a93c;
   margin-left: 4px;
   vertical-align: middle;
   animation: blink 1s ease-in-out infinite;
@@ -1121,7 +1121,7 @@ const timelineObserver = new IntersectionObserver((entries) => {
       const connectors = document.querySelectorAll('.timeline-connector');
       connectors.forEach((c, i) => { setTimeout(() => c.classList.add('visible'), i * 400 + 300); });
       const dots = document.querySelectorAll('.timeline-dot');
-      dots.forEach((d, i) => { setTimeout(() => { d.style.borderColor = i === 0 ? '#ffc640' : '#10B981'; d.style.boxShadow = `0 0 20px rgba(${i === 0 ? '255,198,64' : '47,217,244'},0.3)`; }, i * 400); });
+      dots.forEach((d, i) => { setTimeout(() => { d.style.borderColor = i === 0 ? '#e5a93c' : '#00d2ff'; d.style.boxShadow = `0 0 20px rgba(${i === 0 ? '229,169,60' : '0,210,255'},0.3)`; }, i * 400); });
     }
   });
 }, { threshold: 0.3 });

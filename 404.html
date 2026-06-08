@@ -8,6 +8,16 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>404 — Page Not Found | ZEUS IOT</title>
+<meta name="description" content="This page doesn't exist. Let's get you back on track."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="shared-styles.css?v=2"/>
 <script>
 tailwind.config = {
@@ -15,9 +25,9 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        "tertiary":"#10B981","surface-container":"#111311","surface-container-low":"#0d0f0d",
-        "surface-container-lowest":"#050605","on-surface":"#e0e3e5","on-surface-variant":"#c6c6cd",
-        "surface":"#080A0A","secondary":"#ffc640","outline-variant":"#272927","error":"#ffb4ab"
+        "tertiary":"#00d2ff","surface-container":"#0b132b","surface-container-low":"#080e20",
+        "surface-container-lowest":"#03050c","on-surface":"#e0e3e5","on-surface-variant":"#c6c6cd",
+        "surface":"#070c1e","secondary":"#e5a93c","outline-variant":"#1e2d5a","error":"#ffb4ab"
       },
       fontFamily:{"body-lg":["Inter"],"headline-xl":["Montserrat"],"headline-md":["Montserrat"],"code-sm":["JetBrains Mono"],"label-caps":["JetBrains Mono"]}
     }
@@ -25,16 +35,16 @@ tailwind.config = {
 }
 </script>
 <style>
-body { background-color: #0b0f10; min-height: 100vh; }
+body { background-color: #070c1e; min-height: 100vh; }
 .glitch {
   position: relative;
-  color: #ffc640;
+  color: #e5a93c;
   font-size: clamp(100px, 20vw, 200px);
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.04em;
-  filter: drop-shadow(0 0 30px rgba(255,198,64,0.5));
+  filter: drop-shadow(0 0 30px rgba(229,169,60,0.5));
 }
 .glitch::before, .glitch::after {
   content: '404';
@@ -43,7 +53,7 @@ body { background-color: #0b0f10; min-height: 100vh; }
   width: 100%; height: 100%;
 }
 .glitch::before {
-  color: #10B981;
+  color: #00d2ff;
   animation: glitch-1 3s infinite;
   clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
 }
@@ -77,7 +87,7 @@ body { background-color: #0b0f10; min-height: 100vh; }
       Looks like this node went offline. The page you're looking for doesn't exist or has been moved.
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="index.html" class="inline-flex items-center justify-center gap-2 bg-secondary text-[#0b0f10] font-bold px-6 py-3 rounded font-label-caps uppercase tracking-widest hover:bg-secondary/90 transition-all shadow-[0_0_20px_rgba(255,198,64,0.3)]">
+      <a href="index.html" class="inline-flex items-center justify-center gap-2 bg-secondary text-[#050816] font-bold px-6 py-3 rounded font-label-caps uppercase tracking-widest hover:bg-secondary/90 transition-all shadow-[0_0_20px_rgba(229,169,60,0.3)]">
         <span class="material-symbols-outlined text-[18px]">home</span> Return Home
       </a>
       <a href="contact.html" class="inline-flex items-center justify-center gap-2 border border-tertiary/30 text-tertiary font-bold px-6 py-3 rounded font-label-caps uppercase tracking-widest hover:bg-tertiary/10 transition-all">
@@ -89,7 +99,7 @@ body { background-color: #0b0f10; min-height: 100vh; }
     </div>
   </div>
 <!-- ═══════════════════════ MOBILE BOTTOM NAV ═══════════════════════ -->
-<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(16,185,129,0.15)] pb-safe">
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(0,210,255,0.15)] pb-safe">
   <div class="flex justify-around items-center py-2 px-4">
     <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="index.html">
       <span class="material-symbols-outlined">home</span>

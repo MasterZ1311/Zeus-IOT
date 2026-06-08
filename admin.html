@@ -14,17 +14,17 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        "tertiary":"#10B981",
-        "surface-container-highest":"#1d1f1d",
-        "surface-container":"#111311",
-        "surface-container-high":"#161816",
+        "tertiary":"#00d2ff",
+        "surface-container-highest":"#17254a",
+        "surface-container":"#0b132b",
+        "surface-container-high":"#111c3a",
         "on-surface":"#e0e3e5",
-        "surface-container-low":"#0d0f0d",
-        "surface-container-lowest":"#050605",
+        "surface-container-low":"#080e20",
+        "surface-container-lowest":"#03050c",
         "primary":"#bec6e0",
-        "surface":"#080A0A",
+        "surface":"#070c1e",
         "on-surface-variant":"#c6c6cd",
-        "secondary":"#ffc640",
+        "secondary":"#e5a93c",
       },
       fontFamily:{
         "body-lg":["Inter"],
@@ -38,12 +38,12 @@ tailwind.config = {
 </script>
 <style>
 body {
-  background-color: #0b0f10;
+  background-color: #070c1e;
   min-height: 100vh;
 }
 /* Modal background overlay */
 #project-modal {
-  background: rgba(11, 15, 16, 0.85);
+  background: rgba(7, 12, 30, 0.85);
   backdrop-filter: blur(5px);
 }
 /* Simple toast notification */
@@ -53,7 +53,7 @@ body {
   right: 20px;
   padding: 12px 24px;
   border-radius: 8px;
-  color: #0b0f10;
+  color: #050816;
   font-weight: 600;
   transform: translateY(100px);
   opacity: 0;
@@ -64,7 +64,7 @@ body {
   transform: translateY(0);
   opacity: 1;
 }
-.toast-success { background: #4ade80; }
+.toast-success { background: #00d2ff; }
 .toast-error { background: #ef4444; color: white; }
 </style>
 </head>
@@ -105,7 +105,7 @@ body {
         </button>
         <h1 id="section-title" class="font-headline-md text-[18px] md:text-[20px]">Project Management</h1>
       </div>
-      <button id="add-project-btn" class="bg-secondary text-surface-container-lowest font-bold px-3 py-1.5 md:px-4 md:py-2 rounded hover:bg-secondary-fixed transition-colors flex items-center gap-1 md:gap-2 text-[12px] md:text-sm shadow-[0_0_10px_rgba(255,198,64,0.3)]">
+      <button id="add-project-btn" class="bg-secondary text-surface-container-lowest font-bold px-3 py-1.5 md:px-4 md:py-2 rounded hover:bg-secondary-fixed transition-colors flex items-center gap-1 md:gap-2 text-[12px] md:text-sm shadow-[0_0_10px_rgba(229,169,60,0.3)]">
         <span class="material-symbols-outlined text-[16px] md:text-[18px]">add</span> <span class="hidden md:inline">Add Project</span><span class="md:hidden">Add</span>
       </button>
     </header>
@@ -399,7 +399,7 @@ body {
         return;
       }
 
-      const typeColors = { 'Contact Request': '#10B981', 'Report Request': '#ffc640', 'Learning Session': '#4ade80' };
+      const typeColors = { 'Contact Request': '#00d2ff', 'Report Request': '#e5a93c', 'Learning Session': '#00d2ff' };
       const typeIcons = { 'Contact Request': 'devices', 'Report Request': 'description', 'Learning Session': 'school' };
 
       list.innerHTML = messages.map(msg => `
@@ -469,7 +469,7 @@ body {
   }
 
   <!-- ═══════════════════════ MOBILE BOTTOM NAV ═══════════════════════ -->
-  <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(16,185,129,0.15)] pb-safe">
+  <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(0,210,255,0.15)] pb-safe">
     <div class="flex justify-around items-center py-2 px-4">
       <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="index.html">
         <span class="material-symbols-outlined">home</span>
