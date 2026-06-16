@@ -177,6 +177,14 @@ body {
           <span id="error-message">Invalid username or password.</span>
         </div>
 
+        <!-- Username -->
+        <div>
+          <div class="login-input-group relative">
+            <input id="username" class="login-input pr-12" type="text" placeholder=" " required autocomplete="username"/>
+            <label class="login-input-label" for="username">Username</label>
+          </div>
+        </div>
+
         <!-- Password -->
         <div>
           <div class="login-input-group relative">
@@ -298,7 +306,7 @@ body {
       lLabel.textContent = 'VERIFYING...';
       lIcon.textContent = 'autorenew';
 
-      const username = 'admin';
+      const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
 
       try {
