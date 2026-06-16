@@ -70,10 +70,10 @@ export default function Home() {
           style={{ maxHeight: '75vh' }}
         >
           <img
-            src="/digital_olympus.jpg"
+            src="/logo.png"
             className="w-full object-cover object-center"
             style={{ display: 'block', maxHeight: '75vh', objectFit: 'cover' }}
-            alt="Command the Digital Olympus"
+            alt="Zeus IoT Logo"
           />
           {/* Gradient overlay so text reads on the image */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#070c1e] via-[#070c1e]/50 to-transparent pointer-events-none" />
@@ -147,7 +147,7 @@ export default function Home() {
           </div>
           {/* Mobile image card */}
           <div className="glass-panel bolt-active rounded-xl overflow-hidden w-full">
-            <img src="/digital_olympus.jpg" className="w-full h-auto" alt="Command the Digital Olympus" />
+            <img src="/logo.png" className="w-full h-auto" alt="Zeus IoT Logo" />
           </div>
         </motion.div>
       </section>
