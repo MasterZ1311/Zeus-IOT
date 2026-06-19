@@ -2,23 +2,13 @@
 <html class="dark" lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <title>404 — Page Not Found | ZEUS IOT</title>
 <meta name="description" content="This page doesn't exist. Let's get you back on track."/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>404 — Page Not Found | ZEUS IOT</title>
-<meta name="description" content="This page doesn't exist. Let's get you back on track."/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="shared-styles.css?v=2"/>
+<link rel="stylesheet" href="shared-styles.css?v=4"/>
 <script>
 tailwind.config = {
   darkMode: "class",
@@ -35,11 +25,11 @@ tailwind.config = {
 }
 </script>
 <style>
-body { background-color: #070c1e; min-height: 100vh; }
+body { background-color: #070c1e; min-height: 100vh; overscroll-behavior-y: none; }
 .glitch {
   position: relative;
   color: #e5a93c;
-  font-size: clamp(100px, 20vw, 200px);
+  font-size: clamp(80px, 18vw, 180px);
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   line-height: 1;
@@ -74,10 +64,13 @@ body { background-color: #070c1e; min-height: 100vh; }
   40% { transform: translateX(-4px); }
   60% { transform: translateX(0); }
 }
+@media (prefers-reduced-motion: reduce) {
+  .glitch::before, .glitch::after { animation: none !important; }
+}
 </style>
 </head>
 <body class="text-on-surface antialiased font-body-lg flex items-center justify-center min-h-screen px-6">
-  <div class="text-center max-w-lg pb-24">
+  <div class="text-center max-w-lg pb-28 md:pb-8">
     <div class="flex justify-center mb-4">
       <div class="glitch">404</div>
     </div>
@@ -87,10 +80,10 @@ body { background-color: #070c1e; min-height: 100vh; }
       Looks like this node went offline. The page you're looking for doesn't exist or has been moved.
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="index.html" class="inline-flex items-center justify-center gap-2 bg-secondary text-[#050816] font-bold px-6 py-3 rounded font-label-caps uppercase tracking-widest hover:bg-secondary/90 transition-all shadow-[0_0_20px_rgba(229,169,60,0.3)]">
+      <a href="index.html" class="inline-flex items-center justify-center gap-2 bg-secondary text-[#050816] font-bold px-6 py-4 rounded font-label-caps uppercase tracking-widest hover:bg-secondary/90 transition-all shadow-[0_0_20px_rgba(229,169,60,0.3)] active:scale-95">
         <span class="material-symbols-outlined text-[18px]">home</span> Return Home
       </a>
-      <a href="contact.html" class="inline-flex items-center justify-center gap-2 border border-tertiary/30 text-tertiary font-bold px-6 py-3 rounded font-label-caps uppercase tracking-widest hover:bg-tertiary/10 transition-all">
+      <a href="contact.html" class="inline-flex items-center justify-center gap-2 border border-tertiary/30 text-tertiary font-bold px-6 py-4 rounded font-label-caps uppercase tracking-widest hover:bg-tertiary/10 transition-all active:scale-95">
         <span class="material-symbols-outlined text-[18px]">support_agent</span> Contact Support
       </a>
     </div>
@@ -98,6 +91,7 @@ body { background-color: #070c1e; min-height: 100vh; }
       © 2026 ZEUS IOT — HARNESS THE BOLT
     </div>
   </div>
+
 <!-- ═══════════════════════ MOBILE BOTTOM NAV ═══════════════════════ -->
 <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(0,210,255,0.15)] pb-safe">
   <div class="flex justify-around items-center py-2 px-4">

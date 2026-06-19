@@ -2,7 +2,7 @@
 <html class="dark" lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <title>ZEUS IOT — Harness The Bolt | Custom IoT &amp; Software exclusively for College Students</title>
 <meta name="description" content="Zeus IOT is a high-tech engineering service provider specializing in custom IoT and software projects exclusively for college students. Don't just buy from us, Learn from us."/>
 <!-- Open Graph -->
@@ -18,7 +18,7 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="shared-styles.css?v=2"/>
+<link rel="stylesheet" href="shared-styles.css?v=4"/>
 <script>
 tailwind.config = {
   darkMode: "class",
@@ -109,10 +109,10 @@ body {
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s cubic-bezier(0.16,1,0.3,1), padding 0.3s ease;
+  transition: max-height 0.5s cubic-bezier(0.16,1,0.3,1), padding 0.3s ease;
 }
 .faq-answer.open {
-  max-height: 200px;
+  max-height: 500px;
 }
 .faq-icon { transition: transform 0.3s ease; }
 .faq-icon.open { transform: rotate(60deg); }
@@ -124,6 +124,10 @@ body {
   transform: scale(1.03);
 }
 .pricing-featured:hover { transform: scale(1.05) translateY(-4px) !important; }
+@media (max-width: 767px) {
+  .pricing-featured { transform: none !important; }
+  .pricing-featured:hover { transform: translateY(-3px) !important; }
+}
 
 /* Interactive creations selector */
 .creation-selector {
@@ -172,7 +176,7 @@ body {
 
 <!-- ═══════════════════════ PAGE PRELOADER ═══════════════════════ -->
 <div id="page-preloader">
-  <img src="preloader.png" class="preloader-bolt" alt="ZEUS IOT Preloader"/>
+  <img src="light-zeus.png" class="preloader-bolt" alt="ZEUS IOT Preloader"/>
   <div class="preloader-bar"><div class="preloader-fill"></div></div>
 </div>
 
@@ -199,7 +203,7 @@ body {
 <!-- ═══════════════════════ DESKTOP TOP NAV ═══════════════════════ -->
 <header id="desktop-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] hidden md:flex items-center justify-between px-margin-desktop h-16 transition-all duration-300">
   <a href="index.html" class="flex items-center gap-2">
-    <img src="logo.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
+    <img src="zeus.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
     <span class="font-headline-xl text-headline-md text-secondary drop-shadow-[0_0_8px_rgba(255,198,64,0.4)] tracking-tight">ZEUS IOT</span>
   </a>
   <nav class="flex items-center gap-8">
@@ -214,7 +218,7 @@ body {
 <!-- ═══════════════════════ MOBILE TOP NAV ═══════════════════════ -->
 <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] flex md:hidden items-center justify-between px-margin-mobile h-16" style="z-index:150;">
   <a href="index.html" class="flex items-center gap-2">
-    <img src="logo.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
+    <img src="zeus.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
     <span class="font-headline-md text-secondary glow-text">ZEUS IOT</span>
   </a>
 </header>
@@ -236,29 +240,29 @@ body {
         <span id="scramble-text" class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-tertiary">CUSTOM IOT &amp; SOFTWARE</span><span class="typewriter-cursor"></span> <br/>
         FOR THE NEXT GEN
       </h1>
-      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-8">
+      <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
         We architect raw power and precise engineering. From atmospheric sensor arrays to complex enterprise software ecosystems, we build the infrastructure that electrifies modern industry. <strong class="text-tertiary">Don't just buy from us — Learn from us.</strong>
       </p>
       <!-- CTA Buttons -->
-      <div class="flex flex-wrap gap-4">
-        <a href="projects.html" id="cta-explore" class="btn-thunderbolt font-label-caps text-label-caps px-8 py-4 uppercase tracking-widest flex items-center gap-2 active:scale-95">
+      <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+        <a href="projects.html" id="cta-explore" class="btn-thunderbolt font-label-caps text-label-caps px-8 py-4 uppercase tracking-widest flex items-center justify-center gap-2 active:scale-95 w-full sm:w-auto">
           <span>EXPLORE PROJECTS</span>
           <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
         </a>
-        <a href="contact.html" class="btn-ghost font-label-caps text-label-caps px-8 py-4 uppercase tracking-widest active:scale-95">
+        <a href="contact.html" class="btn-ghost font-label-caps text-label-caps px-8 py-4 uppercase tracking-widest active:scale-95 text-center w-full sm:w-auto">
           GET IN TOUCH
         </a>
       </div>
     </div>
 
-    <!-- ─── Hero Graphic ─── -->
-    <div class="lg:col-span-4 mt-10 lg:mt-0 relative group flex items-center justify-center">
-      <div class="glass-panel bolt-active rounded-xl p-2 w-full h-full min-h-[320px] flex flex-col items-center justify-center relative overflow-hidden transition-all duration-500 hover:border-secondary/40 shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
+    <!-- ─── Hero Graphic (Hidden on mobile to save vertical space) ─── -->
+    <div class="hidden lg:flex lg:col-span-4 mt-10 lg:mt-0 relative group items-center justify-center">
+      <div class="glass-panel bolt-active rounded-xl p-6 w-full h-full min-h-[320px] flex flex-col items-center justify-center relative overflow-hidden transition-all duration-500 hover:border-secondary/40 shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
         <div class="absolute inset-0 -z-10"></div>
         <div class="absolute -top-10 -left-10 w-40 h-40 bg-tertiary/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
         
-        <img src="logo.png" class="w-full h-full object-cover rounded-lg shadow-2xl" alt="Zeus IoT Logo"/>
+        <img src="zeus.png" class="w-full h-full object-contain rounded-full shadow-[0_0_40px_rgba(229,169,60,0.3),0_0_80px_rgba(0,210,255,0.15)] max-h-72" alt="Zeus IoT Logo"/>
       </div>
       <!-- Decorative background glow behind image -->
       <div class="absolute -inset-4 bg-gradient-to-tr from-tertiary/25 to-secondary/15 blur-2xl -z-10 rounded-full opacity-60 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -457,27 +461,27 @@ body {
         </div>
         
         <!-- The Sandbox Widget -->
-        <div class="z-10 lg:w-1/2 w-full bg-surface-container-lowest border border-outline-variant/20 rounded-xl p-6 shadow-2xl relative">
-          <div class="flex justify-between items-center border-b border-outline-variant/20 pb-4 mb-4">
+        <div class="z-10 lg:w-1/2 w-full bg-surface-container-lowest border border-outline-variant/20 rounded-xl p-4 sm:p-6 shadow-2xl relative">
+          <div class="flex justify-between items-center border-b border-outline-variant/20 pb-3 mb-3">
             <div class="font-code-sm text-sm text-on-surface font-bold tracking-widest">ESP32_CORE_01</div>
             <div class="font-code-sm text-xs text-tertiary">UPTIME: <span id="sandbox-uptime">00:00:00</span></div>
           </div>
-          <div class="grid grid-cols-2 gap-4 mb-6">
-            <div class="bg-surface-container p-4 rounded-lg border border-outline-variant/10 text-center transition-colors" id="sandbox-temp-card">
-              <div class="font-label-caps text-[10px] text-on-surface-variant mb-2 uppercase">Core Temp</div>
-              <div class="font-headline-md text-2xl text-on-surface transition-all duration-300" id="sandbox-temp">42.5°C</div>
+          <div class="grid grid-cols-2 gap-3 mb-4">
+            <div class="bg-surface-container p-3 rounded-lg border border-outline-variant/10 text-center transition-colors" id="sandbox-temp-card">
+              <div class="font-label-caps text-[9px] text-on-surface-variant mb-1 uppercase">Core Temp</div>
+              <div class="font-headline-md text-xl sm:text-2xl text-on-surface transition-all duration-300" id="sandbox-temp">42.5°C</div>
             </div>
-            <div class="bg-surface-container p-4 rounded-lg border border-outline-variant/10 text-center transition-colors" id="sandbox-load-card">
-              <div class="font-label-caps text-[10px] text-on-surface-variant mb-2 uppercase">CPU Load</div>
-              <div class="font-headline-md text-2xl text-on-surface transition-all duration-300" id="sandbox-load">12%</div>
+            <div class="bg-surface-container p-3 rounded-lg border border-outline-variant/10 text-center transition-colors" id="sandbox-load-card">
+              <div class="font-label-caps text-[9px] text-on-surface-variant mb-1 uppercase">CPU Load</div>
+              <div class="font-headline-md text-xl sm:text-2xl text-on-surface transition-all duration-300" id="sandbox-load">12%</div>
             </div>
           </div>
-          <div class="flex items-center justify-between bg-surface-container p-4 rounded-lg border border-outline-variant/20 transition-colors duration-300" id="sandbox-relay-card">
-            <div>
-              <div class="font-label-caps text-[11px] text-on-surface uppercase mb-1">Main Relay Power</div>
-              <div class="font-code-sm text-[10px] text-on-surface-variant">Controls physical hardware state</div>
+          <div class="flex items-center justify-between bg-surface-container p-3 sm:p-4 rounded-lg border border-outline-variant/20 transition-colors duration-300" id="sandbox-relay-card">
+            <div class="flex-1 min-w-0 pr-3">
+              <div class="font-label-caps text-[10px] sm:text-[11px] text-on-surface uppercase mb-1">Main Relay Power</div>
+              <div class="font-code-sm text-[9px] sm:text-[10px] text-on-surface-variant">Controls hardware state</div>
             </div>
-            <label class="relative inline-flex items-center cursor-pointer">
+            <label class="relative inline-flex items-center cursor-pointer flex-shrink-0">
               <input type="checkbox" id="sandbox-toggle" class="sr-only peer">
               <div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
             </label>
@@ -628,9 +632,19 @@ body {
     </h2>
     <p class="font-body-md text-body-md text-on-surface-variant mb-12 ml-12">A live showcase of our recent deployments. Hover or click to inspect systems.</p>
     
+    <!-- Mobile: tap selector to reveal detail panel -->
+    <div id="showcase-mobile-back" class="hidden lg:hidden mb-3">
+      <button onclick="closeMobileShowcase()" class="flex items-center gap-2 text-tertiary font-label-caps text-[11px] uppercase tracking-wider active:scale-95 transition-transform">
+        <span class="material-symbols-outlined text-[16px]">arrow_back</span> Back to Projects
+      </button>
+    </div>
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
       <!-- Left side: Project selectors (5 cols) -->
-      <div class="lg:col-span-5 flex flex-col gap-4">
+    <!-- Mobile only: tap hint for the selectors -->
+    <div id="showcase-selector-hint" class="flex lg:hidden items-center gap-1.5 mb-2 font-code-sm text-[10px] text-tertiary/70 tracking-wider">
+      <span class="material-symbols-outlined text-[13px]">touch_app</span> Tap a project to inspect its details
+    </div>
+    <div class="lg:col-span-5 flex flex-col gap-4">
         <!-- Item 1 -->
         <div class="creation-selector active glass-panel border-l-4 border-l-tertiary p-5 rounded-xl cursor-pointer transition-all duration-300 hover:bg-white/5 flex gap-4" data-project="irrigation">
           <div class="w-12 h-12 rounded-lg bg-tertiary/10 border border-tertiary/20 flex items-center justify-center text-tertiary shrink-0">
@@ -696,11 +710,12 @@ body {
       </div>
 
       <!-- Right side: Interactive showcase detail panel (7 cols) -->
-      <div class="lg:col-span-7 flex">
-        <div class="glass-panel rounded-xl overflow-hidden flex flex-col h-auto lg:h-[530px] w-full transition-all duration-500 relative" id="showcase-detail-panel">
+      <!-- On mobile: hidden by default; revealed when a project is tapped -->
+      <div class="lg:col-span-7 flex hidden lg:flex" id="showcase-detail-wrapper">
+        <div class="glass-panel rounded-xl overflow-hidden flex flex-col w-full transition-all duration-500 relative" id="showcase-detail-panel">
           <!-- Header Image (mock dashboard) -->
           <div class="h-52 relative overflow-hidden shrink-0 border-b border-white/10">
-            <img id="detail-image" src="smart_irrigation_preview.png" alt="Showcase Preview" class="w-full h-full object-cover transition-all duration-500"/>
+            <img id="detail-image" src="smart_irrigation_preview.png" alt="Showcase Preview" loading="lazy" class="w-full h-full object-cover transition-all duration-500"/>
             <div class="absolute inset-0 bg-gradient-to-t from-[#080A0A] via-[#080A0A]/40 to-transparent"></div>
             <!-- Top stats -->
             <div class="absolute top-4 left-5 bg-[#080A0A]/85 backdrop-blur-md px-3 py-1 rounded border border-white/10 flex items-center gap-2">
@@ -817,6 +832,8 @@ body {
         <a href="contact.html" class="btn-pro-purple font-label-caps text-label-caps py-3 px-6 text-center uppercase tracking-wider">GET QUOTE</a>
       </div>
     </div>
+    <!-- Carousel scroll hint (mobile only) -->
+    <div class="carousel-scroll-hint mt-2">Swipe to see all plans</div>
     <p class="text-center font-code-sm text-xs text-on-surface-variant mt-6">All prices are starting estimates. Contact us for exact project quotes on WhatsApp.</p>
   </section>
 
@@ -861,6 +878,8 @@ body {
         <p class="font-code-sm text-[11px] text-on-surface-variant tracking-wider">ATmega328P/Renesas RA4M1 | 16/48 MHz | 5V/3.3V</p>
       </div>
     </div>
+    <!-- Carousel scroll hint (mobile only) -->
+    <div class="carousel-scroll-hint mt-1">Swipe to see more</div>
     <div class="text-center mt-8">
       <a href="projects.html" class="inline-flex items-center gap-2 text-secondary font-label-caps text-label-caps uppercase hover:gap-4 transition-all duration-300">
         VIEW ALL HARDWARE <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
@@ -918,6 +937,8 @@ body {
         <p class="font-body-md text-body-md text-on-surface-variant">Cat-M1 cellular connectivity for asset tracking and mobile IoT applications requiring moderate throughput.</p>
       </div>
     </div>
+    <!-- Carousel scroll hint (mobile only) -->
+    <div class="carousel-scroll-hint mt-1">Swipe to explore</div>
   </section>
 
   <!-- ─────────── LEARN FROM US ─────────── -->
@@ -1019,28 +1040,6 @@ body {
 
 </main>
 
-<!-- ═══════════════════════ MOBILE BOTTOM NAV ═══════════════════════ -->
-<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(16,185,129,0.15)] pb-safe">
-  <div class="flex justify-around items-center py-2 px-4">
-    <a class="flex flex-col items-center justify-center text-secondary bg-on-secondary-container/20 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="index.html">
-      <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
-      <span class="font-label-caps text-label-caps mt-1">Home</span>
-    </a>
-    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="projects.html">
-      <span class="material-symbols-outlined">grid_view</span>
-      <span class="font-label-caps text-label-caps mt-1">Projects</span>
-    </a>
-    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="contact.html">
-      <span class="material-symbols-outlined">chat</span>
-      <span class="font-label-caps text-label-caps mt-1">Contact</span>
-    </a>
-    <a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:bg-surface-variant/50 rounded-xl px-3 py-1 active:scale-90 transition-transform duration-150" href="pay.html">
-      <span class="material-symbols-outlined">payments</span>
-      <span class="font-label-caps text-label-caps mt-1">Pay</span>
-    </a>
-  </div>
-</nav>
-
 <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
 <footer class="w-full mt-auto bg-surface-container-lowest border-t border-outline-variant/20 relative z-10">
   <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 mb-20 md:mb-0">
@@ -1048,7 +1047,7 @@ body {
       <!-- Brand -->
       <div class="md:col-span-1">
         <div class="flex items-center gap-2 mb-4">
-          <img src="logo.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
+          <img src="zeus.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
           <span class="font-headline-lg text-headline-md text-secondary">ZEUS IOT</span>
         </div>
         <p class="font-body-md text-sm text-on-surface-variant">Engineering Tomorrow's Connected World. Custom IoT solutions for the next generation.</p>
@@ -1367,14 +1366,38 @@ function selectProject(projId) {
   }
 }
 
+// ─── Mobile Showcase Toggle ───
+function openMobileShowcase() {
+  if (window.innerWidth >= 1024) return;
+  const wrapper = document.getElementById('showcase-detail-wrapper');
+  const selectorCol = document.querySelector('#showcase-mobile-back').closest('section').querySelector('.lg\\:col-span-5');
+  const backBtn = document.getElementById('showcase-mobile-back');
+  if (wrapper) { wrapper.classList.remove('hidden'); wrapper.classList.add('flex'); }
+  if (selectorCol) selectorCol.classList.add('hidden');
+  if (backBtn) backBtn.classList.remove('hidden');
+  setTimeout(() => { if (wrapper) wrapper.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 100);
+}
+
+function closeMobileShowcase() {
+  const wrapper = document.getElementById('showcase-detail-wrapper');
+  const backBtn = document.getElementById('showcase-mobile-back');
+  if (wrapper) { wrapper.classList.add('hidden'); wrapper.classList.remove('flex'); }
+  if (backBtn) {
+    const selectorCol = backBtn.closest('section') ? backBtn.closest('section').querySelector('.lg\\:col-span-5') : null;
+    if (selectorCol) selectorCol.classList.remove('hidden');
+    backBtn.classList.add('hidden');
+  }
+}
+
 // Attach event listeners
 document.querySelectorAll('.creation-selector').forEach(sel => {
-  const handler = () => {
-    const projId = sel.dataset.project;
-    selectProject(projId);
-  };
-  sel.addEventListener('click', handler);
-  sel.addEventListener('mouseenter', handler);
+  sel.addEventListener('click', () => {
+    selectProject(sel.dataset.project);
+    openMobileShowcase();
+  });
+  sel.addEventListener('mouseenter', () => {
+    if (window.innerWidth >= 1024) selectProject(sel.dataset.project);
+  });
 });
 
 // Initialize first item
@@ -1466,6 +1489,28 @@ document.querySelectorAll('.scroll-reveal').forEach(el => scrollRevealObserver.o
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="animations.js?v=2"></script>
+
+<!-- #15: Back to Top Button (Mobile only, appears after scrolling) -->
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="md:hidden fixed bottom-[76px] right-4 z-40 w-10 h-10 rounded-full bg-surface-container border border-tertiary/40 text-tertiary items-center justify-center shadow-[0_0_12px_rgba(0,210,255,0.2)] transition-all duration-300 opacity-0 pointer-events-none scale-90" aria-label="Back to top">
+  <span class="material-symbols-outlined text-[18px]">arrow_upward</span>
+</button>
+<script>
+(function() {
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 300) {
+      btn.style.opacity = '1';
+      btn.style.pointerEvents = 'auto';
+      btn.style.transform = 'scale(1)';
+    } else {
+      btn.style.opacity = '0';
+      btn.style.pointerEvents = 'none';
+      btn.style.transform = 'scale(0.9)';
+    }
+  }, { passive: true });
+})();
+</script>
 
 <!-- Bottom Mobile Nav Bar (Mobile Only) -->
 <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 rounded-t-xl bg-surface-container/95 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(16,185,129,0.15)] pb-safe">

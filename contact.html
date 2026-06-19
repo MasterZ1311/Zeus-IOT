@@ -2,13 +2,13 @@
 <html class="dark" lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <title>Contact — ZEUS IOT | Summon The Bolt</title>
 <meta name="description" content="Submit your project requirements to Zeus IOT. Custom IoT builds, software ecosystems, and academic reports for college students. Get a quote within 24 hours."/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="shared-styles.css?v=2"/>
+<link rel="stylesheet" href="shared-styles.css?v=4"/>
 <script>
 tailwind.config = {
   darkMode: "class",
@@ -173,7 +173,7 @@ body {
 
 <!-- PAGE PRELOADER -->
 <div id="page-preloader">
-  <img src="preloader.png" class="preloader-bolt" alt="ZEUS IOT Preloader"/>
+  <img src="light-zeus.png" class="preloader-bolt" alt="ZEUS IOT Preloader"/>
   <div class="preloader-bar"><div class="preloader-fill"></div></div>
 </div>
 
@@ -191,7 +191,7 @@ body {
 <!-- ═══════════════════════ DESKTOP TOP NAV ═══════════════════════ -->
 <header id="desktop-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(0,210,255,0.2)] hidden md:flex items-center justify-between px-margin-desktop h-16 transition-all duration-300">
   <a href="index.html" class="flex items-center gap-2">
-    <img src="logo.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
+    <img src="zeus.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
     <span class="font-headline-xl text-headline-md text-secondary drop-shadow-[0_0_8px_rgba(229,169,60,0.4)] tracking-tight">ZEUS IOT</span>
   </a>
   <nav class="flex items-center gap-8">
@@ -206,7 +206,7 @@ body {
 <!-- ═══════════════════════ MOBILE TOP NAV ═══════════════════════ -->
 <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(0,210,255,0.2)] flex md:hidden items-center justify-between px-margin-mobile h-16">
   <a href="index.html" class="flex items-center gap-2">
-    <img src="logo.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
+    <img src="zeus.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
     <span class="font-headline-md text-secondary glow-text">ZEUS IOT</span>
   </a>
 </header>
@@ -216,8 +216,8 @@ body {
 
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
 
-    <!-- LEFT SIDE: SUMMON THE BOLT -->
-    <div class="lg:col-span-5 flex flex-col justify-center reveal-left">
+    <!-- LEFT SIDE: SUMMON THE BOLT (shown below form on mobile, beside on desktop) -->
+    <div class="lg:col-span-5 flex flex-col justify-center order-2 lg:order-1">
       <div class="glass-panel glass-panel-gradient-top rounded-xl p-8 lg:p-12 mb-8 lg:mb-0 h-full flex flex-col justify-center relative overflow-hidden">
         <div class="absolute -right-20 -bottom-20 opacity-5">
           <span class="material-symbols-outlined text-[250px] text-tertiary">bolt</span>
@@ -253,8 +253,8 @@ body {
       </div>
     </div>
 
-    <!-- RIGHT SIDE: MULTI-STEP WIZARD -->
-    <div class="lg:col-span-7 reveal-right">
+    <!-- RIGHT SIDE: MULTI-STEP WIZARD (shown first on mobile) -->
+    <div class="lg:col-span-7 order-1 lg:order-2">
       <div class="glass-panel rounded-xl p-6 lg:p-8 relative overflow-hidden">
         <!-- Top neon bar -->
         <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-tertiary to-secondary"></div>
@@ -317,19 +317,19 @@ body {
           <div class="wizard-panel" id="panel-2">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
               <div class="float-label-group">
-                <input id="input-name" type="text" placeholder=" " required/>
+                <input id="input-name" type="text" placeholder=" " autocomplete="name" required/>
                 <label for="input-name">Full Name *</label>
               </div>
               <div class="float-label-group">
-                <input id="input-phone" type="tel" placeholder=" " required/>
+                <input id="input-phone" type="tel" placeholder=" " autocomplete="tel" required/>
                 <label for="input-phone">WhatsApp Number *</label>
               </div>
               <div class="float-label-group">
-                <input id="input-institution" type="text" placeholder=" "/>
+                <input id="input-institution" type="text" placeholder=" " autocomplete="organization"/>
                 <label for="input-institution">Institution / University</label>
               </div>
               <div class="float-label-group">
-                <input id="input-deadline" type="date" placeholder=" " required/>
+                <input id="input-deadline" type="date" placeholder=" " autocomplete="off" required/>
                 <label for="input-deadline">Deadline Date *</label>
               </div>
             </div>
@@ -452,6 +452,12 @@ body {
   </div>
 </div>
 
+<!-- #15: Back to Top Button -->
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="md:hidden fixed bottom-[76px] right-4 z-40 w-10 h-10 rounded-full bg-surface-container border border-tertiary/40 text-tertiary flex items-center justify-center shadow-[0_0_12px_rgba(0,210,255,0.2)] transition-all duration-300 opacity-0 pointer-events-none" aria-label="Back to top">
+  <span class="material-symbols-outlined text-[18px]">arrow_upward</span>
+</button>
+<script>(function(){var b=document.getElementById('back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.pointerEvents='auto';}else{b.style.opacity='0';b.style.pointerEvents='none';}},{passive:true});})();</script>
+
 <!-- ═══════════════════════ MOBILE BOTTOM NAV ═══════════════════════ -->
 <nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(0,210,255,0.15)] pb-safe">
   <div class="flex justify-around items-center py-2 px-4">
@@ -466,7 +472,7 @@ body {
 <footer class="w-full mt-auto bg-surface-container-lowest border-t border-outline-variant/20 relative z-10">
   <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 mb-20 md:mb-0">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-      <div class="md:col-span-1"><div class="flex items-center gap-2 mb-4"><img src="logo.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/><span class="font-headline-lg text-headline-md text-secondary">ZEUS IOT</span></div><p class="font-body-md text-sm text-on-surface-variant">Engineering Tomorrow's Connected World.</p></div>
+      <div class="md:col-span-1"><div class="flex items-center gap-2 mb-4"><img src="zeus.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/><span class="font-headline-lg text-headline-md text-secondary">ZEUS IOT</span></div><p class="font-body-md text-sm text-on-surface-variant">Engineering Tomorrow's Connected World.</p></div>
       <div><h4 class="font-label-caps text-label-caps text-on-surface mb-4 uppercase">Quick Links</h4><div class="flex flex-col gap-2"><a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="index.html">Home</a><a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="projects.html">Projects</a><a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="contact.html">Contact</a></div></div>
       <div><h4 class="font-label-caps text-label-caps text-on-surface mb-4 uppercase">Services</h4><div class="flex flex-col gap-2"><a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" href="contact.html">Custom IoT Builds</a><a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" href="report.html">Academic Reports</a><a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" href="pay.html">Payments</a></div></div>
       <div><h4 class="font-label-caps text-label-caps text-on-surface mb-4 uppercase">Connect</h4><div class="flex flex-col gap-2"><a href="mailto:zeusiotprojects@gmail.com" class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors">zeusiotprojects@gmail.com</a><a href="https://wa.me/919080809088" target="_blank" class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors">WhatsApp: +91 90808 09088</a></div></div>

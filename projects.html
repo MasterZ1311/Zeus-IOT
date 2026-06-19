@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport" />
   <title>Projects — ZEUS IOT | Our Arsenal of Custom IoT &amp; Software</title>
   <meta name="description"
     content="Browse Zeus IOT's portfolio of custom IoT hardware and software projects built for college students. Filter by category, search by tech stack." />
@@ -21,7 +21,7 @@
     rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="shared-styles.css?v=2" />
+  <link rel="stylesheet" href="shared-styles.css?v=4" />
   <script>
     tailwind.config = {
       darkMode: "class",
@@ -130,7 +130,7 @@
 
   <!-- ═══════════════════════ PAGE PRELOADER ═══════════════════════ -->
   <div id="page-preloader">
-    <img src="preloader.png" class="preloader-bolt" alt="ZEUS IOT Preloader"/>
+    <img src="light-zeus.png" class="preloader-bolt" alt="ZEUS IOT Preloader"/>
     <div class="preloader-bar">
       <div class="preloader-fill"></div>
     </div>
@@ -140,7 +140,7 @@
   <header id="desktop-nav"
     class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(0,210,255,0.2)] hidden md:flex items-center justify-between px-margin-desktop h-16 transition-all duration-300">
     <a href="index.html" class="flex items-center gap-2">
-      <img src="logo.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
+      <img src="zeus.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
       <span
         class="font-headline-xl text-headline-md text-secondary drop-shadow-[0_0_8px_rgba(229,169,60,0.4)] tracking-tight">ZEUS
         IOT</span>
@@ -164,7 +164,7 @@
     class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] flex md:hidden items-center justify-between px-margin-mobile h-16"
     style="z-index:150;">
     <a href="index.html" class="flex items-center gap-2">
-      <img src="logo.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
+      <img src="zeus.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
       <span class="font-headline-md text-secondary glow-text">ZEUS IOT</span>
     </a>
   </header>
@@ -196,13 +196,13 @@
           <input id="project-search" type="text" placeholder="Search by keyword, tech stack, or category..."
             class="search-input w-full rounded-lg pl-12 pr-4 py-3.5 font-body-md text-body-md" />
         </div>
-        <!-- Filter Pills -->
-        <div class="flex flex-wrap justify-center gap-3 mb-8" id="filter-pills">
-          <button class="filter-pill active" data-filter="all">ALL</button>
-          <button class="filter-pill" data-filter="iot">IOT</button>
-          <button class="filter-pill" data-filter="software">SOFTWARE</button>
-          <button class="filter-pill" data-filter="hardware">HARDWARE</button>
-          <button class="filter-pill" data-filter="education">EDUCATION</button>
+        <!-- Filter Pills - horizontal scroll on mobile -->
+        <div class="flex flex-nowrap md:flex-wrap justify-start md:justify-center gap-2 md:gap-3 mb-8 overflow-x-auto pb-2 md:pb-0 -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0" id="filter-pills" style="scrollbar-width:none;-webkit-overflow-scrolling:touch;">
+          <button class="filter-pill active flex-shrink-0" data-filter="all">ALL</button>
+          <button class="filter-pill flex-shrink-0" data-filter="iot">IOT</button>
+          <button class="filter-pill flex-shrink-0" data-filter="software">SOFTWARE</button>
+          <button class="filter-pill flex-shrink-0" data-filter="hardware">HARDWARE</button>
+          <button class="filter-pill flex-shrink-0" data-filter="education">EDUCATION</button>
         </div>
       </section>
 
@@ -245,11 +245,11 @@
           <div class="absolute -right-10 -bottom-10 opacity-5">
             <span class="material-symbols-outlined text-[200px] text-secondary">bolt</span>
           </div>
-          <div class="z-10">
+          <div class="z-10 text-center md:text-left">
             <h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Don't see what you need?</h2>
             <p class="font-body-md text-body-md text-on-surface-variant">We build custom solutions. Describe your idea and get a quote within 24 hours.</p>
           </div>
-          <a href="contact.html" class="btn-thunderbolt font-label-caps text-label-caps px-8 py-4 uppercase tracking-widest flex items-center gap-2 flex-shrink-0 z-10">
+          <a href="contact.html" class="btn-thunderbolt font-label-caps text-label-caps px-8 py-4 uppercase tracking-widest flex items-center justify-center gap-2 flex-shrink-0 z-10 w-full md:w-auto">
             <span>SUMMON THE BOLT</span>
             <span class="material-symbols-outlined text-[18px]">bolt</span>
           </a>
@@ -258,6 +258,13 @@
 
   </main>
 
+  <!-- #15: Back to Top Button -->
+  <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="md:hidden fixed bottom-[76px] right-4 z-40 w-10 h-10 rounded-full bg-surface-container border border-tertiary/40 text-tertiary flex items-center justify-center shadow-[0_0_12px_rgba(0,210,255,0.2)] transition-all duration-300 opacity-0 pointer-events-none" aria-label="Back to top">
+    <span class="material-symbols-outlined text-[18px]">arrow_upward</span>
+  </button>
+  <script>
+  (function(){var b=document.getElementById('back-to-top');if(!b)return;window.addEventListener('scroll',function(){if(window.scrollY>300){b.style.opacity='1';b.style.pointerEvents='auto';}else{b.style.opacity='0';b.style.pointerEvents='none';}},{passive:true});})();
+  </script>
   <!-- ═══════════════════════ MOBILE BOTTOM NAV ═══════════════════════ -->
   <nav
     class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container/90 backdrop-blur-xl border-t border-tertiary/30 shadow-[0_-4px_20px_rgba(0,210,255,0.15)] pb-safe">
@@ -291,7 +298,7 @@
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div class="md:col-span-1">
           <div class="flex items-center gap-2 mb-4">
-            <img src="logo.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
+            <img src="zeus.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
             <span class="font-headline-lg text-headline-md text-secondary">ZEUS IOT</span>
           </div>
           <p class="font-body-md text-sm text-on-surface-variant">Engineering Tomorrow's Connected World. Custom IoT

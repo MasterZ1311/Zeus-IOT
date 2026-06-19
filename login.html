@@ -2,13 +2,13 @@
 <html class="dark" lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <title>Admin Login — ZEUS IOT</title>
 <meta name="description" content="Zeus IOT Admin Panel — Secure login for authorized administrators."/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="shared-styles.css?v=2"/>
+<link rel="stylesheet" href="shared-styles.css?v=4"/>
 <script>
 tailwind.config = {
   darkMode: "class",
@@ -226,26 +226,28 @@ body {
   </div>
 
   <script>
-    // ─── Particle system ───
-    const lCanvas = document.getElementById('login-particles');
-    const lCtx = lCanvas.getContext('2d');
-    lCanvas.width = window.innerWidth;
-    lCanvas.height = window.innerHeight;
-    window.addEventListener('resize', () => { lCanvas.width = window.innerWidth; lCanvas.height = window.innerHeight; });
-    const lParticles = [];
-    class LP {
-      constructor() { this.reset(); }
-      reset() {
-        this.x = Math.random() * lCanvas.width; this.y = Math.random() * lCanvas.height;
-        this.size = Math.random() * 1.5 + 0.5; this.sx = (Math.random()-.5)*.2; this.sy = (Math.random()-.5)*.2;
-        this.opacity = Math.random()*.3+.05; this.color = Math.random()>.5?'16,185,129':'255,198,64';
+    // ─── Particle system (desktop only — skip on touch to save battery) ───
+    if (!window.matchMedia('(hover: none)').matches) {
+      const lCanvas = document.getElementById('login-particles');
+      const lCtx = lCanvas.getContext('2d');
+      lCanvas.width = window.innerWidth;
+      lCanvas.height = window.innerHeight;
+      window.addEventListener('resize', () => { lCanvas.width = window.innerWidth; lCanvas.height = window.innerHeight; });
+      const lParticles = [];
+      class LP {
+        constructor() { this.reset(); }
+        reset() {
+          this.x = Math.random() * lCanvas.width; this.y = Math.random() * lCanvas.height;
+          this.size = Math.random() * 1.5 + 0.5; this.sx = (Math.random()-.5)*.2; this.sy = (Math.random()-.5)*.2;
+          this.opacity = Math.random()*.3+.05; this.color = Math.random()>.5?'16,185,129':'255,198,64';
+        }
+        update() { this.x+=this.sx; this.y+=this.sy; if(this.x<0||this.x>lCanvas.width||this.y<0||this.y>lCanvas.height) this.reset(); }
+        draw() { lCtx.beginPath(); lCtx.arc(this.x,this.y,this.size,0,Math.PI*2); lCtx.fillStyle=`rgba(${this.color},${this.opacity})`; lCtx.fill(); }
       }
-      update() { this.x+=this.sx; this.y+=this.sy; if(this.x<0||this.x>lCanvas.width||this.y<0||this.y>lCanvas.height) this.reset(); }
-      draw() { lCtx.beginPath(); lCtx.arc(this.x,this.y,this.size,0,Math.PI*2); lCtx.fillStyle=`rgba(${this.color},${this.opacity})`; lCtx.fill(); }
+      for(let i=0;i<40;i++) lParticles.push(new LP());
+      function animLP() { lCtx.clearRect(0,0,lCanvas.width,lCanvas.height); lParticles.forEach(p=>{p.update();p.draw();}); requestAnimationFrame(animLP); }
+      animLP();
     }
-    for(let i=0;i<40;i++) lParticles.push(new LP());
-    function animLP() { lCtx.clearRect(0,0,lCanvas.width,lCanvas.height); lParticles.forEach(p=>{p.update();p.draw();}); requestAnimationFrame(animLP); }
-    animLP();
 
     // ─── Redirect if already logged in ───
     const token = localStorage.getItem('zeus_admin_token');

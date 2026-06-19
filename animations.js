@@ -362,6 +362,7 @@ function initIoTSandbox() {
    2. MAGNETIC BUTTONS
    ═══════════════════════════════════════════════════════════════ */
 function initMagneticButtons() {
+  if (window.matchMedia('(hover: none)').matches) return; // #12: Skip on touch devices
   const magnets = document.querySelectorAll('.magnetic-btn');
 
   magnets.forEach(magnet => {
@@ -384,6 +385,7 @@ function initMagneticButtons() {
    3. 3D TILT EFFECT FOR CARDS
    ═══════════════════════════════════════════════════════════════ */
 function initTiltCards() {
+  if (window.matchMedia('(hover: none)').matches) return; // #13: Skip on touch devices
   const cards = document.querySelectorAll('.tilt-card');
 
   cards.forEach(card => {
