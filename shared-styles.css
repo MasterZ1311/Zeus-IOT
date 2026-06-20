@@ -37,7 +37,6 @@ img[alt="Zeus IoT Logo"].w-full {
 body {
   background-color: #070c1e;
   min-height: 100vh;
-  overscroll-behavior-y: none; /* #1: Prevents iOS pull-to-refresh */
 }
 
 #particles-bg {

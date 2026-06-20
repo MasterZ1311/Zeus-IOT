@@ -11,7 +11,6 @@
 /* ─── 2. PREMIUM BACKGROUND & NATIVE FEEL ─── */
 body, html {
   background-color: #070c1e;
-  overscroll-behavior-y: none; /* iOS: Prevent rubber-band bounce revealing white canvas */
   -webkit-tap-highlight-color: transparent; /* Remove mobile tap highlight box */
 }
 body {
