@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ═══════════════════════════════════════════════════════════════
-  // 12. SWIPE-TO-NAVIGATE & PULL-TO-REFRESH GLOW
+  // 12. SWIPE-TO-NAVIGATE
   // ═══════════════════════════════════════════════════════════════
   if (isMobile) {
     let touchStartX = 0;
@@ -295,22 +295,8 @@ document.addEventListener('DOMContentLoaded', () => {
       isSwiping = true;
     }, { passive: true });
 
-    document.addEventListener('touchmove', e => {
-      if (!isSwiping) return;
-      
-      const currentY = e.changedTouches[0].screenY;
-      // Pull-to-refresh glow logic
-      if (window.scrollY <= 0 && currentY > touchStartY) {
-        const pullDistance = currentY - touchStartY;
-        // Max intensity at 150px pull
-        const intensity = Math.min(pullDistance / 150, 0.4); 
-        document.body.style.setProperty('--pull-intensity', intensity.toString());
-      }
-    }, { passive: true });
-
     document.addEventListener('touchend', e => {
       isSwiping = false;
-      document.body.style.setProperty('--pull-intensity', '0'); // Reset glow
 
       const touchEndX = e.changedTouches[0].screenX;
       const touchEndY = e.changedTouches[0].screenY;
@@ -332,30 +318,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ═══════════════════════════════════════════════════════════════
-  // 13. GYROSCOPE PARALLAX (.bg-blob)
-  // ═══════════════════════════════════════════════════════════════
-  if (isMobile && window.DeviceOrientationEvent) {
-    const blobs = document.querySelectorAll('.bg-blob');
-    if (blobs.length > 0) {
-      window.addEventListener('deviceorientation', (e) => {
-        // gamma is left/right (-90 to 90), beta is front/back (-180 to 180)
-        if (e.gamma === null || e.beta === null) return;
-        
-        // Clamp and normalize
-        const xOffset = Math.max(-30, Math.min(30, e.gamma)) * 0.5; 
-        const yOffset = Math.max(-30, Math.min(30, e.beta - 45)) * 0.5; // offset 45deg for typical holding angle
-
-        blobs.forEach((blob, index) => {
-          // Invert movement for different blobs for depth effect
-          const factor = index % 2 === 0 ? 1 : -0.5;
-          blob.style.transform = `translate(${xOffset * factor}px, ${yOffset * factor}px)`;
-        });
-      }, true);
-    }
-  }
-
-  // ═══════════════════════════════════════════════════════════════
-  // 14. WEB SHARE API & FORM HAPTICS
+  // 13. WEB SHARE API & FORM HAPTICS
   // ═══════════════════════════════════════════════════════════════
   
   // Bind Share Buttons

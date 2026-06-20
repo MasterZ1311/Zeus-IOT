@@ -751,21 +751,12 @@ main {
   transform: translateY(10px) !important;
   pointer-events: none;
 }
-.page-transition-in {
-  opacity: 0;
-  transform: translateY(-10px);
+/* ─── 27. MOBILE HOTFIXES ─── */
+.mobile-hero-logo {
+  display: block !important;
+  width: 96px !important;
+  height: 96px !important;
+  object-fit: contain !important;
+  margin: 0 auto 20px auto;
 }
 
-/* ─── 27b. PULL-TO-REFRESH GLOW ─── */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 150px;
-  background: radial-gradient(ellipse at top, rgba(0,210,255,var(--pull-intensity, 0)) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 9999;
-  transition: background 0.1s ease;
-}
