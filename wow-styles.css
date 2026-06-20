@@ -60,9 +60,6 @@ header.fixed.top-0 {
 /* Logo glow in nav */
 header img[alt="Zeus IoT Logo"] {
   filter: drop-shadow(0 0 6px rgba(229,169,60,0.5)) !important;
-  background: #ffffff !important;
-  border-radius: 50% !important;
-  padding: 2px !important;
   object-fit: contain !important;
 }
 

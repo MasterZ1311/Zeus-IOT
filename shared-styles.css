@@ -1830,9 +1830,6 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
   header img[alt="Zeus IoT Logo"] {
     width: 32px !important;
     height: 32px !important;
-    border-radius: 50% !important;
-    background: #ffffff !important;
-    padding: 2px !important;
     object-fit: contain !important;
   }
   header .font-headline-md {
