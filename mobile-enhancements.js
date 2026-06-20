@@ -193,4 +193,87 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ═══════════════════════════════════════════════════════════════
+  // 9. SCROLL-LINKED NAVBAR TRANSPARENCY (Mobile WOW)
+  // ═══════════════════════════════════════════════════════════════
+  if (isMobile) {
+    const mobileHeader = document.querySelector('header.fixed.top-0:not(#desktop-nav)');
+    if (mobileHeader) {
+      // Start transparent on index page hero
+      const isHomePage = window.location.pathname === '/' || 
+                         window.location.pathname.endsWith('/') || 
+                         window.location.pathname.endsWith('index.html');
+      
+      if (isHomePage) {
+        mobileHeader.classList.add('nav-transparent');
+        
+        let lastScrollY = 0;
+        window.addEventListener('scroll', () => {
+          const scrollY = window.scrollY;
+          if (scrollY > 80) {
+            mobileHeader.classList.remove('nav-transparent');
+          } else {
+            mobileHeader.classList.add('nav-transparent');
+          }
+          lastScrollY = scrollY;
+        }, { passive: true });
+      }
+    }
+  }
+
+  // ═══════════════════════════════════════════════════════════════
+  // 10. MOBILE ENTRANCE ANIMATIONS (IntersectionObserver)
+  // ═══════════════════════════════════════════════════════════════
+  if (isMobile) {
+    // Add mobile-fade-up class to all section children for staggered entrance
+    const mobileSections = document.querySelectorAll('section.reveal, section.mt-32, section.mt-16');
+    mobileSections.forEach(section => {
+      const directChildren = section.querySelectorAll(':scope > div, :scope > h2, :scope > p');
+      directChildren.forEach(child => {
+        child.classList.add('mobile-fade-up');
+      });
+    });
+
+    // Observe all mobile-fade-up elements
+    const mobileObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          mobileObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+
+    document.querySelectorAll('.mobile-fade-up').forEach(el => mobileObserver.observe(el));
+
+    // Fallback: immediately reveal elements already in viewport on load
+    setTimeout(() => {
+      document.querySelectorAll('.mobile-fade-up:not(.visible)').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add('visible');
+        }
+      });
+    }, 200);
+  }
+
+  // ═══════════════════════════════════════════════════════════════
+  // 11. CAROUSEL HAPTIC SNAP FEEDBACK
+  // ═══════════════════════════════════════════════════════════════
+  if (isMobile) {
+    const carousels = document.querySelectorAll('.mobile-carousel, .animate-marquee');
+    carousels.forEach(carousel => {
+      let lastSnapIndex = 0;
+      carousel.addEventListener('scrollend', () => {
+        // Calculate which card is in view
+        const cardWidth = carousel.querySelector('.mobile-carousel-item, .testimonial-card')?.offsetWidth || 280;
+        const newIndex = Math.round(carousel.scrollLeft / (cardWidth + 12));
+        if (newIndex !== lastSnapIndex) {
+          triggerHaptic('light');
+          lastSnapIndex = newIndex;
+        }
+      }, { passive: true });
+    });
+  }
+
 });

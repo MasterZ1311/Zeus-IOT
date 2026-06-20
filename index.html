@@ -248,6 +248,8 @@ body {
     </style>
 
     <div class="lg:col-span-8 flex flex-col justify-center z-10">
+      <!-- Mobile Hero Logo (visible only on mobile) -->
+      <img src="zeus.png" alt="Zeus IoT Logo" class="mobile-hero-logo lg:hidden" loading="eager"/>
       <!-- Status Badge -->
       <div class="inline-flex items-center gap-2 bg-surface-container-high border border-secondary/30 rounded-full px-4 py-1.5 w-max mb-5 hero-status-badge" style="backdrop-filter:blur(8px);">
         <div class="w-2.5 h-2.5 rounded-full bg-secondary animate-breathe shadow-[0_0_8px_rgba(229,169,60,0.8)]"></div>
@@ -1474,7 +1476,7 @@ setInterval(() => {
 window.addEventListener('load', () => {
   const preloader = document.getElementById('page-preloader');
   if (preloader) {
-    setTimeout(() => preloader.classList.add('hidden'), 800);
+    setTimeout(() => preloader.classList.add('hidden'), 500);
   }
 });
 
