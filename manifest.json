@@ -2,10 +2,11 @@
   "name": "Zeus IOT",
   "short_name": "Zeus IOT",
   "description": "Custom IOT & Software for the Next Gen",
+  "id": "/?source=pwa",
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#070c1e",
-  "theme_color": "#070c1e",
+  "background_color": "#050816",
+  "theme_color": "#050816",
   "orientation": "portrait-primary",
   "icons": [
     {

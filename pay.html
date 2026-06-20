@@ -513,7 +513,12 @@ async function handlePaySubmit(btn) {
       icon.textContent = 'arrow_forward';
       btn.style.background = '';
     }, 3000);
-  }, 2000);
+  } catch (err) {
+    btn.classList.remove('btn-loading');
+    alert(err.message || 'An error occurred during verification.');
+    label.textContent = 'SUBMIT VERIFICATION';
+    icon.textContent = 'arrow_forward';
+  }
 }
 
 function copyUpiId() {
