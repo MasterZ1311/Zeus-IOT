@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html class="dark" lang="en">
 <head>
+<meta name="theme-color" content="#050816"/>
+<link rel="preload" href="zeus.png" as="image"/>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <title>Learning Request — ZEUS IOT</title>
@@ -13,7 +15,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="zeus.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="theme-color" content="#070c1e">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <script src="mobile-enhancements.js"></script>
 <script>
 tailwind.config = {
@@ -362,52 +364,9 @@ window.addEventListener('pageshow', () => {
   }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const preloader = document.getElementById('page-preloader');
-  if (!preloader) return;
-  const preloaderImg = preloader.querySelector('.preloader-bolt');
-  
-  document.body.addEventListener('click', (e) => {
-    const link = e.target.closest('a');
-    if (!link) return;
-    
-    const href = link.getAttribute('href');
-    const target = link.getAttribute('target');
-    
-    if (
-      href && 
-      !href.startsWith('#') && 
-      !href.startsWith('javascript:') && 
-      !href.startsWith('tel:') && 
-      !href.startsWith('mailto:') && 
-      (!target || target === '_self') &&
-      !link.classList.contains('no-transition')
-    ) {
-      e.preventDefault();
-      
-      preloader.classList.remove('hidden');
-      preloader.style.opacity = '1';
-      preloader.style.visibility = 'visible';
-      
-      const fill = preloader.querySelector('.preloader-fill');
-      if (fill) {
-        fill.style.animation = 'none';
-        fill.offsetHeight; // trigger reflow
-        fill.style.animation = 'preloader-fill 0.8s ease-out forwards';
-      }
-      
-      if (preloaderImg) {
-        preloaderImg.classList.add('preloader-rotate-active');
-      }
-      
-      setTimeout(() => {
-        window.location.href = href;
-      }, 800);
-    }
-  });
-});
 
 </script>
+<script src="page-transitions.js"></script>
 </body>
 </html>
 
