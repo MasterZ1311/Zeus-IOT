@@ -121,10 +121,6 @@ async function seedDatabase() {
       });
       console.log("Admin password updated to V*T@Z#U$");
     }
-
-    // Clear all existing pre-done projects as requested by the user
-    await prisma.project.deleteMany({});
-    console.log("Existing projects cleared.");
   } catch (error) {
     console.error("Failed to seed database:", error);
   }
@@ -431,6 +427,30 @@ app.post('/api/learning', publicLimiter, async (req, res) => {
     }
     console.error(error);
     res.status(500).json({ error: 'Failed to save learning request.' });
+  }
+});
+
+app.post('/api/pay', publicLimiter, upload.single('payment_proof'), async (req, res) => {
+  try {
+    const file_path = req.file ? `/uploads/${req.file.filename}` : null;
+    if (!file_path) {
+      return res.status(400).json({ error: 'Payment proof screenshot is required.' });
+    }
+    
+    const transaction_id = req.body.transaction_id || '';
+
+    // Create Payment in DB
+    const payment = await prisma.payment.create({
+      data: {
+        transaction_id,
+        file_path
+      }
+    });
+
+    res.status(201).json({ success: true, id: payment.id, message: 'Payment verification submitted successfully.', file_path });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to save payment verification.' });
   }
 });
 

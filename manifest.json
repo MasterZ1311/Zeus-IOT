@@ -1,0 +1,22 @@
+{
+  "name": "Zeus IOT",
+  "short_name": "Zeus IOT",
+  "description": "Custom IOT & Software for the Next Gen",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#070c1e",
+  "theme_color": "#070c1e",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/zeus.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/zeus.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

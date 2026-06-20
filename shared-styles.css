@@ -15,11 +15,16 @@ html {
 }
 
 /* ─── SITE LOGO (zeus.png) — circular seal display in nav/footer ─── */
+img[alt="Zeus IoT Logo"] {
+  object-fit: contain !important;
+  background: #ffffff;
+}
 img[alt="Zeus IoT Logo"].w-8 {
   border-radius: 50% !important;
   object-fit: contain !important;
-  background: #fff;
+  background: #ffffff;
   box-shadow: 0 0 8px rgba(229, 169, 60, 0.3), 0 0 0 1px rgba(229,169,60,0.15);
+  padding: 2px;
 }
 /* ─── HERO PANEL image — full emblem, preserve aspect ratio ─── */
 img[alt="Zeus IoT Logo"].w-full {
@@ -1111,12 +1116,14 @@ body {
   pointer-events: none;
 }
 #page-preloader .preloader-bolt {
-  width: 220px;
-  height: 220px;
-  max-width: 70vw;
-  max-height: 70vw;
-  object-fit: cover;
+  width: 200px;
+  height: 200px;
+  max-width: 60vw;
+  max-height: 60vw;
+  object-fit: contain !important;
   border-radius: 50%;
+  background: #ffffff;
+  padding: 12px;
   animation: emblem-pulse 1.4s ease-in-out infinite alternate;
   box-shadow:
     0 0 0 3px rgba(229, 169, 60, 0.25),
@@ -1765,7 +1772,7 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 
 /* 19. PRELOADER: smaller emblem on tiny screens */
 @media (max-width: 480px) {
-  #page-preloader .preloader-bolt { width: 160px !important; height: 160px !important; }
+  #page-preloader .preloader-bolt { width: 140px !important; height: 140px !important; }
   #page-preloader .preloader-bar { width: 90px !important; }
 }
 
@@ -1773,4 +1780,364 @@ html, body { max-width: 100vw !important; overflow-x: hidden !important; }
 @media (max-width: 767px) {
   main.pt-24 { padding-top: 4rem !important; }
   main.pt-32 { padding-top: 4.5rem !important; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   COMPREHENSIVE MOBILE OPTIMIZATION PACK v6 — DEEP IMPROVEMENTS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── 1. HERO SECTION: compact on mobile ─── */
+@media (max-width: 767px) {
+  /* Hero H1 — reduce to comfortable reading size */
+  section:first-of-type h1,
+  .hero-heading {
+    font-size: clamp(22px, 6.5vw, 32px) !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  /* Status badge in hero */
+  .hero-status-badge {
+    font-size: 10px !important;
+    padding: 4px 10px !important;
+  }
+
+  /* CTA Buttons — full width on mobile, stacked */
+  section:first-of-type .flex.flex-col.sm\:flex-row {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  section:first-of-type .flex.flex-col.sm\:flex-row a {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 14px 20px !important;
+  }
+
+  /* Hero body text */
+  section:first-of-type p.font-body-lg {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+    margin-bottom: 20px !important;
+  }
+
+  /* Hero section padding reduction */
+  section.grid.grid-cols-1 {
+    min-height: unset !important;
+  }
+}
+
+/* ─── 2. MOBILE NAV LOGO: ensure visible ─── */
+@media (max-width: 767px) {
+  header img[alt="Zeus IoT Logo"] {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    background: #ffffff !important;
+    padding: 2px !important;
+    object-fit: contain !important;
+  }
+  header .font-headline-md {
+    font-size: 15px !important;
+  }
+}
+
+/* ─── 3. SECTION HEADINGS: better mobile size ─── */
+@media (max-width: 767px) {
+  h2.font-headline-lg {
+    font-size: 20px !important;
+    line-height: 1.25 !important;
+  }
+  section > h2 span.w-8.h-1 {
+    width: 24px !important;
+  }
+  /* Section sub-labels */
+  span.font-code-sm.text-code-sm.text-tertiary,
+  span.font-code-sm.text-code-sm.text-secondary {
+    font-size: 10px !important;
+    letter-spacing: 0.12em !important;
+  }
+}
+
+/* ─── 4. LEARN FROM US: stacked on mobile ─── */
+@media (max-width: 767px) {
+  .lg\:col-span-7, .lg\:col-span-5 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  /* Learn From Us features list */
+  .lg\:col-span-5 .space-y-4 > div {
+    gap: 10px !important;
+    font-size: 14px !important;
+  }
+  /* Book session button full width */
+  a.btn-thunderbolt.inline-flex {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+/* ─── 5. FAQ SECTION: better mobile tap size ─── */
+@media (max-width: 767px) {
+  .faq-btn {
+    padding: 14px 16px !important;
+    gap: 8px !important;
+  }
+  .faq-btn span:first-child {
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+  }
+  .faq-answer.open {
+    max-height: 300px !important;
+  }
+  .faq-answer p {
+    font-size: 13px !important;
+    padding-bottom: 16px !important;
+  }
+}
+
+/* ─── 6. STATS SECTION: 2x2 grid on mobile with compact cards ─── */
+@media (max-width: 767px) {
+  .grid.grid-cols-2.lg\:grid-cols-4 {
+    gap: 10px !important;
+  }
+  .stat-card {
+    padding: 14px 10px !important;
+  }
+  .stat-card .material-symbols-outlined {
+    font-size: 20px !important;
+    margin-top: 8px !important;
+  }
+  .stat-card .font-label-caps {
+    font-size: 9px !important;
+    margin-top: 4px !important;
+  }
+}
+
+/* ─── 7. HOW IT WORKS MOBILE CARDS: tighter layout ─── */
+@media (max-width: 767px) {
+  .flex.md\:hidden.flex-col.gap-6 > div {
+    padding: 14px !important;
+    gap: 12px !important;
+  }
+  .flex.md\:hidden.flex-col.gap-6 {
+    gap: 10px !important;
+  }
+}
+
+/* ─── 8. FORGED CREATIONS SECTION: mobile improvements ─── */
+@media (max-width: 767px) {
+  /* Showcase selector hint */
+  #showcase-selector-hint {
+    font-size: 10px !important;
+    gap: 4px !important;
+    margin-bottom: 8px !important;
+  }
+  /* Project selectors */
+  .creation-selector {
+    padding: 12px !important;
+    gap: 10px !important;
+  }
+  .creation-selector > div:first-child {
+    width: 40px !important;
+    height: 40px !important;
+    flex-shrink: 0 !important;
+  }
+  /* View all link */
+  .lg\:col-span-5 > div.mt-4 {
+    margin-top: 8px !important;
+  }
+}
+
+/* ─── 9. TESTIMONIALS: better snap-scroll sizing ─── */
+@media (max-width: 767px) {
+  .testimonial-card {
+    width: 78vw !important;
+    min-width: 240px !important;
+    max-width: 300px !important;
+    padding: 16px !important;
+  }
+  .testimonial-card p {
+    font-size: 12.5px !important;
+    line-height: 1.55 !important;
+    margin-bottom: 12px !important;
+  }
+  .testimonial-card .text-sm {
+    font-size: 12px !important;
+  }
+}
+
+/* ─── 10. PRICING CAROUSEL: proper card sizing ─── */
+@media (max-width: 767px) {
+  .mobile-carousel-item.w-\[290px\] {
+    width: 80vw !important;
+    max-width: 300px !important;
+  }
+  /* Pricing card padding */
+  .glass-panel.rounded-xl.p-8 {
+    padding: 20px !important;
+  }
+  /* Price display */
+  .text-4xl.font-headline-xl {
+    font-size: 34px !important;
+  }
+  /* "Most Popular" badge */
+  .absolute.-top-3 {
+    font-size: 9px !important;
+    padding: 4px 10px !important;
+  }
+}
+
+/* ─── 11. HARDWARE/PROTOCOL CAROUSEL: consistent sizes ─── */
+@media (max-width: 767px) {
+  .mobile-carousel-item.w-\[240px\],
+  .mobile-carousel-item.w-\[260px\] {
+    width: 75vw !important;
+    max-width: 260px !important;
+    min-width: 200px !important;
+  }
+}
+
+/* ─── 12. INTERACTIVE SANDBOX: proper mobile sizing ─── */
+@media (max-width: 767px) {
+  /* Sandbox container */
+  .z-10.lg\:w-1\/2.w-full {
+    width: 100% !important;
+  }
+  /* Sandbox grid layout */
+  #sandbox-temp, #sandbox-load {
+    font-size: 22px !important;
+  }
+  #sandbox-relay-card {
+    padding: 12px !important;
+  }
+  /* IoT Sandbox description text */
+  .z-10.lg\:w-1\/2 > p.font-body-md {
+    font-size: 13px !important;
+    margin-bottom: 16px !important;
+  }
+}
+
+/* ─── 13. CORE CAPABILITIES BENTO: proper stacking ─── */
+@media (max-width: 767px) {
+  /* Remove fixed auto-row heights for bento grid */
+  .grid.grid-cols-1.md\:grid-cols-12.gap-gutter.md\:auto-rows-\[250px\] {
+    grid-template-columns: 1fr !important;
+    grid-auto-rows: auto !important;
+  }
+  /* Bento large card */
+  .md\:col-span-7.md\:row-span-2 {
+    padding: 18px !important;
+  }
+  /* Tech stack tags in bento — wrap nicely */
+  .flex.gap-2.z-10.mt-auto.flex-wrap {
+    margin-top: 12px !important;
+    gap: 6px !important;
+  }
+  .flex.gap-2.z-10.mt-auto.flex-wrap span {
+    font-size: 10px !important;
+    padding: 3px 8px !important;
+  }
+}
+
+/* ─── 14. FOOTER: compact on mobile ─── */
+@media (max-width: 767px) {
+  footer .grid.grid-cols-1 > div {
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 16px;
+  }
+  footer .grid.grid-cols-1 > div:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+  footer h4.font-label-caps {
+    font-size: 10px !important;
+    margin-bottom: 8px !important;
+  }
+  footer .flex.flex-col.gap-2 > a {
+    font-size: 12px !important;
+    padding: 2px 0 !important;
+  }
+  /* Footer bottom bar */
+  footer .flex.flex-col.md\:flex-row {
+    text-align: center !important;
+    gap: 8px !important;
+  }
+  footer .flex.gap-6 > a {
+    font-size: 11px !important;
+  }
+}
+
+/* ─── 15. BOTTOM NAV: safe area + better styling ─── */
+@media (max-width: 767px) {
+  nav.md\:hidden.fixed.bottom-0 {
+    padding-bottom: max(env(safe-area-inset-bottom, 0px), 8px) !important;
+  }
+  nav.md\:hidden.fixed.bottom-0 a {
+    min-width: 60px !important;
+    min-height: 54px !important;
+    padding: 6px 8px !important;
+    border-radius: 10px !important;
+  }
+  nav.md\:hidden.fixed.bottom-0 .material-symbols-outlined {
+    font-size: 22px !important;
+  }
+  nav.md\:hidden.fixed.bottom-0 span.font-label-caps {
+    font-size: 9px !important;
+    margin-top: 2px !important;
+  }
+}
+
+/* ─── 16. SCROLL-REVEAL: instant on mobile for better UX ─── */
+@media (max-width: 767px) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .reveal.visible {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ─── 17. BACK TO TOP: correct position above bottom nav ─── */
+@media (max-width: 767px) {
+  #back-to-top {
+    bottom: 80px !important;
+    right: 12px !important;
+    width: 38px !important;
+    height: 38px !important;
+  }
+}
+
+/* ─── 18. WHATSAPP FAB: safe area aware position ─── */
+@media (max-width: 767px) {
+  .whatsapp-float {
+    bottom: calc(68px + env(safe-area-inset-bottom, 0px)) !important;
+    right: 12px !important;
+  }
+}
+
+/* ─── 19. GENERAL: ensure no horizontal overflow anywhere ─── */
+* {
+  box-sizing: border-box;
+}
+@media (max-width: 767px) {
+  .max-w-container-max {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+  /* Ensure text doesn't overflow */
+  h1, h2, h3, p {
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+}
+
+/* ─── 20. SECTION GAPS: reduce all section mt/mb on mobile ─── */
+@media (max-width: 767px) {
+  .mt-20 { margin-top: 2rem !important; }
+  .mb-20 { margin-bottom: 2rem !important; }
+  .mt-32 { margin-top: 2.5rem !important; }
+  .mb-32 { margin-bottom: 2.5rem !important; }
+  .gap-8 { gap: 14px !important; }
 }

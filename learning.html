@@ -7,7 +7,14 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="shared-styles.css?v=4"/>
+<link rel="stylesheet" href="shared-styles.css?v=5"/>
+<link rel="stylesheet" href="wow-styles.css?v=1"/>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" sizes="180x180" href="zeus.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#070c1e">
+<script src="mobile-enhancements.js"></script>
 <script>
 tailwind.config = {
   darkMode: "class",
@@ -141,7 +148,6 @@ body {
     <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors" href="projects.html">PROJECTS</a>
     <a class="text-secondary font-label-caps text-label-caps border-b-2 border-secondary pb-1" href="contact.html">CONTACT</a>
     <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors" href="pay.html">PAY</a>
-    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors" href="admin.html">ADMIN</a>
   </nav>
 </header>
 
@@ -204,7 +210,7 @@ body {
           </div>
           <div>
             <label class="block font-code-sm text-code-sm text-on-surface-variant mb-1">Preferred Date</label>
-            <input class="input-field w-full rounded p-3 font-body-md" type="date" required/>
+            <input id="input-date" class="input-field w-full rounded p-3 font-body-md" type="date" required/>
           </div>
         </div>
       </div>
@@ -265,7 +271,6 @@ body {
           <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="index.html">Home</a>
           <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="projects.html">Projects</a>
           <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="contact.html">Contact</a>
-          <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="admin.html">Admin</a>
         </div>
       </div>
       <div>

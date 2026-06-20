@@ -58,3 +58,10 @@ model Learning {
   topics           String
   created_at       DateTime @default(now())
 }
+
+model Payment {
+  id               Int      @id @default(autoincrement())
+  transaction_id   String?
+  file_path        String
+  created_at       DateTime @default(now())
+}

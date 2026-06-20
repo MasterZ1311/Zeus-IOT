@@ -18,7 +18,14 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="shared-styles.css?v=4"/>
+<link rel="stylesheet" href="shared-styles.css?v=5"/>
+<link rel="stylesheet" href="wow-styles.css?v=1"/>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" sizes="180x180" href="zeus.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#070c1e">
+<script src="mobile-enhancements.js"></script>
 <script>
 tailwind.config = {
   darkMode: "class",
@@ -211,7 +218,6 @@ body {
     <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated" href="projects.html">PROJECTS</a>
     <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated" href="contact.html">CONTACT</a>
     <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated" href="pay.html">PAY</a>
-    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated" href="admin.html">ADMIN</a>
   </nav>
 </header>
 
@@ -227,54 +233,106 @@ body {
 <main class="pt-24 md:pt-32 pb-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative z-10">
 
   <!-- ─────────── HERO SECTION ─────────── -->
-  <section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-20 relative reveal">
+  <section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-20 relative" style="min-height:clamp(480px,80vh,720px);align-items:center;">
+
+    <!-- Animated hero background orbs -->
+    <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0;">
+      <div style="position:absolute;top:-20%;left:-10%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(0,210,255,0.1) 0%,transparent 70%);filter:blur(40px);animation:heroOrb1 12s ease-in-out infinite alternate;"></div>
+      <div style="position:absolute;bottom:-20%;right:-10%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(229,169,60,0.08) 0%,transparent 70%);filter:blur(40px);animation:heroOrb2 15s ease-in-out infinite alternate;"></div>
+      <div style="position:absolute;top:40%;left:50%;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(217,70,239,0.05) 0%,transparent 70%);filter:blur(60px);transform:translateX(-50%);animation:heroOrb3 10s ease-in-out infinite alternate;"></div>
+    </div>
+    <style>
+      @keyframes heroOrb1 { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(60px,-40px) scale(1.15)} }
+      @keyframes heroOrb2 { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(-40px,60px) scale(1.1)} }
+      @keyframes heroOrb3 { 0%{transform:translateX(-50%) scale(1)} 100%{transform:translateX(-40%) scale(1.2)} }
+    </style>
+
     <div class="lg:col-span-8 flex flex-col justify-center z-10">
       <!-- Status Badge -->
-      <div class="inline-flex items-center gap-2 bg-surface-container-high border border-outline-variant/30 rounded-full px-4 py-1.5 w-max mb-6">
-        <div class="w-2.5 h-2.5 rounded-full bg-secondary animate-breathe shadow-[0_0_8px_rgba(255,198,64,0.6)]"></div>
-        <span class="font-code-sm text-code-sm text-secondary">SYSTEM STATUS: OPTIMAL</span>
+      <div class="inline-flex items-center gap-2 bg-surface-container-high border border-secondary/30 rounded-full px-4 py-1.5 w-max mb-5 hero-status-badge" style="backdrop-filter:blur(8px);">
+        <div class="w-2.5 h-2.5 rounded-full bg-secondary animate-breathe shadow-[0_0_8px_rgba(229,169,60,0.8)]"></div>
+        <span class="font-code-sm text-code-sm text-secondary tracking-widest" style="font-size:11px;">SYSTEM STATUS: OPTIMAL ⚡</span>
       </div>
+
       <!-- Main Headline -->
-      <h1 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-on-surface mb-6 leading-tight uppercase relative">
-        HARNESS THE BOLT: <br/>
-        <span id="scramble-text" class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-tertiary">CUSTOM IOT &amp; SOFTWARE</span><span class="typewriter-cursor"></span> <br/>
+      <h1 class="hero-heading font-headline-xl text-on-surface mb-5 leading-tight uppercase relative" style="font-size:clamp(26px,5.5vw,56px);line-height:1.08;letter-spacing:-0.02em;">
+        HARNESS THE BOLT:<br/>
+        <span id="scramble-text" class="text-transparent bg-clip-text bg-gradient-to-r from-secondary via-yellow-300 to-tertiary" style="-webkit-text-fill-color:transparent;">CUSTOM IOT &amp; SOFTWARE</span><span class="typewriter-cursor"></span><br/>
         FOR THE NEXT GEN
       </h1>
-      <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
-        We architect raw power and precise engineering. From atmospheric sensor arrays to complex enterprise software ecosystems, we build the infrastructure that electrifies modern industry. <strong class="text-tertiary">Don't just buy from us — Learn from us.</strong>
+
+      <p class="font-body-lg text-on-surface-variant mb-8" style="font-size:clamp(14px,1.8vw,18px);line-height:1.65;max-width:600px;">
+        We architect raw power and precise engineering. From atmospheric sensor arrays to complex enterprise software ecosystems — we build infrastructure that electrifies modern industry. <strong class="text-tertiary font-semibold">Don't just buy from us — Learn from us.</strong>
       </p>
+
+      <!-- Live telemetry badge -->
+      <div class="flex items-center gap-4 mb-7 flex-wrap">
+        <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container border border-tertiary/20" style="font-size:11px;">
+          <div class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></div>
+          <span class="font-code-sm text-tertiary">UPTIME: <span id="telemetry-value">99.98%</span></span>
+        </div>
+        <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container border border-secondary/20" style="font-size:11px;">
+          <span class="material-symbols-outlined text-secondary" style="font-size:14px;">bolt</span>
+          <span class="font-code-sm text-secondary">LATENCY: <span id="latency-value">12ms</span></span>
+        </div>
+      </div>
+
       <!-- CTA Buttons -->
-      <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
-        <a href="projects.html" id="cta-explore" class="btn-thunderbolt font-label-caps text-label-caps px-8 py-4 uppercase tracking-widest flex items-center justify-center gap-2 active:scale-95 w-full sm:w-auto">
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="projects.html" id="cta-explore" class="btn-thunderbolt font-label-caps text-label-caps px-8 py-4 uppercase tracking-widest flex items-center justify-center gap-2 active:scale-95">
           <span>EXPLORE PROJECTS</span>
           <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
         </a>
-        <a href="contact.html" class="btn-ghost font-label-caps text-label-caps px-8 py-4 uppercase tracking-widest active:scale-95 text-center w-full sm:w-auto">
+        <a href="contact.html" class="btn-ghost font-label-caps text-label-caps px-8 py-4 uppercase tracking-widest active:scale-95 text-center flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined text-[16px]">bolt</span>
           GET IN TOUCH
         </a>
       </div>
+
+      <!-- Trust row -->
+      <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-7 opacity-60">
+        <span class="font-code-sm text-on-surface-variant" style="font-size:10px;letter-spacing:0.1em;">TRUSTED BY STUDENTS AT</span>
+        <span class="font-code-sm text-on-surface-variant" style="font-size:10px;">10+ Universities</span>
+        <span class="font-code-sm text-on-surface-variant" style="font-size:10px;">100+ Projects Delivered</span>
+        <span class="font-code-sm text-tertiary" style="font-size:10px;">24hr Response</span>
+      </div>
     </div>
 
-    <!-- ─── Hero Graphic (Hidden on mobile to save vertical space) ─── -->
-    <div class="hidden lg:flex lg:col-span-4 mt-10 lg:mt-0 relative group items-center justify-center">
-      <div class="glass-panel bolt-active rounded-xl p-6 w-full h-full min-h-[320px] flex flex-col items-center justify-center relative overflow-hidden transition-all duration-500 hover:border-secondary/40 shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
-        <div class="absolute inset-0 -z-10"></div>
-        <div class="absolute -top-10 -left-10 w-40 h-40 bg-tertiary/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
-        
-        <img src="zeus.png" class="w-full h-full object-contain rounded-full shadow-[0_0_40px_rgba(229,169,60,0.3),0_0_80px_rgba(0,210,255,0.15)] max-h-72" alt="Zeus IoT Logo"/>
+    <!-- ─── Hero Graphic (visible on large screens) ─── -->
+    <div class="hidden lg:flex lg:col-span-4 mt-10 lg:mt-0 relative items-center justify-center z-10">
+      <div class="relative w-full" style="aspect-ratio:1;">
+        <!-- Outer rotating ring -->
+        <div aria-hidden="true" style="position:absolute;inset:-16px;border-radius:50%;border:1px solid rgba(0,210,255,0.15);animation:spinSlow 25s linear infinite;"></div>
+        <div aria-hidden="true" style="position:absolute;inset:-32px;border-radius:50%;border:1px dashed rgba(229,169,60,0.1);animation:spinSlow 40s linear infinite reverse;"></div>
+
+        <!-- Core glass panel -->
+        <div class="glass-panel bolt-active rounded-full w-full h-full flex items-center justify-center relative overflow-hidden" style="box-shadow:0 0 60px rgba(229,169,60,0.2),0 0 120px rgba(0,210,255,0.1);">
+          <div class="absolute inset-0 rounded-full" style="background:radial-gradient(circle at 30% 30%,rgba(0,210,255,0.08) 0%,transparent 60%),radial-gradient(circle at 70% 70%,rgba(229,169,60,0.06) 0%,transparent 60%);"></div>
+          <img src="zeus.png" class="w-full h-full object-contain rounded-full" style="max-height:280px;padding:20px;filter:drop-shadow(0 0 20px rgba(229,169,60,0.4)) drop-shadow(0 0 40px rgba(0,210,255,0.2));" alt="Zeus IoT Logo"/>
+        </div>
+
+        <!-- Orbiting dots -->
+        <div aria-hidden="true" style="position:absolute;inset:0;animation:spinSlow 8s linear infinite;">
+          <div style="position:absolute;top:0;left:50%;width:10px;height:10px;border-radius:50%;background:#e5a93c;box-shadow:0 0 10px rgba(229,169,60,0.8);transform:translate(-50%,-50%);"></div>
+        </div>
+        <div aria-hidden="true" style="position:absolute;inset:-8px;animation:spinSlow 13s linear infinite reverse;">
+          <div style="position:absolute;bottom:0;right:10%;width:7px;height:7px;border-radius:50%;background:#00d2ff;box-shadow:0 0 8px rgba(0,210,255,0.8);"></div>
+        </div>
       </div>
-      <!-- Decorative background glow behind image -->
-      <div class="absolute -inset-4 bg-gradient-to-tr from-tertiary/25 to-secondary/15 blur-2xl -z-10 rounded-full opacity-60 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <!-- Decorative glow -->
+      <div aria-hidden="true" class="absolute -inset-8 rounded-full opacity-30" style="background:radial-gradient(circle,rgba(229,169,60,0.15) 0%,rgba(0,210,255,0.1) 50%,transparent 70%);filter:blur(20px);pointer-events:none;"></div>
     </div>
 
   </section>
 
+  <!-- Section divider -->
+  <hr class="section-divider my-0"/>
+
   <!-- ─────────── ZEUS IN NUMBERS ─────────── -->
-  <section class="mt-20 reveal">
+  <section class="mt-16 reveal">
     <div class="text-center mb-10">
-      <span class="font-code-sm text-code-sm text-tertiary uppercase tracking-widest">ZEUS IN NUMBERS</span>
-      <h2 class="font-headline-lg text-headline-lg text-on-surface mt-2">Results That Speak</h2>
+      <span class="font-code-sm text-code-sm text-tertiary uppercase tracking-widest" style="font-size:11px;letter-spacing:0.2em;">⚡ ZEUS IN NUMBERS</span>
+      <h2 class="font-headline-lg text-on-surface mt-3" style="font-size:clamp(24px,4vw,36px);">Results That <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-tertiary" style="-webkit-text-fill-color:transparent;">Speak</span></h2>
     </div>
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-gutter stagger-children">
       <div class="stat-card glass-panel bolt-standby rounded-xl p-6 text-center">
@@ -1059,7 +1117,6 @@ body {
           <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="index.html">Home</a>
           <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="projects.html">Projects</a>
           <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="contact.html">Contact</a>
-          <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="admin.html">Admin</a>
         </div>
       </div>
       <!-- Services -->
@@ -1491,7 +1548,7 @@ document.querySelectorAll('.scroll-reveal').forEach(el => scrollRevealObserver.o
 <script src="animations.js?v=2"></script>
 
 <!-- #15: Back to Top Button (Mobile only, appears after scrolling) -->
-<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="md:hidden fixed bottom-[76px] right-4 z-40 w-10 h-10 rounded-full bg-surface-container border border-tertiary/40 text-tertiary items-center justify-center shadow-[0_0_12px_rgba(0,210,255,0.2)] transition-all duration-300 opacity-0 pointer-events-none scale-90" aria-label="Back to top">
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="md:hidden fixed bottom-[76px] right-4 z-40 w-10 h-10 rounded-full bg-surface-container border border-tertiary/40 text-tertiary flex items-center justify-center shadow-[0_0_12px_rgba(0,210,255,0.2)] transition-all duration-300 opacity-0 pointer-events-none scale-90" aria-label="Back to top">
   <span class="material-symbols-outlined text-[18px]">arrow_upward</span>
 </button>
 <script>
