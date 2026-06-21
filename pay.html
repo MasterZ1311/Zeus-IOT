@@ -9,7 +9,7 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="shared-styles.css?v=5"/>
+<link rel="stylesheet" href="shared-styles.css?v=7"/>
 <link rel="stylesheet" href="wow-styles.css?v=1"/>
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" sizes="180x180" href="zeus.png">
@@ -201,8 +201,8 @@ tailwind.config = {
 <div id="scroll-progress"></div>
 
 <!-- ═══════════════════════ DESKTOP TOP NAV (SIMPLIFIED) ═══════════════════════ -->
-<header id="desktop-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(0,210,255,0.2)] hidden md:flex items-center justify-between px-margin-desktop h-16 transition-all duration-300">
-  <a href="index.html" class="flex items-center gap-2">
+<header id="desktop-nav" class="fixed top-0 w-full z-50 liquid-glass hidden md:flex items-center justify-between px-margin-desktop h-16 transition-all duration-300">
+  <a href="index.html" class="flex items-center gap-2 touch-target">
     <img src="zeus.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
     <span class="font-headline-xl text-headline-md text-secondary drop-shadow-[0_0_8px_rgba(229,169,60,0.4)] tracking-tight">ZEUS IOT</span>
   </a>
@@ -213,12 +213,29 @@ tailwind.config = {
 </header>
 
 <!-- ═══════════════════════ MOBILE TOP NAV ═══════════════════════ -->
-<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(0,210,255,0.2)] flex md:hidden items-center justify-between px-margin-mobile h-16">
-  <a href="index.html" class="flex items-center gap-2">
+<header class="fixed top-0 w-full z-50 liquid-glass flex md:hidden items-center justify-between px-margin-mobile h-16">
+  <a href="index.html" class="flex items-center gap-2 touch-target">
     <img src="zeus.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
     <span class="font-headline-md text-secondary glow-text">ZEUS IOT</span>
   </a>
+  <button id="mobile-menu-btn"
+    class="touch-target morph-transition flex flex-col items-center justify-center gap-[5px] w-11 h-11"
+    aria-label="Open navigation menu"
+    aria-expanded="false"
+    aria-controls="mobile-menu-overlay">
+    <div class="bar w-6 h-[2px] bg-secondary rounded-sm transition-all duration-300"></div>
+    <div class="bar w-6 h-[2px] bg-secondary rounded-sm transition-all duration-300"></div>
+    <div class="bar w-6 h-[2px] bg-secondary rounded-sm transition-all duration-300"></div>
+  </button>
 </header>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu-overlay" class="liquid-glass">
+  <a href="index.html" class="touch-target morph-transition">HOME</a>
+  <a href="projects.html" class="touch-target morph-transition">PROJECTS</a>
+  <a href="contact.html" class="touch-target morph-transition">CONTACT</a>
+  <a href="pay.html" class="touch-target morph-transition nav-active">PAY</a>
+</div>
 
 <!-- ═══════════════════════ MAIN CONTENT ═══════════════════════ -->
 <main class="flex-grow pt-28 md:pt-32 pb-32 px-margin-mobile md:px-margin-desktop flex flex-col items-center justify-center">
@@ -345,12 +362,12 @@ tailwind.config = {
           </div>
           
           <!-- Actions -->
-          <div class="flex flex-col gap-4 mt-auto">
-            <button id="pay-submit-btn" class="btn-thunderbolt px-6 py-4 rounded-sm font-label-caps text-[14px] flex items-center justify-center gap-2 w-full magnetic-btn" onclick="handlePaySubmit(this)">
+          <div class="flex flex-col gap-4 mt-auto sticky bottom-4 z-50 liquid-glass p-3 rounded-xl shadow-lg md:static md:p-0 md:bg-transparent md:backdrop-blur-none md:border-none md:shadow-none">
+            <button id="pay-submit-btn" class="btn-thunderbolt px-6 py-4 rounded-sm font-label-caps text-[14px] flex items-center justify-center gap-2 w-full magnetic-btn touch-target" onclick="handlePaySubmit(this)">
               <div id="pay-submit-label">SUBMIT VERIFICATION</div>
               <span class="material-symbols-outlined text-on-secondary" style="font-size: 18px;" id="pay-submit-icon">arrow_forward</span>
             </button>
-            <button class="btn-ghost border border-tertiary text-tertiary px-6 py-3 rounded-sm font-label-caps text-[14px] w-full text-center">
+            <button class="btn-ghost border border-tertiary text-tertiary px-6 py-3 rounded-sm font-label-caps text-[14px] w-full text-center touch-target morph-transition" onclick="window.location.href='contact.html'">
               CANCEL TRANSACTION
             </button>
           </div>
@@ -397,7 +414,7 @@ tailwind.config = {
 <div id="qr-modal" class="fixed inset-0 z-50 hidden flex flex-col items-center justify-center bg-storm/95 backdrop-blur-md transition-all duration-300 opacity-0 px-4 py-8">
   <div class="relative w-full max-w-md flex flex-col items-center">
     <!-- Close Button -->
-    <button id="close-modal" class="absolute top-[-3.5rem] right-0 flex items-center justify-center w-10 h-10 rounded-full bg-surface-container border border-outline-variant hover:border-tertiary text-on-surface hover:text-tertiary transition-all duration-200 shadow-lg active:scale-95">
+    <button id="close-modal" class="absolute top-[-3.5rem] right-0 flex items-center justify-center w-10 h-10 rounded-full bg-surface-container border border-outline-variant hover:border-tertiary text-on-surface hover:text-tertiary transition-all duration-200 shadow-lg active:scale-95 touch-target">
       <span class="material-symbols-outlined text-2xl">close</span>
     </button>
     
@@ -419,6 +436,18 @@ tailwind.config = {
 </div>
 
 <script>
+// ─── Mobile Menu Toggle ───
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+if (mobileMenuBtn && mobileMenuOverlay) {
+  mobileMenuBtn.addEventListener('click', () => {
+    mobileMenuBtn.classList.toggle('open');
+    mobileMenuOverlay.classList.toggle('open');
+    if (navigator.vibrate) navigator.vibrate(15);
+  });
+}
+
 // ─── WhatsApp float ───
 setTimeout(() => { const wa = document.getElementById('whatsapp-float'); if (wa) { wa.style.transition = 'opacity 0.5s ease'; wa.style.opacity = '1'; } }, 2000);
 
@@ -479,12 +508,32 @@ async function handlePaySubmit(btn) {
   const label = document.getElementById('pay-submit-label');
   const icon = document.getElementById('pay-submit-icon');
 
+  // FIX-C4: Inline upload validation — no alert()
   if (fileInput.files.length === 0) {
-    alert('Please upload a payment screenshot.');
+    if (navigator.vibrate) navigator.vibrate([80, 40, 80]);
+    const uploadZone = document.getElementById('pay-upload-zone');
+    uploadZone.style.borderColor = '#ef4444';
+    uploadZone.style.boxShadow = '0 0 0 3px rgba(239,68,68,0.2)';
+    // Show inline error
+    let errEl = document.getElementById('pay-upload-error');
+    if (!errEl) {
+      errEl = document.createElement('p');
+      errEl.id = 'pay-upload-error';
+      errEl.className = 'text-red-400 font-code-sm text-[11px] mt-2 text-center flex items-center justify-center gap-1';
+      uploadZone.parentNode.insertBefore(errEl, uploadZone.nextSibling);
+    }
+    errEl.innerHTML = '<span class="material-symbols-outlined text-[13px]">error</span> Please upload your payment screenshot first';
+    uploadZone.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(() => {
+      uploadZone.style.borderColor = '';
+      uploadZone.style.boxShadow = '';
+      if (errEl) errEl.remove();
+    }, 3500);
     return;
   }
 
   btn.classList.add('btn-loading');
+  btn.disabled = true;
   label.textContent = 'VERIFYING...';
   icon.textContent = 'autorenew';
 
@@ -504,10 +553,11 @@ async function handlePaySubmit(btn) {
     if (!response.ok) throw new Error(data.error || 'Verification failed.');
 
     btn.classList.remove('btn-loading');
+    btn.disabled = false;
     label.textContent = 'VERIFIED!';
     icon.textContent = 'check_circle';
     btn.style.background = 'linear-gradient(135deg,#4ade80,#22c55e)';
-    if(navigator.vibrate) navigator.vibrate([30, 50, 30]); // Haptic Success
+    if (navigator.vibrate) navigator.vibrate([30, 50, 30]);
     setTimeout(() => {
       label.textContent = 'SUBMIT VERIFICATION';
       icon.textContent = 'arrow_forward';
@@ -515,9 +565,20 @@ async function handlePaySubmit(btn) {
     }, 3000);
   } catch (err) {
     btn.classList.remove('btn-loading');
-    alert(err.message || 'An error occurred during verification.');
-    label.textContent = 'SUBMIT VERIFICATION';
-    icon.textContent = 'arrow_forward';
+    btn.disabled = false;
+    // FIX-C4: Inline error banner instead of alert()
+    if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
+    let errBanner = document.getElementById('pay-error-banner');
+    if (!errBanner) {
+      errBanner = document.createElement('div');
+      errBanner.id = 'pay-error-banner';
+      errBanner.className = 'bg-red-950/80 border border-red-500/40 text-red-300 font-code-sm text-[12px] p-3 rounded-lg flex items-center gap-2 backdrop-blur-sm mb-3';
+      btn.parentNode.insertBefore(errBanner, btn);
+    }
+    errBanner.innerHTML = `<span class="material-symbols-outlined text-[15px]">error</span>${err.message || 'Server error — try WhatsApp.'}&nbsp;<a href="https://wa.me/919080809088" target="_blank" class="underline text-secondary">Chat ↗</a>`;
+    setTimeout(() => errBanner.remove(), 8000);
+    label.textContent = 'RETRY';
+    icon.textContent = 'refresh';
   }
 }
 
@@ -581,10 +642,19 @@ window.addEventListener('load', () => {
   }
 });
 
-window.addEventListener('pageshow', () => {
+window.addEventListener('pageshow', (event) => {
   const preloaderImg = document.querySelector('#page-preloader .preloader-bolt');
   if (preloaderImg) {
     preloaderImg.classList.remove('preloader-rotate-active');
+  }
+  // FIX-A2: BFCache restore — immediately hide preloader on back navigation (iOS Safari)
+  if (event.persisted) {
+    const preloader = document.getElementById('page-preloader');
+    if (preloader) {
+      preloader.classList.add('hidden');
+      preloader.style.opacity = '0';
+      preloader.style.visibility = 'hidden';
+    }
   }
 });
 

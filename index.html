@@ -20,7 +20,7 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="shared-styles.css?v=5"/>
+<link rel="stylesheet" href="shared-styles.css?v=7"/>
 <link rel="stylesheet" href="wow-styles.css?v=1"/>
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" sizes="180x180" href="zeus.png">
@@ -204,32 +204,52 @@ body {
 <div class="bg-blob bg-blob-dark"></div>
 
 <!-- Particle Background Canvas -->
+<div class="fixed inset-0 w-full h-full pointer-events-none" style="z-index:-2;" id="particles-skeleton">
+  <svg width="100%" height="100%" class="skeleton" preserveAspectRatio="none"><rect width="100%" height="100%" fill="rgba(0,210,255,0.05)"/></svg>
+</div>
 <canvas id="particles-bg"></canvas>
 
 <!-- Scroll Progress Bar -->
 <div id="scroll-progress"></div>
 
 <!-- ═══════════════════════ DESKTOP TOP NAV ═══════════════════════ -->
-<header id="desktop-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] hidden md:flex items-center justify-between px-margin-desktop h-16 transition-all duration-300">
-  <a href="index.html" class="flex items-center gap-2">
+<header id="desktop-nav" class="fixed top-0 w-full z-50 liquid-glass hidden md:flex items-center justify-between px-margin-desktop h-16 transition-all duration-300">
+  <a href="index.html" class="flex items-center gap-2 touch-target">
     <img src="zeus.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
     <span class="font-headline-xl text-headline-md text-secondary drop-shadow-[0_0_8px_rgba(255,198,64,0.4)] tracking-tight">ZEUS IOT</span>
   </a>
   <nav class="flex items-center gap-8">
-    <a class="text-secondary font-label-caps text-label-caps border-b-2 border-secondary pb-1 nav-link-animated" href="index.html">HOME</a>
-    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated" href="projects.html">PROJECTS</a>
-    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated" href="contact.html">CONTACT</a>
-    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated" href="pay.html">PAY</a>
+    <a class="text-secondary font-label-caps text-label-caps border-b-2 border-secondary pb-1 nav-link-animated touch-target morph-transition" href="index.html">HOME</a>
+    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated touch-target morph-transition" href="projects.html">PROJECTS</a>
+    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated touch-target morph-transition" href="contact.html">CONTACT</a>
+    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated touch-target morph-transition" href="pay.html">PAY</a>
   </nav>
 </header>
 
 <!-- ═══════════════════════ MOBILE TOP NAV ═══════════════════════ -->
-<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(16,185,129,0.2)] flex md:hidden items-center justify-between px-margin-mobile h-16" style="z-index:150;">
-  <a href="index.html" class="flex items-center gap-2">
+<header class="fixed top-0 w-full liquid-glass flex md:hidden items-center justify-between px-margin-mobile h-16" style="z-index:150;">
+  <a href="index.html" class="flex items-center gap-2 touch-target">
     <img src="zeus.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
     <span class="font-headline-md text-secondary glow-text">ZEUS IOT</span>
   </a>
+  <button id="mobile-menu-btn"
+    class="touch-target morph-transition flex flex-col items-center justify-center gap-[5px] w-11 h-11"
+    aria-label="Open navigation menu"
+    aria-expanded="false"
+    aria-controls="mobile-menu-overlay">
+    <div class="bar w-6 h-[2px] bg-secondary rounded-sm transition-all duration-300"></div>
+    <div class="bar w-6 h-[2px] bg-secondary rounded-sm transition-all duration-300"></div>
+    <div class="bar w-6 h-[2px] bg-secondary rounded-sm transition-all duration-300"></div>
+  </button>
 </header>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu-overlay" class="liquid-glass">
+  <a href="index.html" class="touch-target morph-transition nav-active">HOME</a>
+  <a href="projects.html" class="touch-target morph-transition">PROJECTS</a>
+  <a href="contact.html" class="touch-target morph-transition">CONTACT</a>
+  <a href="pay.html" class="touch-target morph-transition">PAY</a>
+</div>
 
 <!-- ═══════════════════════ MAIN CONTENT ═══════════════════════ -->
 <main class="pt-24 md:pt-32 pb-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative z-10">
@@ -250,8 +270,11 @@ body {
     </style>
 
     <div class="lg:col-span-8 flex flex-col justify-center z-10">
-      <!-- Mobile Hero Logo (visible only on mobile) -->
-      <img src="zeus.png" alt="Zeus IoT Logo" class="mobile-hero-logo lg:hidden" loading="eager"/>
+      <!-- Mobile Hero Logo (visible only on mobile) — FIX-H1: Reduced from 200px to 140px to bring CTAs above fold on iPhone SE -->
+      <div class="relative w-full aspect-square max-w-[140px] lg:hidden mb-4 mx-auto">
+        <svg class="absolute inset-0 w-full h-full text-cyan-500/10 skeleton" fill="currentColor" viewBox="0 0 24 24" style="z-index: 1;"><circle cx="12" cy="12" r="10"/></svg>
+        <img src="zeus.png" alt="Zeus IoT Logo" class="mobile-hero-logo relative z-10 w-full h-full object-contain morph-transition" loading="eager" onload="this.previousElementSibling.style.display='none'"/>
+      </div>
       <!-- Status Badge -->
       <div class="inline-flex items-center gap-2 bg-surface-container-high border border-secondary/30 rounded-full px-4 py-1.5 w-max mb-5 hero-status-badge" style="backdrop-filter:blur(8px);">
         <div class="w-2.5 h-2.5 rounded-full bg-secondary animate-breathe shadow-[0_0_8px_rgba(229,169,60,0.8)]"></div>
@@ -312,7 +335,8 @@ body {
         <!-- Core glass panel -->
         <div class="glass-panel bolt-active rounded-full w-full h-full flex items-center justify-center relative overflow-hidden" style="box-shadow:0 0 60px rgba(229,169,60,0.2),0 0 120px rgba(0,210,255,0.1);">
           <div class="absolute inset-0 rounded-full" style="background:radial-gradient(circle at 30% 30%,rgba(0,210,255,0.08) 0%,transparent 60%),radial-gradient(circle at 70% 70%,rgba(229,169,60,0.06) 0%,transparent 60%);"></div>
-          <img src="zeus.png" class="w-full h-full object-contain rounded-full" style="max-height:280px;padding:20px;filter:drop-shadow(0 0 20px rgba(229,169,60,0.4)) drop-shadow(0 0 40px rgba(0,210,255,0.2));" alt="Zeus IoT Logo"/>
+          <svg class="absolute inset-0 w-full h-full text-cyan-500/10 skeleton rounded-full" fill="currentColor" viewBox="0 0 24 24" style="padding: 20px;"><circle cx="12" cy="12" r="10"/></svg>
+          <img src="zeus.png" class="w-full h-full object-contain rounded-full relative z-10 morph-transition" style="max-height:280px;padding:20px;filter:drop-shadow(0 0 20px rgba(229,169,60,0.4)) drop-shadow(0 0 40px rgba(0,210,255,0.2));" alt="Zeus IoT Logo" onload="this.previousElementSibling.style.display='none'"/>
         </div>
 
         <!-- Orbiting dots -->
@@ -523,7 +547,7 @@ body {
         </div>
         
         <!-- The Sandbox Widget -->
-        <div class="z-10 lg:w-1/2 w-full bg-surface-container-lowest border border-outline-variant/20 rounded-xl p-4 sm:p-6 shadow-2xl relative">
+        <div class="z-10 lg:w-1/2 w-full max-w-full overflow-hidden bg-surface-container-lowest border border-outline-variant/20 rounded-xl p-4 sm:p-6 shadow-2xl relative">
           <div class="flex justify-between items-center border-b border-outline-variant/20 pb-3 mb-3">
             <div class="font-code-sm text-sm text-on-surface font-bold tracking-widest">ESP32_CORE_01</div>
             <div class="font-code-sm text-xs text-tertiary">UPTIME: <span id="sandbox-uptime">00:00:00</span></div>
@@ -543,7 +567,7 @@ body {
               <div class="font-label-caps text-[10px] sm:text-[11px] text-on-surface uppercase mb-1">Main Relay Power</div>
               <div class="font-code-sm text-[9px] sm:text-[10px] text-on-surface-variant">Controls hardware state</div>
             </div>
-            <label class="relative inline-flex items-center cursor-pointer flex-shrink-0">
+            <label class="relative inline-flex items-center cursor-pointer flex-shrink-0 touch-target morph-transition">
               <input type="checkbox" id="sandbox-toggle" class="sr-only peer">
               <div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
             </label>
@@ -849,7 +873,7 @@ body {
       <h2 class="font-headline-lg text-headline-lg text-on-surface mt-2">Simple Pricing Tiers</h2>
       <p class="font-body-md text-body-md text-on-surface-variant mt-2">Milestone-based billing. 50% upfront, 50% on delivery.</p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter stagger-children items-center mobile-carousel -mx-margin-mobile px-margin-mobile pb-6 md:mx-0 md:px-0">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter stagger-children items-center mobile-carousel omnidirectional-scroll -mx-margin-mobile px-margin-mobile pb-6 md:mx-0 md:px-0">
       <!-- Basic -->
       <div class="glass-panel bolt-standby rounded-xl p-8 flex flex-col h-full group hover:border-tertiary/40 transition-all duration-300 mobile-carousel-item w-[290px] md:w-auto">
         <div class="font-label-caps text-label-caps text-tertiary mb-3 uppercase">Basic Tier</div>
@@ -906,7 +930,7 @@ body {
       THE HARDWARE PANTHEON
     </h2>
     <p class="font-body-md text-body-md text-on-surface-variant mb-12 ml-12">Our Technical Stack — the foundation of every build.</p>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter stagger-children mobile-carousel -mx-margin-mobile px-margin-mobile pb-6 sm:mx-0 sm:px-0">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter stagger-children mobile-carousel omnidirectional-scroll -mx-margin-mobile px-margin-mobile pb-6 sm:mx-0 sm:px-0">
       <div class="glass-panel rounded-xl p-6 flex flex-col items-center text-center group mobile-carousel-item w-[240px] sm:w-auto">
         <div class="hardware-icon mb-4 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-shadow">
           <span class="material-symbols-outlined text-tertiary text-3xl">memory</span>
@@ -955,7 +979,7 @@ body {
       <span class="w-8 h-1 bg-gradient-to-r from-tertiary to-secondary"></span>
       COMMUNICATION PROTOCOLS
     </h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter stagger-children mobile-carousel -mx-margin-mobile px-margin-mobile pb-6 sm:mx-0 sm:px-0">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter stagger-children mobile-carousel omnidirectional-scroll -mx-margin-mobile px-margin-mobile pb-6 sm:mx-0 sm:px-0">
       <div class="glass-panel protocol-card rounded-xl p-6 group mobile-carousel-item w-[260px] sm:w-auto">
         <div class="flex items-center gap-3 mb-4">
           <div class="w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center border border-tertiary/30"><span class="material-symbols-outlined text-tertiary">hub</span></div>
@@ -1047,10 +1071,10 @@ body {
     </div>
     <div class="max-w-3xl mx-auto flex flex-col gap-3" id="faq-list">
       
-      <div class="glass-panel rounded-xl overflow-hidden">
-        <button class="faq-btn w-full flex items-center justify-between p-6 text-left" data-faq="0">
+      <div class="glass-panel rounded-xl overflow-hidden morph-transition">
+        <button class="faq-btn w-full flex items-center justify-between p-6 text-left touch-target morph-transition" data-faq="0">
           <span class="font-headline-md text-[17px] text-on-surface">How much does a typical IoT project cost?</span>
-          <span class="material-symbols-outlined text-secondary faq-icon text-xl flex-shrink-0 ml-4">bolt</span>
+          <span class="material-symbols-outlined text-secondary faq-icon text-xl flex-shrink-0 ml-4 morph-transition">bolt</span>
         </button>
         <div class="faq-answer px-6" id="faq-0">
           <p class="font-body-md text-body-md text-on-surface-variant pb-5">Starting from ₹499 for basic single-module projects up to ₹3,999+ for full-stack software ecosystems. Hardware component costs are separate. We provide exact quotes within 24 hours after reviewing your requirements on WhatsApp.</p>
@@ -1226,6 +1250,18 @@ window.addEventListener('scroll', () => {
     else nav.classList.remove('nav-scrolled');
   }
 });
+
+// ─── Mobile Menu Toggle ───
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+if (mobileMenuBtn && mobileMenuOverlay) {
+  mobileMenuBtn.addEventListener('click', () => {
+    mobileMenuBtn.classList.toggle('open');
+    mobileMenuOverlay.classList.toggle('open');
+    if (navigator.vibrate) navigator.vibrate(15);
+  });
+}
 
 // ─── FAQ Accordion ───
 document.querySelectorAll('.faq-btn').forEach(btn => {
@@ -1482,10 +1518,19 @@ window.addEventListener('load', () => {
   }
 });
 
-window.addEventListener('pageshow', () => {
+window.addEventListener('pageshow', (event) => {
   const preloaderImg = document.querySelector('#page-preloader .preloader-bolt');
   if (preloaderImg) {
     preloaderImg.classList.remove('preloader-rotate-active');
+  }
+  // FIX-A2: BFCache restore — immediately hide preloader on back navigation (iOS Safari)
+  if (event.persisted) {
+    const preloader = document.getElementById('page-preloader');
+    if (preloader) {
+      preloader.classList.add('hidden');
+      preloader.style.opacity = '0';
+      preloader.style.visibility = 'hidden';
+    }
   }
 });
 

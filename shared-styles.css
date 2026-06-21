@@ -1241,9 +1241,8 @@ body {
     flex-shrink: 0 !important;
     scroll-snap-align: start !important;
   }
-  #mobile-menu-btn, #mobile-menu-overlay {
-    display: none !important;
-  }
+  /* Mobile menu is handled by shared-styles.css overlay rules — do NOT hide globally here */
+  /* #mobile-menu-btn, #mobile-menu-overlay { display: none !important; } */
 }
 
 /* Carousel scroll hint indicator */
@@ -1526,6 +1525,8 @@ body {
   .text-headline-md { font-size: 15px !important; }
   .text-body-lg { font-size: 14px !important; }
   .stat-number { font-size: 22px !important; }
+  /* FIX-H6: Stat labels must stay ≥9px even on smallest screens */
+  .stat-card .font-label-caps { font-size: 9px !important; }
   nav.fixed.bottom-0 .font-label-caps { font-size: 8px !important; }
   nav.fixed.bottom-0 .material-symbols-outlined { font-size: 20px !important; }
 }
@@ -2149,3 +2150,149 @@ body { max-width: 100vw !important; overflow-x: hidden !important; }
   }
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE UX REFACTOR UTILITIES
+   ═══════════════════════════════════════════════════════════════ */
+
+.liquid-glass {
+  background-color: rgba(15, 23, 42, 0.7) !important; /* deep slate-900 with opacity */
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(0, 210, 255, 0.2) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 210, 255, 0.1), 0 4px 6px -4px rgba(0, 210, 255, 0.05) !important;
+}
+
+.touch-target {
+  min-height: 44px !important;
+  min-width: 44px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.morph-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.omnidirectional-scroll {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+  overscroll-behavior-x: contain !important;
+  scrollbar-width: none !important;
+}
+.omnidirectional-scroll::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* Fix mobile menu overlay links spacing */
+#mobile-menu-overlay {
+  gap: 3rem !important; /* increased spacing */
+}
+#mobile-menu-overlay a {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE FIX PACK v7 — AUDIT REMEDIATION 2026-06-21
+   ═══════════════════════════════════════════════════════════════ */
+
+/* FIX-C1: WhatsApp FAB — prevent overlap on 320px narrow screens */
+@media (max-width: 360px) {
+  .whatsapp-float {
+    width: 40px !important;
+    height: 40px !important;
+    right: 8px !important;
+    bottom: calc(64px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+  .whatsapp-float svg { width: 20px !important; height: 20px !important; }
+}
+
+/* FIX-H1+H2: Hero image panel height — bring CTAs above fold on iPhone SE */
+@media (max-width: 767px) {
+  /* The hero image/emblem skeleton containers must not exceed 160px */
+  .hero-image-panel {
+    max-height: 160px !important;
+    min-height: 120px !important;
+    overflow: hidden !important;
+  }
+}
+
+/* FIX-H6: Stat labels — minimum 10px on 381-767px range (9px only for 380px and below) */
+@media (min-width: 381px) and (max-width: 767px) {
+  .stat-card .font-label-caps { font-size: 10px !important; }
+}
+
+/* FIX-H3: Stats section — tighter row gap so all 4 cards fit in view */
+@media (max-width: 767px) {
+  .grid.grid-cols-2.lg\:grid-cols-4 {
+    gap: 8px !important;
+  }
+  .stat-card {
+    padding: 12px 10px !important;
+  }
+}
+
+/* FIX-M1: Testimonials carousel — add left padding for edge breathing room */
+@media (max-width: 767px) {
+  .animate-marquee {
+    padding-left: 16px !important;
+    padding-right: 8px !important;
+  }
+}
+
+/* FIX-M2: WhatsApp FAB — clamp prevents excessive height on Dynamic Island iPhones */
+@media (max-width: 767px) {
+  .whatsapp-float {
+    bottom: clamp(72px, calc(68px + env(safe-area-inset-bottom, 0px)), 116px) !important;
+  }
+}
+
+/* FIX-M3: Date input — iOS Safari compatible rendering */
+@media (max-width: 767px) {
+  input[type="date"] {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    min-height: 48px !important;
+  }
+  input[type="date"]::-webkit-datetime-edit {
+    font-size: 14px;
+    color: #e0e3e5;
+  }
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) opacity(0.5);
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* FIX-M5: Pricing card badge — allow vertical overflow for the -top-3 badge */
+@media (max-width: 767px) {
+  .mobile-carousel {
+    overflow: visible !important;
+    overflow-x: auto !important;
+  }
+  .mobile-carousel-item {
+    margin-top: 12px !important;
+  }
+}
+
+/* FIX-A1: Scroll container GPU compositing for smooth carousel scrolling */
+@media (max-width: 767px) {
+  .animate-marquee,
+  .mobile-carousel,
+  .omnidirectional-scroll {
+    will-change: scroll-position;
+    transform: translateZ(0);
+  }
+}
+
+/* FIX-A2: Preloader — ensure fully hidden on BFCache restore */
+#page-preloader.hidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}

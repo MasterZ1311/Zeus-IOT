@@ -10,7 +10,7 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="shared-styles.css?v=5"/>
+<link rel="stylesheet" href="shared-styles.css?v=7"/>
 <link rel="stylesheet" href="wow-styles.css?v=1"/>
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" sizes="180x180" href="zeus.png">
@@ -198,26 +198,43 @@ body {
 <div id="scroll-progress"></div>
 
 <!-- ═══════════════════════ DESKTOP TOP NAV ═══════════════════════ -->
-<header id="desktop-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(0,210,255,0.2)] hidden md:flex items-center justify-between px-margin-desktop h-16 transition-all duration-300">
-  <a href="index.html" class="flex items-center gap-2">
+<header id="desktop-nav" class="fixed top-0 w-full z-50 liquid-glass hidden md:flex items-center justify-between px-margin-desktop h-16 transition-all duration-300">
+  <a href="index.html" class="flex items-center gap-2 touch-target">
     <img src="zeus.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
     <span class="font-headline-xl text-headline-md text-secondary drop-shadow-[0_0_8px_rgba(229,169,60,0.4)] tracking-tight">ZEUS IOT</span>
   </a>
   <nav class="flex items-center gap-8">
-    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated" href="index.html">HOME</a>
-    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated" href="projects.html">PROJECTS</a>
-    <a class="text-secondary font-label-caps text-label-caps border-b-2 border-secondary pb-1" href="contact.html">CONTACT</a>
-    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated" href="pay.html">PAY</a>
+    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated touch-target morph-transition" href="index.html">HOME</a>
+    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated touch-target morph-transition" href="projects.html">PROJECTS</a>
+    <a class="text-secondary font-label-caps text-label-caps border-b-2 border-secondary pb-1 touch-target morph-transition" href="contact.html">CONTACT</a>
+    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated touch-target morph-transition" href="pay.html">PAY</a>
   </nav>
 </header>
 
 <!-- ═══════════════════════ MOBILE TOP NAV ═══════════════════════ -->
-<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(0,210,255,0.2)] flex md:hidden items-center justify-between px-margin-mobile h-16">
-  <a href="index.html" class="flex items-center gap-2">
+<header class="fixed top-0 w-full z-50 liquid-glass flex md:hidden items-center justify-between px-margin-mobile h-16">
+  <a href="index.html" class="flex items-center gap-2 touch-target">
     <img src="zeus.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
     <span class="font-headline-md text-secondary glow-text">ZEUS IOT</span>
   </a>
+  <button id="mobile-menu-btn"
+    class="touch-target morph-transition flex flex-col items-center justify-center gap-[5px] w-11 h-11"
+    aria-label="Open navigation menu"
+    aria-expanded="false"
+    aria-controls="mobile-menu-overlay">
+    <div class="bar w-6 h-[2px] bg-secondary rounded-sm transition-all duration-300"></div>
+    <div class="bar w-6 h-[2px] bg-secondary rounded-sm transition-all duration-300"></div>
+    <div class="bar w-6 h-[2px] bg-secondary rounded-sm transition-all duration-300"></div>
+  </button>
 </header>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu-overlay" class="liquid-glass">
+  <a href="index.html" class="touch-target morph-transition">HOME</a>
+  <a href="projects.html" class="touch-target morph-transition">PROJECTS</a>
+  <a href="contact.html" class="touch-target morph-transition nav-active">CONTACT</a>
+  <a href="pay.html" class="touch-target morph-transition">PAY</a>
+</div>
 
 <!-- ═══════════════════════ MAIN CONTENT ═══════════════════════ -->
 <main class="pt-24 md:pt-32 pb-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative z-10">
@@ -321,8 +338,8 @@ body {
               </div>
             </div>
             <input type="hidden" id="selected-tier" value="CUSTOM"/>
-            <div class="flex justify-end mt-4">
-              <button type="button" class="btn-thunderbolt font-label-caps text-label-caps px-8 py-3 uppercase tracking-widest flex items-center gap-2 magnetic-btn" id="step1-next">
+            <div class="flex justify-end mt-4 sticky bottom-4 z-50 liquid-glass p-3 rounded-xl shadow-lg md:static md:p-0 md:bg-transparent md:backdrop-blur-none md:border-none md:shadow-none">
+              <button type="button" class="btn-thunderbolt font-label-caps text-label-caps px-8 py-3 uppercase tracking-widest flex items-center justify-center gap-2 magnetic-btn w-full md:w-auto" id="step1-next">
                 Next Step <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
               </button>
             </div>
@@ -361,11 +378,11 @@ body {
               <div class="font-code-sm text-[12px] text-on-surface-variant" id="char-count">0 / 500</div>
             </div>
 
-            <div class="flex justify-between gap-3 mt-4">
-              <button type="button" class="btn-ghost font-label-caps text-label-caps px-6 py-3 uppercase tracking-widest flex items-center gap-2" id="step2-back">
-                <span class="material-symbols-outlined text-[16px]">arrow_back</span> Back
+            <div class="flex justify-between gap-3 mt-4 sticky bottom-4 z-50 liquid-glass p-3 rounded-xl shadow-lg md:static md:p-0 md:bg-transparent md:backdrop-blur-none md:border-none md:shadow-none">
+              <button type="button" class="btn-ghost font-label-caps text-label-caps px-6 py-3 uppercase tracking-widest flex items-center justify-center gap-2 w-1/3 md:w-auto" id="step2-back">
+                <span class="material-symbols-outlined text-[16px]">arrow_back</span> <span class="hidden sm:inline">Back</span>
               </button>
-              <button type="button" class="btn-thunderbolt font-label-caps text-label-caps px-8 py-3 uppercase tracking-widest flex items-center gap-2 magnetic-btn" id="step2-next">
+              <button type="button" class="btn-thunderbolt font-label-caps text-label-caps px-8 py-3 uppercase tracking-widest flex items-center justify-center gap-2 magnetic-btn w-2/3 md:w-auto" id="step2-next">
                 Next Step <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
               </button>
             </div>
@@ -400,11 +417,13 @@ body {
               </div>
             </div>
 
-            <div class="flex justify-between gap-3">
-              <button type="button" class="btn-ghost font-label-caps text-label-caps px-6 py-3 uppercase tracking-widest flex items-center gap-2" id="step3-back">
-                <span class="material-symbols-outlined text-[16px]">arrow_back</span> Back
+            <div class="flex justify-between gap-3 sticky bottom-4 z-50 liquid-glass p-3 rounded-xl shadow-lg md:static md:p-0 md:bg-transparent md:backdrop-blur-none md:border-none md:shadow-none mt-4">
+              <!-- FIX-C3: Inline error banner -->
+              <div id="form-error-banner" class="hidden absolute -top-16 left-0 right-0 mx-3 bg-red-950/80 border border-red-500/50 text-red-300 font-code-sm text-[12px] p-3 rounded-lg flex items-center gap-2 backdrop-blur-sm"></div>
+              <button type="button" class="btn-ghost font-label-caps text-label-caps px-6 py-3 uppercase tracking-widest flex items-center justify-center gap-2 w-1/3 md:w-auto" id="step3-back">
+                <span class="material-symbols-outlined text-[16px]">arrow_back</span> <span class="hidden sm:inline">Back</span>
               </button>
-              <button type="submit" class="btn-thunderbolt font-label-caps text-label-caps px-8 py-3 uppercase tracking-widest flex items-center gap-2 magnetic-btn" id="submit-btn">
+              <button type="submit" class="btn-thunderbolt font-label-caps text-label-caps px-8 py-3 uppercase tracking-widest flex items-center justify-center gap-2 magnetic-btn w-2/3 md:w-auto" id="submit-btn">
                 <span id="submit-label">LAUNCH REQUEST</span>
                 <span class="material-symbols-outlined text-[16px]" id="submit-icon">bolt</span>
               </button>
@@ -545,6 +564,16 @@ document.querySelectorAll('.tier-card').forEach(card => {
 
 // ─── Wizard Navigation ───
 let currentStep = 1;
+function scrollToFormTop() {
+  const formCard = document.getElementById('project-initiation-form') || document.querySelector('.glass-panel-gradient-top');
+  if (formCard) {
+    const navHeight = 68;
+    const y = formCard.getBoundingClientRect().top + window.scrollY - navHeight;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  } else {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
 function goToStep(step) {
   // Hide all panels
   document.querySelectorAll('.wizard-panel').forEach(p => p.classList.remove('active'));
@@ -564,6 +593,8 @@ function goToStep(step) {
     conn.classList.toggle('active', i < step);
   }
   currentStep = step;
+  // FIX-C2: Always scroll to top of form on step change
+  setTimeout(scrollToFormTop, 60);
 }
 
 document.getElementById('step1-next').addEventListener('click', () => goToStep(2));
@@ -573,8 +604,26 @@ document.getElementById('step2-next').addEventListener('click', () => {
   const phone = document.getElementById('input-phone').value.trim();
   const deadline = document.getElementById('input-deadline').value;
   const desc = document.getElementById('input-desc').value.trim();
-  if (!name || !phone || !deadline || !desc) {
-    alert('Please fill in your name, phone number, deadline date, and project description.');
+  // FIX-C2 / inline validation — no alert(), use field highlighting
+  const fields = [
+    { val: name, id: 'input-name' },
+    { val: phone, id: 'input-phone' },
+    { val: deadline, id: 'input-deadline' },
+    { val: desc, id: 'input-desc' }
+  ];
+  let firstEmpty = null;
+  fields.forEach(({ val, id }) => {
+    const el = document.getElementById(id);
+    if (!val) {
+      el.style.borderColor = '#ef4444';
+      el.style.boxShadow = '0 0 0 3px rgba(239,68,68,0.15)';
+      if (!firstEmpty) firstEmpty = el;
+      setTimeout(() => { el.style.borderColor = ''; el.style.boxShadow = ''; }, 3000);
+    }
+  });
+  if (firstEmpty) {
+    if (navigator.vibrate) navigator.vibrate([80, 40, 80]);
+    firstEmpty.focus();
     return;
   }
   goToStep(3);
@@ -667,11 +716,20 @@ form.addEventListener('submit', async (e) => {
     summaryTier.textContent = 'CUSTOM';
     summaryTier.className = 'font-code-sm text-[12px] text-secondary';
   } catch (err) {
-    alert(err.message);
+    // FIX-C3: Inline error banner instead of alert()
+    const errBanner = document.getElementById('form-error-banner');
+    if (errBanner) {
+      errBanner.innerHTML = `<span class="material-symbols-outlined text-[16px] align-middle">error</span> ${err.message || 'Server error — please try WhatsApp instead.'} &nbsp;<a href="https://wa.me/919080809088" target="_blank" class="underline text-secondary ml-1">Chat on WhatsApp ↗</a>`;
+      errBanner.classList.remove('hidden');
+      setTimeout(() => errBanner.scrollIntoView({ behavior: 'smooth', block: 'center' }), 50);
+      setTimeout(() => errBanner.classList.add('hidden'), 8000);
+    }
+    if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
+    submitLabel.textContent = 'RETRY';
+    submitIcon.textContent = 'refresh';
   } finally {
     submitBtn.classList.remove('btn-loading');
-    submitLabel.textContent = 'LAUNCH REQUEST';
-    submitIcon.textContent = 'bolt';
+    submitBtn.disabled = false;
   }
 });
 
@@ -718,10 +776,19 @@ window.addEventListener('load', () => {
   }
 });
 
-window.addEventListener('pageshow', () => {
+window.addEventListener('pageshow', (event) => {
   const preloaderImg = document.querySelector('#page-preloader .preloader-bolt');
   if (preloaderImg) {
     preloaderImg.classList.remove('preloader-rotate-active');
+  }
+  // FIX-A2: BFCache restore — immediately hide preloader on back navigation
+  if (event.persisted) {
+    const preloader = document.getElementById('page-preloader');
+    if (preloader) {
+      preloader.classList.add('hidden');
+      preloader.style.opacity = '0';
+      preloader.style.visibility = 'hidden';
+    }
   }
 });
 

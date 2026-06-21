@@ -20,13 +20,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const isMobile = window.matchMedia("(max-width: 768px)").matches;
   
   function triggerHaptic(type = 'light') {
-    if (!navigator.vibrate) return;
-    try {
-      if (type === 'light') navigator.vibrate(15);
-      else if (type === 'medium') navigator.vibrate(30);
-      else if (type === 'heavy') navigator.vibrate(50);
-      else if (type === 'success') navigator.vibrate([30, 50, 30]);
-    } catch(e) {}
+    if (navigator.vibrate) {
+      // Android: physical vibration
+      try {
+        if (type === 'light') navigator.vibrate(15);
+        else if (type === 'medium') navigator.vibrate(30);
+        else if (type === 'heavy') navigator.vibrate(50);
+        else if (type === 'success') navigator.vibrate([30, 50, 30]);
+        else if (type === 'error') navigator.vibrate([100, 50, 100]);
+      } catch(e) {}
+    } else {
+      // iOS/no vibrate: CSS visual feedback pulse
+      document.body.style.transition = 'opacity 0.08s ease';
+      document.body.style.opacity = type === 'error' ? '0.92' : '0.97';
+      setTimeout(() => { document.body.style.opacity = '1'; }, 100);
+    }
   }
 
   // Attach haptics to all major buttons and nav links
@@ -261,16 +269,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // 11. CAROUSEL HAPTIC SNAP FEEDBACK
   // ═══════════════════════════════════════════════════════════════
   if (isMobile) {
-    const carousels = document.querySelectorAll('.mobile-carousel, .animate-marquee');
+    const carousels = document.querySelectorAll('.mobile-carousel, .animate-marquee, .snap-x, .omnidirectional-scroll');
     carousels.forEach(carousel => {
-      let lastSnapIndex = 0;
+      let lastScrollLeft = carousel.scrollLeft;
       carousel.addEventListener('scrollend', () => {
-        // Calculate which card is in view
-        const cardWidth = carousel.querySelector('.mobile-carousel-item, .testimonial-card')?.offsetWidth || 280;
-        const newIndex = Math.round(carousel.scrollLeft / (cardWidth + 12));
-        if (newIndex !== lastSnapIndex) {
+        if (Math.abs(carousel.scrollLeft - lastScrollLeft) > 10) {
           triggerHaptic('light');
-          lastSnapIndex = newIndex;
+          lastScrollLeft = carousel.scrollLeft;
         }
       }, { passive: true });
     });
@@ -306,6 +311,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Horizontal swipe threshold: 100px. Must be mostly horizontal.
       if (Math.abs(diffX) > 100 && diffY < 60 && currentIndex !== -1) {
+        // Prevent global swipe if swiping inside a scrollable carousel
+        if (e.target.closest('.omnidirectional-scroll, .snap-x, .hide-scrollbar')) return;
+
         if (diffX > 0 && currentIndex < pages.length - 1) {
           // Swipe Left -> Next Page
           window.location.href = pages[currentIndex + 1];
@@ -353,5 +361,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-});
+  // ═══════════════════════════════════════════════════════════════
+  // FIX-ACC1+ACC2: Mobile Menu ARIA — aria-expanded toggling
+  // Applied globally for all pages
+  // ═══════════════════════════════════════════════════════════════
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+  if (mobileMenuBtn && mobileMenuOverlay) {
+    // Ensure correct ARIA attributes are set
+    mobileMenuBtn.setAttribute('aria-controls', 'mobile-menu-overlay');
+    if (!mobileMenuBtn.getAttribute('aria-label')) {
+      mobileMenuBtn.setAttribute('aria-label', 'Open navigation menu');
+    }
+    // Override click to toggle aria-expanded
+    const originalClickHandler = mobileMenuBtn.onclick;
+    mobileMenuBtn.addEventListener('click', () => {
+      const isOpen = mobileMenuOverlay.classList.contains('open');
+      mobileMenuBtn.setAttribute('aria-expanded', !isOpen ? 'true' : 'false');
+      mobileMenuBtn.setAttribute('aria-label', !isOpen ? 'Close navigation menu' : 'Open navigation menu');
+    });
+  }
 
+  // ═══════════════════════════════════════════════════════════════
+  // FIX-ACC4: aria-hidden on decorative Material Symbols icons
+  // ═══════════════════════════════════════════════════════════════
+  document.querySelectorAll('.material-symbols-outlined').forEach(icon => {
+    // Only hide icons that don't already have an aria-label
+    if (!icon.getAttribute('aria-label') && !icon.closest('[aria-label]')) {
+      icon.setAttribute('aria-hidden', 'true');
+      icon.setAttribute('focusable', 'false');
+    }
+  });
+
+});
