@@ -49,6 +49,12 @@ if (!fs.existsSync(UPLOADS_DIR)) {
 // Serve static uploads
 app.use('/uploads', express.static(UPLOADS_DIR));
 
+// Force no-cache for the service worker file to ensure updates are detected immediately
+app.get('/sw.js', (req, res) => {
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0');
+  res.sendFile(path.resolve(__dirname, '../sw.js'));
+});
+
 // Serve static frontend files from parent directory
 const FRONTEND_DIR = path.join(__dirname, '..');
 app.use(express.static(FRONTEND_DIR));
@@ -382,7 +388,7 @@ app.post('/api/contact', publicLimiter, async (req, res) => {
       return res.status(400).json({ error: error.errors.map(e => e.message).join(', ') });
     }
     console.error(error);
-    res.status(500).json({ error: 'Failed to save contact request.' });
+    res.status(500).json({ error: 'Failed to save contact request: ' + error.message });
   }
 });
 

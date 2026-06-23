@@ -233,8 +233,10 @@ tailwind.config = {
 <div id="mobile-menu-overlay" class="liquid-glass">
   <a href="index.html" class="touch-target morph-transition">HOME</a>
   <a href="projects.html" class="touch-target morph-transition">PROJECTS</a>
+  <a href="about.html" class="touch-target morph-transition">ABOUT</a>
+  <a href="blog.html" class="touch-target morph-transition">RESOURCES</a>
+  <a href="community.html" class="touch-target morph-transition">COMMUNITY</a>
   <a href="contact.html" class="touch-target morph-transition">CONTACT</a>
-  <a href="pay.html" class="touch-target morph-transition nav-active">PAY</a>
 </div>
 
 <!-- ═══════════════════════ MAIN CONTENT ═══════════════════════ -->
@@ -436,17 +438,6 @@ tailwind.config = {
 </div>
 
 <script>
-// ─── Mobile Menu Toggle ───
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-
-if (mobileMenuBtn && mobileMenuOverlay) {
-  mobileMenuBtn.addEventListener('click', () => {
-    mobileMenuBtn.classList.toggle('open');
-    mobileMenuOverlay.classList.toggle('open');
-    if (navigator.vibrate) navigator.vibrate(15);
-  });
-}
 
 // ─── WhatsApp float ───
 setTimeout(() => { const wa = document.getElementById('whatsapp-float'); if (wa) { wa.style.transition = 'opacity 0.5s ease'; wa.style.opacity = '1'; } }, 2000);

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta name="theme-color" content="#050816"/>
+<link rel="preload" href="zeus.png" as="image"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Student Reviews — ZEUS IOT | What They Built. What They Felt.</title>
+<meta name="description" content="Real reviews from engineering students across India who built final-year projects with Zeus IoT. VIT, SRM, NIT, Anna University, Amrita and more."/>
+<meta property="og:title" content="Student Reviews — ZEUS IOT"/>
+<meta property="og:description" content="100+ projects delivered. Real student feedback from 10+ universities across India."/>
+<meta property="og:url" content="https://zeusiot.in/reviews.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="https://zeusiot.in/iot_hero.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="tailwind-build.css"/>
+<link rel="stylesheet" href="shared-styles.css?v=8"/>
+<link rel="stylesheet" href="wow-styles.css?v=2"/>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" sizes="180x180" href="zeus.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<style>
+body {
+  background-color: #070c1e;
+  background-image:
+    radial-gradient(circle at 70% -10%, rgba(229,169,60,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 20% 90%, rgba(0,210,255,0.1) 0%, transparent 50%);
+  min-height: 100vh;
+}
+
+/* ── Rating summary bar ── */
+.rating-bar-track {
+  background: rgba(255,255,255,0.06);
+  border-radius: 999px;
+  height: 8px;
+  overflow: hidden;
+}
+.rating-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #e5a93c, #ffd700);
+  border-radius: 999px;
+  transition: width 1.4s cubic-bezier(0.4,0,0.2,1);
+  width: 0%;
+}
+.rating-bar-fill.animate {
+  /* width set via JS */
+}
+
+/* ── Review card ── */
+.review-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+.review-card::before {
+  content: '"';
+  position: absolute;
+  top: -0.5rem;
+  right: 1.5rem;
+  font-size: 7rem;
+  color: rgba(229,169,60,0.06);
+  font-family: Georgia, serif;
+  line-height: 1;
+  pointer-events: none;
+}
+.review-card:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(229,169,60,0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3), 0 0 30px rgba(229,169,60,0.06);
+}
+
+/* ── Avatar circle ── */
+.avatar-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* ── Submit review CTA ── */
+.submit-card {
+  background: rgba(37,211,102,0.04);
+  border: 2px dashed rgba(37,211,102,0.25);
+  border-radius: 16px;
+  padding: 2.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.submit-card:hover {
+  border-color: rgba(37,211,102,0.45);
+  background: rgba(37,211,102,0.07);
+}
+</style>
+</head>
+<body class="text-on-surface antialiased font-body-lg overflow-x-hidden circuit-bg relative">
+
+<!-- PAGE PRELOADER -->
+<div id="page-preloader">
+  <img src="light-zeus.png" class="preloader-bolt" alt="ZEUS IOT Preloader"/>
+  <div class="preloader-bar"><div class="preloader-fill"></div></div>
+</div>
+
+<!-- Background Blobs -->
+<div class="bg-blob bg-blob-cyan"></div>
+<div class="bg-blob bg-blob-gold"></div>
+<div class="bg-blob bg-blob-dark"></div>
+<div id="scroll-progress"></div>
+
+<!-- ═══ DESKTOP NAV ═══ -->
+<header id="desktop-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(0,210,255,0.2)] hidden md:flex items-center justify-between px-margin-desktop h-16 transition-all duration-300">
+  <a href="index.html" class="flex items-center gap-2 touch-target">
+    <img src="zeus.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
+    <span class="font-headline-xl text-headline-md text-secondary drop-shadow-[0_0_8px_rgba(255,198,64,0.4)] tracking-tight">ZEUS IOT</span>
+  </a>
+  <nav class="flex items-center gap-6">
+    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated touch-target morph-transition" href="index.html">HOME</a>
+    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated touch-target morph-transition" href="projects.html">PROJECTS</a>
+    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated touch-target morph-transition" href="about.html">ABOUT</a>
+    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated touch-target morph-transition" href="blog.html">RESOURCES</a>
+    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated touch-target morph-transition" href="community.html">COMMUNITY</a>
+    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated touch-target morph-transition" href="contact.html">CONTACT</a>
+  </nav>
+</header>
+
+<!-- ═══ MOBILE NAV ═══ -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 flex md:hidden items-center justify-between px-margin-mobile h-16" style="z-index:150;">
+  <a href="index.html" class="flex items-center gap-2 touch-target">
+    <img src="zeus.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
+    <span class="font-headline-md text-secondary" style="text-shadow:0 0 8px rgba(229,169,60,0.4);">ZEUS IOT</span>
+  </a>
+  <button id="mobile-menu-btn"
+    class="touch-target morph-transition flex flex-col items-center justify-center gap-[5px] w-11 h-11"
+    aria-label="Open navigation menu"
+    aria-expanded="false"
+    aria-controls="mobile-menu-overlay">
+    <div class="bar w-6 h-[2px] bg-secondary rounded-sm transition-all duration-300"></div>
+    <div class="bar w-6 h-[2px] bg-secondary rounded-sm transition-all duration-300"></div>
+    <div class="bar w-6 h-[2px] bg-secondary rounded-sm transition-all duration-300"></div>
+  </button>
+</header>
+<div id="mobile-menu-overlay" class="liquid-glass">
+  <a href="index.html" class="touch-target morph-transition">HOME</a>
+  <a href="projects.html" class="touch-target morph-transition">PROJECTS</a>
+  <a href="about.html" class="touch-target morph-transition">ABOUT</a>
+  <a href="blog.html" class="touch-target morph-transition">RESOURCES</a>
+  <a href="community.html" class="touch-target morph-transition">COMMUNITY</a>
+  <a href="contact.html" class="touch-target morph-transition">CONTACT</a>
+</div>
+
+<!-- ═══ MAIN ═══ -->
+<main class="pt-24 pb-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative z-10">
+
+  <!-- ─── HERO ─── -->
+  <section class="text-center mb-20 reveal">
+    <div class="inline-flex items-center gap-2 bg-surface-container-high border border-secondary/30 rounded-full px-4 py-1.5 w-max mx-auto mb-6" style="backdrop-filter:blur(8px);">
+      <span class="material-symbols-outlined text-secondary text-[14px]" style="font-variation-settings:'FILL' 1;">star</span>
+      <span class="font-code-sm text-secondary tracking-widest" style="font-size:11px;">SOCIAL PROOF</span>
+    </div>
+    <h1 class="font-headline-xl text-on-surface mb-5 uppercase leading-tight" style="font-size:clamp(28px,5.5vw,56px);line-height:1.05;letter-spacing:-0.02em;">
+      What They Built.<br/>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary via-yellow-300 to-tertiary" style="-webkit-text-fill-color:transparent;">What They Felt.</span>
+    </h1>
+    <p class="font-body-lg text-on-surface-variant max-w-xl mx-auto" style="font-size:clamp(15px,1.8vw,18px);line-height:1.7;">
+      Real feedback from real students across India. No scripts, no incentives.
+    </p>
+  </section>
+
+  <!-- ─── RATING SUMMARY ─── -->
+  <section class="mb-20 reveal">
+    <div class="glass-panel bolt-active rounded-xl p-8 max-w-3xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <!-- Big score -->
+        <div class="text-center md:text-left">
+          <div class="font-headline-xl text-secondary mb-1" style="font-size:clamp(52px,8vw,80px);line-height:1;">5.0</div>
+          <div role="img" aria-label="5 out of 5 stars">
+            <span aria-hidden="true" class="text-secondary text-2xl tracking-wider">★★★★★</span>
+          </div>
+          <div class="font-code-sm text-[12px] text-on-surface-variant mt-2 uppercase tracking-wider">Based on 100+ projects</div>
+        </div>
+        <!-- Bars -->
+        <div class="space-y-3">
+          <div class="flex items-center gap-3">
+            <span class="font-code-sm text-[11px] text-on-surface-variant w-6 text-right shrink-0">5</span>
+            <div class="rating-bar-track flex-1"><div class="rating-bar-fill" data-width="96%"></div></div>
+            <span class="font-code-sm text-[11px] text-secondary w-8 shrink-0">96%</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="font-code-sm text-[11px] text-on-surface-variant w-6 text-right shrink-0">4</span>
+            <div class="rating-bar-track flex-1"><div class="rating-bar-fill" data-width="4%"></div></div>
+            <span class="font-code-sm text-[11px] text-secondary w-8 shrink-0">4%</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="font-code-sm text-[11px] text-on-surface-variant w-6 text-right shrink-0">3</span>
+            <div class="rating-bar-track flex-1"><div class="rating-bar-fill" data-width="0%"></div></div>
+            <span class="font-code-sm text-[11px] text-on-surface-variant w-8 shrink-0">0%</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="font-code-sm text-[11px] text-on-surface-variant w-6 text-right shrink-0">2</span>
+            <div class="rating-bar-track flex-1"><div class="rating-bar-fill" data-width="0%"></div></div>
+            <span class="font-code-sm text-[11px] text-on-surface-variant w-8 shrink-0">0%</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="font-code-sm text-[11px] text-on-surface-variant w-6 text-right shrink-0">1</span>
+            <div class="rating-bar-track flex-1"><div class="rating-bar-fill" data-width="0%"></div></div>
+            <span class="font-code-sm text-[11px] text-on-surface-variant w-8 shrink-0">0%</span>
+          </div>
+        </div>
+      </div>
+      <!-- Badges -->
+      <div class="flex flex-wrap gap-3 mt-6 pt-5 border-t border-outline-variant/20">
+        <span class="font-code-sm text-[11px] px-3 py-1.5 rounded-full bg-tertiary/10 border border-tertiary/20 text-tertiary">✓ 99.7% On-Time Delivery</span>
+        <span class="font-code-sm text-[11px] px-3 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary">✓ 24hr Response</span>
+        <span class="font-code-sm text-[11px] px-3 py-1.5 rounded-full bg-tertiary/10 border border-tertiary/20 text-tertiary">✓ 10+ Universities</span>
+        <span class="font-code-sm text-[11px] px-3 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary">✓ 100+ Projects Delivered</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── REVIEW CARDS GRID ─── -->
+  <section class="mb-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter stagger-children">
+
+      <!-- Review 1 -->
+      <article class="review-card reveal">
+        <div role="img" aria-label="5 out of 5 stars" class="mb-4">
+          <span aria-hidden="true" class="text-secondary text-lg">★★★★★</span>
+        </div>
+        <p class="font-body-md text-on-surface-variant text-sm leading-relaxed mb-6">
+          "Got my Smart Irrigation System for final year within 10 days. The code documentation was so clean my professor was impressed. Zeus actually explains everything — I could answer every viva question confidently!"
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="avatar-circle bg-gradient-to-br from-tertiary/30 to-secondary/30 border border-tertiary/30 text-tertiary">R</div>
+          <div>
+            <div class="font-headline-md text-on-surface" style="font-size:14px;">Rahul M.</div>
+            <div class="font-code-sm text-[11px] text-secondary">VIT Chennai · ECE Final Year</div>
+          </div>
+        </div>
+        <div class="absolute bottom-4 right-4">
+          <span class="font-code-sm text-[10px] px-2 py-0.5 rounded bg-tertiary/10 border border-tertiary/15 text-tertiary uppercase tracking-wider">IoT Hardware</span>
+        </div>
+      </article>
+
+      <!-- Review 2 -->
+      <article class="review-card reveal">
+        <div role="img" aria-label="5 out of 5 stars" class="mb-4">
+          <span aria-hidden="true" class="text-secondary text-lg">★★★★★</span>
+        </div>
+        <p class="font-body-md text-on-surface-variant text-sm leading-relaxed mb-6">
+          "My warehouse inventory tracking system using BLE and ESP32 worked flawlessly on demo day. Price was very reasonable for the quality delivered. The walkthrough session was thorough and clear."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="avatar-circle bg-gradient-to-br from-secondary/30 to-tertiary/30 border border-secondary/30 text-secondary">P</div>
+          <div>
+            <div class="font-headline-md text-on-surface" style="font-size:14px;">Priya S.</div>
+            <div class="font-code-sm text-[11px] text-secondary">SRM · CSE 3rd Year</div>
+          </div>
+        </div>
+        <div class="absolute bottom-4 right-4">
+          <span class="font-code-sm text-[10px] px-2 py-0.5 rounded bg-secondary/10 border border-secondary/15 text-secondary uppercase tracking-wider">BLE System</span>
+        </div>
+      </article>
+
+      <!-- Review 3 -->
+      <article class="review-card reveal">
+        <div role="img" aria-label="5 out of 5 stars" class="mb-4">
+          <span aria-hidden="true" class="text-secondary text-lg">★★★★★</span>
+        </div>
+        <p class="font-body-md text-on-surface-variant text-sm leading-relaxed mb-6">
+          "The 1-on-1 walkthrough session was phenomenal. I understood every circuit connection and could replicate parts of it for my viva. Worth every rupee — and then some."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="avatar-circle bg-gradient-to-br from-tertiary/30 to-secondary/30 border border-tertiary/30 text-tertiary">A</div>
+          <div>
+            <div class="font-headline-md text-on-surface" style="font-size:14px;">Arjun K.</div>
+            <div class="font-code-sm text-[11px] text-secondary">Anna University · EEE Final Year</div>
+          </div>
+        </div>
+        <div class="absolute bottom-4 right-4">
+          <span class="font-code-sm text-[10px] px-2 py-0.5 rounded bg-tertiary/10 border border-tertiary/15 text-tertiary uppercase tracking-wider">Learning Session</span>
+        </div>
+      </article>
+
+      <!-- Review 4 -->
+      <article class="review-card reveal">
+        <div role="img" aria-label="5 out of 5 stars" class="mb-4">
+          <span aria-hidden="true" class="text-secondary text-lg">★★★★★</span>
+        </div>
+        <p class="font-body-md text-on-surface-variant text-sm leading-relaxed mb-6">
+          "They built a full React + Node.js hospital management dashboard for my project. The UI was so premium even my HOD asked who made it! Delivered 3 days before deadline too."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="avatar-circle bg-gradient-to-br from-secondary/30 to-pro-purple/30 border border-secondary/30 text-secondary">S</div>
+          <div>
+            <div class="font-headline-md text-on-surface" style="font-size:14px;">Sneha R.</div>
+            <div class="font-code-sm text-[11px] text-secondary">Amrita · IT Final Year</div>
+          </div>
+        </div>
+        <div class="absolute bottom-4 right-4">
+          <span class="font-code-sm text-[10px] px-2 py-0.5 rounded bg-secondary/10 border border-secondary/15 text-secondary uppercase tracking-wider">Full Stack</span>
+        </div>
+      </article>
+
+      <!-- Review 5 -->
+      <article class="review-card reveal">
+        <div role="img" aria-label="5 out of 5 stars" class="mb-4">
+          <span aria-hidden="true" class="text-secondary text-lg">★★★★★</span>
+        </div>
+        <p class="font-body-md text-on-surface-variant text-sm leading-relaxed mb-6">
+          "Fast response on WhatsApp, delivered 3 days before deadline. The LoRaWAN sensor node worked perfectly in outdoor conditions during testing. Highly recommend to anyone doing IoT projects!"
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="avatar-circle bg-gradient-to-br from-tertiary/30 to-secondary/30 border border-tertiary/30 text-tertiary">V</div>
+          <div>
+            <div class="font-headline-md text-on-surface" style="font-size:14px;">Vishnu P.</div>
+            <div class="font-code-sm text-[11px] text-secondary">NIT Trichy · EE 4th Year</div>
+          </div>
+        </div>
+        <div class="absolute bottom-4 right-4">
+          <span class="font-code-sm text-[10px] px-2 py-0.5 rounded bg-tertiary/10 border border-tertiary/15 text-tertiary uppercase tracking-wider">LoRaWAN</span>
+        </div>
+      </article>
+
+      <!-- Review 6 -->
+      <article class="review-card reveal">
+        <div role="img" aria-label="5 out of 5 stars" class="mb-4">
+          <span aria-hidden="true" class="text-secondary text-lg">★★★★★</span>
+        </div>
+        <p class="font-body-md text-on-surface-variant text-sm leading-relaxed mb-6">
+          "Academic report was detailed, properly formatted with circuit diagrams and code explanations. Saved me so much time during thesis writing. The report alone was worth the entire package price."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="avatar-circle bg-gradient-to-br from-secondary/30 to-tertiary/30 border border-secondary/30 text-secondary">D</div>
+          <div>
+            <div class="font-headline-md text-on-surface" style="font-size:14px;">Divya N.</div>
+            <div class="font-code-sm text-[11px] text-secondary">SASTRA · ECE Final Year</div>
+          </div>
+        </div>
+        <div class="absolute bottom-4 right-4">
+          <span class="font-code-sm text-[10px] px-2 py-0.5 rounded bg-secondary/10 border border-secondary/15 text-secondary uppercase tracking-wider">Academic Report</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ─── SUBMIT REVIEW CTA ─── -->
+  <section class="reveal">
+    <div class="submit-card max-w-2xl mx-auto">
+      <div class="w-12 h-12 rounded-full bg-[#25d366]/10 border border-[#25d366]/30 flex items-center justify-center mx-auto mb-5">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.489-1.761-1.663-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+      </div>
+      <h2 class="font-headline-md text-on-surface mb-3 uppercase" style="font-size:clamp(18px,3vw,26px);">Built With Zeus? Share Your Experience.</h2>
+      <p class="font-body-md text-on-surface-variant text-sm mb-6 max-w-md mx-auto leading-relaxed">
+        Drop us a message on WhatsApp with your feedback. Your review helps the next student decide.
+      </p>
+      <a href="https://wa.me/919080809088?text=Hi%20Zeus%20IoT%2C%20I%20want%20to%20share%20my%20review%3A"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="inline-flex items-center gap-2 font-label-caps text-[13px] uppercase tracking-widest px-8 py-3.5 rounded"
+         style="background:#25d366;color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;transition:all 0.3s ease;clip-path:polygon(0 0,95% 0,100% 100%,5% 100%);">
+        <span>SUBMIT YOUR REVIEW</span>
+        <span class="material-symbols-outlined text-[16px]">send</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="w-full mt-auto bg-surface-container-lowest border-t border-outline-variant/20 relative z-10">
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 mb-20 md:mb-0">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="md:col-span-1">
+        <div class="flex items-center gap-2 mb-4">
+          <img src="zeus.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
+          <span class="font-headline-lg text-headline-md text-secondary">ZEUS IOT</span>
+        </div>
+        <p class="font-body-md text-sm text-on-surface-variant">Engineering Tomorrow's Connected World. Custom IoT solutions for the next generation.</p>
+      </div>
+      <div>
+        <h4 class="font-label-caps text-label-caps text-on-surface mb-4 uppercase">Quick Links</h4>
+        <div class="flex flex-col gap-2">
+          <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="index.html">Home</a>
+          <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="projects.html">Projects</a>
+          <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="about.html">About</a>
+          <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="blog.html">Resources</a>
+          <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="community.html">Community</a>
+          <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-label-caps text-label-caps text-on-surface mb-4 uppercase">Services</h4>
+        <div class="flex flex-col gap-2">
+          <a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" href="contact.html">Custom IoT Builds</a>
+          <a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" href="learning.html">1-on-1 Consultation</a>
+          <a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" href="report.html">Academic Reports</a>
+          <a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" href="reviews.html">Reviews</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-label-caps text-label-caps text-on-surface mb-4 uppercase">Connect</h4>
+        <div class="flex flex-col gap-2">
+          <a href="mailto:zeusiotprojects@gmail.com" class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors">zeusiotprojects@gmail.com</a>
+          <a href="https://wa.me/919080809088" target="_blank" rel="noopener noreferrer" class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors">WhatsApp: +91 90808 09088</a>
+          <a href="community.html" class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors">Join Community ⚡</a>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col md:flex-row justify-between items-center mt-12 pt-6 border-t border-outline-variant/20">
+      <div class="flex gap-6 mb-4 md:mb-0">
+        <a class="text-on-surface-variant hover:text-secondary font-code-sm text-code-sm transition-colors" href="terms.html">Terms</a>
+        <a class="text-on-surface-variant hover:text-secondary font-code-sm text-code-sm transition-colors" href="privacy.html">Privacy</a>
+        <a class="text-on-surface-variant hover:text-secondary font-code-sm text-code-sm transition-colors" href="contact.html">Support</a>
+      </div>
+      <p class="text-tertiary font-code-sm text-code-sm tracking-widest">© 2026 ZEUS IOT. HARNESS THE BOLT.</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/919080809088" target="_blank" rel="noopener noreferrer" class="whatsapp-float" id="whatsapp-float" style="opacity:0;" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.489-1.761-1.663-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+  <div class="tooltip">Chat on WhatsApp ⚡</div>
+</a>
+
+<script>
+// Animate rating bars on scroll
+const ratingObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.rating-bar-fill').forEach(bar => {
+        const w = bar.dataset.width;
+        setTimeout(() => { bar.style.width = w; }, 200);
+      });
+      ratingObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.glass-panel').forEach(el => {
+  if (el.querySelector('.rating-bar-fill')) ratingObserver.observe(el);
+});
+
+const progressBar = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const total = document.body.scrollHeight - window.innerHeight;
+  if (progressBar) progressBar.style.width = ((scrolled / total) * 100) + '%';
+});
+setTimeout(() => {
+  const wa = document.getElementById('whatsapp-float');
+  if (wa) { wa.style.transition = 'opacity 0.5s ease'; wa.style.opacity = '1'; }
+}, 3000);
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('page-preloader');
+  if (preloader) setTimeout(() => preloader.classList.add('hidden'), 500);
+});
+window.addEventListener('pageshow', (event) => {
+  if (event.persisted) {
+    const preloader = document.getElementById('page-preloader');
+    if (preloader) { preloader.classList.add('hidden'); preloader.style.opacity = '0'; preloader.style.visibility = 'hidden'; }
+  }
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const preloader = document.getElementById('page-preloader');
+  if (!preloader) return;
+  const preloaderImg = preloader.querySelector('.preloader-bolt');
+  document.body.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (!link) return;
+    const href = link.getAttribute('href');
+    const target = link.getAttribute('target');
+    if (href && !href.startsWith('#') && !href.startsWith('javascript:') && !href.startsWith('tel:') && !href.startsWith('mailto:') && (!target || target === '_self') && !link.classList.contains('no-transition')) {
+      e.preventDefault();
+      preloader.classList.remove('hidden');
+      preloader.style.opacity = '1';
+      preloader.style.visibility = 'visible';
+      const fill = preloader.querySelector('.preloader-fill');
+      if (fill) { fill.style.animation = 'none'; fill.offsetHeight; fill.style.animation = 'preloader-fill 0.8s ease-out forwards'; }
+      if (preloaderImg) preloaderImg.classList.add('preloader-rotate-active');
+      setTimeout(() => { window.location.href = href; }, 800);
+    }
+  });
+});
+</script>
+<script src="animations.js?v=2"></script>
+<script src="mobile-enhancements.js?v=1782138795265"></script>
+</body>
+</html>

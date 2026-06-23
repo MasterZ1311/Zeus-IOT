@@ -145,21 +145,42 @@ body {
     <img src="zeus.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
     <span class="font-headline-xl text-headline-md text-secondary drop-shadow-[0_0_8px_rgba(229,169,60,0.4)] tracking-tight">ZEUS IOT</span>
   </a>
-  <nav class="flex items-center gap-8">
-    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors" href="index.html">HOME</a>
-    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors" href="projects.html">PROJECTS</a>
-    <a class="text-secondary font-label-caps text-label-caps border-b-2 border-secondary pb-1" href="contact.html">CONTACT</a>
-    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors" href="pay.html">PAY</a>
+  <nav class="flex items-center gap-6">
+    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated touch-target morph-transition" href="index.html">HOME</a>
+    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated touch-target morph-transition" href="projects.html">PROJECTS</a>
+    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated touch-target morph-transition" href="about.html">ABOUT</a>
+    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated touch-target morph-transition" href="blog.html">RESOURCES</a>
+    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated touch-target morph-transition" href="community.html">COMMUNITY</a>
+    <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-tertiary transition-colors nav-link-animated touch-target morph-transition" href="contact.html">CONTACT</a>
   </nav>
 </header>
 
 <!-- ═══════════════════════ MOBILE TOP NAV ═══════════════════════ -->
-<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(0,210,255,0.2)] flex md:hidden items-center justify-between px-margin-mobile h-16">
-  <a href="index.html" class="flex items-center gap-2">
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/20 shadow-[0_2px_15px_-3px_rgba(0,210,255,0.2)] flex md:hidden items-center justify-between px-margin-mobile h-16" style="z-index:150;">
+  <a href="index.html" class="flex items-center gap-2 touch-target">
     <img src="zeus.png" class="w-8 h-8 object-contain rounded-md" alt="Zeus IoT Logo"/>
     <span class="font-headline-md text-secondary glow-text">ZEUS IOT</span>
   </a>
+  <button id="mobile-menu-btn"
+    class="touch-target morph-transition flex flex-col items-center justify-center gap-[5px] w-11 h-11"
+    aria-label="Open navigation menu"
+    aria-expanded="false"
+    aria-controls="mobile-menu-overlay">
+    <div class="bar w-6 h-[2px] bg-secondary rounded-sm transition-all duration-300"></div>
+    <div class="bar w-6 h-[2px] bg-secondary rounded-sm transition-all duration-300"></div>
+    <div class="bar w-6 h-[2px] bg-secondary rounded-sm transition-all duration-300"></div>
+  </button>
 </header>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu-overlay" class="liquid-glass">
+  <a href="index.html" class="touch-target morph-transition">HOME</a>
+  <a href="projects.html" class="touch-target morph-transition">PROJECTS</a>
+  <a href="about.html" class="touch-target morph-transition">ABOUT</a>
+  <a href="blog.html" class="touch-target morph-transition">RESOURCES</a>
+  <a href="community.html" class="touch-target morph-transition">COMMUNITY</a>
+  <a href="contact.html" class="touch-target morph-transition">CONTACT</a>
+</div>
 
 <!-- ═══════════════════════ MAIN CONTENT ═══════════════════════ -->
 <main class="pt-24 md:pt-32 pb-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative z-10 flex flex-col items-center">
@@ -272,6 +293,9 @@ body {
         <div class="flex flex-col gap-2">
           <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="index.html">Home</a>
           <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="projects.html">Projects</a>
+          <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="about.html">About</a>
+          <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="blog.html">Resources</a>
+          <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="community.html">Community</a>
           <a class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors" href="contact.html">Contact</a>
         </div>
       </div>
@@ -279,16 +303,17 @@ body {
         <h4 class="font-label-caps text-label-caps text-on-surface mb-4 uppercase">Services</h4>
         <div class="flex flex-col gap-2">
           <a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" href="contact.html">Custom IoT Builds</a>
-          <a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" href="contact.html">1-on-1 Consultation</a>
+          <a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" href="learning.html">1-on-1 Consultation</a>
           <a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" href="report.html">Academic Reports</a>
-          <a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" href="pay.html">Payments</a>
+          <a class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors" href="reviews.html">Reviews</a>
         </div>
       </div>
       <div>
         <h4 class="font-label-caps text-label-caps text-on-surface mb-4 uppercase">Connect</h4>
         <div class="flex flex-col gap-2">
           <a href="mailto:zeusiotprojects@gmail.com" class="font-body-md text-sm text-on-surface-variant hover:text-tertiary transition-colors">zeusiotprojects@gmail.com</a>
-          <a href="https://wa.me/919080809088" target="_blank" class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors">WhatsApp: +91 90808 09088</a>
+          <a href="https://wa.me/919080809088" target="_blank" rel="noopener noreferrer" class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors">WhatsApp: +91 90808 09088</a>
+          <a href="community.html" class="font-body-md text-sm text-on-surface-variant hover:text-secondary transition-colors">Join Community ⚡</a>
         </div>
       </div>
     </div>

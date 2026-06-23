@@ -759,11 +759,14 @@ main {
   pointer-events: none;
 }
 /* ─── 27. MOBILE HOTFIXES ─── */
-.mobile-hero-logo {
-  display: block !important;
-  width: 96px !important;
-  height: 96px !important;
-  object-fit: contain !important;
-  margin: 0 auto 20px auto;
+@media (max-width: 767px) {
+  .mobile-hero-logo {
+    display: block !important;
+    width: 96px !important;
+    height: 96px !important;
+    object-fit: contain !important;
+    margin: 0 auto 20px auto;
+  }
 }
+
 

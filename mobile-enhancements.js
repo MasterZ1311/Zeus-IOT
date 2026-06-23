@@ -5,14 +5,12 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 1. PWA Service Worker Registration
+  // 1. PWA Service Worker (Unregistering to fix aggressive caching)
   if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js').then(registration => {
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-      }).catch(err => {
-        console.log('ServiceWorker registration failed: ', err);
-      });
+    navigator.serviceWorker.getRegistrations().then(function(registrations) {
+      for(let registration of registrations) {
+        registration.unregister();
+      }
     });
   }
 
@@ -362,7 +360,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ═══════════════════════════════════════════════════════════════
-  // FIX-ACC1+ACC2: Mobile Menu ARIA — aria-expanded toggling
+  // FIX-ACC1+ACC2: Mobile Menu ARIA & State Toggle
   // Applied globally for all pages
   // ═══════════════════════════════════════════════════════════════
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -373,12 +371,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!mobileMenuBtn.getAttribute('aria-label')) {
       mobileMenuBtn.setAttribute('aria-label', 'Open navigation menu');
     }
-    // Override click to toggle aria-expanded
-    const originalClickHandler = mobileMenuBtn.onclick;
+    // Toggle menu state on click
     mobileMenuBtn.addEventListener('click', () => {
       const isOpen = mobileMenuOverlay.classList.contains('open');
+      mobileMenuBtn.classList.toggle('open');
+      mobileMenuOverlay.classList.toggle('open');
       mobileMenuBtn.setAttribute('aria-expanded', !isOpen ? 'true' : 'false');
       mobileMenuBtn.setAttribute('aria-label', !isOpen ? 'Close navigation menu' : 'Open navigation menu');
+      if (navigator.vibrate) navigator.vibrate(15);
     });
   }
 
