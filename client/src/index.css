@@ -4,7 +4,6 @@
    PERFORMANCE: GPU COMPOSITING & 60FPS HINTS
    ═══════════════════════════════════════════════════════════════ */
 
-/* Force GPU layer for all animated elements */
 .glass-panel,
 .btn-thunderbolt,
 .btn-ghost,
@@ -16,27 +15,24 @@ canvas {
   -webkit-backface-visibility: hidden;
 }
 
-/* Scroll performance */
 html {
   scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch; /* momentum scrolling on iOS */
+  -webkit-overflow-scrolling: touch;
   overflow-x: hidden;
 }
 
 body {
-  overscroll-behavior-y: none;  /* prevent rubberbanding on Android */
-  -webkit-tap-highlight-color: transparent; /* remove tap flash on iOS/Android */
+  overscroll-behavior-y: none;
+  -webkit-tap-highlight-color: transparent;
   text-rendering: optimizeSpeed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Containment for fixed/sticky elements */
 header, footer, nav {
   contain: layout style;
 }
 
-/* Prevent layout thrash on card hover */
 .glass-panel {
   contain: layout;
 }
@@ -45,7 +41,6 @@ header, footer, nav {
    MOBILE-SPECIFIC VISUAL ENHANCEMENTS
    ═══════════════════════════════════════════════════════════════ */
 
-/* iOS safe area support */
 @supports (padding: env(safe-area-inset-top)) {
   .pt-safe { padding-top: env(safe-area-inset-top); }
   .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
@@ -53,7 +48,6 @@ header, footer, nav {
   .pr-safe { padding-right: env(safe-area-inset-right); }
 }
 
-/* Touch ripple effect */
 .touch-ripple {
   position: relative;
   overflow: hidden;
@@ -72,7 +66,6 @@ header, footer, nav {
   transform: scale(1);
 }
 
-/* Mobile bottom nav glass */
 .mobile-bottom-nav {
   background: rgba(7, 12, 30, 0.85);
   backdrop-filter: saturate(180%) blur(20px);
@@ -80,7 +73,6 @@ header, footer, nav {
   border-top: 1px solid rgba(0, 210, 255, 0.12);
 }
 
-/* Active nav item glow pill */
 .nav-pill-active {
   background: rgba(229, 169, 60, 0.12);
   border: 1px solid rgba(229, 169, 60, 0.3);
@@ -92,25 +84,20 @@ header, footer, nav {
    ═══════════════════════════════════════════════════════════════ */
 
 @media (max-width: 767px) {
-  /* Minimum 44px touch targets (WCAG 2.5.5) */
   a, button, [role="button"], label[for], input[type="checkbox"] + div {
     min-height: 44px;
     min-width: 44px;
   }
 
-  /* Mobile font scaling */
   body { font-size: 15px; }
 
-  /* Tighter spacing on mobile */
   main { padding-top: 4.5rem !important; padding-bottom: 5.5rem !important; }
 
-  /* Mobile glass panels — lighter blur for perf */
   .glass-panel {
     backdrop-filter: blur(10px) !important;
     -webkit-backdrop-filter: blur(10px) !important;
   }
 
-  /* Snap scroll for horizontal carousels */
   .mobile-scroll-snap {
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
@@ -120,7 +107,6 @@ header, footer, nav {
     scroll-snap-align: start;
   }
 
-  /* Disable hover effects on touch (prevents sticky hover on iOS) */
   @media (hover: none) {
     .glass-panel:hover {
       transform: none !important;
@@ -138,13 +124,11 @@ header, footer, nav {
    ═══════════════════════════════════════════════════════════════ */
 
 @media (min-width: 768px) {
-  /* Full blur on desktop where GPU can handle it */
   .glass-panel {
     backdrop-filter: blur(16px) saturate(160%) !important;
     -webkit-backdrop-filter: blur(16px) saturate(160%) !important;
   }
 
-  /* Larger interactive hit areas on desktop look refined */
   .btn-thunderbolt, .btn-ghost {
     min-height: unset;
     min-width: unset;
@@ -152,7 +136,7 @@ header, footer, nav {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   ANIMATIONS — GPU-ONLY PROPERTIES (no layout/paint triggers)
+   ANIMATIONS
    ═══════════════════════════════════════════════════════════════ */
 
 @keyframes pulse {
@@ -175,7 +159,6 @@ header, footer, nav {
   100% { background-position: 200% center; }
 }
 
-/* Skeleton loading shimmer */
 .skeleton {
   background: linear-gradient(
     90deg,
@@ -188,7 +171,7 @@ header, footer, nav {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   SCROLL REVEAL — CSS transitions triggered by JS class
+   SCROLL REVEAL
    ═══════════════════════════════════════════════════════════════ */
 
 .reveal,
@@ -211,7 +194,6 @@ header, footer, nav {
   transform: none;
 }
 
-/* Stagger children */
 .stagger-children > * {
   opacity: 0;
   transform: translateY(16px);
@@ -224,7 +206,6 @@ header, footer, nav {
 .stagger-children.visible > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.3s; }
 .stagger-children.visible > *:nth-child(n+5) { opacity: 1; transform: none; transition-delay: 0.4s; }
 
-/* Mobile fade-up (used by mobile-enhancements.js) */
 .mobile-fade-up {
   opacity: 0;
   transform: translateY(20px);
@@ -248,6 +229,22 @@ header, footer, nav {
     background: linear-gradient(to bottom, #00d2ff, #e5a93c);
     border-radius: 3px;
   }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FOCUS-VISIBLE RING — keyboard navigation (all platforms)
+   ═══════════════════════════════════════════════════════════════ */
+
+:focus-visible {
+  outline: 2px solid #e5a93c;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid #e5a93c;
+  outline-offset: 2px;
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -309,6 +306,10 @@ header, footer, nav {
   width: 28px; height: 28px;
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   THEME TOKENS
+   ═══════════════════════════════════════════════════════════════ */
+
 @theme {
   --color-surface-dim: #050816;
   --color-on-tertiary-fixed: #002a35;
@@ -323,7 +324,7 @@ header, footer, nav {
   --color-primary-fixed-dim: #bec6e0;
   --color-surface-container-high: #111c3a;
   --color-inverse-on-surface: #2d3133;
-  --color-on-primary-container: #798098;
+  --color-on-primary-container: #798096;
   --color-secondary-fixed-dim: #f9bd22;
   --color-primary-container: #070c1e;
   --color-tertiary-container: #004b5c;
@@ -524,14 +525,10 @@ header, footer, nav {
 
 /* ═══════════════════════════════════════════════════════════════
    MOBILE LAYOUT (Widths <= 767px)
-   The React components handle their own responsive sizing (clamp fonts + md:
-   breakpoints), so we only set what genuinely needs to be global here.
    ═══════════════════════════════════════════════════════════════ */
 @media (max-width: 767px) {
   main {
-    /* Clear the fixed top nav (+ notch safe area) and the bottom nav + sticky WhatsApp bar */
     padding-top: calc(env(safe-area-inset-top, 0px) + 3.5rem) !important;
     padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 8.5rem) !important;
   }
 }
-

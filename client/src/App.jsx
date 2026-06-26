@@ -2,17 +2,16 @@
  * App — persistent Layout + animated page transitions + code splitting.
  *
  * Layout (nav, footer, WhatsApp button, live counter, cursor) is mounted ONCE
- * and persists across navigation. Only the routed page content animates in/out,
- * so the chrome never flickers or re-initialises on page change.
+ * and persists across navigation. Only the routed page content animates in/out.
  */
-import { lazy, Suspense, useEffect } from 'react';
+import { lazy, Suspense, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
 import Layout from './components/Layout';
 import ErrorBoundary from './components/ErrorBoundary';
-import { initSound, playThunder, isArmed } from './lib/sound';
+import { initSound } from './lib/sound';
 
-// Lazy-load all page-level components (each becomes its own cached chunk)
+// Lazy-load all page-level components
 const Home    = lazy(() => import('./pages/Home'));
 const Projects= lazy(() => import('./pages/Projects'));
 const Contact = lazy(() => import('./pages/Contact'));
@@ -28,6 +27,64 @@ const pageVariants = {
   exit:    { opacity: 0, y: -8, transition: { duration: 0.2, ease: 'easeIn' } },
 };
 
+/**
+ * RouteProgress — NProgress-style top bar that shows while a lazy page chunk
+ * downloads. Driven by the `loading` prop; animates via direct DOM manipulation
+ * so it never triggers React re-renders during the bar animation.
+ */
+function RouteProgress({ loading }) {
+  const barRef = useRef(null);
+  const timerRef = useRef(null);
+
+  useEffect(() => {
+    const bar = barRef.current;
+    if (!bar) return;
+    clearTimeout(timerRef.current);
+
+    if (loading) {
+      bar.style.display = 'block';
+      bar.style.opacity = '1';
+      bar.style.transition = 'none';
+      bar.style.width = '0%';
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          bar.style.transition = 'width 8s cubic-bezier(0.1, 0.8, 0.2, 1)';
+          bar.style.width = '85%';
+        });
+      });
+    } else {
+      bar.style.transition = 'width 0.18s ease-out';
+      bar.style.width = '100%';
+      timerRef.current = setTimeout(() => {
+        bar.style.transition = 'opacity 0.25s ease';
+        bar.style.opacity = '0';
+        setTimeout(() => { bar.style.display = 'none'; bar.style.width = '0%'; }, 260);
+      }, 180);
+    }
+    return () => clearTimeout(timerRef.current);
+  }, [loading]);
+
+  return (
+    <div
+      aria-hidden="true"
+      className="fixed top-0 left-0 right-0 z-[170] pointer-events-none hidden md:block"
+      style={{ height: 3 }}
+    >
+      <div
+        ref={barRef}
+        style={{
+          display: 'none',
+          height: '100%',
+          width: '0%',
+          background: 'linear-gradient(90deg, #e5a93c, #00d2ff)',
+          boxShadow: '0 0 10px rgba(0,210,255,0.6)',
+          borderRadius: '0 2px 2px 0',
+        }}
+      />
+    </div>
+  );
+}
+
 // Dark-themed loading skeleton shown while a page chunk downloads
 function PageSkeleton() {
   return (
@@ -42,49 +99,43 @@ function PageSkeleton() {
   );
 }
 
-// A single keyed motion wrapper animates page transitions. The Routes are bound
-// to `location` so the exiting snapshot keeps showing the previous page correctly.
 function AnimatedRoutes() {
   const location = useLocation();
 
-  // Roll a Zeus thunderclap on every page navigation — but only once audio has
-  // been unlocked by a user gesture. This avoids creating an AudioContext before
-  // the first interaction (which logs a browser autoplay warning); the very
-  // first landing clap is handled by initSound's welcome clap instead.
-  useEffect(() => {
-    if (isArmed()) playThunder(0.55);
-  }, [location.pathname]);
-
   return (
-    <AnimatePresence mode="wait" initial={false}>
-      <motion.div
-        key={location.pathname}
-        variants={pageVariants}
-        initial="initial"
-        animate="enter"
-        exit="exit"
-        style={{ willChange: 'transform, opacity' }}
-      >
-        <Suspense fallback={<PageSkeleton />}>
-          <Routes location={location}>
-            <Route path="/"         element={<Home />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/contact"  element={<Contact />} />
-            <Route path="/pay"      element={<Pay />} />
-            <Route path="/report"   element={<Report />} />
-            <Route path="/terms"    element={<Terms />} />
-            <Route path="/privacy"  element={<Privacy />} />
-            <Route path="/support"  element={<Support />} />
-            <Route path="*"         element={<Navigate to="/" replace />} />
-          </Routes>
-        </Suspense>
-      </motion.div>
-    </AnimatePresence>
+    <>
+      <RouteProgress loading={false} />
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.div
+          key={location.pathname}
+          variants={pageVariants}
+          initial="initial"
+          animate="enter"
+          exit="exit"
+          style={{ willChange: 'transform, opacity' }}
+        >
+          <Suspense fallback={<PageSkeleton />}>
+            <Routes location={location}>
+              <Route path="/"         element={<Home    />} />
+              <Route path="/projects" element={<Projects/>} />
+              <Route path="/contact"  element={<Contact />} />
+              <Route path="/pay"      element={<Pay     />} />
+              <Route path="/report"   element={<Report  />} />
+              <Route path="/terms"    element={<Terms   />} />
+              <Route path="/privacy"  element={<Privacy />} />
+              <Route path="/support"  element={<Support />} />
+              <Route path="*"         element={<Navigate to="/" replace />} />
+            </Routes>
+          </Suspense>
+        </motion.div>
+      </AnimatePresence>
+    </>
   );
 }
 
 function App() {
-  // Arm the Zeus thunder engine on the first user gesture (browser autoplay policy).
+  // Play a welcome thunderclap on the first user gesture (browser autoplay policy).
+  // Thunder only fires ONCE — not on every page navigation, which is jarring.
   useEffect(() => { initSound(); }, []);
 
   return (

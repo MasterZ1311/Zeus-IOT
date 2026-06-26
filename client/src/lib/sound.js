@@ -1,23 +1,10 @@
 /**
  * sound.js — the Zeus thunderclap, synthesised live via the Web Audio API.
  *
- * Why synthesis instead of an audio file?
- *  • Zero network cost & works offline — nothing to download.
- *  • No binary asset to ship or cache-bust.
- *  • Procedural variation makes every thunderclap slightly different.
- *
- * Public API:
- *   playThunder(vol?) — the rolling Zeus thunderclap
- *   initSound()       — arm audio on the first user gesture (browser autoplay
- *                       policy) and play a welcome clap
- *   isArmed()         — whether the user has interacted yet (audio is unlocked)
- *
- * Browsers block audio until the user has interacted with the page at least
- * once. So the very first page-load clap fires on that first gesture; every
- * page navigation after that claps immediately.
- *
- * All calls are wrapped so a missing/blocked AudioContext can never throw into
- * the React tree.
+ * The welcome clap fires ONCE — on the user's first gesture after landing.
+ * It does NOT replay on every route change (that's jarring in public/shared
+ * spaces). `isArmed()` lets callers know audio is unlocked so they can use
+ * the engine for future purposeful sounds if ever needed.
  */
 
 let ctx = null;
