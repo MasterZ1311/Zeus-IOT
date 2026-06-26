@@ -264,26 +264,49 @@ header, footer, nav {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   CUSTOM CURSOR — ambient spotlight ring (desktop only).
-   Does NOT hide the native cursor; just adds a soft trailing glow.
+   CUSTOM CURSOR — desktop-only glowing pointer.
+   Native cursor hidden only when JS adds .has-custom-cursor on a
+   fine-pointer device; text inputs keep their caret. Mobile never
+   gets the class and `hover: none` excludes it entirely.
    ═══════════════════════════════════════════════════════════════ */
+@media (hover: hover) and (pointer: fine) {
+  body.has-custom-cursor,
+  body.has-custom-cursor * { cursor: none !important; }
+  body.has-custom-cursor input,
+  body.has-custom-cursor textarea,
+  body.has-custom-cursor select { cursor: auto !important; }
+}
+.cursor-dot {
+  position: fixed; top: 0; left: 0;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: #e5a93c;
+  box-shadow: 0 0 12px 2px rgba(229,169,60,0.85);
+  pointer-events: none;
+  z-index: 10000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  will-change: transform;
+}
 .cursor-ring {
-  position: fixed;
-  top: 0; left: 0;
+  position: fixed; top: 0; left: 0;
   width: 38px; height: 38px;
   border-radius: 50%;
-  border: 1.5px solid rgba(0,210,255,0.35);
-  background: radial-gradient(circle, rgba(0,210,255,0.06) 0%, transparent 70%);
+  border: 1.5px solid rgba(0,210,255,0.6);
+  background: radial-gradient(circle, rgba(0,210,255,0.05) 0%, transparent 70%);
   pointer-events: none;
-  z-index: 9997;
+  z-index: 9999;
   opacity: 0;
-  transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background 0.25s ease, opacity 0.3s ease;
+  transition: opacity 0.3s ease, width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background 0.25s ease;
   will-change: transform;
 }
 .cursor-ring.cursor-ring-hover {
   width: 60px; height: 60px;
-  border-color: rgba(229,169,60,0.55);
-  background: radial-gradient(circle, rgba(229,169,60,0.08) 0%, transparent 70%);
+  border-color: rgba(229,169,60,0.85);
+  background: radial-gradient(circle, rgba(229,169,60,0.1) 0%, transparent 70%);
+}
+.cursor-ring.cursor-ring-down {
+  width: 28px; height: 28px;
 }
 
 @theme {

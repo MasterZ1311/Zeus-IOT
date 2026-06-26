@@ -14,6 +14,7 @@ import ExitIntentNudge from './ExitIntentNudge';
 import CustomCursor from './CustomCursor';
 import LiveViewers from './LiveViewers';
 import AdaptiveParticles from './AdaptiveParticles';
+import ScrollProgress from './ScrollProgress';
 import { Home, LayoutGrid, MessageSquare, CreditCard } from 'lucide-react';
 
 const BOTTOM_TABS = [
@@ -88,6 +89,9 @@ export default function Layout({ children }) {
     >
       {/* Adaptive animated background — renders once, persists across all pages */}
       <AdaptiveParticles />
+
+      {/* Desktop scroll-progress beam */}
+      <ScrollProgress />
 
       <Navbar />
 

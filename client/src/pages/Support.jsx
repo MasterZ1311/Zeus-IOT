@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
-import { LifeBuoy, Wrench, FileCode, Clock, MessageCircle } from 'lucide-react';
+import { LifeBuoy, Wrench, FileCode, Clock, MessageCircle, Users } from 'lucide-react';
 import { waLink, trackWhatsApp, messages } from '../config/whatsapp';
 
 const CONTACT_EMAIL = import.meta.env.VITE_CONTACT_EMAIL || 'zeusiotprojects@gmail.com';
 const WHATSAPP = import.meta.env.VITE_WHATSAPP_NUMBER || '919080809088';
+const COMMUNITY_URL = 'https://chat.whatsapp.com/I1U87JvYHRXL2aiERbBhGF?s=cl&p=a&mlu=3';
 const prettyPhone = '+' + WHATSAPP.replace(/^(\d{2})(\d{5})(\d{5})$/, '$1 $2 $3');
 
 export default function Support() {
@@ -91,6 +92,34 @@ export default function Support() {
             </div>
           </motion.div>
         </div>
+
+        {/* Community — subtle secondary section */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="border-t border-outline-variant/20 pt-8"
+        >
+          <h2 className="font-code-sm text-tertiary uppercase tracking-widest mb-3" style={{ fontSize: 11, letterSpacing: '0.2em' }}>
+            ⚡ The Community
+          </h2>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <p className="font-body-md text-sm text-on-surface-variant max-w-md">
+              Building something too? Swap ideas, get tips, and see what others are making in our
+              student builders' WhatsApp group.
+            </p>
+            <a
+              href={COMMUNITY_URL}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => trackWhatsApp('community-group')}
+              className="shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-xl font-code-sm transition-colors"
+              style={{ color: '#25d366', border: '1px solid rgba(37,211,102,0.35)', background: 'rgba(37,211,102,0.07)', fontSize: 13 }}
+            >
+              <Users className="w-4 h-4" /> Join the group
+            </a>
+          </div>
+        </motion.div>
 
       </div>
     </div>
