@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'r
 import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
 import Layout from './components/Layout';
 import ErrorBoundary from './components/ErrorBoundary';
-import { initSound, playThunder } from './lib/sound';
+import { initSound, playThunder, isArmed } from './lib/sound';
 
 // Lazy-load all page-level components (each becomes its own cached chunk)
 const Home    = lazy(() => import('./pages/Home'));
@@ -47,11 +47,12 @@ function PageSkeleton() {
 function AnimatedRoutes() {
   const location = useLocation();
 
-  // Roll a Zeus thunderclap on every page navigation. (The very first landing
-  // clap is fired by initSound on the user's first gesture, since browsers
-  // block audio until then.)
+  // Roll a Zeus thunderclap on every page navigation — but only once audio has
+  // been unlocked by a user gesture. This avoids creating an AudioContext before
+  // the first interaction (which logs a browser autoplay warning); the very
+  // first landing clap is handled by initSound's welcome clap instead.
   useEffect(() => {
-    playThunder(0.55);
+    if (isArmed()) playThunder(0.55);
   }, [location.pathname]);
 
   return (

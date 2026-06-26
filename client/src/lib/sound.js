@@ -10,6 +10,7 @@
  *   playThunder(vol?) — the rolling Zeus thunderclap
  *   initSound()       — arm audio on the first user gesture (browser autoplay
  *                       policy) and play a welcome clap
+ *   isArmed()         — whether the user has interacted yet (audio is unlocked)
  *
  * Browsers block audio until the user has interacted with the page at least
  * once. So the very first page-load clap fires on that first gesture; every
@@ -23,6 +24,11 @@ let ctx = null;
 let master = null;
 let armed = false;
 let lastClap = 0;
+
+/** True once the user has interacted and audio is unlocked. */
+export function isArmed() {
+  return armed;
+}
 
 function getCtx() {
   if (ctx) return ctx;
