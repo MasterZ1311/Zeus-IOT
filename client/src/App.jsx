@@ -32,7 +32,7 @@ function PageSkeleton() {
   return (
     <div className="min-h-screen flex items-center justify-center" aria-busy="true" aria-label="Loading page">
       <div className="flex flex-col items-center gap-4">
-        <img src="/logo.png" alt="" aria-hidden="true" className="w-16 h-16 object-contain rounded-xl opacity-40 animate-pulse" />
+        <img src="/logo-loader.png" alt="" aria-hidden="true" className="w-16 h-16 object-contain rounded-xl opacity-40 animate-pulse" />
         <div className="rounded-full overflow-hidden" style={{ width: 120, height: 2, background: 'rgba(255,255,255,0.08)' }}>
           <div className="h-full rounded-full skeleton" style={{ background: 'linear-gradient(90deg, #e5a93c, #00d2ff)' }} />
         </div>

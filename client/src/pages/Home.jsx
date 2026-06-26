@@ -349,16 +349,17 @@ function HomePreloader({ onDone }) {
       </div>
 
       <motion.img
-        src="/logo.png"
-        alt="Zeus IOT"
+        src="/logo-loader.png"
+        onError={(e) => { e.currentTarget.src = '/logo.png'; }}
+        alt="Zeus IoT"
         initial={{ opacity: 0, scale: 0.6 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.7, ease: [0.34, 1.56, 0.64, 1] }}
         className="relative z-10 object-contain"
         style={{
-          width: 'clamp(160px, 40vw, 280px)',
-          height: 'clamp(160px, 40vw, 280px)',
-          filter: 'drop-shadow(0 0 60px rgba(255,198,64,0.25))',
+          width: 'clamp(170px, 42vw, 300px)',
+          height: 'clamp(170px, 42vw, 300px)',
+          filter: 'drop-shadow(0 0 60px rgba(0,210,255,0.3)) drop-shadow(0 0 30px rgba(229,169,60,0.25))',
         }}
       />
 

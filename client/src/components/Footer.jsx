@@ -17,7 +17,7 @@ export default function Footer() {
         <div className="hidden md:grid md:grid-cols-4 gap-8 mb-12">
           <div className="md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <img src="/logo.png" alt="Zeus IoT Logo" className="w-8 h-8 object-contain rounded-md" />
+              <img src="/logo-loader.png" alt="Zeus IoT Logo" className="w-8 h-8 object-contain rounded-md" />
               <span className="font-headline-lg text-headline-md text-secondary">ZEUS IOT</span>
             </div>
             <p className="font-body-md text-sm text-on-surface-variant leading-relaxed">
@@ -64,7 +64,7 @@ export default function Footer() {
         {/* ── MOBILE FOOTER ── */}
         <div className="md:hidden">
           <div className="flex flex-col items-center text-center mb-8">
-            <img src="/logo.png" alt="Zeus IoT Logo" className="w-14 h-14 object-contain rounded-xl mb-3" />
+            <img src="/logo-loader.png" alt="Zeus IoT Logo" className="w-14 h-14 object-contain rounded-xl mb-3" />
             <span className="font-headline-lg text-xl text-secondary tracking-wider">ZEUS IOT</span>
             <p className="font-body-md text-xs text-on-surface-variant mt-2 max-w-[260px] leading-relaxed">
               Custom IoT & Software for the next generation.

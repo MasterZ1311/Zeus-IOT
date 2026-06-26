@@ -46,7 +46,7 @@ export default class ErrorBoundary extends Component {
             style={{ background: 'radial-gradient(circle, rgba(229,169,60,0.2) 0%, transparent 70%)', filter: 'blur(20px)' }}
           />
           <img
-            src="/logo.png"
+            src="/logo-loader.png"
             alt="Zeus IoT"
             className="relative w-20 h-20 object-contain opacity-80"
           />

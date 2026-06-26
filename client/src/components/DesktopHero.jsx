@@ -54,76 +54,63 @@ function useMagnetic(strength = 0.3) {
   return { ref, x, y, handlers };
 }
 
-// ── 3D Tilt Logo ─────────────────────────────────────────────
+// ── 3D Tilt Logo — frames the circular emblem as a cinematic medallion ──
 function TiltLogo({ springX, springY }) {
-  const rotateY = useTransform(springX, [-20, 20], [-12, 12]);
-  const rotateX = useTransform(springY, [-20, 20], [8, -8]);
+  const rotateY = useTransform(springX, [-20, 20], [-14, 14]);
+  const rotateX = useTransform(springY, [-20, 20], [10, -10]);
 
   return (
     <motion.div
       className="relative flex items-center justify-center"
-      style={{
-        width: 380,
-        height: 380,
-        perspective: 1200,
-        willChange: 'transform',
-      }}
+      style={{ width: 420, height: 420, perspective: 1300, willChange: 'transform' }}
+      animate={{ y: [0, -10, 0] }}
+      transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut' }}
     >
-      {/* Outer rings */}
+      {/* Soft glow halo */}
       <div
         aria-hidden="true"
         className="absolute rounded-full"
         style={{
-          inset: -24,
-          border: '1px solid rgba(0,210,255,0.12)',
-          animation: 'spinSlow 30s linear infinite',
-          willChange: 'transform',
+          inset: 16,
+          background: 'radial-gradient(circle at 45% 40%, rgba(229,169,60,0.22) 0%, rgba(0,210,255,0.14) 45%, transparent 72%)',
+          filter: 'blur(34px)',
         }}
       />
+
+      {/* Rotating conic sheen ring */}
       <div
         aria-hidden="true"
         className="absolute rounded-full"
         style={{
-          inset: -48,
-          border: '1px dashed rgba(229,169,60,0.08)',
-          animation: 'spinSlow 50s linear infinite reverse',
+          inset: -4,
+          background: 'conic-gradient(from 0deg, transparent 0%, rgba(229,169,60,0.55) 14%, transparent 32%, rgba(0,210,255,0.55) 62%, transparent 82%)',
+          WebkitMaskImage: 'radial-gradient(closest-side, transparent 95%, #000 96.5%)',
+          maskImage: 'radial-gradient(closest-side, transparent 95%, #000 96.5%)',
+          animation: 'spinSlow 14s linear infinite',
           willChange: 'transform',
         }}
       />
 
-      {/* 3D tilt container */}
+      {/* Static decorative rings */}
+      <div aria-hidden="true" className="absolute rounded-full"
+        style={{ inset: -16, border: '1px solid rgba(0,210,255,0.14)', animation: 'spinSlow 34s linear infinite', willChange: 'transform' }} />
+      <div aria-hidden="true" className="absolute rounded-full"
+        style={{ inset: -32, border: '1px dashed rgba(229,169,60,0.12)', animation: 'spinSlow 55s linear infinite reverse', willChange: 'transform' }} />
+
+      {/* 3D-tilting medallion */}
       <motion.div
         style={{ rotateX, rotateY, transformStyle: 'preserve-3d', willChange: 'transform' }}
         className="relative w-full h-full flex items-center justify-center"
       >
-        {/* Glow */}
-        <div
-          className="absolute inset-0 rounded-full"
-          style={{
-            background: 'radial-gradient(circle at 40% 35%, rgba(229,169,60,0.2) 0%, rgba(0,210,255,0.12) 50%, transparent 70%)',
-            filter: 'blur(20px)',
-          }}
-        />
-        {/* Glass disc */}
-        <div
-          className="absolute inset-0 rounded-full"
-          style={{
-            background: 'linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%)',
-            border: '1px solid rgba(0,210,255,0.25)',
-            borderTop: '2px solid rgba(229,169,60,0.4)',
-            backdropFilter: 'blur(12px)',
-            WebkitBackdropFilter: 'blur(12px)',
-            boxShadow: '0 0 60px rgba(229,169,60,0.12), 0 0 120px rgba(0,210,255,0.06), inset 0 1px 0 rgba(255,255,255,0.1)',
-          }}
-        />
-        {/* Logo */}
         <img
           src="/logo.png"
           alt="Zeus IoT"
-          className="relative z-10 w-3/4 h-3/4 object-contain"
+          className="relative z-10 object-contain"
           style={{
-            filter: 'drop-shadow(0 0 30px rgba(229,169,60,0.5)) drop-shadow(0 0 60px rgba(0,210,255,0.2))',
-            transform: 'translateZ(40px)',
+            width: '92%',
+            height: '92%',
+            transform: 'translateZ(50px)',
+            filter: 'drop-shadow(0 16px 36px rgba(0,0,0,0.55)) drop-shadow(0 0 40px rgba(229,169,60,0.35)) drop-shadow(0 0 70px rgba(0,210,255,0.18))',
             willChange: 'transform',
           }}
           loading="eager"
@@ -131,43 +118,18 @@ function TiltLogo({ springX, springY }) {
       </motion.div>
 
       {/* Orbiting satellites */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0"
-        style={{ animation: 'spinSlow 8s linear infinite', willChange: 'transform' }}
-      >
-        <div
-          className="absolute top-0 left-1/2"
-          style={{
-            width: 12,
-            height: 12,
-            borderRadius: '50%',
-            background: '#e5a93c',
-            boxShadow: '0 0 15px rgba(229,169,60,0.9)',
-            transform: 'translate(-50%, -50%)',
-          }}
-        />
+      <div aria-hidden="true" className="absolute inset-0"
+        style={{ animation: 'spinSlow 9s linear infinite', willChange: 'transform' }}>
+        <div className="absolute top-0 left-1/2"
+          style={{ width: 12, height: 12, borderRadius: '50%', background: '#e5a93c', boxShadow: '0 0 16px rgba(229,169,60,0.9)', transform: 'translate(-50%,-50%)' }} />
       </div>
-      <div
-        aria-hidden="true"
-        className="absolute inset-0"
-        style={{ animation: 'spinSlow 13s linear infinite reverse', willChange: 'transform' }}
-      >
-        <div
-          className="absolute bottom-4 right-4"
-          style={{
-            width: 8,
-            height: 8,
-            borderRadius: '50%',
-            background: '#00d2ff',
-            boxShadow: '0 0 10px rgba(0,210,255,0.9)',
-          }}
-        />
+      <div aria-hidden="true" className="absolute inset-0"
+        style={{ animation: 'spinSlow 14s linear infinite reverse', willChange: 'transform' }}>
+        <div className="absolute bottom-6 right-8"
+          style={{ width: 8, height: 8, borderRadius: '50%', background: '#00d2ff', boxShadow: '0 0 12px rgba(0,210,255,0.9)' }} />
       </div>
 
-      <style>{`
-        @keyframes spinSlow { to { transform: rotate(360deg); } }
-      `}</style>
+      <style>{`@keyframes spinSlow { to { transform: rotate(360deg); } }`}</style>
     </motion.div>
   );
 }

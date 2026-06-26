@@ -76,7 +76,7 @@ function MobileMenuOverlay({ isOpen, onClose }) {
 
           {/* Logo */}
           <div className="flex items-center gap-3 px-6 pt-6">
-            <img src="/logo.png" alt="Zeus IoT" className="w-10 h-10 object-contain rounded-xl" />
+            <img src="/logo-loader.png" alt="Zeus IoT" className="w-10 h-10 object-contain rounded-xl" />
             <span className="font-headline-xl text-secondary glow-text" style={{ fontSize: 20, letterSpacing: '0.05em' }}>
               ZEUS IOT
             </span>
@@ -178,7 +178,7 @@ export default function Navbar() {
         }}
       >
         <Link to="/" className="flex items-center gap-2.5">
-          <img src="/logo.png" alt="Zeus IoT" className="w-8 h-8 object-contain rounded-md" />
+          <img src="/logo-loader.png" alt="Zeus IoT" className="w-8 h-8 object-contain rounded-md" />
           <span className="font-headline-xl text-secondary glow-text tracking-tight" style={{ fontSize: 18 }}>
             ZEUS IOT
           </span>
@@ -204,7 +204,7 @@ export default function Navbar() {
         }}
       >
         <Link to="/" className="flex items-center gap-2">
-          <img src="/logo.png" alt="Zeus IoT" className="w-8 h-8 object-contain rounded-lg" />
+          <img src="/logo-loader.png" alt="Zeus IoT" className="w-8 h-8 object-contain rounded-lg" />
           <span className="font-headline-md text-secondary glow-text" style={{ fontSize: 16 }}>ZEUS IOT</span>
         </Link>
 

@@ -11,12 +11,13 @@ export default defineConfig({
       registerType: 'autoUpdate',     // new SW activates and reloads automatically
       injectRegister: 'auto',
       manifest: false,                 // we ship our own public/manifest.webmanifest
-      includeAssets: ['favicon.svg', 'logo.png', 'icons.svg'],
+      includeAssets: ['favicon.svg', 'logo-loader.png'],
       workbox: {
         // Precache only the app shell (code + small assets). Large preview images
-        // are loaded on demand and runtime-cached, so first install stays lean.
-        globPatterns: ['**/*.{js,css,html,woff2}', 'favicon.svg', 'logo.png'],
-        globIgnores: ['**/og-image.*', '**/*_preview.png', '**/iot_hero.png', '**/digital_olympus.jpg'],
+        // and the detailed hero emblem are loaded on demand and runtime-cached,
+        // so first install stays lean.
+        globPatterns: ['**/*.{js,css,html,woff2}', 'favicon.svg', 'logo-loader.png'],
+        globIgnores: ['**/og-image.*', '**/*_preview.png', '**/iot_hero.png', '**/digital_olympus.jpg', '**/logo.png'],
         maximumFileSizeToCacheInBytes: 2 * 1024 * 1024,
         // Network-first for navigations so users always get fresh HTML
         // (avoids the aggressive-cache problem the old static site had).
