@@ -264,42 +264,26 @@ header, footer, nav {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   CUSTOM CURSOR (desktop only)
+   CUSTOM CURSOR — ambient spotlight ring (desktop only).
+   Does NOT hide the native cursor; just adds a soft trailing glow.
    ═══════════════════════════════════════════════════════════════ */
-@media (hover: hover) and (pointer: fine) {
-  body.has-custom-cursor,
-  body.has-custom-cursor a,
-  body.has-custom-cursor button,
-  body.has-custom-cursor [role="button"] {
-    cursor: none;
-  }
-}
-.cursor-dot {
-  position: fixed;
-  top: 0; left: 0;
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: #e5a93c;
-  pointer-events: none;
-  z-index: 9998;
-  box-shadow: 0 0 8px rgba(229,169,60,0.8);
-  will-change: transform;
-}
 .cursor-ring {
   position: fixed;
   top: 0; left: 0;
-  width: 34px; height: 34px;
+  width: 38px; height: 38px;
   border-radius: 50%;
-  border: 1.5px solid rgba(0,210,255,0.5);
+  border: 1.5px solid rgba(0,210,255,0.35);
+  background: radial-gradient(circle, rgba(0,210,255,0.06) 0%, transparent 70%);
   pointer-events: none;
   z-index: 9997;
-  transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  opacity: 0;
+  transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background 0.25s ease, opacity 0.3s ease;
   will-change: transform;
 }
 .cursor-ring.cursor-ring-hover {
-  width: 54px; height: 54px;
-  border-color: rgba(229,169,60,0.6);
-  background: rgba(229,169,60,0.06);
+  width: 60px; height: 60px;
+  border-color: rgba(229,169,60,0.55);
+  background: radial-gradient(circle, rgba(229,169,60,0.08) 0%, transparent 70%);
 }
 
 @theme {
