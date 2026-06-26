@@ -15,7 +15,6 @@ function getDeviceTier() {
 
   const ua = navigator.userAgent;
   const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(ua);
-  const isTouch = navigator.maxTouchPoints > 0;
 
   // Hardware concurrency is the most reliable proxy for CPU power
   const cores = navigator.hardwareConcurrency ?? 2;
@@ -27,7 +26,7 @@ function getDeviceTier() {
   if (prefersReducedMotion) return 'low';
 
   // Desktop with decent hardware
-  if (!isMobile && !isTouch) {
+  if (!isMobile) {
     return cores >= 4 ? 'high' : 'mid';
   }
 
@@ -45,7 +44,7 @@ export function useDeviceCapabilities() {
     const isIOS = /iPhone|iPad|iPod/i.test(ua);
     const isAndroid = /Android/i.test(ua);
     const isTouch = navigator.maxTouchPoints > 0;
-    const isDesktop = !isMobile && !isTouch;
+    const isDesktop = !isMobile;
 
     // Capability flags
     const supportsBackdropBlur = CSS.supports('backdrop-filter', 'blur(1px)') ||

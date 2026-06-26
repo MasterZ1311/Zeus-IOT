@@ -31,19 +31,22 @@ app.get('/api/health', (req, res) => {
 
 // ── Live presence ────────────────────────────────────────────
 // Tracks currently-active viewers in memory via client heartbeats.
-// No database: a Map of sessionId → lastSeen, pruned on each request.
+// No database: a Map of sessionId → lastSeen, pruned periodically in background.
 // (Render runs a single instance by default, so this count is consistent.)
 const viewers = new Map();
 const PRESENCE_TTL = 20000; // a viewer is "active" if seen within 20s
 
-app.get('/api/presence', (req, res) => {
+// Clean up stale sessions in background to keep requests O(1)
+setInterval(() => {
   const now = Date.now();
-  const id = String(req.query.id || '').slice(0, 64);
-  if (id) viewers.set(id, now);
-  // Prune stale viewers
   for (const [key, seen] of viewers) {
     if (now - seen > PRESENCE_TTL) viewers.delete(key);
   }
+}, 15000);
+
+app.get('/api/presence', (req, res) => {
+  const id = String(req.query.id || '').slice(0, 64);
+  if (id) viewers.set(id, Date.now());
   res.setHeader('Cache-Control', 'no-store');
   // Floor at 1 so a lone visitor still sees themselves
   res.json({ count: Math.max(1, viewers.size) });

@@ -158,13 +158,19 @@ function InteractiveCanvas() {
       for (const p of pts) {
         const dx = mx - p.x, dy = my - p.y;
         const near = (mx > -9000) ? Math.max(0, 1 - Math.sqrt(dx * dx + dy * dy) / MOUSE) : 0;
+        const rad = p.r + near * 1.6;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r + near * 1.6, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, rad, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(${p.c},${0.6 + near * 0.4})`;
-        if (near > 0.4) { ctx.shadowColor = `rgba(${p.c},0.9)`; ctx.shadowBlur = 8; } else { ctx.shadowBlur = 0; }
         ctx.fill();
+
+        if (near > 0.4) {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, rad * 2.2, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${p.c},${near * 0.16})`;
+          ctx.fill();
+        }
       }
-      ctx.shadowBlur = 0;
     };
     ref.current.raf = requestAnimationFrame(tick);
 

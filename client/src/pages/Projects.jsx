@@ -35,8 +35,10 @@ function ProjectModal({ project, onClose }) {
       <motion.div
         role="dialog" aria-modal="true" aria-label={`${project.title} details`}
         onClick={(e) => e.stopPropagation()}
-        initial={{ y: '100%' }} animate={{ y: 0 }} exit={{ y: '100%' }}
-        transition={{ type: 'spring', stiffness: 320, damping: 32 }}
+        initial={{ y: '100%', scale: 0.95, opacity: 0 }} 
+        animate={{ y: 0, scale: 1, opacity: 1 }} 
+        exit={{ y: '100%', scale: 0.95, opacity: 0 }}
+        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         className="glass-panel relative w-full md:max-w-lg rounded-t-2xl md:rounded-2xl overflow-hidden"
         style={{ maxHeight: '90vh', overflowY: 'auto' }}
       >
@@ -144,11 +146,12 @@ export default function Projects() {
         {filtered.map((p, i) => (
           <motion.button
             key={p.id}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: '-40px' }}
-            transition={{ delay: (i % 3) * 0.08, duration: 0.5 }}
-            whileHover={{ y: -6 }}
+            transition={{ delay: (i % 3) * 0.1, duration: 0.6, type: "spring", stiffness: 100, damping: 20 }}
+            whileHover={{ y: -8, scale: 1.02 }}
+            whileTap={{ scale: 0.97 }}
             onClick={() => setSelected(p)}
             className="group glass-panel rounded-2xl overflow-hidden text-left relative cursor-pointer"
             style={{ borderTop: `2px solid ${p.accent}` }}

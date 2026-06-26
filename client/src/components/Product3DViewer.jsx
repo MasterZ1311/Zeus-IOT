@@ -40,8 +40,21 @@ export default function Product3DViewer() {
     return () => cancelAnimationFrame(frame);
   }, [isDesktop, shouldReduceAnimations]);
 
-  const onDown = (clientX, clientY) => {
+  const onDown = (clientX, clientY, isTouch = false) => {
     drag.current = { active: true, startX: clientX, startY: clientY, baseX: rot.current.x, baseY: rot.current.y };
+
+    if (!isTouch) {
+      const handleGlobalMove = (e) => {
+        onMove(e.clientX, e.clientY);
+      };
+      const handleGlobalUp = () => {
+        onUp();
+        window.removeEventListener('mousemove', handleGlobalMove);
+        window.removeEventListener('mouseup', handleGlobalUp);
+      };
+      window.addEventListener('mousemove', handleGlobalMove, { passive: true });
+      window.addEventListener('mouseup', handleGlobalUp, { passive: true });
+    }
   };
   const onMove = (clientX, clientY) => {
     if (!drag.current.active) return;
@@ -66,11 +79,8 @@ export default function Product3DViewer() {
     <div
       className="relative select-none"
       style={{ perspective: 1400, width: '100%', maxWidth: 420, aspectRatio: '1', margin: '0 auto', cursor: isDesktop ? 'grab' : 'default', touchAction: 'pan-y' }}
-      onMouseDown={(e) => isDesktop && onDown(e.clientX, e.clientY)}
-      onMouseMove={(e) => isDesktop && onMove(e.clientX, e.clientY)}
-      onMouseUp={onUp}
-      onMouseLeave={onUp}
-      onTouchStart={(e) => onDown(e.touches[0].clientX, e.touches[0].clientY)}
+      onMouseDown={(e) => isDesktop && onDown(e.clientX, e.clientY, false)}
+      onTouchStart={(e) => onDown(e.touches[0].clientX, e.touches[0].clientY, true)}
       onTouchMove={(e) => onMove(e.touches[0].clientX, e.touches[0].clientY)}
       onTouchEnd={onUp}
     >

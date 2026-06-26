@@ -70,7 +70,8 @@ export default function Pay() {
 
         <button
           onClick={copyUpi}
-          className="bg-surface-container-high rounded-lg p-3 border border-outline-variant/30 w-full hover:border-secondary/40 transition-colors group"
+          disabled={!UPI_ID}
+          className={`rounded-lg p-3 border transition-colors group w-full ${!UPI_ID ? 'opacity-40 cursor-not-allowed border-outline' : 'bg-surface-container-high border-outline-variant/30 hover:border-secondary/40'}`}
         >
           <span className="block font-code-sm text-xs text-on-surface-variant uppercase mb-1">UPI ID (tap to copy)</span>
           <span className="font-code-sm text-sm text-secondary tracking-widest font-bold flex items-center justify-center gap-2">
