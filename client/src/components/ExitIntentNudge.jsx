@@ -72,9 +72,10 @@ export default function ExitIntentNudge() {
               style={{ background: 'radial-gradient(circle, rgba(229,169,60,0.2) 0%, transparent 70%)', filter: 'blur(20px)' }} />
 
             <button
+              type="button"
               onClick={() => setOpen(false)}
               aria-label="Close"
-              className="absolute top-4 right-4 w-9 h-9 rounded-full flex items-center justify-center border border-outline-variant/40 text-on-surface-variant hover:text-secondary transition-colors"
+              className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full flex items-center justify-center border border-outline-variant/40 text-on-surface-variant hover:text-secondary transition-colors"
             >
               <X className="w-4 h-4" />
             </button>

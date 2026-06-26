@@ -1,7 +1,7 @@
 /**
- * WhatsAppFab + StickyWhatsAppBar
+ * WhatsAppFab
  * Desktop: floating action button (bottom-right).
- * Mobile:  full-width sticky "Chat on WhatsApp" bar above the bottom tab nav.
+ * Mobile:  compact floating action button (bottom-right, above the tab nav).
  * Both route through the central WhatsApp funnel util with click tracking.
  */
 import { motion, AnimatePresence } from 'framer-motion';
@@ -50,30 +50,32 @@ export default function WhatsAppFab() {
         </motion.a>
       </AnimatePresence>
 
-      {/* ── MOBILE STICKY BAR (above bottom tab nav) ─────────── */}
+      {/* ── MOBILE FLOATING BUTTON (above bottom tab nav) ────── */}
       <motion.a
         href={href}
         target="_blank"
         rel="noreferrer"
-        onClick={() => trackWhatsApp('sticky-bar')}
-        initial={{ y: 80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.8, type: 'spring', stiffness: 200, damping: 24 }}
-        className="md:hidden fixed left-0 right-0 z-[110] flex items-center justify-center gap-2 font-label-caps uppercase tracking-widest active:scale-[0.98]"
-        style={{
-          bottom: 'calc(env(safe-area-inset-bottom, 0px) + 56px)',
-          margin: '0 12px',
-          padding: '13px 16px',
-          borderRadius: 14,
-          fontSize: 13,
-          color: '#fff',
-          background: 'linear-gradient(135deg, #25d366 0%, #128c7e 100%)',
-          boxShadow: '0 6px 24px rgba(37,211,102,0.4), 0 0 0 1px rgba(255,255,255,0.12) inset',
-        }}
+        onClick={() => trackWhatsApp('fab-mobile')}
         aria-label="Chat on WhatsApp"
+        initial={{ opacity: 0, scale: 0.5, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ delay: 0.9, type: 'spring', stiffness: 260, damping: 20 }}
+        whileTap={{ scale: 0.9 }}
+        className="md:hidden fixed z-[110] flex items-center justify-center rounded-full"
+        style={{
+          right: 'max(16px, env(safe-area-inset-right))',
+          bottom: 'calc(env(safe-area-inset-bottom, 0px) + 68px)',
+          width: 56, height: 56,
+          background: 'linear-gradient(135deg, #25d366 0%, #128c7e 100%)',
+          boxShadow: '0 4px 20px rgba(37,211,102,0.45), 0 0 0 1px rgba(255,255,255,0.1) inset',
+        }}
       >
-        <WaIcon className="w-5 h-5" />
-        Chat on WhatsApp
+        <span
+          aria-hidden="true"
+          className="absolute inset-0 rounded-full"
+          style={{ border: '2px solid rgba(37,211,102,0.5)', animation: 'waPulse 2.5s ease-out infinite' }}
+        />
+        <WaIcon className="w-6 h-6 relative z-10" />
       </motion.a>
 
       <style>{`
