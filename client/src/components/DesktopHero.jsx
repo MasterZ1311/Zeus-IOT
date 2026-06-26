@@ -84,13 +84,20 @@ function TiltLogo({ springX, springY }) {
       {/* tilting emblem */}
       <motion.div style={{ rotateX, rotateY, transformStyle: 'preserve-3d', willChange: 'transform' }}
         className="relative w-full h-full flex items-center justify-center">
-        <img src="/logo.png" alt="Zeus IoT" loading="eager"
-          className="relative z-10 object-contain"
+        <div
+          className="relative z-10 rounded-full overflow-hidden"
           style={{
-            width: '94%', height: '94%', transform: 'translateZ(55px)',
+            width: '94%',
+            aspectRatio: '1',
+            transform: 'translateZ(55px)',
             filter: 'drop-shadow(0 18px 40px rgba(0,0,0,0.55)) drop-shadow(0 0 44px rgba(229,169,60,0.35)) drop-shadow(0 0 80px rgba(0,210,255,0.18))',
             willChange: 'transform',
-          }} />
+          }}
+        >
+          <img src="/logo.png" alt="Zeus IoT" loading="eager"
+            className="w-full h-full object-cover"
+          />
+        </div>
       </motion.div>
 
       {/* orbiting satellites */}

@@ -251,16 +251,20 @@ export default function MobileHero() {
                 filter: 'blur(10px)',
               }}
             />
-            <img
-              src="/logo.png"
-              alt="Zeus IoT"
-              className="absolute inset-0 w-full h-full object-contain rounded-full"
+            <div
+              className="absolute rounded-full overflow-hidden"
               style={{
+                inset: 16,
                 filter: 'drop-shadow(0 0 20px rgba(229,169,60,0.4)) drop-shadow(0 0 40px rgba(0,210,255,0.15))',
-                padding: 16,
               }}
-              loading="eager"
-            />
+            >
+              <img
+                src="/logo.png"
+                alt="Zeus IoT"
+                className="w-full h-full object-cover"
+                loading="eager"
+              />
+            </div>
             {/* Orbiting dot */}
             <div
               className="absolute"
