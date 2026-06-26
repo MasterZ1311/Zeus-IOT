@@ -4,7 +4,7 @@
  * floating emblem medallion on the right, over a parallax-reactive backdrop.
  */
 import { useRef, useEffect } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform, useScroll } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ShieldCheck, Crosshair, GraduationCap } from 'lucide-react';
 import { useDeviceCapabilities } from '../hooks/useDeviceCapabilities';
@@ -134,6 +134,9 @@ export default function DesktopHero() {
 
   const ease = [0.22, 1, 0.36, 1];
 
+  const { scrollY } = useScroll();
+  const logoOpacity = useTransform(scrollY, [0, 250], [1, 0]);
+
   return (
     <section className="relative flex items-center overflow-hidden" style={{ minHeight: '100vh' }}>
 
@@ -216,7 +219,9 @@ export default function DesktopHero() {
         <motion.div
           initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2, duration: 0.9, ease }}
           className="flex items-center justify-center">
-          <TiltLogo springX={springX} springY={springY} />
+          <motion.div style={{ opacity: logoOpacity, willChange: 'opacity' }} className="w-full h-full flex items-center justify-center">
+            <TiltLogo springX={springX} springY={springY} />
+          </motion.div>
         </motion.div>
       </div>
 

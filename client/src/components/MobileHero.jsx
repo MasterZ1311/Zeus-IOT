@@ -8,7 +8,7 @@
  * - Stats counter strip
  */
 import { useEffect, useState } from 'react';
-import { motion, useMotionValue, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useTransform, useScroll } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import { useDeviceCapabilities } from '../hooks/useDeviceCapabilities';
@@ -138,6 +138,9 @@ export default function MobileHero() {
   const logoY = useTransform(tiltY, [-15, 15], [-10, 10]);
   const [gyroEnabled, setGyroEnabled] = useState(false);
 
+  const { scrollY } = useScroll();
+  const logoOpacity = useTransform(scrollY, [0, 120], [1, 0]);
+
   // Gyroscope parallax
   useEffect(() => {
     if (shouldReduceAnimations) return;
@@ -222,9 +225,9 @@ export default function MobileHero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: [0.34, 1.56, 0.64, 1] }}
         >
-          <div
+          <motion.div
             className="relative"
-            style={{ width: 160, height: 160 }}
+            style={{ width: 160, height: 160, opacity: logoOpacity, willChange: 'opacity' }}
           >
             {/* Spinning ring */}
             <div
@@ -288,7 +291,7 @@ export default function MobileHero() {
                 }}
               />
             </div>
-          </div>
+          </motion.div>
         </motion.div>
 
         {/* Headline */}

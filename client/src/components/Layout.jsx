@@ -96,7 +96,7 @@ export default function Layout({ children }) {
       <Navbar />
 
       {/* Main content — animated page routes are passed in as children */}
-      <main className="flex-grow z-10" style={{ paddingTop: '3.5rem' }}>
+      <main className="flex-grow z-10 pb-[calc(56px+env(safe-area-inset-bottom,4px))] md:pb-0" style={{ paddingTop: '3.5rem' }}>
         {children}
       </main>
 
