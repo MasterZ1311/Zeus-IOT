@@ -88,19 +88,20 @@ function StatusBadge() {
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.3, duration: 0.5 }}
-      className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 mb-5 self-start"
+      className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 mb-5 self-center"
       style={{
-        background: 'rgba(229,169,60,0.08)',
-        border: '1px solid rgba(229,169,60,0.3)',
-        backdropFilter: 'blur(8px)',
-        WebkitBackdropFilter: 'blur(8px)',
+        background: 'rgba(229,169,60,0.06)',
+        border: '1.5px solid rgba(229,169,60,0.35)',
+        boxShadow: '0 0 15px rgba(229,169,60,0.12)',
+        backdropFilter: 'blur(10px)',
+        WebkitBackdropFilter: 'blur(10px)',
       }}
     >
       <span
-        className="w-2 h-2 rounded-full bg-secondary"
-        style={{ boxShadow: '0 0 6px rgba(229,169,60,0.8)', animation: 'pulse 2s ease-in-out infinite' }}
+        className="w-2.5 h-2.5 rounded-full bg-secondary"
+        style={{ boxShadow: '0 0 8px rgba(229,169,60,0.9)', animation: 'pulse 1.8s ease-in-out infinite' }}
       />
-      <span className="font-code-sm text-secondary tracking-widest" style={{ fontSize: '10px' }}>
+      <span className="font-code-sm text-secondary tracking-widest font-bold" style={{ fontSize: '10px' }}>
         SYSTEM STATUS: OPTIMAL ⚡
       </span>
     </motion.div>
@@ -114,18 +115,20 @@ function StatPill({ label, value, delay }) {
       initial={{ opacity: 0, scale: 0.85, y: 10 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ delay, duration: 0.5, type: 'spring', stiffness: 260, damping: 20 }}
-      className="flex flex-col items-center px-4 py-2 rounded-xl"
+      className="flex flex-col items-center px-4 py-2.5 rounded-xl border"
       style={{
-        background: 'rgba(255,255,255,0.04)',
-        border: '1px solid rgba(0,210,255,0.15)',
-        backdropFilter: 'blur(8px)',
+        background: 'rgba(255,255,255,0.02)',
+        borderColor: 'rgba(0,210,255,0.15)',
+        boxShadow: '0 4px 15px rgba(0,0,0,0.35)',
+        backdropFilter: 'blur(10px)',
+        WebkitBackdropFilter: 'blur(10px)',
       }}
     >
-      <span className="font-headline-xl text-secondary font-bold" style={{ fontSize: '20px' }}>{value}</span>
-      <span className="font-code-sm text-on-surface-variant uppercase tracking-wider" style={{ fontSize: '9px' }}>{label}</span>
+      <span className="font-headline-xl text-secondary font-black" style={{ fontSize: '20px', textShadow: '0 0 8px rgba(229,169,60,0.2)' }}>{value}</span>
+      <span className="font-code-sm text-on-surface-variant uppercase tracking-wider font-bold" style={{ fontSize: '9px' }}>{label}</span>
     </motion.div>
   );
-}
+};
 
 export default function MobileHero() {
   const { isIOS, shouldReduceAnimations } = useDeviceCapabilities();
@@ -253,6 +256,7 @@ export default function MobileHero() {
               style={{
                 inset: 16,
                 boxShadow: '0 0 20px rgba(229,169,60,0.4), 0 0 40px rgba(0,210,255,0.15)',
+                clipPath: 'circle(50%)',
               }}
             >
               <img
@@ -260,6 +264,7 @@ export default function MobileHero() {
                 alt="Zeus IoT"
                 className="w-full h-full object-cover"
                 loading="eager"
+                style={{ clipPath: 'circle(50%)' }}
               />
             </div>
             {/* Orbiting dot */}
@@ -291,7 +296,7 @@ export default function MobileHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="font-headline-xl text-on-surface uppercase leading-none mb-4 text-center"
+          className="font-headline-xl text-on-surface uppercase leading-none mb-4 text-center font-black tracking-tighter"
           style={{ fontSize: 'clamp(28px, 8vw, 40px)', letterSpacing: '-0.02em' }}
         >
           HARNESS<br />
@@ -300,7 +305,7 @@ export default function MobileHero() {
             style={{
               backgroundImage: 'linear-gradient(135deg, #e5a93c 0%, #ffdf9f 40%, #00d2ff 100%)',
               WebkitBackgroundClip: 'text',
-              filter: 'drop-shadow(0 2px 10px rgba(229, 169, 60, 0.35))'
+              filter: 'drop-shadow(0 0 15px rgba(0, 210, 255, 0.25)) drop-shadow(0 2px 10px rgba(229, 169, 60, 0.35))'
             }}
           >
             THE BOLT
@@ -312,11 +317,11 @@ export default function MobileHero() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35, duration: 0.6 }}
-          className="font-body-md text-on-surface-variant text-center mb-7 leading-relaxed"
+          className="font-body-md text-on-surface-variant text-center mb-7 leading-relaxed opacity-90"
           style={{ fontSize: 14, maxWidth: 300, alignSelf: 'center' }}
         >
           Custom IoT & Software for College Students.{' '}
-          <strong className="text-tertiary font-semibold">Learn, not just buy.</strong>
+          <strong className="text-tertiary font-bold glow-text">Learn, not just buy.</strong>
         </motion.p>
 
         {/* CTA Buttons */}
@@ -328,8 +333,8 @@ export default function MobileHero() {
         >
           <Link
             to="/projects"
-            className="btn-thunderbolt font-label-caps uppercase tracking-widest flex items-center justify-center gap-2 active:scale-[0.96] transition-transform touch-ripple"
-            style={{ fontSize: 11, padding: '14px 24px' }}
+            className="btn-thunderbolt font-label-caps uppercase tracking-widest flex items-center justify-center gap-2 active:scale-[0.96] transition-transform touch-ripple font-bold"
+            style={{ fontSize: 11, padding: '15px 24px' }}
           >
             <span>EXPLORE PROJECTS</span>
             <ArrowRight className="w-4 h-4" />
@@ -339,8 +344,8 @@ export default function MobileHero() {
             target="_blank"
             rel="noreferrer"
             onClick={() => trackWhatsApp('mobile-hero')}
-            className="font-label-caps uppercase tracking-widest flex items-center justify-center gap-2 active:scale-[0.96] transition-transform touch-ripple"
-            style={{ fontSize: 11, padding: '13px 24px', borderRadius: 6, color: '#fff', background: 'linear-gradient(135deg, #25d366 0%, #128c7e 100%)', boxShadow: '0 4px 16px rgba(37,211,102,0.35)' }}
+            className="font-label-caps uppercase tracking-widest flex items-center justify-center gap-2 active:scale-[0.96] transition-all touch-ripple font-bold"
+            style={{ fontSize: 11, padding: '15px 24px', borderRadius: 8, color: '#fff', background: 'linear-gradient(135deg, #25d366 0%, #128c7e 100%)', boxShadow: '0 4px 16px rgba(37,211,102,0.35)', transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)' }}
           >
             <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12z"/></svg>
             CHAT ON WHATSAPP
