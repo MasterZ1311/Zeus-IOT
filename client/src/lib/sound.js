@@ -57,16 +57,10 @@ function makeNoiseBuffer(c, seconds) {
  * The signature Zeus thunderclap: a bright initial crack that decays into a
  * long, low rolling rumble. ~2.4s tail.
  */
-export function playThunder(vol = 1) {
+function playSynthesizedThunder(vol = 1) {
   const c = getCtx();
   if (!c) return;
   resume();
-
-  // Throttle: never stack two claps on top of each other (e.g. a nav click that
-  // both arms audio AND changes the route).
-  const t = (typeof performance !== 'undefined' ? performance.now() : Date.now());
-  if (t - lastClap < 800) return;
-  lastClap = t;
 
   try {
     const now = c.currentTime;
@@ -127,6 +121,31 @@ export function playThunder(vol = 1) {
     roll.start(now + 0.25);
     roll.stop(now + 2.0);
   } catch { /* never let audio break the UI */ }
+}
+
+/**
+ * Plays the local thunder.mp3 sound effect, with a fallback to the synthesised
+ * Web Audio API engine.
+ */
+export function playThunder(vol = 1) {
+  // Throttle: never stack two claps on top of each other
+  const t = (typeof performance !== 'undefined' ? performance.now() : Date.now());
+  if (t - lastClap < 800) return;
+  lastClap = t;
+
+  try {
+    const audio = new Audio('/thunder.mp3');
+    audio.volume = Math.max(0, Math.min(1, vol));
+    
+    // Play with fallback
+    audio.play().catch((err) => {
+      console.warn("thunder.mp3 play blocked or failed. Falling back to synthesized Audio:", err);
+      playSynthesizedThunder(vol);
+    });
+  } catch (err) {
+    console.warn("Failed to instantiate Audio('/thunder.mp3'). Falling back:", err);
+    playSynthesizedThunder(vol);
+  }
 }
 
 /**
