@@ -45,7 +45,7 @@ export default function CodeOfOlympus() {
         <span className="font-code-sm text-secondary uppercase tracking-widest" style={{ fontSize: 11, letterSpacing: '0.2em' }}>
           ⚡ THE CODE OF OLYMPUS
         </span>
-        <h2 className="font-headline-lg text-on-surface mt-3" style={{ fontSize: 'clamp(24px, 3.5vw, 38px)' }}>
+        <h2 className="font-headline-lg text-on-surface mt-3" style={{ fontSize: 'clamp(24px, 4vw, 52px)' }}>
           Principles Forged in{' '}
           <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(135deg,#e5a93c,#00d2ff)', WebkitBackgroundClip: 'text' }}>
             Lightning

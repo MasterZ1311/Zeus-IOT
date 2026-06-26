@@ -163,7 +163,7 @@ function CoreCapabilities() {
   return (
     <RevealSection className="mt-20 md:mt-32">
       <h2 className="font-headline-lg text-on-surface mb-10 flex items-center gap-4 px-4 md:px-16 max-w-[1280px] mx-auto"
-        style={{ fontSize: 'clamp(22px, 3vw, 32px)' }}>
+        style={{ fontSize: 'clamp(22px, 3.6vw, 46px)' }}>
         <span className="w-8 h-1 bg-secondary flex-shrink-0" />
         CORE CAPABILITIES
       </h2>
@@ -185,11 +185,11 @@ function CoreCapabilities() {
           <div className="w-12 h-12 rounded-full bg-sky-400/10 flex items-center justify-center mb-5 border border-sky-400/30 flex-shrink-0">
             <Cpu className="text-sky-400 w-6 h-6" />
           </div>
-          <h3 className="font-headline-md text-on-surface mb-3 z-10" style={{ fontSize: 'clamp(18px, 1.8vw, 22px)' }}>
+          <h3 className="font-headline-md text-on-surface mb-3 z-10" style={{ fontSize: 'clamp(18px, 2.2vw, 28px)' }}>
             Custom Hardware &amp; IoT
           </h3>
           <p className="font-body-lg text-on-surface-variant z-10 mb-5 flex-grow leading-relaxed"
-            style={{ fontSize: 'clamp(14px, 1.2vw, 16px)', maxWidth: 480 }}>
+            style={{ fontSize: 'clamp(14px, 1.4vw, 18px)', maxWidth: 480 }}>
             Bespoke sensor networks, microcontroller boards, and final-year IoT prototype modules.
             Built to satisfy rigorous university engineering rubrics.
           </p>
@@ -213,11 +213,11 @@ function CoreCapabilities() {
           <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-5 border border-secondary/30 flex-shrink-0">
             <Monitor className="text-secondary w-6 h-6" />
           </div>
-          <h3 className="font-headline-md text-on-surface mb-3 z-10" style={{ fontSize: 'clamp(18px, 1.8vw, 22px)' }}>
+          <h3 className="font-headline-md text-on-surface mb-3 z-10" style={{ fontSize: 'clamp(18px, 2.2vw, 28px)' }}>
             Software Engineering
           </h3>
           <p className="font-body-md text-on-surface-variant z-10 mb-5 flex-grow leading-relaxed"
-            style={{ fontSize: 'clamp(13px, 1.1vw, 15px)' }}>
+            style={{ fontSize: 'clamp(13px, 1.3vw, 17px)' }}>
             Tailored full-stack applications, secure cloud platforms, and high-performance database architectures.
           </p>
           <div className="flex gap-2 z-10 mt-auto flex-wrap">
@@ -248,7 +248,7 @@ function SandboxSection() {
             <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
             <span className="font-code-sm text-secondary tracking-widest" style={{ fontSize: 11 }}>LIVE DEMO</span>
           </div>
-          <h3 className="font-headline-md text-on-surface mb-3" style={{ fontSize: 'clamp(20px, 2.5vw, 30px)' }}>
+          <h3 className="font-headline-md text-on-surface mb-3" style={{ fontSize: 'clamp(20px, 3vw, 40px)' }}>
             Interactive IoT Sandbox
           </h3>
           <p className="font-body-md text-on-surface-variant leading-relaxed" style={{ fontSize: 'clamp(13px, 1.1vw, 15px)' }}>
@@ -278,7 +278,7 @@ function HowItWorks() {
     <RevealSection className="mt-20 md:mt-32 px-4 md:px-16 max-w-[1280px] mx-auto">
       <div className="text-center mb-12">
         <span className="font-code-sm text-secondary uppercase tracking-widest" style={{ fontSize: 11 }}>THE PROCESS</span>
-        <h2 className="font-headline-lg text-on-surface mt-2" style={{ fontSize: 'clamp(22px, 3vw, 32px)' }}>
+        <h2 className="font-headline-lg text-on-surface mt-2" style={{ fontSize: 'clamp(22px, 3.6vw, 46px)' }}>
           How It Works
         </h2>
         <p className="font-body-md text-on-surface-variant mt-2" style={{ fontSize: 14 }}>
@@ -296,13 +296,18 @@ function HowItWorks() {
             transition={{ delay: i * 0.1, duration: 0.5 }}
             whileHover={{ y: -4 }}
             whileTap={{ scale: 0.97 }}
-            className="glass-panel rounded-xl p-6 flex flex-col items-center text-center relative overflow-hidden"
+            className="glass-panel rounded-xl p-6 lg:p-8 flex flex-col items-center text-center relative overflow-hidden"
             style={{ borderTop: `2px solid ${step.color}` }}
           >
             <div
               className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none"
               style={{ background: `radial-gradient(circle at 50% 0%, ${step.color}08 0%, transparent 70%)` }}
             />
+            {/* desktop-only watermark step number */}
+            <span className="hidden lg:block absolute -top-3 right-3 font-headline-xl pointer-events-none select-none"
+              style={{ fontSize: 96, lineHeight: 1, color: step.color, opacity: 0.08 }} aria-hidden="true">
+              {step.num}
+            </span>
             <div
               className="w-12 h-12 rounded-full flex items-center justify-center mb-4 text-xl"
               style={{ background: `${step.color}15`, border: `1px solid ${step.color}30` }}
@@ -312,10 +317,10 @@ function HowItWorks() {
             <div className="font-code-sm text-xs mb-2 uppercase tracking-wider" style={{ color: step.color }}>
               {step.num}
             </div>
-            <h3 className="font-headline-md text-on-surface mb-2" style={{ fontSize: 16 }}>
+            <h3 className="font-headline-md text-on-surface mb-2" style={{ fontSize: 'clamp(16px, 1.5vw, 21px)' }}>
               {step.title}
             </h3>
-            <p className="font-body-md text-on-surface-variant text-sm leading-relaxed">
+            <p className="font-body-md text-on-surface-variant text-sm leading-relaxed lg:text-base">
               {step.desc}
             </p>
           </motion.div>
@@ -410,7 +415,7 @@ function QuickStart() {
     <RevealSection className="mt-20 md:mt-32 px-4 md:px-16 max-w-[1280px] mx-auto">
       <div className="text-center mb-10">
         <span className="font-code-sm text-secondary uppercase tracking-widest" style={{ fontSize: 11 }}>⚡ START IN ONE TAP</span>
-        <h2 className="font-headline-lg text-on-surface mt-2" style={{ fontSize: 'clamp(22px,3vw,32px)' }}>
+        <h2 className="font-headline-lg text-on-surface mt-2" style={{ fontSize: 'clamp(22px,3.6vw,46px)' }}>
           What do you want built?
         </h2>
         <p className="font-body-md text-on-surface-variant mt-2" style={{ fontSize: 14 }}>
@@ -431,16 +436,16 @@ function QuickStart() {
               whileHover={{ y: -5 }}
               whileTap={{ scale: 0.96 }}
               onClick={() => openWhatsApp(messages.quickType(t.msg), `quickstart:${t.msg}`)}
-              className="glass-panel rounded-2xl p-6 flex flex-col items-center text-center group relative overflow-hidden"
+              className="glass-panel rounded-2xl p-6 lg:p-8 flex flex-col items-center text-center group relative overflow-hidden"
               style={{ borderTop: `2px solid ${t.color}` }}
             >
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                 style={{ background: `radial-gradient(circle at 50% 0%, ${t.color}14 0%, transparent 70%)` }} />
-              <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110"
+              <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-2xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110"
                 style={{ background: `${t.color}1a`, border: `1px solid ${t.color}40` }}>
                 <Icon className="w-7 h-7" style={{ color: t.color }} />
               </div>
-              <div className="font-headline-md text-on-surface" style={{ fontSize: 15 }}>{t.label}</div>
+              <div className="font-headline-md text-on-surface" style={{ fontSize: 'clamp(15px, 1.4vw, 19px)' }}>{t.label}</div>
               <span className="font-code-sm text-on-surface-variant mt-2 flex items-center gap-1 group-hover:gap-2 transition-all" style={{ fontSize: 10 }}>
                 START <ArrowRight className="w-3 h-3" />
               </span>
@@ -460,7 +465,7 @@ function Showcase3D() {
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(circle at 80% 50%, rgba(0,210,255,0.06) 0%, transparent 60%)' }} />
         <div className="relative z-10">
           <span className="font-code-sm text-tertiary uppercase tracking-widest" style={{ fontSize: 11 }}>⚡ ENGINEERED IN 3D</span>
-          <h2 className="font-headline-lg text-on-surface mt-3 mb-4" style={{ fontSize: 'clamp(24px,3.5vw,36px)' }}>
+          <h2 className="font-headline-lg text-on-surface mt-3 mb-4" style={{ fontSize: 'clamp(24px,4vw,50px)' }}>
             We design the <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(135deg,#e5a93c,#00d2ff)', WebkitBackgroundClip: 'text' }}>real thing</span>.
           </h2>
           <p className="font-body-md text-on-surface-variant mb-6 leading-relaxed" style={{ fontSize: 'clamp(14px,1.2vw,16px)' }}>
@@ -494,7 +499,7 @@ function FeaturedProjects() {
       <div className="flex items-end justify-between mb-8 flex-wrap gap-4">
         <div>
           <span className="font-code-sm text-secondary uppercase tracking-widest" style={{ fontSize: 11 }}>⚡ RECENT WORK</span>
-          <h2 className="font-headline-lg text-on-surface mt-2" style={{ fontSize: 'clamp(22px,3vw,32px)' }}>Featured Builds</h2>
+          <h2 className="font-headline-lg text-on-surface mt-2" style={{ fontSize: 'clamp(22px,3.6vw,46px)' }}>Featured Builds</h2>
         </div>
         <Link to="/projects" className="font-label-caps text-xs text-tertiary uppercase tracking-widest flex items-center gap-1 hover:gap-2 transition-all">
           View all <ArrowRight className="w-4 h-4" />
@@ -518,9 +523,9 @@ function FeaturedProjects() {
             style={{ borderTop: `2px solid ${p.accent}` }}
           >
             <ProjectVisual project={p} height={180} className="rounded-t-2xl" />
-            <div className="p-5">
-              <h3 className="font-headline-md text-lg text-on-surface mb-1 group-hover:text-secondary transition-colors">{p.title}</h3>
-              <p className="font-body-md text-sm text-on-surface-variant leading-relaxed">{p.subtitle}</p>
+            <div className="p-5 lg:p-6">
+              <h3 className="font-headline-md text-lg lg:text-2xl text-on-surface mb-1 group-hover:text-secondary transition-colors">{p.title}</h3>
+              <p className="font-body-md text-sm lg:text-base text-on-surface-variant leading-relaxed">{p.subtitle}</p>
             </div>
           </motion.a>
         ))}
@@ -539,11 +544,11 @@ function FinalCTA() {
           style={{ background: 'radial-gradient(circle, rgba(0,210,255,0.08) 0%, transparent 70%)', filter: 'blur(40px)' }} />
         <div className="relative z-10">
           <div className="text-5xl mb-4">⚡</div>
-          <h2 className="font-headline-xl text-on-surface uppercase mb-4" style={{ fontSize: 'clamp(26px,4vw,48px)', letterSpacing: '-0.02em' }}>
+          <h2 className="font-headline-xl text-on-surface uppercase mb-4" style={{ fontSize: 'clamp(26px,4.6vw,64px)', letterSpacing: '-0.02em' }}>
             Got an idea? <br className="md:hidden" />
             <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(135deg,#e5a93c,#00d2ff)', WebkitBackgroundClip: 'text' }}>Let's make it real.</span>
           </h2>
-          <p className="font-body-lg text-on-surface-variant mb-8 max-w-lg mx-auto" style={{ fontSize: 'clamp(14px,1.3vw,18px)' }}>
+          <p className="font-body-lg text-on-surface-variant mb-8 max-w-lg mx-auto" style={{ fontSize: 'clamp(14px,1.5vw,22px)' }}>
             One message is all it takes. Tell us what you're thinking and we'll take it from there.
           </p>
           <a
