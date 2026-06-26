@@ -35,7 +35,6 @@ function MeshBackground({ tiltX, tiltY }) {
           width: '120vw', height: '120vw',
           borderRadius: '50%',
           background: 'radial-gradient(circle, rgba(0,210,255,0.18) 0%, rgba(0,210,255,0.04) 40%, transparent 70%)',
-          filter: 'blur(30px)',
           willChange: 'transform',
         }}
       />
@@ -49,7 +48,6 @@ function MeshBackground({ tiltX, tiltY }) {
           width: '100vw', height: '100vw',
           borderRadius: '50%',
           background: 'radial-gradient(circle, rgba(229,169,60,0.14) 0%, rgba(229,169,60,0.03) 40%, transparent 70%)',
-          filter: 'blur(30px)',
           willChange: 'transform',
         }}
       />
@@ -248,14 +246,13 @@ export default function MobileHero() {
               className="absolute inset-0 rounded-full"
               style={{
                 background: 'radial-gradient(circle, rgba(229,169,60,0.15) 0%, transparent 70%)',
-                filter: 'blur(10px)',
               }}
             />
             <div
               className="absolute rounded-full overflow-hidden"
               style={{
                 inset: 16,
-                filter: 'drop-shadow(0 0 20px rgba(229,169,60,0.4)) drop-shadow(0 0 40px rgba(0,210,255,0.15))',
+                boxShadow: '0 0 20px rgba(229,169,60,0.4), 0 0 40px rgba(0,210,255,0.15)',
               }}
             >
               <img

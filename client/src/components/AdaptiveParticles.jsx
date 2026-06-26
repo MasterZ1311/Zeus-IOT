@@ -12,8 +12,8 @@ import { useDeviceCapabilities } from '../hooks/useDeviceCapabilities';
 function AmbientGlow() {
   return (
     <div aria-hidden="true" className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden" style={{ contain: 'strict' }}>
-      <div style={{ position: 'absolute', top: '-20%', left: '-10%', width: '70vw', height: '70vw', borderRadius: '50%', background: 'radial-gradient(circle, rgba(0,210,255,0.07) 0%, transparent 70%)', filter: 'blur(40px)', animation: 'ambientDrift1 20s ease-in-out infinite alternate', willChange: 'transform' }} />
-      <div style={{ position: 'absolute', bottom: '-20%', right: '-10%', width: '60vw', height: '60vw', borderRadius: '50%', background: 'radial-gradient(circle, rgba(229,169,60,0.06) 0%, transparent 70%)', filter: 'blur(40px)', animation: 'ambientDrift2 25s ease-in-out infinite alternate', willChange: 'transform' }} />
+      <div style={{ position: 'absolute', top: '-20%', left: '-10%', width: '70vw', height: '70vw', borderRadius: '50%', background: 'radial-gradient(circle, rgba(0,210,255,0.07) 0%, transparent 70%)', animation: 'ambientDrift1 20s ease-in-out infinite alternate', willChange: 'transform' }} />
+      <div style={{ position: 'absolute', bottom: '-20%', right: '-10%', width: '60vw', height: '60vw', borderRadius: '50%', background: 'radial-gradient(circle, rgba(229,169,60,0.06) 0%, transparent 70%)', animation: 'ambientDrift2 25s ease-in-out infinite alternate', willChange: 'transform' }} />
       <style>{`
         @keyframes ambientDrift1 { 0% { transform: translate(0,0) scale(1);} 100% { transform: translate(5vw,8vh) scale(1.15);} }
         @keyframes ambientDrift2 { 0% { transform: translate(0,0) scale(1);} 100% { transform: translate(-5vw,-6vh) scale(1.1);} }

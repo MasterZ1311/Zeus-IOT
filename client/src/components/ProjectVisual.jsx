@@ -32,8 +32,8 @@ export default function ProjectVisual({ project, className = '', height = 200 })
     <div className={`relative overflow-hidden ${className}`} style={{ height }}>
       <div className="absolute inset-0" style={{ background: 'linear-gradient(160deg, #0b132b 0%, #03050c 100%)' }} />
       {/* Mesh orbs */}
-      <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full" style={{ background: `radial-gradient(circle, ${accent}33 0%, transparent 70%)`, filter: 'blur(20px)' }} />
-      <div className="absolute -bottom-10 -left-6 w-36 h-36 rounded-full" style={{ background: `radial-gradient(circle, ${accent}22 0%, transparent 70%)`, filter: 'blur(24px)' }} />
+      <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full" style={{ background: `radial-gradient(circle, ${accent}33 0%, transparent 70%)` }} />
+      <div className="absolute -bottom-10 -left-6 w-36 h-36 rounded-full" style={{ background: `radial-gradient(circle, ${accent}22 0%, transparent 70%)` }} />
       {/* Circuit grid */}
       <div className="absolute inset-0 opacity-[0.07]" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 8 h12 v8 h8 v12' stroke='%23ffffff' fill='none' stroke-width='0.5'/%3E%3Ccircle cx='20' cy='16' r='1.5' fill='%23ffffff'/%3E%3C/svg%3E")`,

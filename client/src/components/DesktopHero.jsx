@@ -63,7 +63,7 @@ function TiltLogo({ springX, springY }) {
     >
       {/* glow halo */}
       <div aria-hidden="true" className="absolute rounded-full"
-        style={{ inset: 14, background: 'radial-gradient(circle at 45% 40%, rgba(229,169,60,0.24) 0%, rgba(0,210,255,0.15) 45%, transparent 72%)', filter: 'blur(36px)' }} />
+        style={{ inset: 14, background: 'radial-gradient(circle at 45% 40%, rgba(229,169,60,0.24) 0%, rgba(0,210,255,0.15) 45%, transparent 72%)' }} />
 
       {/* rotating conic sheen ring */}
       <div aria-hidden="true" className="absolute rounded-full"
@@ -90,7 +90,7 @@ function TiltLogo({ springX, springY }) {
             width: '94%',
             aspectRatio: '1',
             transform: 'translateZ(55px)',
-            filter: 'drop-shadow(0 18px 40px rgba(0,0,0,0.55)) drop-shadow(0 0 44px rgba(229,169,60,0.35)) drop-shadow(0 0 80px rgba(0,210,255,0.18))',
+            boxShadow: '0 18px 40px rgba(0,0,0,0.55), 0 0 44px rgba(229,169,60,0.35), 0 0 80px rgba(0,210,255,0.18)',
             willChange: 'transform',
           }}
         >
@@ -137,11 +137,11 @@ export default function DesktopHero() {
 
       {/* Parallax background glows */}
       <motion.div aria-hidden="true" style={{ x: layer1X, y: layer1Y, willChange: 'transform' }} className="absolute inset-0 pointer-events-none">
-        <div className="absolute" style={{ top: '-28%', left: '-12%', width: '70vw', height: '70vw', borderRadius: '50%', background: 'radial-gradient(circle, rgba(0,210,255,0.09) 0%, transparent 70%)', filter: 'blur(70px)' }} />
+        <div className="absolute" style={{ top: '-28%', left: '-12%', width: '70vw', height: '70vw', borderRadius: '50%', background: 'radial-gradient(circle, rgba(0,210,255,0.09) 0%, transparent 70%)' }} />
       </motion.div>
       <motion.div aria-hidden="true" style={{ x: layer2X, y: layer2Y, willChange: 'transform' }} className="absolute inset-0 pointer-events-none">
-        <div className="absolute" style={{ bottom: '-25%', right: '-12%', width: '60vw', height: '60vw', borderRadius: '50%', background: 'radial-gradient(circle, rgba(229,169,60,0.08) 0%, transparent 70%)', filter: 'blur(70px)' }} />
-        <div className="absolute" style={{ top: '35%', left: '48%', width: '28vw', height: '28vw', borderRadius: '50%', background: 'radial-gradient(circle, rgba(217,70,239,0.05) 0%, transparent 70%)', filter: 'blur(60px)' }} />
+        <div className="absolute" style={{ bottom: '-25%', right: '-12%', width: '60vw', height: '60vw', borderRadius: '50%', background: 'radial-gradient(circle, rgba(229,169,60,0.08) 0%, transparent 70%)' }} />
+        <div className="absolute" style={{ top: '35%', left: '48%', width: '28vw', height: '28vw', borderRadius: '50%', background: 'radial-gradient(circle, rgba(217,70,239,0.05) 0%, transparent 70%)' }} />
       </motion.div>
 
       {/* Content — aligned to the same 1280px / px-16 grid as the sections below */}

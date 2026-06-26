@@ -86,7 +86,7 @@ export default function Product3DViewer() {
     >
       {/* Ambient glow */}
       <div className="absolute inset-0 rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle at 50% 40%, rgba(0,210,255,0.18) 0%, rgba(229,169,60,0.08) 45%, transparent 70%)', filter: 'blur(30px)' }} />
+        style={{ background: 'radial-gradient(circle at 50% 40%, rgba(0,210,255,0.18) 0%, rgba(229,169,60,0.08) 45%, transparent 70%)' }} />
 
       {/* 3D cube */}
       <div
