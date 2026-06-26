@@ -5,11 +5,12 @@
  * and persists across navigation. Only the routed page content animates in/out,
  * so the chrome never flickers or re-initialises on page change.
  */
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
 import Layout from './components/Layout';
 import ErrorBoundary from './components/ErrorBoundary';
+import { initSound, playThunder } from './lib/sound';
 
 // Lazy-load all page-level components (each becomes its own cached chunk)
 const Home    = lazy(() => import('./pages/Home'));
@@ -46,6 +47,13 @@ function PageSkeleton() {
 function AnimatedRoutes() {
   const location = useLocation();
 
+  // Roll a Zeus thunderclap on every page navigation. (The very first landing
+  // clap is fired by initSound on the user's first gesture, since browsers
+  // block audio until then.)
+  useEffect(() => {
+    playThunder(0.55);
+  }, [location.pathname]);
+
   return (
     <AnimatePresence mode="wait" initial={false}>
       <motion.div
@@ -75,6 +83,9 @@ function AnimatedRoutes() {
 }
 
 function App() {
+  // Arm the Zeus thunder engine on the first user gesture (browser autoplay policy).
+  useEffect(() => { initSound(); }, []);
+
   return (
     <ErrorBoundary>
       <MotionConfig reducedMotion="user">

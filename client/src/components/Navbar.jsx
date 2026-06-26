@@ -208,15 +208,17 @@ export default function Navbar() {
           <span className="font-headline-md text-secondary glow-text" style={{ fontSize: 16 }}>ZEUS IOT</span>
         </Link>
 
-        <button
-          onClick={() => setMenuOpen(true)}
-          className="w-11 h-11 flex items-center justify-center rounded-xl touch-ripple"
-          style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}
-          aria-label="Open navigation menu"
-          aria-expanded={menuOpen}
-        >
-          <Menu className="w-5 h-5 text-on-surface-variant" />
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setMenuOpen(true)}
+            className="w-11 h-11 flex items-center justify-center rounded-xl touch-ripple"
+            style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}
+            aria-label="Open navigation menu"
+            aria-expanded={menuOpen}
+          >
+            <Menu className="w-5 h-5 text-on-surface-variant" />
+          </button>
+        </div>
       </header>
 
       {/* Mobile full-screen menu */}
