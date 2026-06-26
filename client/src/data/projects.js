@@ -1,0 +1,73 @@
+/**
+ * Project showcase data.
+ * `image` uses real preview assets where available; otherwise the card falls
+ * back to a generated gradient+icon visual (see ProjectVisual component).
+ */
+export const PROJECTS = [
+  {
+    id: 1,
+    title: 'Smart Irrigation System',
+    subtitle: 'Soil-moisture driven watering with ESP32 + LoRa mesh.',
+    cat: 'IoT',
+    status: 'ACTIVE',
+    accent: '#00d2ff',
+    image: '/iot_hero.png',
+    stack: ['ESP32', 'LoRa', 'Node.js', 'InfluxDB'],
+    features: ['Soil-moisture sensor array', 'LoRa mesh networking', 'Automated valve control', 'Cloud dashboard with alerts'],
+  },
+  {
+    id: 2,
+    title: 'BLE Asset Tracker',
+    subtitle: 'Real-time indoor asset tracking via BLE beacons.',
+    cat: 'Hardware',
+    status: 'ACTIVE',
+    accent: '#e5a93c',
+    image: '/ble_tracker_preview.png',
+    stack: ['nRF52', 'BLE', 'React', 'MQTT'],
+    features: ['Sub-meter indoor positioning', 'Battery life > 1 year', 'Live location map', 'Geofencing alerts'],
+  },
+  {
+    id: 3,
+    title: 'Hospital Management Portal',
+    subtitle: 'Full-stack ward, billing & patient records platform.',
+    cat: 'Software',
+    status: 'ACTIVE',
+    accent: '#e5a93c',
+    image: '/hospital_management_preview.png',
+    stack: ['React', 'Node.js', 'MongoDB', 'JWT'],
+    features: ['Role-based access control', 'Billing & invoicing', 'Patient record vault', 'Appointment scheduling'],
+  },
+  {
+    id: 4,
+    title: 'Vision Defect Detector',
+    subtitle: 'Edge-AI QA inspection on Nvidia Jetson.',
+    cat: 'AI',
+    status: 'BETA',
+    accent: '#d946ef',
+    image: null,
+    stack: ['Jetson', 'PyTorch', 'OpenCV', 'TensorRT'],
+    features: ['Real-time defect classification', 'Edge inference < 30ms', 'Conveyor sync trigger', 'Reject-rate analytics'],
+  },
+  {
+    id: 5,
+    title: 'Weather Station Array',
+    subtitle: 'Multi-node atmospheric sensor network + dashboards.',
+    cat: 'IoT',
+    status: 'ACTIVE',
+    accent: '#00d2ff',
+    image: '/digital_olympus.jpg',
+    stack: ['ESP32', 'InfluxDB', 'Grafana', 'MQTT'],
+    features: ['Temp / humidity / pressure', 'Solar powered nodes', 'Historical trend graphs', 'Anomaly detection'],
+  },
+  {
+    id: 6,
+    title: 'Custom PCB Motor Driver',
+    subtitle: 'High-current H-bridge driver for robotics.',
+    cat: 'Hardware',
+    status: 'ACTIVE',
+    accent: '#e5a93c',
+    image: null,
+    stack: ['KiCad', 'STM32', 'C++', 'H-Bridge'],
+    features: ['40A continuous drive', 'Current-sense protection', 'PWM speed control', 'Compact 4-layer board'],
+  },
+];

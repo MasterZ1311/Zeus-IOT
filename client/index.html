@@ -1,15 +1,83 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zeus IoT | Custom Hardware & Software Engineering</title>
-    <meta name="description" content="Custom IoT solutions for the next generation. We build hardware prototypes and scalable software backends for students and industry." />
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/logo.png" />
+
+    <!-- Viewport: viewport-fit=cover for iPhone notch / Dynamic Island -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- Theme color for browser chrome (Android Chrome / Safari) -->
+    <meta name="theme-color" content="#050816" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#050816" />
+
+    <!-- PWA / mobile web app -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Zeus IoT" />
+
+    <!-- SEO -->
+    <title>Zeus IoT — Harness The Bolt | Custom IoT & Software for Students</title>
+    <meta name="description" content="Zeus IoT builds custom IoT hardware and software projects exclusively for college students. Don't just buy from us — Learn from us. Chat with us on WhatsApp." />
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="IoT projects, final year projects, ESP32, Arduino, custom hardware, college projects, engineering projects, embedded systems, academic reports" />
+    <link rel="canonical" href="https://zeus.org.in/" />
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Zeus IoT" />
+    <meta property="og:title" content="Zeus IoT — Harness The Bolt" />
+    <meta property="og:description" content="Custom IoT & Software for college students. Hardware prototypes, dashboards, and academic-grade engineering. Chat with us on WhatsApp." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://zeus.org.in/" />
+    <meta property="og:image" content="https://zeus.org.in/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Zeus IoT — Harness The Bolt" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Zeus IoT — Harness The Bolt" />
+    <meta name="twitter:description" content="Custom IoT & Software for college students." />
+    <meta name="twitter:image" content="https://zeus.org.in/og-image.png" />
+
+    <!-- Structured data: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Zeus IoT",
+      "url": "https://zeus.org.in",
+      "logo": "https://zeus.org.in/logo.png",
+      "description": "Custom IoT hardware and software projects for college students.",
+      "slogan": "Harness The Bolt",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "url": "https://wa.me/919080809088"
+      }
+    }
+    </script>
+
+    <!-- Preload critical font subsets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- font-display: swap prevents FOIT; unicode-range limits download size -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&family=Montserrat:wght@700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Preload hero logo so it's available before JS hydrates -->
+    <link rel="preload" href="/logo.png" as="image" />
+
+    <!-- Critical inline style: prevent flash of unstyled dark background -->
+    <style>
+      html, body { background: #070c1e; color: #e0e3e5; margin: 0; }
+      /* Prevent content layout shift before fonts load */
+      body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    </style>
   </head>
   <body>
     <div id="root"></div>

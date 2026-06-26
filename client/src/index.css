@@ -1,5 +1,307 @@
 @import "tailwindcss";
 
+/* ═══════════════════════════════════════════════════════════════
+   PERFORMANCE: GPU COMPOSITING & 60FPS HINTS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Force GPU layer for all animated elements */
+.glass-panel,
+.btn-thunderbolt,
+.btn-ghost,
+.stat-card,
+canvas {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Scroll performance */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* momentum scrolling on iOS */
+  overflow-x: hidden;
+}
+
+body {
+  overscroll-behavior-y: none;  /* prevent rubberbanding on Android */
+  -webkit-tap-highlight-color: transparent; /* remove tap flash on iOS/Android */
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Containment for fixed/sticky elements */
+header, footer, nav {
+  contain: layout style;
+}
+
+/* Prevent layout thrash on card hover */
+.glass-panel {
+  contain: layout;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE-SPECIFIC VISUAL ENHANCEMENTS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* iOS safe area support */
+@supports (padding: env(safe-area-inset-top)) {
+  .pt-safe { padding-top: env(safe-area-inset-top); }
+  .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+  .pl-safe { padding-left: env(safe-area-inset-left); }
+  .pr-safe { padding-right: env(safe-area-inset-right); }
+}
+
+/* Touch ripple effect */
+.touch-ripple {
+  position: relative;
+  overflow: hidden;
+}
+.touch-ripple::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 60%);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.touch-ripple:active::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Mobile bottom nav glass */
+.mobile-bottom-nav {
+  background: rgba(7, 12, 30, 0.85);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-top: 1px solid rgba(0, 210, 255, 0.12);
+}
+
+/* Active nav item glow pill */
+.nav-pill-active {
+  background: rgba(229, 169, 60, 0.12);
+  border: 1px solid rgba(229, 169, 60, 0.3);
+  box-shadow: 0 0 12px rgba(229, 169, 60, 0.15);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE TYPOGRAPHY & TOUCH TARGET SIZES
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 767px) {
+  /* Minimum 44px touch targets (WCAG 2.5.5) */
+  a, button, [role="button"], label[for], input[type="checkbox"] + div {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Mobile font scaling */
+  body { font-size: 15px; }
+
+  /* Tighter spacing on mobile */
+  main { padding-top: 4.5rem !important; padding-bottom: 5.5rem !important; }
+
+  /* Mobile glass panels — lighter blur for perf */
+  .glass-panel {
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+  }
+
+  /* Snap scroll for horizontal carousels */
+  .mobile-scroll-snap {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+  }
+  .mobile-scroll-snap > * {
+    scroll-snap-align: start;
+  }
+
+  /* Disable hover effects on touch (prevents sticky hover on iOS) */
+  @media (hover: none) {
+    .glass-panel:hover {
+      transform: none !important;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
+    }
+    .btn-thunderbolt:hover {
+      transform: none !important;
+      box-shadow: none !important;
+    }
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DESKTOP-SPECIFIC ENHANCEMENTS
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (min-width: 768px) {
+  /* Full blur on desktop where GPU can handle it */
+  .glass-panel {
+    backdrop-filter: blur(16px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(160%) !important;
+  }
+
+  /* Larger interactive hit areas on desktop look refined */
+  .btn-thunderbolt, .btn-ghost {
+    min-height: unset;
+    min-width: unset;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ANIMATIONS — GPU-ONLY PROPERTIES (no layout/paint triggers)
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(0.85); }
+}
+
+@keyframes breathe {
+  0%, 100% { box-shadow: 0 0 8px rgba(229,169,60,0.6); }
+  50%       { box-shadow: 0 0 20px rgba(229,169,60,0.9); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) translateZ(0); }
+  50%       { transform: translateY(-8px) translateZ(0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Skeleton loading shimmer */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.02) 0%,
+    rgba(255,255,255,0.06) 50%,
+    rgba(255,255,255,0.02) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLL REVEAL — CSS transitions triggered by JS class
+   ═══════════════════════════════════════════════════════════════ */
+
+.reveal,
+.reveal-left,
+.reveal-right {
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal        { transform: translateY(24px); }
+.reveal-left   { transform: translateX(-24px); }
+.reveal-right  { transform: translateX(24px); }
+
+.reveal.visible,
+.reveal-left.visible,
+.reveal-right.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Stagger children */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  will-change: opacity, transform;
+}
+.stagger-children.visible > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.0s; }
+.stagger-children.visible > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.1s; }
+.stagger-children.visible > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.2s; }
+.stagger-children.visible > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.3s; }
+.stagger-children.visible > *:nth-child(n+5) { opacity: 1; transform: none; transition-delay: 0.4s; }
+
+/* Mobile fade-up (used by mobile-enhancements.js) */
+.mobile-fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.mobile-fade-up.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CUSTOM SCROLLBAR — desktop only
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (min-width: 768px) {
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #070c1e; }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #00d2ff, #e5a93c);
+    border-radius: 3px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   REDUCED MOTION — override all animations
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CUSTOM CURSOR (desktop only)
+   ═══════════════════════════════════════════════════════════════ */
+@media (hover: hover) and (pointer: fine) {
+  body.has-custom-cursor,
+  body.has-custom-cursor a,
+  body.has-custom-cursor button,
+  body.has-custom-cursor [role="button"] {
+    cursor: none;
+  }
+}
+.cursor-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #e5a93c;
+  pointer-events: none;
+  z-index: 9998;
+  box-shadow: 0 0 8px rgba(229,169,60,0.8);
+  will-change: transform;
+}
+.cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0,210,255,0.5);
+  pointer-events: none;
+  z-index: 9997;
+  transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  will-change: transform;
+}
+.cursor-ring.cursor-ring-hover {
+  width: 54px; height: 54px;
+  border-color: rgba(229,169,60,0.6);
+  background: rgba(229,169,60,0.06);
+}
+
 @theme {
   --color-surface-dim: #050816;
   --color-on-tertiary-fixed: #002a35;
@@ -214,82 +516,15 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   COMPACT MOBILE LAYOUT OVERRIDES (Widths <= 767px)
+   MOBILE LAYOUT (Widths <= 767px)
+   The React components handle their own responsive sizing (clamp fonts + md:
+   breakpoints), so we only set what genuinely needs to be global here.
    ═══════════════════════════════════════════════════════════════ */
 @media (max-width: 767px) {
-  body {
-    min-height: 100vh !important;
-  }
   main {
-    padding-top: 4.5rem !important;
-    padding-bottom: 5.5rem !important;
+    /* Clear the fixed top nav (+ notch safe area) and the bottom nav + sticky WhatsApp bar */
+    padding-top: calc(env(safe-area-inset-top, 0px) + 3.5rem) !important;
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 8.5rem) !important;
   }
-  
-  /* Container Padding Reductions */
-  .p-8 { padding: 1.25rem !important; }
-  .p-6 { padding: 1rem !important; }
-  .px-8 { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
-  .py-8 { padding-top: 1.25rem !important; padding-bottom: 1.25rem !important; }
-  .py-6 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
-  .pb-32 { padding-bottom: 4rem !important; }
-  .pt-24 { padding-top: 4.5rem !important; }
-
-  /* Glass Panels and Cards */
-  .glass-panel {
-    padding: 1.25rem !important;
-  }
-  .stat-card {
-    padding: 0.75rem !important;
-  }
-  .stat-number {
-    font-size: 28px !important;
-  }
-  .testimonial-card {
-    padding: 1rem !important;
-    min-width: 250px !important;
-    max-width: 300px !important;
-  }
-  .preview-card {
-    padding: 0.75rem !important;
-  }
-  .preview-card .p-5 {
-    padding: 0.75rem !important;
-  }
-  .protocol-card {
-    padding: 0.75rem !important;
-  }
-  
-  /* Spacing and Margins */
-  .mt-32, .my-32 { margin-top: 2rem !important; }
-  .mb-32, .my-32 { margin-bottom: 2rem !important; }
-  .mt-20, .my-20 { margin-top: 1.25rem !important; }
-  .mb-20, .my-20 { margin-bottom: 1.25rem !important; }
-  .mt-16, .my-16 { margin-top: 1rem !important; }
-  .mb-16, .my-16 { margin-bottom: 1rem !important; }
-  .mt-12, .my-12 { margin-top: 0.75rem !important; }
-  .mb-12, .my-12 { margin-bottom: 0.75rem !important; }
-  .mt-10, .my-10 { margin-top: 0.75rem !important; }
-  .mb-10, .my-10 { margin-bottom: 0.75rem !important; }
-  .mt-8, .my-8 { margin-top: 0.5rem !important; }
-  .mb-8, .my-8 { margin-bottom: 0.5rem !important; }
-  .mt-6, .my-6 { margin-top: 0.5rem !important; }
-  .mb-6, .my-6 { margin-bottom: 0.5rem !important; }
-  .gap-gutter, .gap-8 { gap: 0.75rem !important; }
-
-  /* Interactive Elements */
-  .btn-thunderbolt, .btn-ghost, .bolt-btn {
-    padding: 0.55rem 1.25rem !important;
-    font-size: 11.5px !important;
-  }
-  
-  /* Typography Scale Down */
-  .text-headline-xl { font-size: 24px !important; line-height: 1.15 !important; }
-  .text-headline-lg { font-size: 20px !important; line-height: 1.2 !important; }
-  .text-headline-lg-mobile { font-size: 20px !important; line-height: 1.2 !important; }
-  .text-headline-md { font-size: 16px !important; line-height: 1.25 !important; }
-  .text-body-lg { font-size: 14px !important; line-height: 1.4 !important; }
-  .text-body-md { font-size: 13px !important; line-height: 1.4 !important; }
-  .text-code-sm { font-size: 11px !important; }
-  .text-label-caps { font-size: 9px !important; }
 }
 

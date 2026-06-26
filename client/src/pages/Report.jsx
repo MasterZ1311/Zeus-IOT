@@ -1,148 +1,141 @@
 import { useState } from 'react';
-import { FileText, Send, CheckCircle } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { FileText, ArrowRight, ArrowLeft, Check, Zap, MessageCircle } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { openWhatsApp, waLink, trackWhatsApp, messages } from '../config/whatsapp';
+
+const FORMATS  = ['IEEE Conference', 'University Thesis', 'Journal Paper', 'Technical Manual', 'Custom Format'];
+const SCOPES   = ['Complete Research', 'Rewrite / Paraphrase', 'Proofreading Only', 'Formatting Only'];
+const DEADLINES = ['ASAP (rush)', '1 week', '2–3 weeks', '1 month+', 'Flexible'];
+const TIERS = [
+  { id: 'Standard (UG)',        desc: 'Undergraduate' },
+  { id: 'Advanced (PG)',        desc: 'Postgraduate / journal' },
+  { id: 'Premium (Scopus)',     desc: 'Indexed publication' },
+];
+
+const STEPS = ['Format', 'Scope', 'Timeline', 'Tier'];
+
+function OptionCard({ active, onClick, children, color = '#e5a93c' }) {
+  return (
+    <motion.button type="button" onClick={onClick} whileTap={{ scale: 0.97 }}
+      className="text-left p-4 rounded-xl border transition-all duration-200 w-full"
+      style={{ background: active ? `${color}14` : 'rgba(255,255,255,0.03)', borderColor: active ? color : 'rgba(255,255,255,0.08)', boxShadow: active ? `0 0 18px ${color}22` : 'none' }}>
+      {children}
+    </motion.button>
+  );
+}
 
 export default function Report() {
-  const [formData, setFormData] = useState({
-    name: '',
-    contact_no: '',
-    institution: '',
-    deadline: '',
-    description: '',
-    format: 'IEEE',
-    way_to_make: 'Complete Research',
-    performance_tier: 'Standard'
-  });
-  const [file, setFile] = useState(null);
-  const [status, setStatus] = useState('idle');
+  const [step, setStep] = useState(0);
+  const [data, setData] = useState({ format: '', scope: '', deadline: '', tier: '' });
 
-  const handleChange = (e) => setFormData({...formData, [e.target.name]: e.target.value});
-  
-  const handleFileChange = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      setFile(e.target.files[0]);
-    }
-  };
+  const set = (k, v) => setData(d => ({ ...d, [k]: v }));
+  const canNext = [data.format, data.scope, data.deadline, data.tier][step];
+  const isLast = step === STEPS.length - 1;
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus('submitting');
-    
-    const data = new FormData();
-    Object.keys(formData).forEach(key => data.append(key, formData[key]));
-    if (file) {
-      data.append('supporting_doc', file);
-    }
-    
-    try {
-      const res = await fetch('http://localhost:3000/api/report', {
-        method: 'POST',
-        body: data
-      });
-      if (res.ok) {
-        setStatus('success');
-      } else {
-        setStatus('error');
-      }
-    } catch (err) {
-      setStatus('error');
-    }
-  };
+  const launch = () => openWhatsApp(messages.report(data), 'report-brief');
+
+  const optionSets = [FORMATS, SCOPES, DEADLINES, null];
 
   return (
     <div className="px-4 md:px-16 max-w-[1280px] mx-auto w-full pt-10">
-      
-      <div className="text-center max-w-3xl mx-auto mb-12">
-        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 mb-6">
-          <FileText className="w-8 h-8 text-emerald-500" />
+      <div className="text-center max-w-2xl mx-auto mb-10">
+        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary/10 border border-secondary/30 mb-6">
+          <FileText className="w-8 h-8 text-secondary" />
         </div>
-        <h1 className="font-headline-xl text-4xl md:text-5xl text-on-surface mb-6 uppercase">ACADEMIC REPORTS & PAPERS</h1>
+        <h1 className="font-headline-xl text-4xl md:text-5xl text-on-surface mb-5 uppercase">ACADEMIC REPORTS & PAPERS</h1>
         <p className="font-body-lg text-lg text-on-surface-variant">
-          Need a professionally formatted research paper, thesis report, or technical documentation for your project? We craft IEEE standard documents tailored to university requirements.
+          IEEE papers, theses, technical docs — formatted to your university's exact spec.
+          Build your brief below and send it straight to WhatsApp.
         </p>
       </div>
 
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="glass-panel glass-panel-glow max-w-4xl mx-auto rounded-xl p-8"
-      >
-        {status === 'success' ? (
-          <div className="flex flex-col items-center justify-center py-20 text-center h-full">
-            <CheckCircle className="w-20 h-20 text-emerald-500 mb-6" />
-            <h3 className="font-headline-md text-2xl text-on-surface mb-2">Request Transmitted</h3>
-            <p className="font-body-md text-on-surface-variant">Your report specifications have been uploaded. Our technical writers will contact you shortly.</p>
-            <button onClick={() => setStatus('idle')} className="mt-8 text-emerald-500 font-label-caps text-sm border border-emerald-500/30 px-6 py-2 rounded">SUBMIT ANOTHER</button>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block font-code-sm text-xs text-on-surface-variant mb-2 uppercase tracking-widest">Full Name *</label>
-                <input type="text" name="name" value={formData.name} onChange={handleChange} required className="input-field w-full rounded p-3 font-body-md text-sm" />
-              </div>
-              <div>
-                <label className="block font-code-sm text-xs text-on-surface-variant mb-2 uppercase tracking-widest">Contact Number *</label>
-                <input type="text" name="contact_no" value={formData.contact_no} onChange={handleChange} required className="input-field w-full rounded p-3 font-body-md text-sm" />
-              </div>
-              <div>
-                <label className="block font-code-sm text-xs text-on-surface-variant mb-2 uppercase tracking-widest">Institution</label>
-                <input type="text" name="institution" value={formData.institution} onChange={handleChange} className="input-field w-full rounded p-3 font-body-md text-sm" />
-              </div>
-              <div>
-                <label className="block font-code-sm text-xs text-on-surface-variant mb-2 uppercase tracking-widest">Expected Deadline *</label>
-                <input type="date" name="deadline" value={formData.deadline} onChange={handleChange} required className="input-field w-full rounded p-3 font-body-md text-sm" />
-              </div>
-            </div>
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+        className="glass-panel glass-panel-glow max-w-2xl mx-auto rounded-2xl p-6 md:p-8">
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-outline-variant/30">
-              <div>
-                <label className="block font-code-sm text-xs text-on-surface-variant mb-2 uppercase tracking-widest">Format Style</label>
-                <select name="format" value={formData.format} onChange={handleChange} className="input-field w-full rounded p-3 font-body-md text-sm cursor-pointer appearance-none">
-                  <option>IEEE Conference</option>
-                  <option>University Thesis</option>
-                  <option>Technical Manual</option>
-                  <option>Custom Format</option>
-                </select>
-              </div>
-              <div>
-                <label className="block font-code-sm text-xs text-on-surface-variant mb-2 uppercase tracking-widest">Way to Make</label>
-                <select name="way_to_make" value={formData.way_to_make} onChange={handleChange} className="input-field w-full rounded p-3 font-body-md text-sm cursor-pointer appearance-none">
-                  <option>Complete Research</option>
-                  <option>Rewrite/Paraphrase</option>
-                  <option>Proofreading Only</option>
-                </select>
-              </div>
-              <div>
-                <label className="block font-code-sm text-xs text-on-surface-variant mb-2 uppercase tracking-widest">Quality Tier</label>
-                <select name="performance_tier" value={formData.performance_tier} onChange={handleChange} className="input-field w-full rounded p-3 font-body-md text-sm cursor-pointer appearance-none">
-                  <option>Standard (UG)</option>
-                  <option>Advanced (PG/Journal)</option>
-                  <option>Premium (Scopus)</option>
-                </select>
-              </div>
+        {/* Progress */}
+        <div className="flex items-center gap-2 mb-7">
+          {STEPS.map((label, i) => (
+            <div key={label} className="flex-1">
+              <div className="h-1 rounded-full transition-all duration-300"
+                style={{ background: i <= step ? 'linear-gradient(90deg,#e5a93c,#00d2ff)' : 'rgba(255,255,255,0.1)' }} />
+              <span className="font-code-sm uppercase tracking-wider mt-1.5 block"
+                style={{ fontSize: 9, color: i === step ? '#e5a93c' : 'rgba(198,198,205,0.5)' }}>{label}</span>
             </div>
+          ))}
+        </div>
 
-            <div className="pt-4 border-t border-outline-variant/30">
-              <label className="block font-code-sm text-xs text-on-surface-variant mb-2 uppercase tracking-widest">Project Description & Topic *</label>
-              <textarea name="description" value={formData.description} onChange={handleChange} required rows="3" className="input-field w-full rounded p-3 font-body-md text-sm resize-none"></textarea>
-            </div>
+        <AnimatePresence mode="wait">
+          <motion.div key={step} initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -24 }} transition={{ duration: 0.25 }}>
+            <h3 className="font-headline-md text-xl text-on-surface mb-1">
+              {['What format do you need?', 'What level of help?', 'When is it due?', 'Quality tier?'][step]}
+            </h3>
+            <p className="font-body-md text-sm text-on-surface-variant mb-5">
+              {['Pick your target style.', 'From full research to a final polish.', 'A rough date is fine.', 'We match depth to your goal.'][step]}
+            </p>
 
-            <div>
-              <label className="block font-code-sm text-xs text-on-surface-variant mb-2 uppercase tracking-widest">Supporting Documents (Optional)</label>
-              <input type="file" onChange={handleFileChange} className="w-full text-sm text-on-surface-variant file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-emerald-500/10 file:text-emerald-500 hover:file:bg-emerald-500/20 file:transition-colors cursor-pointer" />
-              <p className="text-xs text-on-surface-variant mt-2">Upload any base papers, rubrics, or abstracts (Max 25MB).</p>
-            </div>
+            {step < 3 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {optionSets[step].map(opt => {
+                  const key = ['format', 'scope', 'deadline'][step];
+                  return (
+                    <OptionCard key={opt} active={data[key] === opt} onClick={() => set(key, opt)} color={step === 1 ? '#00d2ff' : '#e5a93c'}>
+                      <span className="font-body-md text-on-surface" style={{ fontSize: 14 }}>{opt}</span>
+                    </OptionCard>
+                  );
+                })}
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                {TIERS.map(t => (
+                  <OptionCard key={t.id} active={data.tier === t.id} onClick={() => set('tier', t.id)} color="#d946ef">
+                    <div className="font-headline-md text-on-surface" style={{ fontSize: 14 }}>{t.id}</div>
+                    <div className="font-code-sm text-on-surface-variant mt-0.5" style={{ fontSize: 10 }}>{t.desc}</div>
+                  </OptionCard>
+                ))}
+              </div>
+            )}
+          </motion.div>
+        </AnimatePresence>
 
-            <button type="submit" disabled={status === 'submitting'} className="bg-emerald-500 text-on-tertiary font-headline-md text-base uppercase tracking-widest py-4 mt-6 rounded flex justify-center items-center gap-2 hover:bg-emerald-500-fixed transition-colors w-full shadow-[0_0_15px_rgba(16,185,129,0.3)]">
-              <span>{status === 'submitting' ? 'UPLOADING...' : 'REQUEST REPORT'}</span>
-              <Send className="w-5 h-5" />
+        {/* Nav */}
+        <div className="flex items-center justify-between mt-7 gap-3">
+          <button type="button" onClick={() => setStep(s => Math.max(0, s - 1))} disabled={step === 0}
+            className="font-label-caps text-xs uppercase tracking-widest flex items-center gap-1 px-4 py-2.5 rounded-lg disabled:opacity-30"
+            style={{ color: '#c6c6cd', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <ArrowLeft className="w-4 h-4" /> Back
+          </button>
+          {!isLast ? (
+            <button type="button" onClick={() => canNext && setStep(s => s + 1)} disabled={!canNext}
+              className="btn-thunderbolt font-label-caps text-xs uppercase tracking-widest flex items-center gap-2 disabled:opacity-40" style={{ padding: '12px 28px' }}>
+              Next <ArrowRight className="w-4 h-4" />
             </button>
-          </form>
+          ) : (
+            <button type="button" onClick={launch} disabled={!canNext}
+              className="font-label-caps text-xs uppercase tracking-widest flex items-center gap-2 disabled:opacity-40 active:scale-95 transition-transform"
+              style={{ padding: '13px 28px', borderRadius: 12, color: '#fff', background: 'linear-gradient(135deg, #25d366 0%, #128c7e 100%)', boxShadow: '0 4px 18px rgba(37,211,102,0.4)' }}>
+              <Zap className="w-4 h-4" /> Send on WhatsApp
+            </button>
+          )}
+        </div>
+
+        {(data.format || data.scope) && (
+          <div className="mt-5 pt-5 border-t border-outline-variant/20 flex flex-wrap gap-2">
+            {[data.format, data.scope, data.deadline, data.tier].filter(Boolean).map(v => (
+              <span key={v} className="inline-flex items-center gap-1 font-code-sm px-2.5 py-1 rounded-full"
+                style={{ fontSize: 10, background: 'rgba(0,210,255,0.08)', border: '1px solid rgba(0,210,255,0.2)', color: '#00d2ff' }}>
+                <Check className="w-3 h-3" /> {v}
+              </span>
+            ))}
+          </div>
         )}
       </motion.div>
 
+      <div className="text-center mt-6">
+        <a href={waLink(messages.generic)} target="_blank" rel="noreferrer" onClick={() => trackWhatsApp('report-direct')}
+          className="inline-flex items-center gap-1.5 font-code-sm text-on-surface-variant hover:text-secondary transition-colors" style={{ fontSize: 12 }}>
+          <MessageCircle className="w-3.5 h-3.5" /> Or just message us directly
+        </a>
+      </div>
     </div>
   );
 }
