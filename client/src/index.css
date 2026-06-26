@@ -29,7 +29,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-header, footer, nav {
+/* Containment for fixed/sticky elements — NOT footer (can break scroll-linked
+   paint on some engines when the footer has position:relative children) */
+header, nav {
   contain: layout style;
 }
 
@@ -64,19 +66,6 @@ header, footer, nav {
 .touch-ripple:active::after {
   opacity: 1;
   transform: scale(1);
-}
-
-.mobile-bottom-nav {
-  background: rgba(7, 12, 30, 0.85);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  border-top: 1px solid rgba(0, 210, 255, 0.12);
-}
-
-.nav-pill-active {
-  background: rgba(229, 169, 60, 0.12);
-  border: 1px solid rgba(229, 169, 60, 0.3);
-  box-shadow: 0 0 12px rgba(229, 169, 60, 0.15);
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -168,54 +157,6 @@ header, footer, nav {
   );
   background-size: 200% 100%;
   animation: shimmer 1.8s ease-in-out infinite;
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   SCROLL REVEAL
-   ═══════════════════════════════════════════════════════════════ */
-
-.reveal,
-.reveal-left,
-.reveal-right {
-  opacity: 0;
-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform;
-}
-
-.reveal        { transform: translateY(24px); }
-.reveal-left   { transform: translateX(-24px); }
-.reveal-right  { transform: translateX(24px); }
-
-.reveal.visible,
-.reveal-left.visible,
-.reveal-right.visible {
-  opacity: 1;
-  transform: none;
-}
-
-.stagger-children > * {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  will-change: opacity, transform;
-}
-.stagger-children.visible > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.0s; }
-.stagger-children.visible > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.1s; }
-.stagger-children.visible > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.2s; }
-.stagger-children.visible > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.3s; }
-.stagger-children.visible > *:nth-child(n+5) { opacity: 1; transform: none; transition-delay: 0.4s; }
-
-.mobile-fade-up {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform;
-}
-.mobile-fade-up.visible {
-  opacity: 1;
-  transform: none;
 }
 
 /* ═══════════════════════════════════════════════════════════════

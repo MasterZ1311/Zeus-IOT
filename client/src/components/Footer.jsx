@@ -18,7 +18,7 @@ export default function Footer() {
           <div className="md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
               <img src="/logo-loader.png" alt="Zeus IoT Logo" className="w-8 h-8 object-contain rounded-md" />
-              <span className="font-headline-lg text-headline-md text-secondary">ZEUS IOT</span>
+              <span className="font-headline-lg text-lg text-secondary">ZEUS IOT</span>
             </div>
             <p className="font-body-md text-sm text-on-surface-variant leading-relaxed">
               Engineering tomorrow's connected world. Custom IoT & software, built for the next generation.

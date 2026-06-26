@@ -4,7 +4,7 @@
  * Mobile:  compact floating action button (bottom-right, above the tab nav).
  * Both route through the central WhatsApp funnel util with click tracking.
  */
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { waLink, trackWhatsApp, messages } from '../config/whatsapp';
 
 const WaIcon = ({ className }) => (
@@ -19,36 +19,33 @@ export default function WhatsAppFab() {
   return (
     <>
       {/* ── DESKTOP FLOATING BUTTON ──────────────────────────── */}
-      <AnimatePresence>
-        <motion.a
-          key="wa-fab"
-          href={href}
-          target="_blank"
-          rel="noreferrer"
-          onClick={() => trackWhatsApp('fab')}
-          aria-label="Chat on WhatsApp"
-          initial={{ opacity: 0, scale: 0.5, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ delay: 1, type: 'spring', stiffness: 260, damping: 20 }}
-          whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.92 }}
-          className="hidden md:flex fixed z-[120] items-center justify-center rounded-full"
-          style={{
-            right: 'max(20px, env(safe-area-inset-right))',
-            bottom: 'calc(env(safe-area-inset-bottom, 0px) + 24px)',
-            width: 60, height: 60,
-            background: 'linear-gradient(135deg, #25d366 0%, #128c7e 100%)',
-            boxShadow: '0 4px 20px rgba(37,211,102,0.45), 0 0 0 1px rgba(255,255,255,0.1) inset',
-          }}
-        >
-          <span
-            aria-hidden="true"
-            className="absolute inset-0 rounded-full"
-            style={{ border: '2px solid rgba(37,211,102,0.5)', animation: 'waPulse 2.5s ease-out infinite' }}
-          />
-          <WaIcon className="w-7 h-7 relative z-10" />
-        </motion.a>
-      </AnimatePresence>
+      <motion.a
+        href={href}
+        target="_blank"
+        rel="noreferrer"
+        onClick={() => trackWhatsApp('fab')}
+        aria-label="Chat on WhatsApp"
+        initial={{ opacity: 0, scale: 0.5, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ delay: 1, type: 'spring', stiffness: 260, damping: 20 }}
+        whileHover={{ scale: 1.08 }}
+        whileTap={{ scale: 0.92 }}
+        className="hidden md:flex fixed z-[120] items-center justify-center rounded-full"
+        style={{
+          right: 'max(20px, env(safe-area-inset-right))',
+          bottom: 'calc(env(safe-area-inset-bottom, 0px) + 24px)',
+          width: 60, height: 60,
+          background: 'linear-gradient(135deg, #25d366 0%, #128c7e 100%)',
+          boxShadow: '0 4px 20px rgba(37,211,102,0.45), 0 0 0 1px rgba(255,255,255,0.1) inset',
+        }}
+      >
+        <span
+          aria-hidden="true"
+          className="absolute inset-0 rounded-full"
+          style={{ border: '2px solid rgba(37,211,102,0.5)', animation: 'waPulse 2.5s ease-out infinite' }}
+        />
+        <WaIcon className="w-7 h-7 relative z-10" />
+      </motion.a>
 
       {/* ── MOBILE FLOATING BUTTON (above bottom tab nav) ────── */}
       <motion.a

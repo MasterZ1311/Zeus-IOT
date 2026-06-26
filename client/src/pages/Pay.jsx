@@ -90,8 +90,8 @@ export default function Pay() {
       </motion.div>
 
       <div className="max-w-md mx-auto mt-8 glass-panel p-6 rounded-xl flex items-center gap-4">
-        <div className="w-10 h-10 shrink-0 rounded-full bg-error-container flex items-center justify-center border border-error/30">
-          <ShieldCheck className="w-5 h-5 text-error" />
+        <div className="w-10 h-10 shrink-0 rounded-full bg-secondary/10 flex items-center justify-center border border-secondary/30">
+          <ShieldCheck className="w-5 h-5 text-secondary" />
         </div>
         <p className="font-body-md text-sm text-on-surface-variant">
           <strong className="text-on-surface">Payment Verification:</strong> After paying, please send a screenshot of the transaction along with your Project ID to our WhatsApp support at{' '}
