@@ -27,9 +27,9 @@ const FOCUS = {
 
 const DEADLINES = ['ASAP (rush)', '1–2 weeks', '3–4 weeks', '1–2 months', 'Flexible'];
 const TIERS = [
-  { id: 'Standard', desc: 'Solid & reliable' },
-  { id: 'Pro',      desc: 'Production-grade' },
-  { id: 'Premium',  desc: 'Best of everything' },
+  { id: 'Standard', desc: 'Solid & reliable', color: '#00d2ff' },
+  { id: 'Pro',      desc: 'Production-grade', color: '#e5a93c' },
+  { id: 'Premium',  desc: 'Best of everything', color: '#d946ef' },
 ];
 
 const STEPS = ['Type', 'Focus', 'Timeline', 'Tier'];
@@ -155,7 +155,7 @@ export default function BriefComposer() {
               <p className="font-body-md text-sm text-on-surface-variant mb-5">We tailor the build to your goal.</p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {TIERS.map(t => (
-                  <OptionCard key={t.id} active={data.tier === t.id} onClick={() => set('tier', t.id)} color="#d946ef">
+                  <OptionCard key={t.id} active={data.tier === t.id} onClick={() => set('tier', t.id)} color={t.color}>
                     <div className="font-headline-md text-on-surface" style={{ fontSize: 15 }}>{t.id}</div>
                     <div className="font-code-sm text-on-surface-variant mt-0.5" style={{ fontSize: 10 }}>{t.desc}</div>
                   </OptionCard>
